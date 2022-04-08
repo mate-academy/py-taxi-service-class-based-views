@@ -6,6 +6,12 @@ class Manufacturer(models.Model):
     name = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return f"{self.name} - {self.country}"
+
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
@@ -13,6 +19,9 @@ class Driver(AbstractUser):
     class Meta:
         verbose_name = "driver"
         verbose_name_plural = "drivers"
+
+    def __str__(self):
+        return self.username
 
 
 class Car(models.Model):
