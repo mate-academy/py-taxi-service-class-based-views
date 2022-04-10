@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul class="list-group" >
+        <li class="list-group-item font-weight-bold" >Name:
+            <span class="font-italic" >
+                {{ driver.first_name }}
+            </span>
+        </li>
+        <li class="list-group-item font-weight-bold">Surname:
+            <span class="font-italic" >
+                {{ driver.last_name }}
+            </span>
+        </li>
+        <li class="list-group-item font-weight-bold">Email:
+            <span class="font-italic">
+                {{ driver.email }}
+            </span>
+        </li>
+        <li class="list-group-item font-weight-bold">License_number:
+            <span class="font-italic">
+                {{ driver.license_number }}
+            </span>
+        </li>
+        <li  class="list-group-item">Cars:
+            <ul class="list-group list-group-horizontal">
+                {% for car in driver.cars.all %}
+                    <li class="list-group-item" >
+                        Car: {{ car.model }}
+                        <a href="{% url 'taxi:car_detail' car.pk %}"> info...</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
