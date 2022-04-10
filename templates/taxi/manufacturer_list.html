@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="list-group-item">
+        <ul>
+            {% for manufacturer in manufacturers %}
+                <li>{{ manufacturer }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
