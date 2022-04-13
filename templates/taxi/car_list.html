@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="list-group">
+        {% for car in car_list %}
+            <a href="{% url 'taxi:car_detail' car.pk %}"
+               class="list-group-item list-group-item-action">Model: {{ car.model }}. Info...</a>
+        {% empty %}
+            <h4>There is not cars yet</h4>
+        {% endfor %}
+    </div>
+{% endblock %}
