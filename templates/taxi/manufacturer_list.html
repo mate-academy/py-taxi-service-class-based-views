@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Manufacturers</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="list-group-item">
+        <ul>
+            {% for manufacturer in manufacturers %}
+                <li>{{ manufacturer }}</li>
+            {% empty %}
+                <li>There no manufacturers in database</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
