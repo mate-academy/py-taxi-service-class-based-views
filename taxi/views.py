@@ -27,6 +27,11 @@ class ManufacturerListView(generic.ListView):
     paginate_by = 2
 
 
+class ManufacturerDetailView(generic.DetailView):
+    model = Manufacturer
+    queryset = Manufacturer.objects.prefetch_related("country__cars")
+
+
 class CarListView(generic.ListView):
     model = Car
     paginate_by = 2

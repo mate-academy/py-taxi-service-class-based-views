@@ -6,7 +6,7 @@
         <ul>
             {% for manufacturer in manufacturer_list %}
                 <li>
-                   {{ manufacturer.name }} - {{ manufacturer.country }}
+                    <a href="{% url 'taxi:manufacturer-detail' pk=manufacturer.id %}">{{ manufacturer.name }} - {{ manufacturer.country }}</a>
                 </li>
             {% endfor %}
         </ul>
