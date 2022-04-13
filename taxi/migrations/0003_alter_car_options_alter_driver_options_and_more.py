@@ -6,20 +6,24 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('taxi', '0002_alter_driver_license_number'),
+        ("taxi", "0002_alter_driver_license_number"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='car',
-            options={'ordering': ['model']},
+            name="car",
+            options={"ordering": ["model"]},
         ),
         migrations.AlterModelOptions(
-            name='driver',
-            options={'ordering': ['last_name'], 'verbose_name': 'driver', 'verbose_name_plural': 'drivers'},
+            name="driver",
+            options={
+                "ordering": ["last_name"],
+                "verbose_name": "driver",
+                "verbose_name_plural": "drivers",
+            },
         ),
         migrations.AlterModelOptions(
-            name='manufacturer',
-            options={'ordering': ['name']},
+            name="manufacturer",
+            options={"ordering": ["name"]},
         ),
     ]
