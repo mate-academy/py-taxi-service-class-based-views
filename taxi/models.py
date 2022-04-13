@@ -7,10 +7,10 @@ class Manufacturer(models.Model):
     country = models.CharField(max_length=255)
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
 
     def __str__(self):
-        return f'Name: {self.name}, country:{self.country}'
+        return f"Name: {self.name}, country:{self.country}"
 
 
 class Driver(AbstractUser):
@@ -20,8 +20,10 @@ class Driver(AbstractUser):
         verbose_name = "driver"
         verbose_name_plural = "drivers"
 
+        ordering = ["license_number"]
+
     def __str__(self):
-        return f'{self.username}, license number:{self.license_number}'
+        return f"{self.username}, license number:{self.license_number}"
 
 
 class Car(models.Model):
@@ -29,5 +31,8 @@ class Car(models.Model):
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
+    class Meta:
+        ordering = ["model"]
+
     def __str__(self):
-        return f'Model:{self.model}'
+        return f"Model:{self.model}"

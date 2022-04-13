@@ -1,9 +1,18 @@
 {% if is_paginated %}
-    {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}">Prev</a>
-    {% endif %}
+    <ul class="pagination">
+        <li class="page-item">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Prev</a>
+            {% endif %}
+        </li>
+        <li class="page-item">
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next</a>
+            {% endif %}
+        </li>
+    </ul>
     {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-    {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">Next</a>
-    {% endif %}
+
+
+
 {% endif %}
