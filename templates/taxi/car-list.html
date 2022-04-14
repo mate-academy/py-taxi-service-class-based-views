@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="bl-box">Our cars</h1>
+    {% for car in car_list %}
+        <ul>
+            <li class="button">
+                <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.manufacturer.name }} {{ car.model }}</a>
+            </li>
+        </ul>
+    {% empty %} <p>There are no cars yet</p>
+    {% endfor %}
+
+{% endblock %}
