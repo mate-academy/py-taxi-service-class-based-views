@@ -1,3 +1,25 @@
 body {
     margin-top: 20px;
 }
+
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-nav li{
+}
+
+.sidebar-nav li a{
+    display: block;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: aqua;
+    padding: 6px 0 0 10px;
+}
+
+.sidebar-nav li a:hover{
+    background-color: chartreuse;
+    text-decoration: none;
+}

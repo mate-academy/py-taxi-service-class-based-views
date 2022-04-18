@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <h3>{{ manufacturer.name }} cars</h3>
+
+        {% for car in manufacturer.car_set.all %}
+            <hr>
+            <p class="text-muted"><strong>Id:</strong> {{ car.id }} - {{ car.model }}</p>
+
+        {% empty %}
+        <p>There are no cars.</p>
+        {% endfor %}
+
+
+{% endblock %}
