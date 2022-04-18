@@ -1,3 +1,32 @@
+.container-fluid {
+    height: 1080px;
+    background-color: lightblue;
+    background-image: url("https://mcdn.wallpapersafari.com/medium/33/32/l5O8kn.jpg");
+}
+
 body {
+    color: lemonchiffon;
+    background-color: lightblue;
+    height: 1080px;
+}
+
+.toggle-nav-sidebar {
     margin-top: 20px;
+    background-color: beige;
+    border-radius: 25px;
+    position: fixed;
+    width: 220px;
+}
+
+.button {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+}
+
+.radiolist {
+    background-color: darkblue;
+    border-radius: 25px;
+    height: 100px;
+    width: 300px;
 }
