@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Cars</title>{% endblock %}
+
+{% block content %}
+  <h5>List of all cars</h5>
+  {% if car_list %}
+    <ul class="list-group">
+    {% for car in car_list %}
+      <li class="list-group-item"><a href="{{ car.get_absolute_url}}">{{ car.id }} </a>{{ car.manufacturer.name }} {{ car.model }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>Cars list is empty</p>
+  {% endif %}
+{% endblock %}
