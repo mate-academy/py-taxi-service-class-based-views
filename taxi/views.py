@@ -24,7 +24,6 @@ class ManufacturerListView(ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
     template_name = "taxi/manufacturer_list.html"
-
     paginate_by = 2
 
 
@@ -46,4 +45,4 @@ class DriverListView(ListView):
 class DriverDetailView(DetailView):
     model = Driver
     paginate_by = 2
-    queryset = Driver.objects.prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
