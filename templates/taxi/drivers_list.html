@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Drivers</title>{% endblock %}
+
+{% block content %}
+  {% if drivers %}
+    <h2>Drivers list:</h2>
+    <ul class="list-group">
+    {% for driver in drivers %}
+      <li class="list-group-item">
+        {% if driver.first_name %}
+            <p><a href="{{ driver.get_absolute_url }}">
+                {{ driver.first_name }} {{ driver.last_name }}:</a> {{ driver.username }}</p>
+        {% else %}
+            <p><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></p>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>Drivers list is empty</p>
+  {% endif %}
+{% endblock %}
