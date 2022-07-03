@@ -10,8 +10,8 @@
     <h3>Drivers:</h3>
     <div class="ml-3">
         {% if car.drivers %}
-            <hr>
             {% for driver in car.drivers.all %}
+                <hr>
                 <li><a href="{% url 'taxi:Driver-Detail' pk=driver.id %}">
                     {{ driver.username }}
                 </a></li>
