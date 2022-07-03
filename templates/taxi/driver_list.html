@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Drivers</title>{% endblock %}
+
+{% block content %}
+  <h5>List of all drivers</h5>
+{% include "includes/drivers.html" with drivers=driver_list %}
+{% endblock %}

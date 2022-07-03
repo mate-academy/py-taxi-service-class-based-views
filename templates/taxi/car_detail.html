@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>car: {{ car.manufacturer.name }} {{ car.model }}</title>
+{% endblock %}
+
+{% block content %}
+  <h3>{{ car.manufacturer.name }} {{ car.model }}</h3>
+  <div style="margin-bottom: 0"><strong>Manufacturer name: </strong>{{ car.manufacturer.name }}</div>
+  <div><strong>Manufacturer country: </strong>{{ car.manufacturer.country }}</div>
+  <br>
+  <p>Drivers:</p>
+  {% include "includes/drivers.html" with drivers=car.drivers.all %}
+{% endblock %}

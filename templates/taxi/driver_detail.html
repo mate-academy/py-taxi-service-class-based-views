@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>driver: {{ driver.username }}</title>
+{% endblock %}
+
+{% block content %}
+  <h3>{{ driver.first_name }} {{ driver.last_name }}</h3>
+  <div>
+    <div><strong>Username: </strong>{{ driver.username }}</div>
+    <div><strong>First name: </strong>{{ driver.first_name }}</div>
+    <div><strong>Last name: </strong>{{ driver.last_name }}</div>
+    <div><strong>Licence: </strong>{{ driver.license_number }}</div>
+  </div>
+  <br>
+  <p>Driver cars:</p>
+    {% include "includes/cars.html" with cars=driver.cars.all %}
+{% endblock %}
