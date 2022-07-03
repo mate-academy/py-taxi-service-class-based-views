@@ -7,14 +7,12 @@
 {% block content %}
   <h3>{{ driver.first_name }} {{ driver.last_name }}</h3>
   <div>
-    <div>username: {{ driver.username }}</div>
-    <div>licence: {{ driver.license_number }}</div>
+    <div><strong>Username: </strong>{{ driver.username }}</div>
+    <div><strong>First name: </strong>{{ driver.first_name }}</div>
+    <div><strong>Last name: </strong>{{ driver.last_name }}</div>
+    <div><strong>Licence: </strong>{{ driver.license_number }}</div>
   </div>
-  <hr>
+  <br>
   <p>Driver cars:</p>
-  <ul class="list-group">
-  {% for car in driver.cars.all %}
-    <li class="list-group-item">{{ car.manufacturer.name }} {{ car.model }}</li>
-  {% endfor %}
-  </ul>
+    {% include "includes/cars.html" with cars=driver.cars.all %}
 {% endblock %}

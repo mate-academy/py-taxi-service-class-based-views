@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-5">
+    {% if drivers %}
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Username</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for driver in drivers %}
+          <tr class="table-default">
+            <th scope="row">{{ driver.id }}</th>
+            <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></td>
+            <td>{{ driver.first_name }}</td>
+            <td>{{ driver.last_name }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Drivers list is empty</p>
+    {% endif %}
+  </div>
+</div>
