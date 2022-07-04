@@ -1,23 +1,37 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Driver, Car, Manufacturer
+
+from taxi.models import Car, Manufacturer, Driver
 
 
-@admin.register(Driver)
-class DriverAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("license_number",)
-    fieldsets = UserAdmin.fieldsets + (
-        (("Additional info", {"fields": ("license_number",)}),)
-    )
-    add_fieldsets = UserAdmin.add_fieldsets + (
-        (("Additional info", {"fields": ("first_name", "last_name", "license_number",)}),)
-    )
+class DriversInline(admin.TabularInline):
+    model = Car.drivers.through
+    extra = 1
 
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    search_fields = ("model",)
-    list_filter = ("manufacturer",)
+    search_fields = ["model"]
+    list_filter = ["manufacturer"]
+    list_display = ["model", "manufacturer", "available_drivers"]
+    inlines = (DriversInline,)
 
 
-admin.site.register(Manufacturer)
+@admin.register(Manufacturer)
+class ManufacturerAdmin(admin.ModelAdmin):
+    list_display = ["name", "country"]
+
+
+@admin.register(Driver)
+class DriverAdmin(UserAdmin):
+    list_display = UserAdmin.list_display + ("licence_number", "available_cars")
+    fieldsets = UserAdmin.fieldsets + (
+        ("Additional info", {"fields": ("licence_number",)}),
+    )
+    add_fieldsets = UserAdmin.add_fieldsets + (
+        (
+            "Additional info",
+            {"fields": ("licence_number", "first_name", "last_name")}
+        ),
+    )
+    inlines = (DriversInline,)
