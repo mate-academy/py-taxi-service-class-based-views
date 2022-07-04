@@ -7,15 +7,15 @@
     {% else %}
         <p><strong>Private driver</strong></p>
     {% endif %}
-    <h3>Cars:</h3>
     {% for car in driver.cars.all %}
         <hr>
         <p class="text-muted"><strong>Id: </strong> {{ car.id }}</p>
         {% if car.model %}
+            <h3>Cars:</h3>
             <p><strong>Model: </strong> <a href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }}</a></p>
             <p><strong>Manufacturer: </strong> <a href="{% url 'taxi:manufacturer-detail' car.manufacturer.pk %}">{{ car.manufacturer }}</a></p>
         {% endif %}
         {% empty %}
-            <p>Driver doesn't exist!</p>
+            <p>Sorry, this driver hasn't got any car of our service yet(:</p>
     {% endfor %}
 {% endblock %}
