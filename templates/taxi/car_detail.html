@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            {{ car.model }}
+        </div>
+        <div class="card-body">
+            <h5 class='card-title'>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</h5>
+            <p class='card-text'>Drivers: </p>
+        <ul class="list-group list-group-flush">
+            {% for driver in car.drivers.all %}
+                <li class="list-group-item">{{ driver.first_name }} {{ driver.last_name }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}

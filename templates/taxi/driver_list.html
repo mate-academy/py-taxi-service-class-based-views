@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if driver_list %}
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">License nummer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for driver in driver_list %}
+                <tr>
+                    <td><a href="{% url 'taxi:driver_detail' pk=driver.id %}">{{ driver.username }}</a></td>
+                    <td>{{ driver.first_name }}</td>
+                    <td>{{ driver.last_name }}</td>
+                    <td>{{ driver.license_number }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No drivers found.</p>
+    {% endif %}
+{% endblock %}
