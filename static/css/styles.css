@@ -1,3 +1,18 @@
 body {
-    margin-top: 20px;
+    font-family: Verdana;
+    background-color: lightgray;
+    margin-top: 30px;
+}
+
+h1 {
+    color: darkgreen;
+}
+
+h2 {
+    color: darkgreen;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
 }
