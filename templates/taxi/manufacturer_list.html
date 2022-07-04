@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if manufacturers %}
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for manufacture in manufacturers %}
+                <tr>
+                    <td>{{ manufacture.name }}</td>
+                    <td>{{ manufacture.country }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No manufactures found.</p>
+    {% endif %}
+{% endblock %}
