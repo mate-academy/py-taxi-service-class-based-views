@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Car's information</title>{% endblock %}
+
+{% block content %}
+    <h2>Car</h2>
+    <table>
+        <tr>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Model</th>
+            <th scope="col">Country</th>
+        </tr>
+        <tr>
+            <td>{{ car.manufacturer }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.country }}</td>
+        </tr>
+    </table>
+
+    {% if car.drivers %}
+        <h2>Drivers</h2>
+        <style>
+            table, th, td {
+                border:1px solid black;
+            }
+        </style>
+        <table>
+            <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Username</th>
+                <th scope="col">License number</th>
+            </tr>
+            {% for driver in car.drivers.all %}
+                {% if driver.first_name and driver.last_name %}
+                    <tr>
+                        <td>{{ driver.first_name }}</td>
+                        <td>{{ driver.last_name }}</td>
+                        <td>{{ driver.username }}</td>
+                        <td>{{ driver.license_number }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ driver.username }}</td>
+                        <td>{{ driver.license_number }}</td>
+                    </tr>
+                {% endif %}
+
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>No drivers for this car</h2>
+    {% endif %}
+
+
+{% endblock %}
