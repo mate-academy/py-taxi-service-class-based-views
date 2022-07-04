@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+{% if driver_list %}
+    {% for driver in driver_list %}
+        <ul>
+            {% for driver in driver_list %}
+                <li>
+                    <a href="{{ driver.id }}">
+                    {{ driver.first_name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endif %}
+{% endblock %}
