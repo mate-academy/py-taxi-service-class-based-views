@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Cars</title>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+        <table class="table">
+            <tr>
+                <th><h3>id</h3></th>
+                <th><h3>Model</h3></th>
+            </tr>
+            {% for car in car_list %}
+                <tr>
+                    <td><a href="{% url "taxi:car-detail" pk=car.pk %}">{{ car.id }}</a></td>
+                    <td>{{ car.model }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>There is no cars.</td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}
