@@ -8,7 +8,7 @@
 
         {% for driver in car.drivers.all %}
             <ul>
-            <li><a href="{% url 'taxi:driver-detail-view' pk=driver.pk %}">
+            <li><a href="{% url 'taxi:driver-detail' pk=driver.pk %}">
                 {{ driver.username }}</a>
             </li>
             </ul>
