@@ -20,6 +20,7 @@ def index(request):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
+    template_name = 'taxi/manufacturer_list.html'
     paginate_by = 2
 
 
