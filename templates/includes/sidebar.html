@@ -1,0 +1,6 @@
+{% block sidebar %}
+    <p><a href={% url 'taxi:index' %}>Home</a></p>
+    <p><a href={% url 'taxi:car_list' %}>All cars</a></p>
+    <p><a href={% url 'taxi:driver_list' %}>All drivers</a></p>
+    <p><a href={% url 'taxi:manufacturer_list' %}>All manufacturers</a></p>
+{% endblock %}
