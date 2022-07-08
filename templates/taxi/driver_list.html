@@ -4,7 +4,7 @@
     <h2>Drivers</h2>
     <ul>
         {% for driver in object_list %}
-            <li><a href="{% url 'taxi:driver_detail' pk=driver.id %}">{{ driver.username }} {{ driver.last_name }}</a></li>
+            <li><a href="{% url 'taxi:driver_detail' pk=driver.id %}">{{ driver.username }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}
