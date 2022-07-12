@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="mb-5">
+        <h1><ins> CAR info: </ins></h1>
+    </div>
+    <div class="ml-3">
+        <h2>Car model: {{ car.model }}</h2>
+        <h4 class="font-italic">Manufacturer: {{ car.manufacturer.name }} </h4>
+        <h4 class="font-italic">Country: {{ car.manufacturer.country }} </h4>
+        <div class="mt-5">
+            <h3><strong>Drivers</strong></h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">First name</th>
+                  <th scope="col">Last name</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">E-mail address</th>
+                  <th scope="col">License number</th>
+                </tr>
+              </thead>
+              <tbody>
+                    {% for driver in car.drivers.all %}
+                        <tr>
+                          <th scope="row">{{ driver.id }}</th>
+                          <td>{{ driver.first_name }}</td>
+                          <td>{{ driver.last_name }}</td>
+                          <td>{{ driver.username }}</td>
+                          <td>{{ driver.email }}</td>
+                          <td>{{ driver.license_number }}</td>
+                        </tr>
+                    {% empty %}
+                        <p>No drivers!</p>
+                    {% endfor %}
+              </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+{% endblock %}

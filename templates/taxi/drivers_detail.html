@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="jumbotron">
+      <h1 class="display-6">Username: {{ driver.username }}</h1>
+      <p class="lead">First name: <strong>{{ driver.first_name }}</strong></p>
+      <p class="lead">Last name: <strong>{{ driver.last_name }}</strong></p>
+      <p class="lead">E-mail address: <strong>{{ driver.email }}</strong></p>
+      <p class="lead">License number: <strong>{{ driver.license_number }}</strong></p>
+      <p class="lead">ID: <strong>{{ driver.id }}</strong></p>
+      <hr class="my-4">
+      <h4 class="display-9">Car:</h4>
+      <br>
+      {% for car in driver.cars.all %}
+          <p class="lead">Model: <strong>{{ car.model }}</strong></p>
+          <p class="lead">Manufacturer: <strong>{{ car.manufacturer.name }}</strong></p>
+          <p class="lead">Id: <strong>{{ car.id }}</strong></p>
+          <hr>
+      {% empty %}
+          <p>No cars!</p>
+      {% endfor %}
+  </div>
+{% endblock %}
