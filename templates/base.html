@@ -15,24 +15,23 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                {% block sidebar %}
+                    {% include "includes/sidebar.html" %}
+                {% endblock %}
+            </div>
+            <div class="col-sm-10">
 
-            {% block sidebar %}
-            {% endblock %}
+                {% block content %}{% endblock %}
 
-        </div>
-        <div class="col-sm-10 ">
+                {% block pagination %}
+                    {% include "includes/pagination.html" %}
+                {% endblock %}
 
-            {% block content %}{% endblock %}
-
-            {% block pagination %}
-            {% endblock %}
-
+            </div>
         </div>
     </div>
-</div>
 </body>
-
 </html>
