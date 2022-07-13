@@ -47,3 +47,4 @@ class DriverListView(generic.ListView):
 class DriverDetailView(generic.DetailView):
     model = Driver
     template_name = "taxi/drivers_detail.html"
+    queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
