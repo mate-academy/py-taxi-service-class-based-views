@@ -1,3 +1,41 @@
 body {
     margin-top: 20px;
 }
+
+.sidebar {
+    height: 220px;
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    border: 1px solid darkgrey;
+    margin-left: 35px;
+}
+
+.sidebar a {
+    padding: 10px;
+    font-size: 15px;
+    display: block;
+    text-decoration: none
+}
+
+.sidebar_a{
+    border-bottom: 1px solid darkgrey;
+}
+.content_home_page {
+    margin-left: 250px;
+    font-size: 18px;
+}
+
+.content_home_page li{
+    padding-bottom: 4px;
+}
+
+.content_home_page p{
+    margin-top: 5px;
+    margin-bottom: 50px;
+}
+.content_home_page h1{
+    margin-bottom: 0;
+    margin-top: 40px;
+}
