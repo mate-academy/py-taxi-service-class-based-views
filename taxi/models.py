@@ -9,9 +9,6 @@ class Manufacturer(models.Model):
     def __str__(self):
         return self.name
 
-    class Meta:
-        ordering = ["name"]
-
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)

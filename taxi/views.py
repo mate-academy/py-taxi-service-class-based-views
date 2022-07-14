@@ -5,8 +5,6 @@ from .models import Driver, Car, Manufacturer
 
 
 def index(request):
-    """View function for the home page of the site."""
-
     num_drivers = Driver.objects.count()
     num_cars = Car.objects.count()
     num_manufacturers = Manufacturer.objects.count()
@@ -22,3 +20,24 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
+    paginate_by = 2
+    queryset = Manufacturer.objects.all().order_by("name")
+
+
+class CarListView(generic.ListView):
+    model = Car
+    paginate_by = 2
+    queryset = Car.objects.all().select_related("manufacturer").order_by("model")
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    paginate_by = 2
+
+
+class CarDetailView(generic.DetailView):
+    model = Car
+
+
+class DriverDetailView(generic.DetailView):
+    model = Driver

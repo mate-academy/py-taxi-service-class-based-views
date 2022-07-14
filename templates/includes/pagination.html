@@ -1,0 +1,21 @@
+{% load static %}
+ <link rel="stylesheet" href="{% static 'css/pagination.css' %}">
+
+{% if is_paginated %}
+    <nav class="pagination-container">
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.previous_page_number}}" class="pagination-newer">PREV </a>
+       {% endif %}
+
+
+        <span class="pagination-inner">
+            <a class="pagination-active" >{{ page_obj.number }} of {{ paginator.num_pages }}</a>
+        </span>
+
+        {% if page_obj.has_next %}
+           <a class="pagination-older" href="?page={{page_obj.next_page_number}}"> NEXT</a>
+        {% endif %}
+    </div>
+    </nav>
+{% endif %}

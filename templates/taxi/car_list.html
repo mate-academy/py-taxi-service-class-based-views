@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="title_view_list"> Manufacturer List </h1>
-    {% if manufacturer_list %}
+    <h1 class="title_view_list"> Car List </h1>
+    {% if car_list %}
         <ul class="rounded-top">
-        {% for manufacturer in manufacturer_list %}
+        {% for car in car_list %}
             <li>
-                {{ manufacturer.name }}
+                <a href="{% url 'taxi:car_detail'  pk=car.pk %}">{{ car.model }}</a>
             </li>
         {% endfor %}
         </ul>
     {% else %}
-        <p>There are no manufacturers in Taxi Service</p>
+        <p>There are no cars in Taxi Service</p>
     {% endif %}
 {% endblock %}
 
