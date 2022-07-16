@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="title_view_list"> Driver List </h1>
+    {% if driver_list %}
+        <ul class="rounded-top">
+        {% for driver in driver_list %}
+            <li>
+                <a href="{% url 'taxi:driver_detail'  pk=driver.pk %}">{{ driver.username }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no driver in Taxi Service</p>
+    {% endif %}
+{% endblock %}
+
+    {% block pagination %}
+        {% include "includes/pagination.html" %}
+    {% endblock %}
