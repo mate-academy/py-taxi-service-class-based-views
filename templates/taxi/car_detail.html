@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Title: {{ car.model }}</h1>
+    <h1>Information about car</h1>
+    <hr>
+    <p> Country of manufacture: <strong>{{ car.manufacturer.country }}</strong> </p>
+    <p> Name of the manufacturer : <strong>{{ car.manufacturer.name }}</strong> </p>
+    <p> Model: <strong>{{ car.model }}</strong> </p>
+    <hr>
+    <h3>Drivers</h3>
+    {% for driver in car.drivers.all %}
+        <ul>
+        <li>{{driver.username}} - ({{ driver.first_name }} {{ driver.last_name }})</li>
+        </ul>
+    {% endfor %}
+
+
 {% endblock %}
