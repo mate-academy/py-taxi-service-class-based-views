@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     {% block title %}<title>Taxi Service</title>{% endblock %}
     <meta charset="utf-8">
@@ -20,6 +19,7 @@
         <div class="col-sm-2">
 
             {% block sidebar %}
+              {% include "includes/sidebar.html" %}
             {% endblock %}
 
         </div>
@@ -28,6 +28,7 @@
             {% block content %}{% endblock %}
 
             {% block pagination %}
+              {% include "includes/pagination.html" %}
             {% endblock %}
 
         </div>
@@ -35,4 +36,5 @@
 </div>
 </body>
 
+</html>
 </html>
