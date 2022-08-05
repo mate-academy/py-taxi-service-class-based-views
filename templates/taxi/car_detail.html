@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ car.manufacturer.name }} {{ car.model }}</h1>
+    <ul class="border-bottom">
+        <li>
+            Manufacturer: {{ car.manufacturer.name }}, {{ car.manufacturer.country }}
+        </li>
+        <li>
+            Drivers:
+            <ol>
+                {% if car.drivers.all %}
+                    {% for driver in car.drivers.all %}
+                        <li>
+                            <a href="/drivers/{{ driver.id }}/">{{ driver.username }}
+                                ({{ driver.first_name }} {{ driver.last_name }})
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <p>None of the drivers owns this car</p>
+                {% endif %}
+            </ol>
+        </li>
+    </ul>
+{% endblock %}
