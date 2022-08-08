@@ -36,14 +36,14 @@ class CarListView(generic.ListView):
 
 class CarDetailView(generic.DetailView):
     model = Car
-    queryset = Car.objects.all().select_related("manufacturer").prefetch_related("drivers")
+    queryset = Car.objects.all()
 
 
 class DriverListView(generic.ListView):
     model = Driver
     paginate_by = 2
-    
+
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.all().select_related()
+    queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
