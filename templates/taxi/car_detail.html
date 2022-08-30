@@ -10,7 +10,9 @@
 
     {%  for driver in car.drivers.all %}
       <hr>
-      <a href="{{ driver.get_absolute_url }}"> {{  driver.first_name }} {{ driver.last_name }}</a>
+      <a href="{{ driver.get_absolute_url }}">
+        {{  driver.first_name }} {{ driver.last_name }}
+      </a>
     {% empty %}
       <p>No drivers!!!</p>
     {% endfor %}
