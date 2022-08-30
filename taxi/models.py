@@ -19,7 +19,7 @@ class Driver(AbstractUser):
         verbose_name_plural = "drivers"
 
     def get_absolute_url(self):
-        return reverse("taxi:driver-detail", args=[str(self.id)])
+        return reverse("taxi:driver_detail", args=[str(self.id)])
 
 
 class Car(models.Model):
@@ -31,4 +31,4 @@ class Car(models.Model):
         return self.model
 
     def get_absolute_url(self):
-        return reverse("taxi:car-detail", args=[str(self.id)])
+        return reverse("taxi:car_detail", args=[str(self.id)])
