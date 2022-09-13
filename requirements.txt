@@ -6,3 +6,4 @@ tzdata==2022.2
 wheel==0.37.1
 pytest==7.1.2
 flake8==5.0.4
+django-debug-toolbar==3.6.0
