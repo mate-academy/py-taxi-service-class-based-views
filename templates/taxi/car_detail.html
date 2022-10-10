@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p class="display-3">Car detail</p>
+<p>Model: <strong>{{car.model}}</strong></p>
+<p>Manufacturer: <strong>{{car.manufacturer.name}}, {{car.manufacturer.country}}</strong></p>
+<p>Drivers:</p>
+<div class="card display-4" style="width: 50rem;">
+  <ul class="list-group list-group-flush">
+
+{% for driver in car.drivers.all %}
+<li class="list-group-item">{{driver.first_name}} {{driver.last_name}} (l/n: {{driver.licence_number}})</li>
+{% empty %}
+<p>No drivers</p>
+{% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

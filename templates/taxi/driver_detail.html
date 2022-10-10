@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p class="display-3">Driver detail</p>
+<p>user name: <strong>{{driver.username}}</strong></p>
+<p>name: <strong>{{driver.first_name}} {{driver.last_name}}</strong></p>
+<p>Cars:</p>
+<div class="card display-4" style="width: 50rem;">
+  <ul class="list-group list-group-flush">
+{% for car in object.cars.all %}
+    <li class="list-group-item">{{car.model}}</li>
+{% empty %}
+<p>No cars</p>
+{% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
