@@ -20,7 +20,7 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-class ManufacturerListView(generic.ListView):
+class ManufacturersListView(generic.ListView):
     model = Manufacturer
     template_name = "taxi/manufacturers_list.html"
     context_object_name = "manufacturers"
