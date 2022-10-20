@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-    <h1>Car Detail Info</h1>
-    <p><strong>Car model:</strong> {{ car.model }}</p>
-    <p><strong>Car manufacturer:</strong> {{ car.manufacturer }}</p>
+    <h1>Model: {{ car.model }}</h1>
+    <p><strong>Manufacturer:</strong> {{ car.manufacturer }}</p>
+
     <div class="ml-3">
-        <h3>Car drivers</h3>
-        <hr>
-        {% if car.drivers %}
-            {% for driver in car.drivers.all %}
-            <ul>
-            <li><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}
-                (<a href="{% url 'taxi:driver-detail-view' pk=driver.pk %}">{{ driver.username }}</a>)
-            </li>
-            </ul>
-            {% endfor %}
-        {% else %}
-            No drivers!
-        {% endif %}
+        <h3>Drivers</h3>
+
+        {% for driver in car.drivers.all %}
+            <hr>
+            <p class="text-muted"><strong>Id:</strong> {{ driver.id }}</p>
+            <p>
+                <strong>Full name: </strong>
+                {{ driver.first_name }} {{ driver.last_name }}
+            </p>
+            {% empty %}
+                <p>No drivers!</p>
+        {% endfor %}
     </div>
 {% endblock %}
