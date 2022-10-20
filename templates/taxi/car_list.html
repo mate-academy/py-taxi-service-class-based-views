@@ -2,10 +2,10 @@
 
 {% block content %}
     <h1>Car list</h1>
-    {% if cars %}
-        {% for car in cars %}
+    {% if car_list %}
+        {% for car in car_list %}
             <ul>
-            <li><a href="{% url 'taxi:cars-detail-view' pk=car.pk %}">{{ car.id }}</a> {{ car.manufacturer }} -
+            <li><a href="{% url 'taxi:car-detail-view' pk=car.pk %}">{{ car.id }}</a> {{ car.manufacturer }} -
                 {{ car.model }}</li>
             </ul>
         {% endfor %}

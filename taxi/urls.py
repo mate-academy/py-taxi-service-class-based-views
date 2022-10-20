@@ -10,17 +10,17 @@ urlpatterns = [
          name="manufacturer-list"),
     path("cars/",
          CarListView.as_view(),
-         name="cars-list"),
+         name="car-list"),
     path("cars/<int:pk>/",
          CarDetailView.as_view(),
-         name="cars-detail-view"
+         name="car-detail-view"
          ),
     path("drivers/",
          DriverListView.as_view(),
-         name="drivers-list"),
+         name="driver-list"),
     path("drivers/<int:pk>/",
          DriverDetailView.as_view(),
-         name="drivers-detail-view")
+         name="driver-detail-view")
 ]
 
 app_name = "taxi"

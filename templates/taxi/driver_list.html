@@ -2,11 +2,11 @@
 
 {% block content %}
     <h1>Drivers List</h1>
-    {% if drivers %}
-        {% for driver in drivers %}
+    {% if driver_list %}
+        {% for driver in driver_list %}
             <ul>
             <li>{{ driver.first_name }} {{ driver.last_name }}:
-                <a href="{% url 'taxi:drivers-detail-view' pk=driver.pk %}"
+                <a href="{% url 'taxi:driver-detail-view' pk=driver.pk %}"
             >{{ driver.username }}</a></li>
             </ul>
         {% endfor %}
