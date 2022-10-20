@@ -11,7 +11,7 @@
             {% for driver in car.drivers.all %}
             <ul>
             <li><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}
-                (<a href="{% url 'taxi:driver-detail-view' pk=driver.pk %}">{{ driver.username }}</a>)
+                (<a href="{% url 'taxi:drivers-detail-view' pk=driver.pk %}">{{ driver.username }}</a>)
             </li>
             </ul>
             {% endfor %}
