@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Detail information about <br> {{ car.model }}</h1>
+  <h2>Dynamic content</h2>
+  <ul>
+    <li>
+      Name of the car manufacturer
+      {{ car.manufacturer.name }}
+    </li>
+    <li>
+      Country of the car manufacturer
+      {{ car.manufacturer.country }}
+    </li>
+    <li>
+      Car drivers
+      <ul>
+        {% for driver in car.drivers.all %}
+          <li>
+            <a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>
+          </li>
+        {% endfor %}
+
+      </ul>
+    </li>
+  </ul>
+{% endblock %}

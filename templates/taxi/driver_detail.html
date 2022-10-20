@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Detail information about <br> {{ driver.username }}</h1>
+  <p>
+    First name {{ driver.first_name }} <br>
+    Last_name {{ driver.last_name }} <br>
+    License number {{ driver.license_number }} <br>
+    The driver drives the following cars
+  </p>
+  {% for car in driver.cars.all %}
+    <ul>
+      <li>
+        <a href="{{ car.get_absolute_url }}">{{ car.model }}</a>
+      </li>
+    </ul>
+    {% empty %}
+    <p>Sorry, no car models in this list.</p>
+  {% endfor %}
+
+
+{% endblock %}

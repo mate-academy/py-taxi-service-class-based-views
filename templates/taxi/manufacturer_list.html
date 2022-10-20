@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car manufacturers</h1>
+  <p>The Taxi service has cars with following manufacturers</p>
+  {% for manufacturer in manufacturer_list %}
+    <ul>
+      <li>
+        {{ manufacturer.name }}
+      </li>
+    </ul>
+    {% empty %}
+    <p>Sorry, no manufacturers in this list.</p>
+  {% endfor %}
+  
+{% endblock %}
