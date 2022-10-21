@@ -2,7 +2,6 @@
 
 {% block content %}
   <h1>Car brands and models</h1>
-  <h2>Dynamic content</h2>
   <p>The Taxi service has the following car models</p>
   {% for car in car_list %}
     <ul>
@@ -13,7 +12,4 @@
     {% empty %}
     <p>Sorry, no car models in this list.</p>
   {% endfor %}
-
-
-
 {% endblock %}
