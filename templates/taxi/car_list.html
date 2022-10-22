@@ -4,9 +4,10 @@
     <h1>Car List</h1>
     <ul>
     {% for car in car_list %}
-        <li>{{ car.model}}</li>
+        <li>
+            <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.model}}</a>
+        </li>
     {% endfor %}
     </ul>
-
 
 {% endblock %}
