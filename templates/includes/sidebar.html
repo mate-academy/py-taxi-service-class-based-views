@@ -1,6 +1,8 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+{% with request.resolver_match.url_name as url %}
+  <div class="list-group">
+    <a href="{% url 'taxi:index' %}" class="list-group-item list-group-item-action {% if url == 'index' %}active{% endif %}">Home Page</a>
+    <a href="{% url 'taxi:manufacturer-list' %}" class="list-group-item list-group-item-action {% if url == 'manufacturer-list' %}active{% endif %}">Manufacturers</a>
+    <a href="{% url 'taxi:car-list' %}" class="list-group-item list-group-item-action {% if url == 'car-list' or url == 'car-detail'%}active{% endif %}">Cars</a>
+    <a href="{% url 'taxi:driver-list' %}" class="list-group-item list-group-item-action {% if url == 'driver-list' or url == 'driver-detail'%}active{% endif %}">Drivers</a>
+  </div>
+{% endwith %}
