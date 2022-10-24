@@ -7,6 +7,12 @@ class Manufacturer(models.Model):
     name = models.CharField(max_length=255, unique=True)
     country = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ["name"]
+
+    def get_absolute_url(self):
+        return reverse("taxi:manufacturer-list", args=[str(self.id)])
+
     def __str__(self):
         return f"{self.name} ({self.country})"
 
@@ -18,11 +24,11 @@ class Driver(AbstractUser):
         verbose_name = "driver"
         verbose_name_plural = "drivers"
 
-    def __str__(self):
-        return f"{self.username} ({self.first_name} {self.last_name})"
-
     def get_absolute_url(self):
         return reverse("taxi:driver-detail", args=[str(self.id)])
+
+    def __str__(self):
+        return f"{self.username} ({self.first_name} {self.last_name})"
 
 
 class Car(models.Model):
@@ -30,8 +36,8 @@ class Car(models.Model):
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
-    def __str__(self):
-        return f"{self.manufacturer.name} {self.model}"
-
     def get_absolute_url(self):
         return reverse("taxi:car-detail", args=[str(self.id)])
+
+    def __str__(self):
+        return f"{self.manufacturer.name} {self.model}"
