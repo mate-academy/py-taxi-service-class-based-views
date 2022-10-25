@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Сars of our service</h1>
+  <table class="table table-dark table-striped th_table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Car model</th>
+        <th>Car manufacturer</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if car_list %}
+    {% for car in car_list %}
+      <tr>
+        <td><a href="{{ car.get_absolute_url }}">{{car.id}}</a></td>
+        <td>{{car.model}}</td>
+        <td>{{car.manufacturer.name}}</td>
+      </tr>
+    {% endfor %}
+      {% else %}
+      <p>Dont have a cars!</p>
+    {% endif %}
+    </tbody>
+  </table>
+{% endblock %}
