@@ -13,4 +13,5 @@ urlpatterns = [
     path("drivers/<int:pk>", driver_detail_view, name="driver-detail"),
 ]
 
+
 app_name = "taxi"
