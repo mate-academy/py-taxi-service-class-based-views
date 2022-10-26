@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Сar manufacturers of our service</h1>
+  {% if manufacturer_list.count > 0 %}
   <table class="table table-dark table-striped th_table">
     <thead>
       <tr>
@@ -9,11 +10,10 @@
       </tr>
     </thead>
     <tbody>
-    {% if Manufacturer_list %}
-    {% for Manufacturer in Manufacturer_list %}
+    {% for manufacturer in manufacturer_list %}
       <tr>
-        <td>{{Manufacturer.name}}</td>
-        <td>{{Manufacturer.country}}</td>
+        <td>{{manufacturer.name}}</td>
+        <td>{{manufacturer.country}}</td>
       </tr>
     {% endfor %}
     {% endif %}
