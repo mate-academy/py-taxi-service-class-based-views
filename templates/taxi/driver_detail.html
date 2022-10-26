@@ -10,7 +10,7 @@
     <h3>Cars:</h3>
     {% for car in driver.cars.all %}
       <hr>
-      <p>Id: {{ car.id }}</p>
+      <p>Id: <a href="{% url 'taxi:car-detail' pk=car.pk %}">{{ car.id }}</a></p>
       <p>Model: {{ car.model }}</p>
       <p>Country: {{ car.manufacturer.country }}</p>
     {% empty %}

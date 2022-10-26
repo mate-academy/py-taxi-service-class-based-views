@@ -20,7 +20,7 @@ urlpatterns = [
         CarListView.as_view(),
         name="car-list"),
     path(
-        "cars/<int:pk>",
+        "cars/<int:pk>/",
         CarDetailView.as_view(),
         name="car-detail",
     ),
