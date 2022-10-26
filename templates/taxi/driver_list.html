@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Drivers:</h1>
+    {% for driver in driver_list %}
+      <hr>
+      <p><strong>{{ driver.first_name }} {{ driver.last_name }}</strong></p>
+      <p>Username: <a href={{ driver.get_absolute_url }}>{{ driver.username }}</a></p>
+      <p>Licence number: {{ driver.license_number }}</p>
+    {% endfor %}
+{% endblock %}
