@@ -41,7 +41,7 @@ p {
     transition: transform 0.3s;
 }
 .item_content:hover {
-    background-color: #555;
+    background-color: #EEEEEE;
     transform: scale(1.3) translateX(24px);
 }
 .item_content p {

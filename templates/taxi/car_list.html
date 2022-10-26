@@ -8,12 +8,13 @@
         <li class="list_item">
           <div class="item_content">
             <p>
-              <strong>Made by:</strong>
+              <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
+              <strong>Made by - </strong>
             {{ car.manufacturer.name }}
-            </p>
-            <p>
+
+
               <strong>Model: </strong>
-              <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
+              {{ car.model }}
             </p>
           </div>
         </li>
