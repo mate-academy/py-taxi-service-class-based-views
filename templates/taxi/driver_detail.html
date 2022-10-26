@@ -3,7 +3,8 @@
 {% block content %}
   <h1>{{ driver.username }}</h1>
     <p>
-      {{ driver.first_name }} {{ driver.last_name }}
+      {{ driver.first_name }} {{ driver.last_name }}<br>
+      <strong>Driver license: </strong> {{ driver.license_number }}
     </p>
 
   {% if driver.cars.all %}
