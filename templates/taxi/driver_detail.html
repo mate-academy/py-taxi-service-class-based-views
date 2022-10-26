@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.username }}</h1>
+    <p>
+      <span class="font-weight-bold">id: </span>{{ driver.id }}
+      <br>
+      <span class="font-weight-bold">First name: </span>{{ driver.first_name }}
+      <br>
+      <span class="font-weight-bold">Last name: </span>{{ driver.last_name }}
+      <br>
+      <span class="font-weight-bold">Email: </span>{{ driver.email }}
+    </p>
+
+  {% if driver.cars.all %}
+    <h3>Cars:</h3>
+
+    {% for car in driver.cars.all %}
+      <hr>
+      <h5><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a></h5>
+      <p>
+        <span class="font-weight-bold">Manufacturer: </span>{{ car.manufacturer.name }}
+        <br>
+        <span class="font-weight-bold">Country: </span>{{ car.manufacturer.country }}
+      </p>
+      {% if forloop.last %}<hr>{% endif %}
+    {% endfor %}
+
+  {% else %}
+    <p class="text-muted">This driver has no cars.</p>
+  {% endif %}
+
+{% endblock %}
