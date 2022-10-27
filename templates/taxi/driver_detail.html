@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="display-4">
+    {{ driver.username }}'s cars:
+  </h1>
+  <div class="table-responsive bg-white">
+    <table class="table mb-0">
+      <thead>
+      <tr>
+        <th scope="col">MODEL</th>
+        <th scope="col">MANUFACTURER</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% if driver.cars.all %}
+        {% for car in driver.cars.all %}
+          <tr>
+            <th scope="row" style="color: #666666;">{{ car.model }}</th>
+            <td>{{ car.manufacturer.name }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <th scope="row" style="color: #666666;">{{ driver.username }} don't have any cars :(</th>
+      {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

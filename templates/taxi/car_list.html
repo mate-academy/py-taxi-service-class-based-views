@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="display-4">
+    Our car park
+  </h1>
+  <div class="table-responsive bg-white">
+    <table class="table mb-0">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">MODEL</th>
+        <th scope="col">MANUFACTURER</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% if car_list %}
+        {% for car in car_list %}
+          <tr>
+            <th scope="row">
+              <a href={{ car.get_absolute_url }}>{{ car.id }}</a>
+            </th>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <th scope="row" style="color: #666666;">Cars not found</th>
+      {% endif %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
