@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Manufacturer list</h2>
+
+  {% for manufacturer in manufacturer_list %}
+    <li>{{ manufacturer.name }}  -  {{ manufacturer.country }}</li>
+
+  {% empty %}
+    <p>We dont have manufacturers</p>
+  {% endfor %}
+
+{% endblock %}
