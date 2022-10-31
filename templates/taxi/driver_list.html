@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Team of drivers</h1>
+  <p>The Taxi service has the following drivers</p>
+  {% for driver in driver_list %}
+    <ul>
+      <li>
+        <a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>
+      </li>
+    </ul>
+    {% empty %}
+    <p>Sorry, no drivers in this list.</p>
+  {% endfor %}
+{% endblock %}
