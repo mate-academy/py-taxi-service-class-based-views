@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>{{ car.manufacturer.name }}</h2>
-  <h2>{{ car.manufacturer.country }}</h2>
+  <h1>{{ car.manufacturer.name }}, {{ car.manufacturer.country }}</h1>
 
   <div>
   {% if car.drivers.all %}
-    <p>LIST OF DRIVERS:</p>
+    <h2>Drivers:</h2>
     {% for driver in car.drivers.all %}
-      <p>
-        <strong>First name:</strong> {{ driver.first_name }}
-        <strong>Last name:</strong> {{ driver.last_name }}
-        <strong>Username:</strong> {{ driver.username }}
-        <strong>License number:</strong> {{ driver.license_number }}
+      <ul>
+      <li class="list_item">
+        <div class="item_content">
+          <p>
+        <strong>First name:</strong> {{ driver.first_name }}<br>
+        <strong>Last name:</strong> {{ driver.last_name }}<br>
+        <strong>Username:</strong> {{ driver.username }}<br>
+        <strong>License number:</strong> {{ driver.license_number }}<br>
       </p>
+        </div>
+      </li>
+      </ul>
     {% endfor %}
   {% else %}
     <p>This driver does not have a car</p>
