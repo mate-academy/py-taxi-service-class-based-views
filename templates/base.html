@@ -28,7 +28,10 @@
 
       {% block content %}{% endblock %}
 
-      {% block pagination %}
+      {% block pagination %}{% endblock %}
+
+      {% block paginate %}
+        {% include "includes/paginate.html" %}
       {% endblock %}
 
     </div>
