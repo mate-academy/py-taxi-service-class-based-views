@@ -31,14 +31,12 @@ def manufacturer_list_view(request):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
     queryset = Manufacturer.objects.all()
     paginate_by = 5
 
 
 class CarListView(ListView):
     model = Car
-    context_object_name = "car_list"
     queryset = Car.objects.select_related("manufacturer")
     paginate_by = 5
 
@@ -49,7 +47,6 @@ class CarDetailView(DetailView):
 
 class DriverListView(ListView):
     model = Driver
-    context_object_name = "driver_list"
     paginate_by = 5
 
 
