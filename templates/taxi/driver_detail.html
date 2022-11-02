@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver: {{ driver.username }}</h1>
+  <p><strong>First name: </strong> {{ driver.first_name }}</p>
+  <p><strong>Last name: </strong> {{ driver.last_name }}</p>
+
+  <div class="ml-3">
+    <h3>Cars</h3>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Model</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Country</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      {% for car in driver.cars.all %}
+        <tr>
+          <th scope="row">{{ car.id }}</th>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.manufacturer.country }}</td>
+          {% empty %}
+          <p>Unfortunately, there are no cars for the current driver.</p>
+        </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
