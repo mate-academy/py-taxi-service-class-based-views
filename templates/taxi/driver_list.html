@@ -8,12 +8,12 @@
     {% for driver in driver_list %}
       <li>
         <p>
-        <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
-          <strong>Username: </strong>{{ driver.username }}
-        </a>
-      <br><strong>First name:</strong> {{ driver.first_name }}
-      <br><strong>Last name:</strong> {{ driver.last_name }}
-          </p>
+          <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
+            <strong>Username: </strong>{{ driver.username }}
+          </a>
+          <br><strong>First name:</strong> {{ driver.first_name }}
+          <br><strong>Last name:</strong> {{ driver.last_name }}
+        </p>
       </li>
     {% endfor %}
     </ul>
