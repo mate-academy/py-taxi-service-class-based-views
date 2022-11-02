@@ -13,7 +13,7 @@
       {% for driver in car.drivers.all %}
         <li><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver }}</a></li>
         {% empty %}
-          <p>{{ car }}, has no driver yet</p>
+          <p>{{ car }}, has no drivers yet</p>
       {% endfor %}
     </ul>
 
