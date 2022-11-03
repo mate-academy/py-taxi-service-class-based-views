@@ -12,7 +12,7 @@
 
   {% for driver in car.drivers.all %}
     <p>
-      <a href="{% url 'taxi:driver_detail' pk=driver.id %}">
+      <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
         <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
       </a>
       : &nbsp; Licence {{ driver.license_number }}

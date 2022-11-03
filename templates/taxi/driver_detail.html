@@ -12,7 +12,7 @@
   <br>
   {% for car in driver.cars.all %}
     <p>
-      <a href="{% url "taxi:car_detail" pk=car.id %}">{{ car.model }}</a>
+      <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.model }}</a>
     </p>
 
   {% empty %}
