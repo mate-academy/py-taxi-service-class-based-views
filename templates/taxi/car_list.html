@@ -12,7 +12,7 @@
     <tbody>
     {% for car in car_list %}
       <tr>
-        <td><a href="{% url 'taxi:car_detail' pk=car.id %}" class="dark-link">{{ car.model }}</a></td>
+        <td><a href="{% url 'taxi:car-detail' pk=car.id %}" class="dark-link">{{ car.model }}</a></td>
         <td>{{ car.manufacturer.name }}</td>
       </tr>
     {% endfor %}
