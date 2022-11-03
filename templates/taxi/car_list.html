@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <ul>
+        {% for car in car_list %}
+            <li><p>{{ car.model }} ({{ car.manufacturer.country }} )</p></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
