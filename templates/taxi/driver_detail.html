@@ -16,7 +16,7 @@
         </tr>
       {% for car in driver.cars.all %}
       <tr>
-        <td>{{ car.id }}</td>
+        <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
         <td>{{ car.model }}</td>
       </tr>
       {% endfor %}
