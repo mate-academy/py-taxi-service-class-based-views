@@ -3,10 +3,14 @@
 {% block content %}
   <h1>Car list</h1>
 
-  <ul>
-    {% for car in car_list %}
-        <li><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</li>
-        <strong>Model:</strong> <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }} </a>
-    {% endfor %}
-  </ul>
+  {% if car_list %}
+    <ul>
+      {% for car in car_list %}
+          <li><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</li>
+          <strong>Model:</strong> <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }} </a>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no cars!</p>
+  {% endif %}
 {% endblock %}

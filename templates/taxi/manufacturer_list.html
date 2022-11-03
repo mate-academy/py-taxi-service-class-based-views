@@ -9,6 +9,8 @@
         <li>{{ manufacturer.name }}</li>
       {% endfor %}
     </ul>
+  {% else %}
+    <p>There are no manufacturers!</p>
   {% endif %}
 
 {% endblock %}
