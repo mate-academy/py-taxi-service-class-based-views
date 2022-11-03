@@ -20,15 +20,6 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-def manufacturer_list_view(request):
-    manufacturer_list = Manufacturer.objects.all()
-
-    context = {
-        "manufacturer_list": manufacturer_list,
-    }
-    return render(request, "taxi/manufacturer_list.html", context=context)
-
-
 class ManufacturerListView(ListView):
     model = Manufacturer
     queryset = Manufacturer.objects.all()
