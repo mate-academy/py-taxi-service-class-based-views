@@ -2,7 +2,12 @@
 
 {% block content %}
   <h2>Cars list</h2>
-  {% for car in car_list %}
-    <li><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a></li>
-  {% endfor %}
+  {% if car_list %}
+    {% for car in car_list %}
+      <li><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>  {{ car.model }}</li>
+    {% endfor %}
+  {% else %}
+    <p>We don't have cars</p>
+  {% endif %}
+
 {% endblock %}
