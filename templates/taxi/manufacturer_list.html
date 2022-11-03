@@ -2,12 +2,25 @@
 
 {% block content %}
   <h2>Manufacturer list</h2>
+  {% if manufacturer_list %}
+    <table class="table">
+      <thread>
+        <tr>
+          <th>name</th>
+          <th>country</th>
+        </tr>
+      </thread>
 
-  {% for manufacturer in manufacturer_list %}
-    <li>{{ manufacturer.name }}  -  {{ manufacturer.country }}</li>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
 
-  {% empty %}
+
+      {% endfor %}
+    </table>
+  {% else %}
     <p>We dont have manufacturers</p>
-  {% endfor %}
-
+  {% endif %}
 {% endblock %}
