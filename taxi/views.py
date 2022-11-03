@@ -22,8 +22,8 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturers_list"
-    template_name = "taxi/manufacturers_list.html"
+    context_object_name = "manufacturer_list"
+    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
     queryset = Manufacturer.objects.order_by("name")
 

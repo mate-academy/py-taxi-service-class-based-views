@@ -4,7 +4,7 @@ from django.urls import reverse
 from taxi.models import Manufacturer
 
 MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
-DRIVER_LIST_URL = reverse("taxi:driver-list")
+DRIVER_LIST_URL = reverse("drivers-list")
 CAR_LIST_URL = reverse("taxi:car-list")
 PAGINATION = 5
 
@@ -18,7 +18,7 @@ class ManufacturerListTest(TestCase):
         response = self.client.get(MANUFACTURER_LIST_URL)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/manufacturers_list.html")
+        self.assertTemplateUsed(response, "taxi/manufacturer_list.html")
 
     def test_manufacturer_list_paginated_correctly(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
