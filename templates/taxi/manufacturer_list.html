@@ -2,11 +2,18 @@
 
 {% block content %}
   <h1>Manufacturers List:</h1>
-  <ul>
-  {% for manufacturer in  manufacturer_list%}
-    <li>{{ manufacturer.name }} ({{ manufacturer.country }})</li>
-    {% empty %}
-      <p>There are no any manufacturer!</p>
-  {% endfor %}
-  </ul>
+  <div class="container">
+    <table class="table table-bordered">
+      <tr>
+        <th>Manufacturer</th>
+        <th>Country</th>
+      </tr>
+      {% for manufacturer in manufacturer_list %}
+      <tr>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+  </div>
 {% endblock %}
