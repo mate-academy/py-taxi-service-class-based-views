@@ -32,7 +32,7 @@ def manufacturer_list_view(request):
 class ManufacturerListView(ListView):
     model = Manufacturer
     queryset = Manufacturer.objects.all()
-    template_name = 'taxi/manufacturer_list.html'
+    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
