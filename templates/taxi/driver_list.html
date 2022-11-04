@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver List</h1>
+    {% if driver_list %}
+      <table style="border: 1px solid black;">
+        <tr>
+          <th style="border: 1px solid black">ID</th>
+          <th style="border: 1px solid black">USERNAME</th>
+          <th style="border: 1px solid black">FIRST NAME</th>
+          <th style="border: 1px solid black">LAST NAME</th>
+        </tr>
+      {% for driver in driver_list %}
+        <tr>
+          <td style="border: 1px solid black">{{ driver.id }}</td>
+          <td style="border: 1px solid black"><a href="{% url 'taxi:drive-detail' pk=driver.id %}">{{ driver.username }}</a></td>
+          <td style="border: 1px solid black">{{ driver.first_name }}</td>
+          <td style="border: 1px solid black">{{ driver.last_name }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+    {% else %}
+    <p>There are no drivers in app</p>
+  {% endif %}
+{% endblock %}
