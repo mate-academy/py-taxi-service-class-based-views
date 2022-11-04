@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('taxi', '0002_alter_manufacturer_options'),
     ]

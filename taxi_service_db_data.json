@@ -301,7 +301,7 @@
       "user_permissions": []
     }
   },
-    {
+  {
     "model": "taxi.driver",
     "pk": 11,
     "fields": {
