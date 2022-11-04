@@ -22,6 +22,7 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
+    template_name = "taxi/manufacturer_list.html"
     context_object_name = "manufacturer_list"
     paginate_by = 5
 
