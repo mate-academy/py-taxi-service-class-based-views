@@ -1,25 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Cars</h1>
-
-  {% if car_list %}
-    <ul>
+  <h1>
+    Cars
+  </h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if car_list %}
       {% for car in car_list %}
-        <li>
-          <a href="{% url 'taxi:car-detail' pk=car.id %}">
-            <strong>Model:</strong> {{ car.model }}
-          </a>
-          <div>
-            <p>
-              <strong>Manufacturer:</strong>
-              {{ car.manufacturer.name }}<br>
-            </p>
-          </div>
-        </li>
+        <tr>
+          <th scope="row">
+            <a href="{% url 'taxi:car-detail' pk=car.id %}"> {{ car.model }} </a>
+
+          </th>
+          <td>{{ car.model }}</td>
+        </tr>
       {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in the list.</p>
-  {% endif %}
+    {% else %}
+      <th>There are no cars</th>
+    {% endif %}
+    </tbody>
+  </table>
+
 {% endblock %}
