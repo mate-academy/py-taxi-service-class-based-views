@@ -18,6 +18,10 @@
         <th scope="row">{{ manufacturer.name }}</th>
         <td>{{ manufacturer.country }}</td>
       </tr>
+    {% empty %}
+      <tr>
+        <td>No manufacturer available</td>
+      </tr>
     {%  endfor %}
   </table>
 {% endblock %}
