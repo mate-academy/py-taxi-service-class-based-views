@@ -19,7 +19,7 @@
             <a href="{% url 'taxi:car-detail' pk=car.id %}"> {{ car.model }} </a>
 
           </th>
-          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
         </tr>
       {% endfor %}
     {% else %}
