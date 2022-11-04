@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Drivers</title>
+{% endblock %}
+
+{% block content %}
+  <table class="table table-bordered col-md-8">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Name</th>
+        <th scope="col">Cars</th>
+      </tr>
+    </thead>
+    {% for driver in driver_list %}
+      <tr>
+        <th scope="row"><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></th>
+        <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+        <td>
+          {% for car in driver.cars.all %}
+            {{ car.model }}
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
