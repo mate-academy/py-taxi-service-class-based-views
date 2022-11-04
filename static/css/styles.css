@@ -1,3 +1,31 @@
 body {
     margin-top: 20px;
 }
+
+.sidebar-nav {
+    list-style-type: none;
+    padding: 20px;
+    background-color: aliceblue;
+}
+
+.content {
+    padding: 20px;
+    /*background-color: aliceblue;*/
+    width: 30%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
