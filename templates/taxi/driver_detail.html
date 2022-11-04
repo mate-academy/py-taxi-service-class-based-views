@@ -5,6 +5,7 @@
   <h2>Drivers lisense number: {{ driver.license_number }}</h2>
   <h3>Drivers car(s):</h3>
     <ul>
+    {% if driver.cars.all %}
         {% for car in driver.cars.all %}
           <li>
             <p>Manufacturer: {{ car.manufacturer.name }}.</p>
@@ -12,5 +13,8 @@
             <p>Country: {{ car.manufacturer.country }}</p>
           </li>
         {% endfor %}
+    {% else %}
+      <p>There is no cars</p>
+    {% endif %}
       </ul>
 {% endblock %}
