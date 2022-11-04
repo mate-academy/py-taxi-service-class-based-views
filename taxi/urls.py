@@ -17,9 +17,9 @@ urlpatterns = [
     path("cars/<int:pk>/", CarDetailView.as_view(),
          name="car-detail"),
     path("drivers/", DriverListView.as_view(),
-         name="drive-list"),
+         name="driver-list"),
     path("drivers/<int:pk>/", DriverDetailView.as_view(),
-         name="drive-detail"),
+         name="driver-detail"),
 
 ]
 
