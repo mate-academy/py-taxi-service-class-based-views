@@ -3,19 +3,19 @@
 {% block content %}
   <h1>Driver List</h1>
     {% if driver_list %}
-      <table style="border: 1px solid black;">
+      <table class="table table-striped">
         <tr>
-          <th style="border: 1px solid black">ID</th>
-          <th style="border: 1px solid black">USERNAME</th>
-          <th style="border: 1px solid black">FIRST NAME</th>
-          <th style="border: 1px solid black">LAST NAME</th>
+          <th>ID</th>
+          <th>USERNAME</th>
+          <th>FIRST NAME</th>
+          <th>LAST NAME</th>
         </tr>
       {% for driver in driver_list %}
         <tr>
-          <td style="border: 1px solid black">{{ driver.id }}</td>
-          <td style="border: 1px solid black"><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></td>
-          <td style="border: 1px solid black">{{ driver.first_name }}</td>
-          <td style="border: 1px solid black">{{ driver.last_name }}</td>
+          <td>{{ driver.id }}</td>
+          <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
         </tr>
       {% endfor %}
       </table>
