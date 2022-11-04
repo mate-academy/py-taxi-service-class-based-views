@@ -17,6 +17,7 @@
   </p>
     <h3>Cars:</h3>
   <p>
+  {% if driver.cars.values %}
     <ol>
     {% for car in driver.cars.values %}
       <li>
@@ -26,5 +27,8 @@
       </li>
     {% endfor %}
     </ol>
+  {% else %}
+    There are no cars available
+  {% endif %}
   </p>
 {% endblock %}
