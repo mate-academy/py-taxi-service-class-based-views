@@ -3,23 +3,24 @@
 {% block content %}
   <h1>Driver list</h1>
   {% if driver_list %}
-    <ul>
-    {% for driver in driver_list %}
-      <li class="list-item">
-        <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
-        {{ driver.username }}</a><br>
-            {{ driver.first_name }} {{ driver.last_name }}
-      <div class="item_content">
-            <p>
-              <strong>Manufacturer:</strong>
-              {{ car.manufacturer.name }}<br>
-              <strong>Model: </strong>
-              {{ car.model }}
-            </p>
-          </div>
-      </li>
-    {% endfor %}
-    </ul>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for driver in driver_list %}
+          <tr class="list-item">
+            <th scope="row"><a href="{% url 'taxi:driver-detail' pk=driver.id %}">
+            {{ driver.username }}</a></th>
+            <td>{{ driver.first_name }}</td>
+            <td>{{ driver.last_name }}</td>
+          </tr>
+        {% endfor %}
+        </table>
     {% else %}
     <p>There are no cars in the list.</p>
   {% endif %}

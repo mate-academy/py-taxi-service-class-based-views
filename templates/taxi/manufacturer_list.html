@@ -3,18 +3,24 @@
 {% block content %}
   <h1>Manufacturers List</h1>
   {% if manufacturer_list %}
-    <ul>
-      {% for manufacturer in manufacturer_list %}
-        <li class="list_item">
-            <div class="item_content">
-              <p><strong>Brand name:</strong>
-                {{ manufacturer.name }}<br>
-                <strong>Origin: </strong> {{ manufacturer.country }}
-              </p>
-            </div>
-        </li>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Brand name</th>
+          <th scope="col">Origin</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for manufacturer in manufacturer_list %}
+          <tr class="list-item">
+            <th scope="row"><strong>{{ manufacturer.id }}</strong></th>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
+          </tr>
         {% endfor %}
-    </ul>
+      </tbody>
+    </table>
   {% else %}
     <p>There are no manufacturers.</p>
   {% endif %}

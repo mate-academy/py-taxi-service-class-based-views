@@ -3,17 +3,23 @@
 {% block content %}
   <h1>Driver</h1>
   {{ car.manufacturer.name }}<br>
-  <h2>
+  <h3>
   {{ driver.first_name }} {{ driver.last_name }}
-  </h2><br>
+  </h3>
+  <strong>Driver licence: {{ driver.license_number }}</strong>
+  <br>
   {% if driver.cars.all %}
-    <ul>
+    <br>
+    <ul class="list-group">
       {% for car in driver.cars.all %}
-        <li class="list_item">
-           <p>
-             <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
-
+        <li class="list-group-item">
+          <strong>Manufacturer: </strong>
+          {{ car.manufacturer.name }}
         </li>
+        <li class="list-group-item">
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
+        </li>
+        <br>
       {% endfor %}
     </ul>
   {% else %}
