@@ -6,8 +6,8 @@
   <p><strong>Country: </strong>{{ car.manufacturer.country }}</p>
 
   <div class="ml-3">
-    <h3>Drivers:</h3>
-  
+    <h3>Cars:</h3>
+
   {% for driver in car.drives.all %}
     <hr>
     <p><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></p>
@@ -15,6 +15,8 @@
       <strong>Full name: </strong>
       {{ driver.first_name }} {{ driver.last_name }}
     </p>
+    {% empty %}
+      <p>There are no cars</p>
   {% endfor %}
   </div>
 {% endblock %}
