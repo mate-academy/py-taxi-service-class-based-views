@@ -12,6 +12,8 @@
     <hr>
     <p><strong>Model: {{ car.model }}</strong></p>
     <p><strong>Manufacturer: {{ car.manufacturer.name }}</strong></p>
+  {% empty %}
+    <p>There are no cars</p>
   {% endfor %}
   </div>
 {% endblock %}
