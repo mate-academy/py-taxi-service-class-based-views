@@ -45,3 +45,7 @@ class DriverDetailView(generic.DetailView):
 
 class CarDetailView(generic.DetailView):
     model = Car
+
+
+class ManufacturerDetailView(generic.DetailView):
+    model = Manufacturer
