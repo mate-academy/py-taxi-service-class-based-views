@@ -9,5 +9,7 @@
         <strong>Manufacturer country:</strong> {{ manufacturer.country }}</li>
     {% endfor %}
   </ul>
-    {% endif %}
+  {% else %}
+    <p>No manufacturers found.</p>
+  {% endif %}
 {% endblock %}
