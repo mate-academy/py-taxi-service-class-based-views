@@ -6,7 +6,8 @@
 
 {% block content %}
   <h3>Car's information:</h3>
-  <p>Manufacturer: {{ car.manufacturer.name }}</p>
+  <p class="mb-0">Manufacturer: {{ car.manufacturer.name }}</p>
+  <p>Country: {{ car.manufacturer.country }}</p>
 
   <h4>Drivers:</h4>
   {% for driver in car.drivers.all %}

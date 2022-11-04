@@ -10,13 +10,13 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">Name</th>
-        <th scope="col">ID</th>
+        <th scope="col">Country</th>
       </tr>
     </thead>
     {% for manufacturer in manufacturer_list %}
       <tr>
         <th scope="row">{{ manufacturer.name }}</th>
-        <td>{{ manufacturer.id }}</td>
+        <td>{{ manufacturer.country }}</td>
       </tr>
     {%  endfor %}
   </table>

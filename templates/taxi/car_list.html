@@ -14,8 +14,8 @@
     </thead>
     {% for car in car_list %}
       <tr>
-        <th scope="row"><a href="{{ car.get_absolute_url }}"> {{ car.id }}</a></th>
-        <td>{{ car.model }}</td>
+        <th scope="row">{{ car.id }}</th>
+        <td><a href="{{ car.get_absolute_url }}"> {{ car.model }}</a></td>
       </tr>
     {% endfor %}
   </table>
