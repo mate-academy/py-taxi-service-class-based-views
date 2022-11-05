@@ -6,6 +6,7 @@
   <p><strong>Country: {{ car.manufacturer.country }}</strong></p>
 
   <div class="ml-3">
+   {% if car.drivers.all %}
     <h3>Drivers</h3>
     {% for driver in car.drivers.all %}
       <hr>
@@ -18,5 +19,8 @@
       <p><strong>Username:</strong> {{ driver.username }}</p>
 
     {% endfor %}
+  {% else %}
+     <p>There are no drivers on this car.</p>
+  {% endif %}
   </div>
 {% endblock %}

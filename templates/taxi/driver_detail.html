@@ -5,6 +5,7 @@
   <p><strong>License: {{ driver.license_number }}</strong></p>
 
   <div class="ml-3">
+  {% if driver.cars.all %}
     <h1>Cars</h1>
     {% for car in driver.cars.all %}
       <hr>
@@ -12,5 +13,8 @@
       <p><strong>Model:</strong> {{ car.model }}</p>
       <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
     {% endfor %}
+  {% else %}
+    <p>Thi driver has no cars.</p>
+  {% endif %}
   </div>
 {% endblock %}
