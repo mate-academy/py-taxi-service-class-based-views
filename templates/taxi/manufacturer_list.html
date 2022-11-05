@@ -8,6 +8,8 @@
     <ul>
       {% for manufacture in manufacturer_list %}
         <li>Name: {{ manufacture.name }} | Country: {{ manufacture.country }}</li>
+      {% empty %}
+        <p>No manufacturers</p>
       {% endfor %}
     </ul>
   {% endif %}
