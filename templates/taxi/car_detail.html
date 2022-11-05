@@ -1,33 +1,12 @@
 {% extends "base.html" %}
 
-{#{% block content %}#}
-{#  <h1>{{ car.model }}</h1>#}
-{#  <strong>Manufacturer:</strong>#}
-{#  {{ car.manufacturer.name }}<br>#}
-{#  <strong>Model: </strong>#}
-{#  {{ car.model }}#}
-{#  {% if car.drivers.all %}#}
-{#    <ul>#}
-{#      {% for driver in car.drivers.all %}#}
-{#        <li class="list_item">#}
-{#           <p>#}
-{#             <a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a><br>#}
-{#             {{ driver.first_name }} {{ driver.last_name }}#}
-{#        </li>#}
-{#      {% endfor %}#}
-{#    </ul>#}
-{#  {% else %}#}
-{#    <p><strong>No one drives this car.</strong></p>#}
-{#  {% endif %}#}
-{#{% endblock %}#}
-
-
 {% block content %}
   <h3>{{ car.model }}</h3><br>
   <strong>Manufacturer:</strong>
   {{ car.manufacturer.name }}<br>
   <strong>Model: </strong>
-    {{ car.model }}<br>
+    {{ car.model }}
+  <br>
   {% if car.drivers.all %}
     <br>
     <ul class="list-group">
@@ -37,7 +16,8 @@
         </li>
         <li class="list-group-item">
           <strong>First name: </strong>
-          {{ driver.first_name }}<br>
+          {{ driver.first_name }}
+          <br>
           <strong>Last name: </strong>
           {{ driver.last_name }}
         </li>
