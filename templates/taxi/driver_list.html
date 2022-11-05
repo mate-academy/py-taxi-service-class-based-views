@@ -22,8 +22,14 @@
             <a href="{{ car.get_absolute_url }}">
               {{ car.model }}{% if not forloop.last %},{% endif %}
             </a>
+          {% empty %}
+            <p>No car available</p>
           {% endfor %}
         </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td>No driver available</td>
       </tr>
     {% endfor %}
   </table>

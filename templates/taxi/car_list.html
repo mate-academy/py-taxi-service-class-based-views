@@ -17,6 +17,8 @@
         <th scope="row">{{ car.id }}</th>
         <td><a href="{{ car.get_absolute_url }}"> {{ car.model }}</a></td>
       </tr>
+    {% empty %}
+      <td>No car available</td>
     {% endfor %}
   </table>
 {% endblock %}
