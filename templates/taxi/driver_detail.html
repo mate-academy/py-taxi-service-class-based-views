@@ -12,5 +12,7 @@
       <li>{{ car.model }}</li>
       {% endfor %}
     </ul>
+  {% else %}
+    <h1>Sorry, drivers not found</h1>
   {% endif %}
 {% endblock %}
