@@ -26,4 +26,4 @@ class Car(models.Model):
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
     class Meta:
-        ordering = ["model"]
+        ordering = ["id"]
