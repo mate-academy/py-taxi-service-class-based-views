@@ -7,17 +7,23 @@
 
   <div class="ml-3">
     <h3>Drivers</h3>
-
-  {% for driver in car.drivers.all %}
     <hr>
-    <p class="text-muted">
-      <strong>Id:</strong>
-      {{ driver.id }}
-    </p>
-    <p>
-      <strong>Full name:</strong>
-      {{ driver.first_name }} {{ driver.last_name }}
-    </p>
-  {% endfor %}
+
+    {% if not car.drivers.all %}
+        <p>
+          This car doesn't have driver
+        </p>
+    {% else %}
+      {% for driver in car.drivers.all %}
+        <p class="text-muted">
+          <strong>Id:</strong>
+          {{ driver.id }}
+        </p>
+        <p>
+          <strong>Full name:</strong>
+          {{ driver.first_name }} {{ driver.last_name }}
+        </p>
+      {% endfor %}
+    {% endif %}
   </div>
 {% endblock %}

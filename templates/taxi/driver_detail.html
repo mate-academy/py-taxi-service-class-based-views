@@ -6,17 +6,23 @@
 
   <div class="nl-3">
     <h3>Cars</h3>
+    <hr>
 
-    {% for car in driver.cars.all %}
-      <hr>
-      <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
+    {% if not driver.cars.all %}
       <p>
-        <strong>Model:</strong>
-        {{ car.model }}
-        <br>
-        <strong>Manufacturer:</strong>
-        {{ car.manufacturer.name }}
+        This driver doesn't have a car
       </p>
-    {% endfor %}
+    {% else %}
+      {% for car in driver.cars.all %}
+        <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
+        <p>
+          <strong>Model:</strong>
+          {{ car.model }}
+          <br>
+          <strong>Manufacturer:</strong>
+          {{ car.manufacturer.name }}
+        </p>
+      {% endfor %}
+    {% endif %}
   </div>
 {% endblock %}
