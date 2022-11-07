@@ -10,10 +10,12 @@
     {% if driver.cars %}
     {% for car in driver.cars.all %}
       <hr>
+      <ul>
       <li><a href="{% url 'taxi:car-detail' pk=driver.id %}">{{ car.model }}</a>
 
         ({{ driver.first_name }} {{ driver.last_name }})
       </li>
+      </ul>
     {% endfor %}
     {% else %}
       <li>No cars</li>
