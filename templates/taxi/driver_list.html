@@ -6,7 +6,11 @@
     <ul>
       {% for driver in driver_list %}
         <li class=list-stuff>
-          <a href="{% url 'taxi:driver-detail' pk=driver.pk %}">{{ driver.first_name }}</a>
+          <a href="{% url 'taxi:driver-detail' pk=driver.pk %}">
+            {{ driver.first_name }}
+            {{ driver.last_name }}
+            ({{ driver.username }} 
+          </a>
         </li>
       {% endfor %}
     </ul>
