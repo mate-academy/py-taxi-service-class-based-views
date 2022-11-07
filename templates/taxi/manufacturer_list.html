@@ -2,20 +2,24 @@
 
 {% block content %}
   <h1>Manufacturers of our cars</h1>
-  <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-      <th scope="col">Name</th>
-      <th scope="col">Country</th>
+  {% if manufacturer_list %}
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
 
-    </thead>
-  
-    <tbody>
-    {% for manufacturer in manufacturer_list %}
-      <tr>
-        <td>{{ manufacturer.name }}</td>
-        <td>{{ manufacturer.country }}</td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Oh sorry, we haven't manufacturers at this moment...</p>
+  {% endif %}
 {% endblock %}

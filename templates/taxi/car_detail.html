@@ -8,7 +8,9 @@
     <strong>Manufacturer country:</strong> {{ car.manufacturer.country }}<br>
   </p>
 
+  {% if car.drivers.exists %}
   <h5>This car can be driven by the following drivers:</h5>
+
   <table class="table table-sm table-bordered table-striped">
     <thead class="thead-dark">
       <th scope="col">Username</th>
@@ -28,4 +30,7 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+    <h5>This car is not used by any driver...</h5>
+  {% endif %}
 {% endblock %}

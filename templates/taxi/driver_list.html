@@ -2,23 +2,28 @@
 
 {% block content %}
   <h1>Our drivers</h1>
-  <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-      <th scope="col">Username</th>
-      <th scope="col">First name</th>
-      <th scope="col">Last name</th>
-      <th scope="col">Email</th>
-    </thead>
+  {% if driver_list %}
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <th scope="col">Username</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+      </thead>
 
-    <tbody>
-    {% for driver in driver_list %}
-      <tr>
-        <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}" class="dark-link">{{ driver.username }}</a></td>
-        <td>{{ driver.first_name }}</td>
-        <td>{{ driver.last_name }}</td>
-        <td>{{ driver.email }}</td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+      <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}" class="dark-link">{{ driver.username }}</a></td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.email }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Oh sorry, we haven't drivers at this moment...</p>
+  {% endif %}
+
 {% endblock %}

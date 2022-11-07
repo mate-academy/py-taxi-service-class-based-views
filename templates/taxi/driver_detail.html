@@ -9,22 +9,25 @@
     <strong>Email:</strong> {{ driver.email }}<br>
   </p>
 
-
-  <h5>Drives the following cars:</h5>
+  {% if driver.cars.exists %}
+    <h5>Drives the following cars:</h5>
     <table class="table table-sm table-bordered table-striped">
-        <thead class="thead-dark">
-          <th scope="col">Model</th>
-          <th scope="col">Manufacturer</th>
+      <thead class="thead-dark">
+        <th scope="col">Model</th>
+        <th scope="col">Manufacturer</th>
 
-        </thead>
+      </thead>
 
-        <tbody>
-        {% for car in driver.cars.all %}
-          <tr>
-            <td><a href="{% url 'taxi:car-detail' pk=car.id %}" class="dark-link">{{ car.model }}</a></td>
-            <td>{{ car.manufacturer.name }}</td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+      <tbody>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td><a href="{% url 'taxi:car-detail' pk=car.id %}" class="dark-link">{{ car.model }}</a></td>
+          <td>{{ car.manufacturer.name }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h5>This driver is not driving yet.</h5>
+  {% endif %}
 {% endblock %}
