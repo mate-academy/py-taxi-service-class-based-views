@@ -3,11 +3,11 @@
 {% block content %}
   <h1>Cars list:</h1>
   {% if car_list %}
-    <table border="1" cellpadding="5" cellspacing="5">
+    <table class="table">
       <tr>
-        <td>Id</td>
-        <td>Model</td>
-        <td>Manufacturer</td>
+        <th>Id</th>
+        <th>Model</th>
+        <th>Manufacturer</th>
       </tr>
 
       {% for car in car_list %}

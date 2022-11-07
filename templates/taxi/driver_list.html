@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Drivers list:</h1>
+  <h1>Drivers list:</h1>
   {% if driver_list %}
-    <table border="1" cellpadding="5" cellspacing="5">
+    <table class="table">
       <tr>
-        <td>Username</td>
-        <td>Firstname</td>
-        <td>Lastname</td>
-        <td>License number</td>
+        <th>Username</th>
+        <th>Firstname</th>
+        <th>Lastname</td>
+        <th>License number</th>
       </tr>
 
       {% for driver in driver_list %}

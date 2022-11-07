@@ -5,7 +5,7 @@
   <p><strong>Firstname:</strong> {{ driver.first_name }}</p>
   <p><strong>Lastname:</strong> {{ driver.last_name }}</p>
   <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  {% if driver.cars %}
+  {% if driver.cars.all %}
     <p>Cars of {{ driver.username }}:</p>
     <ul>
       {% for car in driver.cars.all%}
@@ -13,6 +13,6 @@
       {% endfor %}
     </ul>
   {% else %}
-    <h1>Sorry, drivers not found</h1>
+    <h1>Sorry, cars not found</h1>
   {% endif %}
 {% endblock %}
