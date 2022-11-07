@@ -4,11 +4,15 @@
     <strong>Last name: </strong>{{ driver.last_name }},
   <strong>License number: </strong>{{ driver.license_number }}
   </p>
-  <p><strong>Cars: </strong>{{ driver.car }}</p>
+  <li><strong>Cars: </strong>{{ driver.car }}</li>
+  {% if car.drivers %}
   {% for car in driver.cars.all %}
     <hr>
     <p><strong>Id</strong>: {{ car.id }},
     <strong>Car model</strong>: {{ car.model }}
     </p>
   {% endfor %}
+  {% else %}
+    <p>This driver has no cars</p>
+  {% endif %}
 {% endblock %}
