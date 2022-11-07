@@ -7,6 +7,7 @@
   <table class="table table-bordered">
     <thead>
     <tr>
+      <th scope="col">Id</th>
       <th scope="col">Model</th>
       <th scope="col">Manufacturer</th>
     </tr>
@@ -15,10 +16,8 @@
     {% if car_list %}
       {% for car in car_list %}
         <tr>
-          <th scope="row">
-            <a href="{% url 'taxi:car-detail' pk=car.id %}"> {{ car.model }} </a>
-
-          </th>
+          <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
           <td>{{ car.manufacturer.name }}</td>
         </tr>
       {% endfor %}
