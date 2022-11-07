@@ -18,6 +18,8 @@
         <td>{{ car.model }}</td>
         <td>{{ car.manufacturer.country }}</td>
       </tr>
+      {% empty %}
+      <p><strong>No car!</strong></p>
     {% endfor %}
     {% endif %}
     </tbody>

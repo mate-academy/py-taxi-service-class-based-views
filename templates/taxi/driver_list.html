@@ -18,6 +18,8 @@
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
       </tr>
+      {% empty %}
+      <p><strong>No car!</strong></p>
     {% endfor %}
     {% endif %}
     </tbody>

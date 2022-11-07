@@ -28,6 +28,8 @@
       <strong>Full name: </strong>
       {{ driver.first_name }} {{ driver.last_name }}
     </p>
+    {% empty %}
+    <p><strong>No car!</strong></p>
     {% endfor %}
   </div>
 {% endblock %}
