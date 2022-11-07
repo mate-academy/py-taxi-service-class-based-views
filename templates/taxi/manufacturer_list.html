@@ -1,13 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Manufacturers List</h1>
-  <ul>
-  {% for manufacturer in manufacturer_list %}
-    <li>{{ manufacturer.name }}</li>
-  {% empty %}
-    <p>The are not manufactures</p>
-  {% endfor %}
-  </ul>
+  <h1>Manufacturer List</h1>
+
+  <table class="table table-striped">
+    <thead>
+      <th scope="col">Manufacturer Name</th>
+    </thead>
+    <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+        </tr>
+        {% empty %}
+        <p>The are not manufactures</p>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
 
+
+
+
+{#<h1>Manufacturers List</h1>#}
+{#  <ul>#}
+{#  {% for manufacturer in manufacturer_list %}#}
+{#    <li>{{ manufacturer.name }}</li>#}
+{#  {% empty %}#}
+{#    <p>The are not manufactures</p>#}
+{#  {% endfor %}#}
+{#  </ul>#}
