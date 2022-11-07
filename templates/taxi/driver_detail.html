@@ -13,6 +13,7 @@
     <h5>Drives the following cars:</h5>
     <table class="table table-sm table-bordered table-striped">
       <thead class="thead-dark">
+        <th scope="col">ID</th>
         <th scope="col">Model</th>
         <th scope="col">Manufacturer</th>
 
@@ -21,7 +22,8 @@
       <tbody>
       {% for car in driver.cars.all %}
         <tr>
-          <td><a href="{% url 'taxi:car-detail' pk=car.id %}" class="dark-link">{{ car.model }}</a></td>
+          <td><a href="{% url 'taxi:car-detail' pk=car.id %}" class="dark-link">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
           <td>{{ car.manufacturer.name }}</td>
         </tr>
       {% endfor %}
