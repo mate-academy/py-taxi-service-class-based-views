@@ -3,15 +3,31 @@
 {% block content %}
   <h1>Cars List</h1>
   {% if car_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Model</th>
+        <th>Manufacturer's Name</th>
+        <th>Manufacturer's Country</th>
+      </tr>
       {% for car in car_list %}
-        <li>
-          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
-        (Manufacturer: {{ car.manufacturer.name }}, {{ car.manufacturer.country }})
-        </li>
+        <tr>
+          <td>
+            <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
+          </td>
+          <td>
+            {{ car.model }}
+          </td>
+          <td>
+            {{ car.manufacturer.name }}
+          </td>
+          <td>
+            {{ car.manufacturer.country }}
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
+    </table>
   {% else %}
-    <p>No cars in library</p>
+    <p>No cars</p>
   {% endif %}
 {% endblock %}
