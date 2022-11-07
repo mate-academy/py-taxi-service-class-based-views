@@ -2,7 +2,7 @@
 {% block content %}
     <ul>
         {% for car in car_list %}
-            <li><p>{{ car.model }} ({{ car.manufacturer.country }} )</p></li>
+            <li><a href={% url 'taxi:car-detail' pk=car.id %}>{{ car.model }} ({{ car.manufacturer.country }} )</a></li>
         {% endfor %}
     </ul>
 {% endblock %}
