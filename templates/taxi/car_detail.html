@@ -4,9 +4,16 @@
   <h1>{{ car.model }}</h1>
   <h4>Manufacturer: {{ car.manufacturer.name }}, {{ car.manufacturer.country }}</h4>
   <h4>Drivers:</h4>
-  <ul>
-    {% for driver in car.drivers.all %}
-      <li><a href="../../drivers/{{ driver.id }}">{{ driver.username }}</a></li>
-    {% endfor %}
-  </ul>
+
+    {% if car.drivers.count %}
+      {% for driver in car.drivers.all %}
+        <ul>
+          <li><a href="../../drivers/{{ driver.id }}">{{ driver.username }}</a></li>
+        </ul>
+      {% endfor %}
+    {% else %}
+      There are no drivers
+    {% endif %}
+
+
 {% endblock %}
