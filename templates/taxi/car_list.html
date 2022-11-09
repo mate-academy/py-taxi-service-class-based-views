@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Cars:</h2>
+    <ul>
+      {% for car in car_list %}
+        <li>
+          <strong>{{ car.model }}</strong> (produced by
+            <strong>
+              {{ car.manufacturer.name }}, {{ car.manufacturer.country }})
+            </strong>
+          <a href="{{ car.get_absolute_url }}">id: {{ car.id }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
