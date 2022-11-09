@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if driver.first_name and driver.last_name %}
+    <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+  {% else %}
+    <h1>Driver {{ driver.username }}</h1>
+  {% endif %}
+  <ul>
+    <li>Username: {{ driver.username }}</li>
+    <li>License number: {{ driver.license_number }}</li>
+    {% if driver.email %}<li>Email: {{ driver.email }}</li>{% endif %}
+  </ul>
+
+  <h2>Cars</h2>
+  {% if driver.cars.all %}
+    {% for car in driver.cars.all %}
+      <p class="text-muted"><strong>ID: {{ car.id }}</strong></p>
+      <p>{{ car.model }}</p>
+      <hr>
+    {% endfor %}
+  {% else %}
+    <p>This driver has no cars yet</p>
+  {% endif %}
+{% endblock %}
