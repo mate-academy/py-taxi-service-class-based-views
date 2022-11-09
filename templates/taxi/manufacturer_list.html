@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List of manufactures</h1>
+  {% if manufacturer_list %}
+    <ul>
+    {% for manufacturer in manufacturer_list %}
+      <li>
+        <a href="{{ manufacturer.get_absolute_url }}">{{ manufacturer.name }}</a>, {{ manufacturer.country }}
+      </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no manufactures</p>
+  {% endif %}
+{% endblock %}
