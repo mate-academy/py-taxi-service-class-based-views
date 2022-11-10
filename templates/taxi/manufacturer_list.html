@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Сar manufacturers of our service</h1>
+  {% if manufacturer_list.count > 0 %}
+  <table class="table table-dark table-striped th_table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for manufacturer in manufacturer_list %}
+      <tr>
+        <td>{{manufacturer.name}}</td>
+        <td>{{manufacturer.country}}</td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+    </tbody>
+  </table>
+{% endblock %}
