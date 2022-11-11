@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
   <h1 class="display mt-5">Taxi Service Home</h1>
   <p>Welcome to Best Taxi Ever!</p>
@@ -8,27 +7,20 @@
   <div class="homepage-content">
     <ul class="list-group">
       <li class="list-group-item">
-          <i class="bi bi-house-heart-fill"></i>
-           <span>Cars</span>
-            <span class="badge badge-primary">
-                 {{ num_cars }}
-            </span>
+        <i class="bi bi-house-heart-fill"></i>
+        <span>Cars</span>
+        <span class="badge badge-primary">{{ num_cars }}</span>
       </li>
       <li class="list-group-item">
-          <i class="bi bi-person-circle"></i>
-          <span>Drivers</span>
-            <span class="badge badge-primary">
-                 {{ num_drivers }}
-            </span>
+        <i class="bi bi-person-circle"></i>
+        <span>Drivers</span>
+        <span class="badge badge-primary">{{ num_drivers }}</span>
       </li>
       <li class="list-group-item">
-          <i class="bi bi-building"></i>
-          <span>Manufacturers</span>
-            <span class="badge badge-primary">
-                  {{ num_manufacturers }}
-            </span>
+        <i class="bi bi-building"></i>
+        <span>Manufacturers</span>
+        <span class="badge badge-primary">{{ num_manufacturers }}</span>
       </li>
     </ul>
   </div>
-
 {% endblock %}
