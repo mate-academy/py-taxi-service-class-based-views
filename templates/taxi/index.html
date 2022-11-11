@@ -1,13 +1,26 @@
 {% extends "base.html" %}
-
 {% block content %}
-  <h1>Taxi Service Home</h1>
+  <h1 class="display mt-5">Taxi Service Home</h1>
   <p>Welcome to Best Taxi Ever!</p>
   <h2>Dynamic content</h2>
   <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  <div class="homepage-content">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <i class="bi bi-house-heart-fill"></i>
+        <span>Cars</span>
+        <span class="badge badge-primary">{{ num_cars }}</span>
+      </li>
+      <li class="list-group-item">
+        <i class="bi bi-person-circle"></i>
+        <span>Drivers</span>
+        <span class="badge badge-primary">{{ num_drivers }}</span>
+      </li>
+      <li class="list-group-item">
+        <i class="bi bi-building"></i>
+        <span>Manufacturers</span>
+        <span class="badge badge-primary">{{ num_manufacturers }}</span>
+      </li>
+    </ul>
+  </div>
 {% endblock %}
