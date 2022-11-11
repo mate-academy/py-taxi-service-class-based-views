@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="display-4">
+    Manufacturers list
+  </h1>
+  <div class="table-responsive bg-white">
+    <table class="table mb-0">
+      <thead>
+      <tr>
+        <th scope="col">MANUFACTURER</th>
+        <th scope="col">COUNTRY</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% if manufacturer_list %}
+        {% for manufacturer in manufacturer_list %}
+          <tr>
+            <th scope="row" style="color: #666666;">{{ manufacturer.name }}</th>
+            <td>{{ manufacturer.country }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <th scope="row" style="color: #666666;">Manufacturers found</th>
+      {% endif %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
