@@ -1,3 +1,14 @@
 body {
-    margin-top: 20px;
+    margin-top: 40px;
+    background-color: lightcyan;
+    color: black;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.list_item {
+    list-style: none;
 }
