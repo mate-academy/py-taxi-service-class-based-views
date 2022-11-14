@@ -6,10 +6,12 @@
   ```python manage.py loaddata taxi_service_db_data.json```
 
 - After loading data from fixture you can use following superuser (or create another one by yourself):
+
   - Login: `admin.user`
   - Password: `1qazcde3`
 - Make sure that you change the settings for [html-files](https://github.com/mate-academy/py-task-guideline/blob/main/html_settings/README.MD).
 Use 2 indents in `.html` files.
+
 
 Feel free to add more data using admin panel, if needed.
 
@@ -28,12 +30,14 @@ In this task, you should implement class-based list and detail views.
 
 3. Create `CarDetailView` detail view.
     - Set only model.
+
     
 4. Create `DriverListView` list view.
     - Set model and pagination equals to 5.
 
 5. Create `DriverDetailView` detail view.
     - Set model and queryset.
+
     - In this view, you display information about cars of the driver. 
       **Optimize query**: don't make a query for a manufacturer for each car _(N+1 problem)_.
 
@@ -63,13 +67,16 @@ In this task, you should implement class-based list and detail views.
        - in `sidebar.html` add links to the home page, manufacturer list page, car list page, drivers list page.
    - Check that you put empty lines at the end of each html-file.
     
+
 8. Run server, open `http://127.0.0.1:8000/`, check if everything is displayed correctly.
 9. Check that you put empty lines at the end of each HTML file.
 10. Check your code style with `flake8`.
 11. Run `python manage.py test` to check your code results.
 
+
 ### Note: Attach screenshots of all created or modified pages to pull request. 
 it would be better to attach screenshots to the comment, NOT in commit. 
 It's important to **attach images** not links to them. See example:
+
 
 ![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/python_pr_with_images.png)
