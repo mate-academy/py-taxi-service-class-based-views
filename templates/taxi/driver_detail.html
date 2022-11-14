@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Driver contact</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"><strong>Username</strong></th>
+        <th scope="col"><strong>Fullname</strong></th>
+        <th scope="col"><strong>License</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>{{ driver.username }}</td>
+          <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+          <td>{{ driver.license_number }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ml-3">
+    <h3>Drivers Info</h3>
+    {% for car in driver.cars.all %}
+    <hr>
+    <p><a href="{% url 'taxi:car-detail' pk=driver.id %}">{{ car.model }}</a></p>
+    <p>
+      <strong>Full name: </strong>
+      {{ driver.first_name }} {{ driver.last_name }}
+    </p>
+    {% empty %}
+    <p><strong>No car!</strong></p>
+    {% endfor %}
+  </div>
+{% endblock %}
