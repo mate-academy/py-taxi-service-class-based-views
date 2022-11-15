@@ -5,15 +5,13 @@
   {% if driver_list %}
     <table>
       <tr>
-        <th>ID</th>
         <th>Username</th>
         <th>Firstname</th>
         <th>Lastname</th>
       </tr>
       {% for driver in driver_list %}
         <tr>
-          <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.id }}</a></td>
-          <td>{{ driver.username }}</td>
+          <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></td>
           <td>{{ driver.first_name }}</td>
           <td>{{ driver.last_name }}</td>
         </tr>
