@@ -24,7 +24,6 @@ class ManufacturerListView(generic.ListView):
     model = Manufacturer
     queryset = Manufacturer.objects.all().order_by("name")
     paginate_by = 5
-    template_name = "taxi/manufacturer_list.html"
 
 
 class CarListView(generic.ListView):
