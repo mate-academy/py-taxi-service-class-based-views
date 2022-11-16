@@ -24,8 +24,5 @@ class Car(models.Model):
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
-    class Meta:
-        pass
-
     def get_absolute_url(self):
         return reverse("taxi:car-detail", args=[str(self.id)])
