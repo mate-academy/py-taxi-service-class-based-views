@@ -6,7 +6,8 @@ from taxi.views import (
     CarListView,
     DriverListView,
     DriverDetailView,
-    CarDetailView)
+    CarDetailView
+)
 
 urlpatterns = [
     path("", index, name="index"),
