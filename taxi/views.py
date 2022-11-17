@@ -49,4 +49,3 @@ class DriverDetailView(generic.DetailView):
     model = Driver
     context_object_name = "driver"
     queryset = Driver.objects.all().prefetch_related("cars")
-
