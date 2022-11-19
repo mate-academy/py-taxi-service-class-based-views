@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h4 class="display-4">Manufacturer</h4>
+
+  {% if manufacturer_list %}
+    <ul class="list-group">
+      {% for manufacturer in manufacturer_list %}
+
+        <li  class="list-group-item"><strong>{{ forloop.counter }} Brand: </strong>
+          {{ manufacturer.name }}</li>
+      {% endfor %}
+      <hr>
+      <li>Count of manufacturer on the page: {{ manufacturer_list.count }}</li>
+      <br>
+    </ul>
+    {% else %}
+      <p>Manufacturer list is empty</p>
+  {% endif %}
+
+{% endblock %}

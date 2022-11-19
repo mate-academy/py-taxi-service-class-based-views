@@ -1,0 +1,22 @@
+{%  extends "base.html" %}
+
+{% block content %}
+
+  <h4 class="display-4">The Best Car Ever</h4>
+
+  {% if car_list %}
+    <ul class="list-group">
+      {% for car in car_list %}
+        <li class="list-group-item">
+          <strong>{{ forloop.counter }} Car: </strong>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
+        </li>
+      {% endfor %}
+    <li>Count of manufacturer on the page: {{ car_list.count }}</li>
+      <br>
+    </ul>
+  {% else %}
+    <p>No car in list</p>
+  {% endif %}
+
+{%  endblock %}
