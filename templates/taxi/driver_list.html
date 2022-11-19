@@ -7,11 +7,12 @@
     <ul class="list-group">
       {% for driver in driver_list %}
         <li class="list-group-item">
-          <strong>Username: </strong>
+          <strong>{{ forloop.counter }}  Username: </strong>
           <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
           {{ driver.username }}</a>
         </li>
       {% endfor %}
+    <li>Count of manufacturer on the page: {{ driver_list.count }}</li><br>
     </ul>
   {% else %}
     <p>No driver in list</p>
