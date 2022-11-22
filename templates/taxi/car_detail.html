@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Library | Cars | Car</title>
+{% endblock %}
+
+{% block content%}
+  <h1>Taxi Service Cars Car</h1>
+  <h3>Car: {{ car.model }}</h3>
+  <hr>
+  <p class="text-muted"><strong>Car manufacturer: {{ car.manufacturer.name }}</strong></p>
+  <p class="text-muted"><strong>Car manufacturer country: {{ car.manufacturer.country }}</strong></p>
+  <hr>
+  <h3>Drivers:</h3>
+    <ul>
+    {% for driver in car.drivers.all %}
+        <hr>
+        <p class="text-muted"><strong>Full name:
+          <a href="{{ driver.get_absolute_url }}">{{ driver.first_name }} {{ driver.last_name }}</a>
+        </strong></p>
+        <p class="text-muted"><strong>Driver username: {{ driver.username }}</strong></p>
+        <p class="text-muted"><strong>Driver email: {{ driver.email }}</strong></p>
+    {% empty %}
+        <p>No drivers...</p>
+    {% endfor %}
+  <hr>
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="{% url 'taxi:car-list' %}">back to list</a>
+    </li>
+  </ul>
+{% endblock %}

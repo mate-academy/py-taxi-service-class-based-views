@@ -1,6 +1,33 @@
 from django.shortcuts import render
+from django.views import generic
 
 from .models import Driver, Car, Manufacturer
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    queryset = Driver.objects.all()
+    paginate_by = 5
+
+
+class DriverDetailView(generic.DetailView):
+    model = Driver
+
+
+class CarListView(generic.ListView):
+    model = Car
+    queryset = Car.objects.all().select_related("manufacturer")
+    paginate_by = 5
+
+
+class CarDetailView(generic.DetailView):
+    model = Car
+
+
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    paginate_by = 5
+    queryset = Manufacturer.objects.all().order_by("name")
 
 
 def index(request):
