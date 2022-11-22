@@ -30,25 +30,18 @@ class ManufacturerListView(generic.ListView):
 
 class CarListView(generic.ListView):
     model = Car
-    context_object_name = "car_list"
     queryset = Car.objects.all().select_related("manufacturer")
-    template_name = "taxi/car_list.html"
     paginate_by = 5
 
 
 class CarDetailView(generic.DetailView):
     model = Car
-    template_name = "taxi/car_detail.html"
 
 
 class DriverListView(generic.ListView):
     model = Driver
-    context_object_name = "driver_list"
-    template_name = "taxi/driver_list.html"
     paginate_by = 5
 
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.select_related()
-    template_name = "taxi/driver_detail.html"
