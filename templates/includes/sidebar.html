@@ -1,6 +1,26 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
+<ul>
+  <li>
+    <a href="{% url 'taxi:index' %}" class="active">
+      <span class="icon"><i class="fas fa-home"></i></span>
+      <span class="item">Home page</span>
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'taxi:driver-list' %}">
+      <span class="icon"><i class="fas fa-user-friends"></i></span>
+      <span class="item">Drivers</span>
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'taxi:car-list' %}">
+      <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+      <span class="item">Cars</span>
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'taxi:manufacturer-list' %}">
+      <span class="icon"><i class="fas fa-database"></i></span>
+      <span class="item">Manufacturers</span>
+    </a>
+  </li>
 </ul>
