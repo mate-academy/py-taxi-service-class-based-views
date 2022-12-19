@@ -1,38 +1,34 @@
 from django.urls import path
 
-from .views import index, ManufacturerListView, CarListView, DriverListView, DriverDetailView, CarDetailView, ManufacturerDetailView
-
+from .views import index, ManufacturerListView, CarListView,\
+    DriverListView, DriverDetailView, CarDetailView, ManufacturerDetailView
 
 
 urlpatterns = [
     path("", index, name="index"),
     path(
-        "manufactures/", ManufacturerListView.as_view(), name="manufactures-list"
-    ),
-    path(
-        "manufactures/<int:pk>/",
-         ManufacturerDetailView.as_view(),
-         name="manufactures-detail"
+        "manufacturers/", ManufacturerListView.as_view(),
+        name="manufacturer-list"
     ),
     path(
         "cars/",
         CarListView.as_view(),
-        name="cars-list",
+        name="car-list",
     ),
     path(
         "cars/<int:pk>/",
-         CarDetailView.as_view(),
-         name="car-detail"
+        CarDetailView.as_view(),
+        name="car-detail"
     ),
     path(
         "drivers/",
-         DriverListView.as_view(),
-         name="drivers-list"
+        DriverListView.as_view(),
+        name="driver-list"
     ),
     path(
         "drivers/<int:pk>/",
-         DriverDetailView.as_view(),
-         name="driver-detail"
+        DriverDetailView.as_view(),
+        name="driver-detail"
     ),
 ]
 
