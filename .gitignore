@@ -8,3 +8,4 @@ venv/
 **__pycache__/
 *.pyc
 /db.sqlite3
+/taxi_service_db_data.json
