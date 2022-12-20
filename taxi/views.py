@@ -30,7 +30,7 @@ class ManufacturerListView(generic.ListView):
 
 
 class ManufacturerDetailView(generic.DetailView):
-    model = Driver
+    model = Manufacturer
 
 
 class CarListView(generic.ListView):
@@ -50,3 +50,4 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
+    queryset = Driver.objects.all().prefetch_related("cars")
