@@ -12,6 +12,7 @@
           (Username: <a class="text-warning link" href="{% url 'taxi:driver-detail' pk=driver.id %}">
                       {{ driver.username }}</a>)
         </li>
+        <hr>
       {% endfor %}
     </ul>
   {% else %}

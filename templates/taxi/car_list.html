@@ -4,6 +4,7 @@
   <h1>Car List</h1>
   <ul>
     {% for car in car_list %}
+      <hr>
         <li>
           <p>
             {{ car }} (<a class="text-warning link" href="{% url 'taxi:car-detail' pk=car.id %}">ID: {{ car.id }}</a>)

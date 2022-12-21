@@ -11,6 +11,7 @@
         <li>
           {{ car }} (<a class="text-warning link" href="{% url 'taxi:car-detail' pk=car.id %}">ID: {{ car.id }}</a>)
         </li>
+        <hr>
       {% endfor %}
     </ul>
   {% else %}
