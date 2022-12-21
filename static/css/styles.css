@@ -1,3 +1,14 @@
 body {
+    background-color: #000000;
     margin-top: 20px;
+    color: whitesmoke;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.current {
+    color: whitesmoke;
 }
