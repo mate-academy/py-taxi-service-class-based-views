@@ -1,8 +1,8 @@
 {% extends "base.html" %}
+
 {% block title %}<title>Manufacturers | Taxi Service</title>{% endblock %}
 {% block content %}
   <h1>Manufacturers:</h1>
-
   {% if manufacturer_list %}
     <ul>
       {% for manufacturer in manufacturer_list %}
