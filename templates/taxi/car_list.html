@@ -3,10 +3,10 @@
 {% block content %}
   <h1>Car List</h1>
   <ul>
-    {% for Car in Car_list %}
+    {% for car in car_list %}
       <li>
          <p>
-           {{ Car }} (<a class="link" href="{% url 'taxi:car-detail' pk=Car.id %}">{{ Car.id }}</a>)
+           {{ car }} (<a class="link" href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>)
          </p>
       </li>
     {% endfor %}
