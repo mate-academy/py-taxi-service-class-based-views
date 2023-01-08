@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car List</h1>
+  <ul>
+    {% for car in car_list %}
+      <li>
+         <p>
+           {{ car }} (<a class="link" href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>)
+         </p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
