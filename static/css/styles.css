@@ -1,3 +1,18 @@
 body {
     margin-top: 20px;
 }
+
+.sidebar-nav {
+    padding: 10px;
+    list-style: none;
+    background-color: #eee;
+    border-radius: 8px;
+}
+
+.nav-link {
+    margin: 10px 5px;
+    color: #000;
+    display: block;
+    background-color: #ddd;
+    border-radius: 5px;
+}
