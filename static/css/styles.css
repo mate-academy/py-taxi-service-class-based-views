@@ -1,3 +1,31 @@
 body {
     margin-top: 20px;
 }
+
+.drivers-table {
+    table-border-color-dark: deepskyblue;
+    position: center;
+    width: auto;
+}
+
+.cars-table {
+    border: 2px;
+    width: auto;
+}
+
+.manufacturers-table {
+    width: auto;
+}
+
+td, th {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.cars-table th {
+    background-color: deepskyblue;
+}
+
+.cars-table td {
+    background-color: yellow;
+}
