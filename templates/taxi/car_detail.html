@@ -3,6 +3,7 @@
 {% block content %}
   <h1>Car ID: {{ car.id }}</h1>
   <p><strong>Car model:</strong> {{ car.model }}</p>
+  <p><strong>Car manufacturer:</strong> {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
   <div class="ml-2">
     <h3>All drivers of the car</h3>
       {% for driver in car.drivers.all %}

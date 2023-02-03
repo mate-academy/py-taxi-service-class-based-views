@@ -22,6 +22,8 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
+    template_name = "taxi/manufacturer_list.html"
+    context_object_name = "manufacturer_list"
     paginate_by = 5
 
 
@@ -42,3 +44,4 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
+    queryset = Driver.objects.all().prefetch_related("cars__manufacturer")

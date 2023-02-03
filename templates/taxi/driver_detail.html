@@ -10,7 +10,9 @@
         <hr>
         <p class="text-muted">
           <strong>Car model:</strong>
-          <a href="{{ car.get_absolute_url }}">{{ car.model }}</a>
+          <a href="{{ car.get_absolute_url }}">
+            {{ car.model }} ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})
+          </a>
         </p>
       {% empty %}
         <p>No cars!</p>
