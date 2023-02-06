@@ -6,7 +6,7 @@
   <div class="ml-3">
     <h4>Cars</h4>
     {% for car in driver.cars.all %}
-      <p>{{ car.model }}</p>
+      <p>{{ car.model }} - {{ car.manufacturer }}</p>
     {% endfor %}
   </div>
 {% endblock %}
