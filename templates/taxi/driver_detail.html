@@ -7,7 +7,7 @@
   <h5>
     <ul>
       {% for car in driver.cars.all %}
-        <li><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.maufacturer }}{{ car.model }}</a></li>
+        <li><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.manufacturer.name }}, {{ car.model }}</a></li>
       {% endfor %}
     </ul>
   </h5>
