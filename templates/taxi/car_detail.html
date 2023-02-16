@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Car Detail | Taxi Service</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Car Detail</h1>
+  <hr>
+  <p><strong>Car model: </strong>{{ car.model }}</p>
+  <hr>
+  <p><strong>Manufacturer: </strong>{{ car.manufacturer.name }}</p>
+  <hr>
+  <p><strong>Country: </strong>{{ car.manufacturer.country }}</p>
+{% endblock %}
