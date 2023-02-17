@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Username: {{ driver.username }}</h1>
+  <p>License_number: {{ driver.license_number }}</p>
+  <h2>Cars</h2>
+  {% if driver.cars %}
+    <ul>
+      {% for car in driver.cars.all %}
+        <li>
+          <a href="{% url 'taxi:car-detail' pk=car.id%}">{{ car.model }}</a>
+        </li>
+      {% empty %}
+        No cars :(
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
