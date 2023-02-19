@@ -1,3 +1,5 @@
+from typing import Type
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -6,7 +8,7 @@ class Manufacturer(models.Model):
     name = models.CharField(max_length=255, unique=True)
     country = models.CharField(max_length=255)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
     class Meta:
@@ -26,7 +28,7 @@ class Car(models.Model):
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.model
 
     class Meta:
