@@ -9,7 +9,7 @@ class Manufacturer(models.Model):
     class Meta:
         ordering = ["name"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name},({self.country})"
 
 
@@ -29,5 +29,5 @@ class Car(models.Model):
     class Meta:
         ordering = ["model"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.model
