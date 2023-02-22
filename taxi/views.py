@@ -1,4 +1,6 @@
+from django.db.models import Prefetch
 from django.shortcuts import render
+from django.views import generic
 
 from .models import Driver, Car, Manufacturer
 
@@ -17,3 +19,32 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    queryset = Manufacturer.objects.order_by("name")
+    template_name = "taxi/manufacturer-list.html"
+    paginate_by = 5
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    paginate_by = 5
+
+
+class CarListView(generic.ListView):
+    model = Car
+    paginate_by = 5
+    queryset = Car.objects.select_related("manufacturer")
+
+
+class CarDetailView(generic.DetailView):
+    model = Car
+
+
+class DriverDetailView(generic.DetailView):
+    model = Driver
+    queryset = Driver.objects.prefetch_related(
+        Prefetch("cars", queryset=Car.objects.select_related("manufacturer"))
+    )
