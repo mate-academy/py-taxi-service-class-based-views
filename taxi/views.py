@@ -1,4 +1,6 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
+from django.views import generic
 
 from .models import Driver, Car, Manufacturer
 
@@ -17,3 +19,34 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    context_object_name = "manufacturer_list"
+    queryset = Manufacturer.objects.order_by("name")
+    paginate_by = 5
+
+
+class CarListView(generic.ListView):
+    model = Car
+    context_object_name = "car_list"
+    paginate_by = 5
+    # queryset = Car.objects.select_related("manufacturer")
+
+
+class CarDetailView(generic.DetailView):
+    context_object_name = "car_detail"
+    model = Car
+
+
+class DriverListView(generic.ListView):
+    model = get_user_model()
+    paginate_by = 5
+    context_object_name = "driver_list"
+
+
+class DriverDetailView(generic.DetailView):
+    model = get_user_model()
+    queryset = get_user_model().objects.prefetch_related("cars__manufacturer")
+    context_object_name = "driver_detail"
