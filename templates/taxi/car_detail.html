@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    Car <u> {{ car.model }} </u> drives by: <br>
+  {% for driver in car.drivers.all %}
+    <ul>
+    <li>{{ driver.first_name }} {{ driver.last_name }}</li>
+    </ul>
+  {% empty %}
+    <strong> There are no drivers connected to this car :( </strong>
+
+  {% endfor %}
+{% endblock %}
