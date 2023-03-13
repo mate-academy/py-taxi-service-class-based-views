@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+    <h2>Driver's info: </h2>
+    <div class="row">
+      <div class="col-sm-2">
+        <h3>Nickname:</h3>
+        <h4>Full name:</h4>
+        <h4>License:</h4>
+        <h4>Cars:</h4>
+      </div>
+      <div class="col-sm-10">
+        <h3>{{ driver.username }}</h3>
+        <h4>{{ driver.first_name }} {{ driver.last_name }}</h4>
+        <h4>{{ driver.license_number }}</h4>
+        {% for car in driver.cars.all %}
+          <p><a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.model }}</a></p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
