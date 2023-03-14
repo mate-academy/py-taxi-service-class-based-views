@@ -1,3 +1,47 @@
 body {
     margin-top: 20px;
+    background-image: url("../light_faded_background_85547_1600x1200.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.driver_list, .manufacturer_list {
+    min-height: 150px;
+}
+
+.col-sm-2 {
+    background: rgba(138, 132, 126, 0.5);
+    border-radius: 10px;
+
+}
+
+.col-sm-2 a {
+    text-decoration: none;
+    list-style: none;
+    font-size: 20px;
+    color: #333232;
+
+}
+.driver_list a,.car_list a{
+    text-decoration: none;
+    list-style: none;
+    font-size: 17px;
+    color: #441313;
+    font-weight: bold;
+}
+.col-sm-10 {
+    background: rgba(138, 132, 126, 0.2);
+    border-radius: 10px;
+}
+.sidebar-nav{
+    margin-top: 20px;
+}
+
+.page-link{
+    color: #333232;
+}
+
+.page-item.active .page-link{
+    background-color: #333232;
+    border-color: black;
 }
