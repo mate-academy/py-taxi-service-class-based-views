@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="text-center"><u>Cars List</u></h1><br>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Manufacturer Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% if car_list %}
+        {% for car in car_list %}
+          <tr>
+            <td><a
+                href="{% url 'taxi:car-detail' pk=car.pk %}">{{ car.pk }}</a>
+            </td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <p>There are no cars in Taxi Service</p>
+      {% endif %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
