@@ -15,20 +15,24 @@
 </head>
 
 <body>
+<blockquote class="text-right mr-3 text-success">
+<strong>As comfortable as you are!</strong>
+</blockquote>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
 
       {% block sidebar %}
         {% include "includes/sidebar.html" %}
       {% endblock %}
 
     </div>
-    <div class="col-sm-10 ">
+    <div class="col-sm-8">
 
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include "includes/pagination.html" %}
       {% endblock %}
 
     </div>
