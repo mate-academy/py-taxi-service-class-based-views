@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ car.model }}</h1>
+  <p><strong>Manufacturer: </strong>{{ car.manufacturer.name }}, {{ car.manufacturer.country }}</p>
+  <div class="ml-3">
+    <h3>Drivers</h3>
+    {% if car.drivers %}
+      <ul>
+        {% for driver in car.drivers.all %}
+          <li><a href="{{ driver.get_absolute_url }}">{{ driver }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      There is no drivers to view
+    {% endif %}
+
+  </div>
+{% endblock %}

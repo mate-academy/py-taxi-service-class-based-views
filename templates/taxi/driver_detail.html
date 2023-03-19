@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+
+  <div class="ml-3">
+  <h3>Cars: </h3>
+    {% if driver.cars %}
+      <ul>
+        {% for car in driver.cars.all %}
+          <li><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></li>
+
+        {% endfor %}
+      </ul>
+    {% else %}
+      No cars to view
+    {% endif %}
+
+  </div>
+
+{% endblock %}
