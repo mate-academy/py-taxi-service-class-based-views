@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  <div class="container">
+    <h1 class="text-center">Taxi Service Home</h1>
+    <p class="lead text-center">Welcome to Best Taxi Ever!</p>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center">Dynamic content</h2>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Cars:</strong> {{ num_cars }}</li>
+          <li class="list-group-item"><strong>Drivers:</strong> {{ num_drivers }}</li>
+          <li class="list-group-item"><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 {% endblock %}
+
+
+
+

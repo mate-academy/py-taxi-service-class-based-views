@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="mb-4">Info about driver: {{ driver.username }}</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="lead mb-1"><strong>Username:</strong> {{ driver.username }}</p>
+        <p class="lead mb-1"><strong>Name:</strong> {{ driver.first_name }}</p>
+        <p class="lead mb-1"><strong>Surname:</strong> {{ driver.last_name }}</p>
+        <p class="lead mb-1"><strong>License:</strong> {{ driver.license_number }}</p>
+      </div>
+    </div>
+    <div class="ml-3 mt-4">
+      <h3 class="mb-4"><strong>Cars</strong></h3>
+      {% if driver.cars %}
+        <ul>
+        {% for car in driver.cars.all %}
+          <li><a href="{% url 'taxi:car-detail' pk=car.pk %}">{{ car.model }}</a></li>
+        {% empty %}
+          <p>There are no cars for this driver</p>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <p>No cars!</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
+
