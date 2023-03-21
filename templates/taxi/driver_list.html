@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% for driver in driver_list %}
+    <a href="{{ driver.id }}"><li>{{ driver.username }} </li></a>
+  {% endfor %}
+{% endblock %}
