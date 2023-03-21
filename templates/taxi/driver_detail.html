@@ -3,7 +3,12 @@
 {% block content %}
 
   <h1>Username: {{ driver.username }} </h1>
-  <p><strong>Full name: </strong>{{ driver.first_name }} {{ driver.last_name }}</p>
+  {% if driver.username == "admin.user" %}
+    <p><strong>Full name: </strong>Administrator</p>
+  {% else %}
+    <p><strong>Full name: </strong>{{ driver.first_name }} {{ driver.last_login }}</p>
+  {% endif %}
+  <p><strong>Email: </strong>{{ driver.email }}</p>
   <p><strong>License number: </strong>{{ driver.license_number }}</p>
 
   <div class="ml-3">
@@ -11,10 +16,11 @@
       {% for car in driver.cars.all %}
       <hr>
         <p class="text-muted"><strong>id: </strong>{{ car.id }}</p>
-        <p><strong>Model: </strong>{{ car.model }}</p>
-        <p><strong>Manufacturer: </strong>{{ car.manufacturer.name }}</p>
-        <p><strong>Producing country: </strong>{{ car.manufacturer.country }}</p>
+        <p class="text-muted"><strong>Model: </strong><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
+        <p class="text-muted"><strong>Manufacturer: </strong>{{ car.manufacturer.name }}</p>
+        <p class="text-muted"><strong>Producing country: </strong>{{ car.manufacturer.country }}</p>
       {% endfor %}
+      <hr>
   </div>
 
 {% endblock %}

@@ -9,8 +9,9 @@
       {% for car in car_list %}
         <li>
           <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
-          (manufacturer: {{ car.manufacturer }}, driver: {{ car.drivers.name }})
+          <p>(Manufacturer: {{ car.manufacturer.name }})</p>
         </li>
+        <hr>
       {% endfor %}
     </ul>
   {% else %}
