@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "taxi",
     "debug_toolbar",
+    "taxi",
+
 ]
 
 MIDDLEWARE = [
