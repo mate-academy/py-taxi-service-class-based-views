@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>{{ manufacturer.name }}</title>
+{% endblock %}
+
+{% block content %}
+ <h1><strong>Name: </strong>{{ manufacturer.name }}</h1>
+ <p><strong>Country: </strong>{{ manufacturer.country }}</p>
+
+  <h3>Cars:</h3>
+  {% for car in manufacturer.cars.all %}
+    <hr>
+    <p class="text-muted"><strong>Id:</strong>{{ car.id }}</p>
+    <p>
+      <strong>Model: </strong>
+      {{ car.model }}
+    </p>
+   {% empty %}
+    <p>No cars</p>
+  {% endfor %}
+
+
+{% endblock %}
