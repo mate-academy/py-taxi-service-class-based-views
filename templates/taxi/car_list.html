@@ -7,8 +7,8 @@
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.model }}</a>,
-          manufacturer: {{ car.manufacturer.name }}
+          <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.model }}</a>
+          ({{ car.manufacturer.country }})
         </li>
       {% endfor %}
     </ul>
