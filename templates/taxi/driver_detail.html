@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Driver {{ driver.id }}</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Driver: {{ driver.first_name }} {{ driver.last_name }}</h1>
+  <h4>Driver license: {{ driver.license_number }}</h4>
+  <h4>Cars:</h4>
+  <ul>
+    {% for car in driver.cars.all %}
+      <div class="list-group">
+        <a class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ car.model}}</h5>
+          </div>
+          <p class="mb-1">Manufacturer: {{ car.manufacturer.name}}</p>
+          <p class="text-muted">Country: {{ car.manufacturer.country }}</p>
+        </a>
+      </div>
+    {% empty %}
+      <p>There are no cars for such driver</p>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
+
+
+{#{% extends "base.html" %}#}
+{##}
+{#{% block title %}#}
+{#  <title>Driver {{ driver.id }}</title>#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#  {% for car in driver.cars.all %}#}
+{#    <div class="list-group">#}
+{#      <a class="list-group-item">#}
+{#        <div class="d-flex w-100 justify-content-between">#}
+{#          <h5 class="mb-1">{{ car.model}}</h5>#}
+{#        </div>#}
+{#        <p class="mb-1">Some placeholder content in a paragraph.</p>#}
+{#        <small class="text-muted">And some muted small print.</small>#}
+{#      </a>#}
+{#    </div>#}
+{#  {% endfor %}#}
+{##}
+{#{% endblock %}#}
+
+
+
