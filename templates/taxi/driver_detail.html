@@ -6,7 +6,7 @@
   {% if driver.username == "admin.user" %}
     <p><strong>Full name: </strong>Administrator</p>
   {% else %}
-    <p><strong>Full name: </strong>{{ driver.first_name }} {{ driver.last_login }}</p>
+    <p><strong>Full name: </strong>{{ driver.first_name }} {{ driver.last_name }}</p>
   {% endif %}
   <p><strong>Email: </strong>{{ driver.email }}</p>
   <p><strong>License number: </strong>{{ driver.license_number }}</p>
