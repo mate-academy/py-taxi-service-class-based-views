@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}<title>Driver info</title>{% endblock %}
+
 {% block content %}
   <h2>Driver: {{ driver.first_name }} {{ driver.last_name }}</h2>
   <table>
@@ -11,7 +13,6 @@
       <th>Date Joined</th>
       <th>Last Activity</th>
       <th>License</th>
-
     </tr>
 
     <tr>
@@ -26,8 +27,6 @@
   </table>
 
   {% if driver.cars.all %}
-
-
     <div>
       <h3>Cars of {{ driver.first_name }}:</h3>
       <table>
@@ -35,7 +34,6 @@
           <th>Model</th>
           <th>Brand</th>
           <th>Country of registration of the brand</th>
-
         </tr>
         {% for car in driver.cars.all %}
           <tr>
