@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <table class="table" style="width: auto">
+            <tr>
+                <th scope="row">Name</th>
+                <th scope="row">Country</th>
+                <th scope="row">Drivers</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.manufacturer.country }}</td>
+                    {% for driver in car.drivers.all%}
+                        <td><li>{{ driver.first_name }} {{ driver.last_name }}</li>
+                    {% endfor %}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
