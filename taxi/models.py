@@ -13,6 +13,7 @@ class Driver(AbstractUser):
     class Meta:
         verbose_name = "driver"
         verbose_name_plural = "drivers"
+        ordering = ["username"]
 
 
 class Car(models.Model):
