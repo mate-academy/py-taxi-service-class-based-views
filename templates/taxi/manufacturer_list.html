@@ -7,10 +7,10 @@
     <ul>
       {% for item in manufacturer_list %}
         <li>{{ item.name }}({{ item.country }})</li>
+      {% endfor %}
     </ul>
-
-  {% endfor %}
   {% else %}
+    <p> No Manufacturers :(</p>
   {% endif %}
 
 {% endblock %}
