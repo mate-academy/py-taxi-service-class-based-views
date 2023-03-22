@@ -21,10 +21,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("taxi.urls", namespace="taxi")),
-    path("__debug__/", include("debug_toolbar.urls")),
+    path("", include("taxi.urls", namespace="taxi"))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL,
-                          document_root=settings.STATIC_ROOT)
