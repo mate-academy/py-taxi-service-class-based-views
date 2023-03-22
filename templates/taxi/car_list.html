@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Cars</h2>
+  <p> Taxi service has such cars available: </p>
+  <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Model</th>
+      <th>Manufacturer</th>
+      <th>Drivers</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for car in car_list %}
+      <tr>
+        <td><a href={% url 'taxi:car-detail' pk=car.id %}>{{ car.pk }}</a></td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>
+          {% for driver in car.drivers.all %}
+            {{ driver.get_full_name }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4">No cars found.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}
+
+
+
