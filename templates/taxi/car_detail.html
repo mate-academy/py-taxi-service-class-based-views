@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Model: {{ car.model }}</h2>
+  <hr>
+  <h4>Manufacturer: {{ car.manufacturer.name }}, {{ car.manufacturer.country }}</h4>
+  <br>
+  {% if car.drivers.all %}
+    <ul class="list-group">
+      <li class="list-group-item active"><h5>Drivers:</h5></li>
+      {% for driver in car.drivers.all %}
+        <li class="list-group-item"> {{ driver.first_name }} {{ driver.last_name }},
+          username: {{ driver.username }}, license number: {{ driver.license_number }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h3>User doesn't drive</h3>
+  {% endif %}
+{% endblock %}
