@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Manufacturers page</h1>
+  {% for manufacturer in manufacturer_list %}
+
+    <ul>
+      <li >{{ manufacturer }}</li>
+
+    </ul>
+  {% endfor %}
+
+
+   {% block pagination %}
+          {% include "includes/pagination.html" %}
+   {% endblock %}
+{% endblock %}
