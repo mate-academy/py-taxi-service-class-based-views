@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import *
+import taxi.views as views
 
 urlpatterns = [
     path("", index, name="index"),
