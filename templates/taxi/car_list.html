@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List Of All Cars</h1>
+
+  {% if car_list %}
+  <ul>
+    {% for car in car_list %}
+      <li><a href="{% url "taxi:car-detail" pk=car.id %}">ID#{{ car.id }}</a> | {{ car.model }} |
+
+      </li>
+
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no literary formats in library</p>
+  {% endif %}
+{% endblock %}
+
