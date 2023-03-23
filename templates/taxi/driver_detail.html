@@ -15,7 +15,9 @@
     {% if driver.cars.all %}
       {% for car in driver.cars.all %}
         <ul>
-          <li>{{ car.model }}</li>
+          <li>
+            <a href="{{ car.get_absolute_url }}">{{ car.model }}</a>
+          </li>
         </ul>
       {% endfor %}
     {% else %}

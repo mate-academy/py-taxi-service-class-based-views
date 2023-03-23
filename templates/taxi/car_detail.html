@@ -3,8 +3,8 @@
 {% block content %}
   <h2>Car info:</h2>
   <p><strong>Model:</strong> {{ car.model }}</p>
-  <p><strong>Manufacturer country:</strong>
-    {{ car.manufacturer.country}}
+  <p><strong>Manufacturer:</strong>
+    {{ car.manufacturer.name }} ({{ car.manufacturer.country}})
   </p>
   <div>
     <strong>Drivers:</strong>
