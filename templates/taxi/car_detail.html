@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Car: {{ car.model }} </h2>
+<p><strong>Car manufacturer: </strong>
+  {{ car.manufacturer.name }}
+  ({{ car.manufacturer.country }})</p>
+<p><strong>Drives this car:</strong>
+  {% for driver in car.drivers.all %}
+    {{ driver.get_full_name }}{% if not forloop.last %},
+    {% endif %}
+  {% endfor %}
+</p>
+{% endblock %}
