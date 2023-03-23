@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  {% block title %}<title>Taxi Service</title>{% endblock %}
+  {% block title %}
+    <title>Taxi Service</title>
+  {% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
@@ -29,6 +31,7 @@
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include "includes/pagination.html" %}
       {% endblock %}
 
     </div>

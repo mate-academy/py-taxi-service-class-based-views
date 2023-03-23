@@ -1,0 +1,27 @@
+{%  extends "base.html" %}
+
+{% block content %}
+  <h2>Cars:</h2>
+  {% if car_list %}
+    <table class="table table-hover col-sm-5">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Model</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for car in car_list %}
+        <tr>
+          <th scope="row">
+            <a href="{{ car.get_absolute_url }}">{{ car.pk }}</a>
+          </th>
+          <td>{{ car.model }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>There are no data</p>
+  {% endif %}
+{% endblock %}

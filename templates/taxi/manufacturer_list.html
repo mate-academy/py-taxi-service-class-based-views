@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Manufacturers:</h2>
+  {% if manufacturer_list %}
+    <table class="table table-hover col-sm-3">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Country</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <th scope="row">
+            {{ manufacturer.pk }}
+          </th>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>There are no data</p>
+  {% endif %}
+{% endblock %}
