@@ -8,7 +8,16 @@
       <li><strong>Email</strong>: {{ driver.email }}</li>
       <li><strong>Cars</strong>:</li>
     {% for car in driver.cars.all %}
-      <a href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }} <br></a>
+      <ul>
+        <li>
+          <strong>ID</strong>: {{ car.id }}
+        </li>
+        <li>
+          <strong>Model</strong>: {{ car.model }}
+        </li>
+      </ul>
+
+      <hr>
     {% empty %}
       Driver doesn't have a car
     {% endfor %}
