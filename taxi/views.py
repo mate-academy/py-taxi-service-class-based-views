@@ -31,13 +31,11 @@ class ManufacturerListView(ListView):
 
 class CarListView(ListView):
     model = Car
+    queryset = Car.objects.select_related("manufacturer").all()
     template_name = "taxi/car_list.html"
     context_object_name = "car_list"
     ordering = ["model"]
     paginate_by = 5
-
-    def get_queryset(self):
-        return Car.objects.select_related("manufacturer").all()
 
 
 class CarDetailListView(generic.DetailView):
