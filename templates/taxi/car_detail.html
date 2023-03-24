@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Car info</title>{% endblock %}
+
+{% block content %}
+  <h2>Car info</h2>
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Brand</th>
+      <th>Country of registration of the brand</th>
+    </tr>
+    <tr>
+      <td>{{ car.model }}</td>
+      <td>{{ car.manufacturer.name }}</td>
+      <td>{{ car.manufacturer.country }}</td>
+    </tr>
+  </table>
+
+  {% if car.drivers.all %}
+
+    <div>
+      <h3>Drivers list: {{ driver.first_name }} {{ driver.last_name }}</h3>
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Date Joined</th>
+        <th>Last Activity</th>
+        <th>License</th>
+      </tr>
+
+      {% for driver in car.drivers.all %}
+        <tr>
+        <td><a href={% url 'taxi:driver-detail' pk=driver.id %}>{{ driver.username }}</a></td>
+        <td>{{ driver.first_name }}</td>
+        <td>{{ driver.last_name }}</td>
+        <td>{{ driver.email }}</td>
+        <td>{{ driver.date_joined }}</td>
+        <td>{{ driver.last_login }}</td>
+        <td>{{ driver.license_number }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+  {% else %}
+    <p>There are no drivers yet!</p>
+  {% endif %}
+{% endblock %}

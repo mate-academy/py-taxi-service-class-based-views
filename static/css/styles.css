@@ -1,3 +1,40 @@
 body {
     margin-top: 20px;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.paginator {
+  display: flex;
+  margin-top: 20px;
+}
+
+.pagination .page-link {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #f2f2f2;
+  border-color: #f2f2f2;
+  color: #6c757d;
+}
