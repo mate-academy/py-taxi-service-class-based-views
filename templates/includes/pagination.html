@@ -1,0 +1,30 @@
+{% if is_paginated %}
+
+    <div class="d-flex justify-content-lg-center p-2">
+        <span class=align-content-center>
+            {% if page_obj.has_previous %}
+                <a type="button" class="btn btn-outline-primary" href="?page=1">first</a>
+                <a type="button" class="btn btn-outline-primary"
+                    href="?page={{ page_obj.previous_page_number }}">
+                    previous
+                </a>
+            {% endif %}
+
+            <span type="button" class="btn btn-outline-primary">
+                {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a type="button" class="btn btn-outline-primary"
+                    href="?page={{ page_obj.next_page_number }}">
+                    next
+                </a>
+                <a type="button" class="btn btn-outline-primary"
+                   href="?page={{ page.paginator.num_pages }}">
+                    last
+                </a>
+            {% endif %}
+        </span>
+    </div>
+
+{% endif %}

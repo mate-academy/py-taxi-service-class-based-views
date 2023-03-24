@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <table class="table" style="width: auto">
+        <tr><th scope="row">Cars</th></tr>
+        <tbody>
+            <tr>
+                <td>
+                {% for car in driver.cars.all%}
+                        <li>{{ car.model }}</li>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

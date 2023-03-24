@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table" style="width: auto">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Country</th>
+        </tr>
+        <tbody>
+            {% if manufacturer_list %}
+                {% for manufacturer in manufacturer_list%}
+                    <tr>
+                        <td>{{ manufacturer.name }}</td>
+                        <td>{{ manufacturer.country }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr><td>There are not manufacturers</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}
