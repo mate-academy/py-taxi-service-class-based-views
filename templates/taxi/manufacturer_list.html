@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturer List</h1>
+  {% if manufacture_list %}
+    <ul>
+      {% for manufacture in manufacture_list %}
+        <li>{{ manufacture.name }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no manufacturers</p>
+  {% endif %}
+{% endblock %}
+
