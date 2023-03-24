@@ -6,12 +6,14 @@
   <h2>Cars List</h2>
   <table>
     <tr>
+      <th>ID</th>
       <th>Model</th>
       <th>Manufacturer</th>
     </tr>
     {% for car in car_list %}
       <tr>
-        <td><a href={% url 'taxi:car-detail' pk=car.id %}>{{ car.model }}</a></td>
+        <td><a href={% url 'taxi:car-detail' pk=car.id %}>{{ car.id }}</a></td>
+        <td>{{ car.model }}</td>
         <td>{{ car.manufacturer.name }}</td>
       </tr>
     {% endfor %}
