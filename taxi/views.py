@@ -35,6 +35,7 @@ class CarListView(generic.ListView):
 
 class CarDetailView(generic.DetailView):
     model = Car
+    queryset = Car.objects.select_related("manufacturer")
 
 
 class DriverListView(generic.ListView):
@@ -44,9 +45,4 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-
-    def get_queryset(self, **kwargs):
-        query_set = Driver.objects.filter(id=self.kwargs["pk"])
-        return query_set.prefetch_related(
-            "cars__drivers", "cars__manufacturer"
-        )
+    queryset = Driver.objects.prefetch_related("cars__drivers", "cars__manufacturer")
