@@ -1,0 +1,16 @@
+  <div class="pagination">
+  <div class="pagination-item">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">
+         <
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="pagination-item">{{ page_obj.number }}</div>
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">
+      <div class="pagination-item"> > </div>
+    </a>
+  {% endif %}
+</div>
