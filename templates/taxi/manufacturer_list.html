@@ -4,11 +4,25 @@
 <h1>Our Manufacturers:</h1>
 
   {% if manufacturer_list %}
-    <ul>
-      {% for item in manufacturer_list %}
-        <li>{{ item.name }}({{ item.country }})</li>
-      {% endfor %}
-    </ul>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Country</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for company in manufacturer_list %}
+        <tr>
+          <th scope="row">{{  company.id  }}</th>
+          <td>{{ company.name }}</td>
+          <td>{{ company.country }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
   {% else %}
     <p> No Manufacturers :(</p>
   {% endif %}
