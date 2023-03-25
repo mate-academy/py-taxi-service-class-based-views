@@ -52,5 +52,5 @@ class DriverDetailView(generic.DetailView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.prefetch_related('cars__manufacturer')
+        queryset = queryset.prefetch_related("cars__manufacturer")
         return queryset
