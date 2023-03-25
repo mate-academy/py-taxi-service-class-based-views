@@ -1,3 +1,15 @@
 body {
     margin-top: 20px;
 }
+
+.pagination {
+    margin-top: 20px;
+    background-color: darkkhaki;
+    width: 99px;
+    text-align: center;
+}
+
+.pagination-item {
+    width: 33px;
+}
+
