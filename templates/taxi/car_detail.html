@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="text-center">Car info</h1>
+  <ol class="list-group">
+    <li class="list-group-item">Model - {{ car_detail.model }}</li>
+    <li class="list-group-item">Manufacturer - {{ car_detail.manufacturer.name }}</li>
+    <li class="list-group-item">Drivers:
+      <ul class="list-group">
+        {% for driver in car_detail.drivers.all %}
+
+          <li class="list-group-item list-group-item-dark">{{ driver }}</li>
+        {% endfor %}
+      </ul>
+    </li>
+
+  </ol>
+
+{% endblock %}
