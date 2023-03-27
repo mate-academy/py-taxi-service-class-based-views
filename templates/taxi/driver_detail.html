@@ -20,10 +20,9 @@
            {{ car.model }}
         </a>
       </p>
+      <p><strong>Manufacturer: </strong>{{ car.manufacturer }}</p>
       {% empty %}
       <p>No cars</p>
     {% endfor %}
   </div>
-
-
 {% endblock %}
