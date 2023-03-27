@@ -43,6 +43,6 @@ class DriverListView(generic.ListView):
     paginate_by = 5
 
 
-class DriverDetailView (generic.DetailView):
+class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
