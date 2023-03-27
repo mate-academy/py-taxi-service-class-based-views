@@ -13,8 +13,10 @@
         <tr>
           <th>{{ car.model }}</th>
           <th>{{ car.manufacturer.country }}</th>
-          <th><a
-              href="{% url 'taxi:car-detail' pk=car.id %}">Car {{ car.id }} info</a>
+          <th>
+            <a href="{% url 'taxi:car-detail' pk=car.id %}">
+              Car {{ car.id }} info
+            </a>
           </th>
         </tr>
       {% endfor %}
