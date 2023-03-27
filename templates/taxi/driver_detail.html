@@ -10,7 +10,7 @@
     <ul class="list-group">
       <li><h5>User drives:</h5></li>
       {% for car in driver.cars.all %}
-        <li class="list-group-item">{{ car.model }}, made by {{ car.manufacturer.name }}</li>
+        <li><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a> </li>
       {% endfor %}
     </ul>
   {% else %}

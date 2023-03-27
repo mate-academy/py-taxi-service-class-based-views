@@ -8,7 +8,7 @@
     <ul class="list-group">
       <li class="list-group-item active"><h5>Drivers:</h5></li>
       {% for driver in car.drivers.all %}
-        <li class="list-group-item"> {{ driver.first_name }} {{ driver.last_name }},
+        <li><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.first_name }} {{ driver.last_name }}</a>
           username: {{ driver.username }}, license number: {{ driver.license_number }}</li>
       {% endfor %}
     </ul>
