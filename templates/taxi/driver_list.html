@@ -9,7 +9,8 @@
   {% if driver_list %}
     <ul>
       {% for driver in driver_list %}
-        <li class="froli"><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.id }}</a> -> {{ driver.license_number }}</li>
+        <li class="froli"><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.id }}</a>
+           -> {{ driver.license_number }} ({{ driver.first_name }} {{ driver.last_name }})</li>
       {% endfor %}
     </ul>
    {% else %}
