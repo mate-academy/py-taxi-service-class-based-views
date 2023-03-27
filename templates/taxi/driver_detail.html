@@ -13,6 +13,7 @@
       <hr>
       <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
       <p><strong>Car:</strong> {{ car.model }}</p>
+      <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
     {% empty %}
       <p>Driver doesn't have a car</p>
     {% endfor %}
