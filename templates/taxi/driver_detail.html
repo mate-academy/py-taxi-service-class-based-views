@@ -5,8 +5,8 @@
   License number: {{ driver.license_number }}
   {% for car in driver.cars.all %}
     <hr>
-    <p><strong>Id:</strong>{{ car.id }}
-      <strong>Car model:</strong> {{ car.model }}{{ car.manufacturer }}
+    <p><a href="{% url "taxi:car-detail" pk=car.id %}"><strong>Id:</strong>{{ car.id }}</a>
+      <strong>Car model:</strong> {{ car.model }} {{ car.manufacturer.name }}
     </p>
   {% empty %}
     <p>No cars!</p>
