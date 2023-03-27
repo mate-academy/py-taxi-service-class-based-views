@@ -5,11 +5,10 @@
   <div>
     <ul>
       {% for car in driver.cars.all%}
-      <li>
-        <a href="{% url 'taxi:car-detail' pk=car.id %}">
-          {{ car.model }}
-        </a>
-      </li>
+        <hr>
+        <p><strong>Model:</strong> {{ car.model }}</p>
+        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
+        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
       {% endfor %}
     </ul>
   </div>

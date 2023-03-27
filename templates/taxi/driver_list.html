@@ -7,7 +7,7 @@
         <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col" class="text-center">ID</th>
         <th scope="col">Username</th>
         <th scope="col">Name</th>
         <th scope="col">email</th>
@@ -16,7 +16,7 @@
     <tbody>
     {% for driver in driver_list %}
         <tr>
-          <th scope="row">{{ driver.id }}</th>
+          <th scope="row" class="text-center">{{ driver.id }}</th>
           <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}"> {{ driver.username }}</a></td>
           <td>{{ driver.first_name }} {{ driver.last_name }}</td>
           <td>{{ driver.email}}</td>
