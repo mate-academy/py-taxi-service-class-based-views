@@ -11,7 +11,7 @@
     {% for car in driver.cars.all %}
       <hr>
       <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
-      <p><strong>Model:</strong> <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a></p>
+      <p><strong>Model:</strong> <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a> - <strong>Manufacturer:</strong> {{ car.manufacturer }}</p>
     {% empty %}
       <p>No cars!</p>
     {% endfor %}
