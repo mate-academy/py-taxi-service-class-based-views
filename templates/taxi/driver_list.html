@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Driver List</h1>
+
+  {% if driver_list %}
+        <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Name</th>
+        <th scope="col">email</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for driver in driver_list %}
+        <tr>
+          <th scope="row" class="text-center">{{ driver.id }}</th>
+          <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}"> {{ driver.username }}</a></td>
+          <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+          <td>{{ driver.email}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  {% endif %}
+{% endblock %}
