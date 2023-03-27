@@ -16,6 +16,7 @@
       <p><strong>Model:</strong>
         <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
       </p>
+      <p>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
     {% empty %}
       <p>There are no cars registered for this driver</p>
     {% endfor %}
