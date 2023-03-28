@@ -1,3 +1,21 @@
 body {
     margin-top: 20px;
 }
+.table-bordered {
+  width: 1000px;
+}
+.row {
+  overflow: visible;
+}
+.col-sm-2 {
+    margin-top: 10px;
+    float: left;
+    width: 16.66666667%;
+}
+
+.col-sm-10 {
+    float: left;
+    width: 83.33333333%;
+    border-right: 2px solid black;
+}
+
