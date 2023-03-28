@@ -2,9 +2,20 @@
 
 {% block content %}
   <h1>Manufacturer List</h1>
-    <ul>
-      {% for manufacturer in manufacturer_list %}
-        <li>{{ manufacturer.name }} ({{ manufacturer.country }})</li>
-      {% endfor %}
-    </ul>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Manufacturer</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manufacturer in manufacturer_list %}
+                <tr>
+                    <td>{{ manufacturer.name }}</td>
+                    <td>{{ manufacturer.country }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
