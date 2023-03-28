@@ -8,7 +8,7 @@
 
 {% block content %}
   <h1 class="text-center">Manufacturer list</h1>
-  {% if manufacturers_list %}
+  {% if manufacturer_list %}
     <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for manufacturer in manufacturers_list %}
+        {% for manufacturer in manufacturer_list %}
           <tr>
             <td>{{ manufacturer.name }}</td>
             <td>{{ manufacturer.country }}</td>
