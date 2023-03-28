@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Car {{ car.id }}</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Car: {{ car.model }}</h1>
+  <h4>Manufacturer: {{ car.manufacturer.name}} - {{ car.manufacturer.country }}</h4>
+  <h4>Drivers:</h4>
+  <ul>
+    {% for driver in car.drivers.all %}
+      <div class="list-group">
+        <a class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{driver.first_name}} {{driver.last_name}}</h5>
+          </div>
+          <p class="mb-1">Drivers license: {{ driver.license_number}}</p>
+          <p class="mb-1">Drivers info: username - {{ driver.username}}, email - {{ driver.email }}</p>
+          <p class="text-muted">Driver's ID: {{ driver.id }} </p>
+        </a>
+      </div>
+    {% empty %}
+      <p>There are no cars for such driver</p>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
