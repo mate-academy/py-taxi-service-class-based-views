@@ -18,6 +18,6 @@
     </tbody>
   </table>
   {% for car in driver.cars.all %}
-    <p class="left"><a href="#">{{ car.model }}</a></p>
+    <p class="left"><a href='{% url 'taxi:car-detail' pk=car.id %}'>{{ car.model }}</a></p>
   {% endfor %}
 {% endblock %}
