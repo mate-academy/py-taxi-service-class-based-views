@@ -9,3 +9,4 @@ pycodestyle==2.9.1
 pyflakes==2.5.0
 sqlparse==0.4.3
 tzdata==2022.7
+crispy_bootstrap4
