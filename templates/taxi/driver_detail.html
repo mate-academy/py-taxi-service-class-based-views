@@ -1,0 +1,60 @@
+{% extends "base.html" %} }}
+
+
+{% block title %}
+  <title>Driver info</title>
+{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Driver Information</h2>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td><strong>Name:</strong></td>
+              <td>{{ driver.first_name }}</td>
+            </tr>
+            <tr>
+              <td><strong>Last Name:</strong></td>
+              <td>{{ driver.last_name }}</td>
+            </tr>
+            <tr>
+              <td><strong>License:</strong></td>
+              <td>{{ driver.license_number }}</td>
+            </tr>
+            <tr>
+              <td><strong>Email:</strong></td>
+              <td>{{ driver.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h2>Driver's Cars</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Manufacturer</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for car in driver.cars.all %}
+              <tr>
+                <td>{{ car.model }}</td>
+                <td>{{ car.manufacturer.name }}</td>
+                <td>{{ car.manufacturer.country }}</td>
+              </tr>
+            {% empty %}
+              <p><strong>Driver has no car!</strong></p>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

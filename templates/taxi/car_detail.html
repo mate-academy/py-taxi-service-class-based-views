@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+  <title>Car info</title>
+{% endblock %} }}
+
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Car Information</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><strong>Model:</strong></td>
+              <td>{{ car.model }}</td>
+            </tr>
+            <tr>
+              <td><strong>Manufacturer:</strong></td>
+              <td>{{ car.manufacturer.name }}</td>
+            </tr>
+            <tr>
+              <td><strong>Country:</strong></td>
+              <td>{{ car.manufacturer.country }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {% if car.drivers %}
+        <div class="col-md-6">
+          <h2>Drivers</h2>
+          <ul class="list-group">
+          {% for driver in car.drivers.all %}
+            <li class="list-group-item">
+              <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
+              ({{ driver.license_number }})
+            </li>
+            {% empty %}
+            <p class="text">No drivers!</p>
+          {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}
