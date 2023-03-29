@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Drivers page</h1>
+
+  {% for driver in driver_list %}
+
+    <ul>
+
+      <li >
+        <a href={% url "taxi:driver-detail" pk=driver.id%}>
+          {{ driver.first_name }} {{ driver.last_name }}
+        </a>
+      </li>
+
+    </ul>
+  {% endfor %}
+
+  {% block pagination %}
+        {% include "includes/pagination.html" %}
+  {% endblock %}
+{% endblock %}
