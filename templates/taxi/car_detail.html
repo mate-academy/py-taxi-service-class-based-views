@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table>
+    <thead>
+      <tr class="thead">
+        <th scope="col">Car model</th>
+        <th scope="col">Manufacturer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Car model">{{ car.model }}</td>
+        <td data-label="Manufacturer">{{ car.manufacturer.name }} - {{ car.manufacturer.country }}</td>
+      </tr>
+    </tbody>
+  </table>
+  {% for driver in car.drivers.all %}
+  <p class="left"><a href="#">{{ driver.username }}</a></p>
+  {% endfor %}
+{% endblock %}
