@@ -1,3 +1,16 @@
 body {
     margin-top: 20px;
+    background-color: lightgreen;
+}
+
+.sidebar-nav {
+    list-style: none;
+    border-radius: 10px;
+    background-color: rgba(138, 186, 204, 0.47);
+}
+
+.page-link {
+    border-radius: 10px;
+    border-color: rgba(138, 186, 204, 0.47);
+    background-color: rgba(138, 186, 204, 0.47);
 }
