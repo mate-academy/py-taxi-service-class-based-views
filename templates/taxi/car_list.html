@@ -9,7 +9,6 @@
         <li>
           <a href="{% url 'taxi:car-detail' pk=car.pk %}">ID: {{ car.id }} </a>
           {{ car.model }} ({{ car.manufacturer.country }})
-        {{ car }}
         </li>
       {% endfor %}
     </ul>
