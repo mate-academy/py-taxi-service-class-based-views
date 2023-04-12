@@ -8,6 +8,7 @@
         <li>
           <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
         </li>
+        <br>
       {% endfor %}
     </ul>
   {% else %}
