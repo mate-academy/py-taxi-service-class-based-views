@@ -2,10 +2,12 @@
 
 {% block content %}
   <h1>Information about car</h1>
-  <p>Car model: {{ car.model }}</p>
-  <p><strong>Manufacturer</strong></p>
-  <p>Name: {{ car.manufacturer.name }}</p>
-  <p>Country: {{ car.manufacturer.country }}</p>
+  <div>
+    <p>Car model: {{ car.model }}</p>
+    <p><strong>Manufacturer</strong></p>
+    <p>Name: {{ car.manufacturer.name }}</p>
+    <p>Country: {{ car.manufacturer.country }}</p>
+  </div>
 
   <h2>Drivers</h2>
   {% for driver in car.drivers.all %}
