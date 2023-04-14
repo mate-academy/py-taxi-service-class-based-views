@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header>Taxi Service Manufacturers:</header>
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list %}
+        <li>Name: {{ manufacturer.name }}<br> Country: {{ manufacturer.country }}</li><br>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no manufacturers in Taxi Service</p>
+  {% endif %}
+{% endblock %}
