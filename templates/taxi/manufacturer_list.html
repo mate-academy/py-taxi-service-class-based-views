@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Manufacturers</title>{% endblock %}
+
+{% block content %}
+  <h1>Manufacturers</h1>
+
+  {% if manufacturer_list %}
+  <ul>
+    {% for manufacturer in manufacturer_list %}
+      <li>
+        <strong>{{ manufacturer.name }}</strong> ({{ manufacturer.country }})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no manufacturers</p>
+  {% endif %}
+
+{% endblock %}
