@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+<head>
+  <title>Manufacturer</title>
+</head>
+
+{% block content %}
+  <h1>Driver List</h1>
+  {% if driver_list %}
+      <ul class="ml-3">
+        {% for driver in driver_list %}
+          <li>
+            <a href="{% url  'taxi:driver-detail' pk=driver.id %}">
+              <strong>ID:{{ driver.id }}</strong>
+            </a>
+           {{ driver.first_name }} {{ driver.last_name }}
+          </li>
+        {% endfor %}
+      </ul>
+  {% endif %}
+
+{% endblock %}

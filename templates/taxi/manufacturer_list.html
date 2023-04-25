@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+<head>
+  <title>Manufacturer</title>
+</head>
+
+{% block content %}
+  <h1>Manufacturer List</h1>
+  {% if manufacturer_list %}
+      <ul class="ml-3">
+        {% for manufacturer in manufacturer_list %}
+          <li>
+            <strong>Manufacturer</strong>: {{ manufacturer.name }} ({{ manufacturer.country }})
+          </li>
+        {% endfor %}
+      </ul>
+  {% endif %}
+
+{% endblock %}
