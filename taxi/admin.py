@@ -31,4 +31,7 @@ class CarAdmin(admin.ModelAdmin):
     list_filter = ("manufacturer",)
 
 
-admin.site.register(Manufacturer)
+@admin.register(Manufacturer)
+class ManufacturerAdmin(admin.ModelAdmin):
+    search_fields = ["country", "name"]
+    list_filter = ["country", "name"]
