@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h3>Username: {{ driver.username }}</h3>
+
+  {% if driver.cars.count > 0 %}
+    <div class="ml-3">
+    <h5>Cars</h5>
+    {% for car in driver.cars.all %}
+      <ul>
+        <li><strong>Model: </strong>{{ car.model }}</li>
+        <li><strong>Manufacturer: </strong>{{ car.manufacturer.name }}</li>
+        <li><strong>Country: </strong>{{ car.manufacturer.country }}</li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>Driver hasn't car</p>
+  </div>
+  {% endif %}
+
+{% endblock %}

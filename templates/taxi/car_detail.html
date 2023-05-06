@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h4>Model: {{ car.model }}</h4>
+  <p><strong>Manufacturer: </strong>{{ car.manufacturer.name }}</p>
+  <p><strong>Country: </strong>{{ car.manufacturer.country }}</p>
+
+  {% if car.drivers.count > 0 %}
+    <div class="ml-3">
+    <h5>Drivers:</h5>
+    {% for driver in car.drivers.all %}
+      <ul>
+        <li><strong>Username: </strong>{{ driver.username }}</li>
+        <li><strong>First name: </strong>{{ driver.first_name }}</li>
+        <li><strong>Last name: </strong>{{ driver.last_name }}</li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>No drivers</p>
+  </div>
+  {% endif %}
+
+{% endblock %}

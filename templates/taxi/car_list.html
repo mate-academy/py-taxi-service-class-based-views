@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h2>Car list</h2>
+  {% if car_list %}
+  <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Car ID</th>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for car in car_list %}
+    <tr>
+      <th scope="row"><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></th>
+      <td>{{ car.model }}</td>
+      <td>{{ car.manufacturer.name }}</td>
+      <td>{{ car.manufacturer.country }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+
+  {% else %}
+    <p> No cars</p>
+  {% endif %}
+
+{% endblock %}
