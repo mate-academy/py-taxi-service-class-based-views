@@ -10,9 +10,7 @@
     <h5>Drivers:</h5>
     {% for driver in car.drivers.all %}
       <ul>
-        <li><strong>Username: </strong>{{ driver.username }}</li>
-        <li><strong>First name: </strong>{{ driver.first_name }}</li>
-        <li><strong>Last name: </strong>{{ driver.last_name }}</li>
+        <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
       </ul>
     {% endfor %}
   {% else %}
