@@ -36,6 +36,7 @@ class CarListView(ListView):
 
 class CarDetailView(DetailView):
     model = Car
+    queryset = Car.objects.all().select_related("manufacturer").prefetch_related("drivers")
 
 
 class DriverListView(ListView):
