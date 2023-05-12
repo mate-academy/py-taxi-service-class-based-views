@@ -37,11 +37,10 @@ class CarListView(generic.ListView):
     template_name = "taxi/car_list.html"
 
 
-def car_detail_view(request, pk):
-    car = Car.objects.get(pk=pk)
-
-    context = {"car": car}
-    return render(request, "taxi/car_detail.html", context=context)
+class CarDetailView(generic.DetailView):
+    model = Car
+    context_object_name = "car_detail"
+    template_name = "taxi/car_detail.html"
 
 
 class DriverListView(generic.ListView):
@@ -51,8 +50,7 @@ class DriverListView(generic.ListView):
     template_name = "taxi/driver_list.html"
 
 
-def driver_detail_view(request, pk):
-    driver = Driver.objects.get(pk=pk)
-
-    context = {"driver": driver}
-    return render(request, "taxi/driver_detail.html", context=context)
+class DriverDetailView(generic.DetailView):
+    model = Driver
+    context_object_name = "driver_detail"
+    template_name = "taxi/driver_detail.html"

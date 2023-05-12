@@ -4,10 +4,10 @@
  <h1>Cars List</h1>
   {% if car_list %}
   <ul>
-    {% for cars in car_list %}
+    {% for car in car_list %}
       <li>
-        <a href="{% url 'taxi:car-detail' pk=cars.id %}">{{ cars.id }}</a>
-      {{ cars.model }}
+        <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
+      {{ car.model }}
       </li>
     {% endfor %}
   </ul>
@@ -15,4 +15,3 @@
 <p>There are no car</p>
 {% endif %}
 {% endblock %}
-
