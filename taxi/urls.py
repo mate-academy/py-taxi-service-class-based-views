@@ -32,7 +32,7 @@ urlpatterns = [
         name="driver-list"
     ),
     path(
-        "drivers/<int:pk>",
+        "drivers/<int:pk>/",
         DriverDetailView.as_view(),
         name="driver-detail"
     )
