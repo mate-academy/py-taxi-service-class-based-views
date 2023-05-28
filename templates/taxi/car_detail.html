@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+  <h1>{{ car.model }}</h1>
+  <ul class="ul-list">
+    <li>Manufacturer name: {{ car.manufacturer.name }}</li>
+    <li>Manufacturer country: {{ car.manufacturer.country }}</li>
+    <li>Drivers: {{ car.drivers.all|join:", " }}</li>
+  </ul>
+{% endblock content %}
+
+{% block pagination %}
+{% endblock pagination %}

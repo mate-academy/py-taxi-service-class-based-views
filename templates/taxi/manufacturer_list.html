@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+  {% if manufacturers %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for manufact in manufacturers %}
+          <tr>
+            <td>{{ manufact.name }}</td>
+            <td>{{ manufact.country }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="text-center">No drivers in DB</p>
+  {% endif %}
+{% endblock content %}
