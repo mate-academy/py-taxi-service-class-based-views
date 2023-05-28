@@ -13,7 +13,7 @@
         {% for car in car_list %}
           <tr class="">
             <td scope="row">
-              <a href="{% url 'taxi:cars' car.pk %}">{{ car.model }}</a>
+              <a href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }}</a>
             </td>
             <td>{{ car.manufacturer.name }}</td>
             <td>{{ car.drivers.all|length }}</td>
