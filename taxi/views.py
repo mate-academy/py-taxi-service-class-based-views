@@ -44,13 +44,13 @@ class DriverListView(ListView):
     paginate_by = 5
 
 
-# class DriverDetailView(DetailView):
-#     model = Driver
+class DriverDetailView(DetailView):
+    model = Driver
 
-#     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
-#         context = super().get_context_data(**kwargs)
-#         pk = self.kwargs.get(self.pk_url_kwarg)
-#         context["cars"] = Car.objects.select_related("manufacturer").filter(
-#             drivers__id=pk
-#         )
-#         return context
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        pk = self.kwargs.get(self.pk_url_kwarg)
+        context["cars"] = Car.objects.select_related("manufacturer").filter(
+            drivers__id=pk
+        )
+        return context
