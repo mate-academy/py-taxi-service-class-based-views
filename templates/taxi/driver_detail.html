@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <h1>{{ driver.first_name }} {{ driver.last_name }} cars</h1>
+
+  <ul class="ul-list">
+    {% for car in cars %}
+      <li><strong>Model: </strong> {{ car.model }}</li>
+      <li><strong>Manufacturer: </strong> {{ car.manufacturer.name }}</li>
+      <li><strong>Number of drivers: </strong>{{ car.drivers.all|length }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+
+{% endblock content %}
+
+{% block pagination %}
+{% endblock pagination %}
