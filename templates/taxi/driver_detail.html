@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.username }}</h1>
+
+  <p><strong>Full Name: </strong>{{ driver.first_name }} {{ driver.last_name }}</p>
+  <p><strong>Email: </strong>{{ driver.email }}</p>
+
+  <h3>Cars</h3>
+
+  {% for car in cars %}
+    <hr>
+    <p class="text-muted">
+      <strong>Manufacturer: </strong>
+      {{ car.manufacturer.name }}
+    </p>
+    <p class="text-muted">
+      <strong>Model: </strong>
+      <a href="{{ car.get_absolute_url }}">{{ car.model }}</a>
+    </p>
+  {% empty %}
+    <p>The driver doesn't own any cars</p>
+  {% endfor %}
+{% endblock %}
