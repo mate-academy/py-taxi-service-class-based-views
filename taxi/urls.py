@@ -12,27 +12,27 @@ from .views import (
 urlpatterns = [
     path("", index, name="index"),
     path(
-        "Manufacturer-list/",
+        "manufacturers/",
         ManufacturerListView.as_view(),
         name="manufacturer-list"
     ),
     path(
-        "Car-list/",
+        "cars/",
         CarListView.as_view(),
         name="car-list"
     ),
     path(
-        "Car-detail/<int:pk>",
+        "cars/<int:pk>/",
         CarDetailView.as_view(),
         name="car-detail"
     ),
     path(
-        "Driver-list/",
+        "drivers/",
         DriverListView.as_view(),
         name="driver-list"
     ),
     path(
-        "Driver-detail/<int:pk>",
+        "drivers/<int:pk>/",
         DriverDetailView.as_view(),
         name="driver-detail"
     ),
