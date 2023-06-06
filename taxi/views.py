@@ -44,4 +44,3 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Car.objects.all().select_related("manufacturer")
