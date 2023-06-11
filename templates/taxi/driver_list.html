@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{% block content %}
+  <h1>Driver List</h1>
+  {% if driver_list %}
+     <ul>
+      {% for driver in driver_list %}
+        <li>
+          <p>
+            <strong>Full name:</strong>
+            {{ driver.first_name }} {{ driver.last_name }}
+          </p>
+          <p>{{ driver.email }}</p>
+          <p>{{ driver.username }}</p>
+          <p>{{ driver.password }}</p>
+          <p>{{ driver.license_number}}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no drivers in taxi</p>
+  {% endif %}
+{% endblock %}
