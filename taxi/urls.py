@@ -18,8 +18,8 @@ urlpatterns = [
     ),
     path("car/", CarListView.as_view(), name="car-list"),
     path("driver/", DriverListView.as_view(), name="driver-list"),
-    path("car/<int:pk>", CarDetailView.as_view(), name="car-detail"),
-    path("driver/<int:pk>", DriverDetailView.as_view(), name="driver-detail")
+    path("car/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
+    path("driver/<int:pk>/", DriverDetailView.as_view(), name="driver-detail")
 ]
 
 app_name = "taxi"
