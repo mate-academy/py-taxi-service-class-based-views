@@ -22,16 +22,14 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
-    # template_name = "taxi/manufacturer_list.html"
-    # context_object_name = "manufacturer-list"
-    queryset = Manufacturer.objects.all()
+    template_name = "taxi/manufacturer_list.html"
+    context_object_name = "manufacturer_list"
+    queryset = Manufacturer.objects.all().order_by("name")
     paginate_by = 5
 
 
 class CarListView(generic.ListView):
     model = Car
-    # template_name = "taxi/car_list.html"
-    # context_object_name = "car-list"
     queryset = Car.objects.all().select_related("manufacturer")
     paginate_by = 5
 
@@ -47,4 +45,4 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    # queryset = Driver.objects.all().select_related("cars")
+    queryset = Driver.objects.all()
