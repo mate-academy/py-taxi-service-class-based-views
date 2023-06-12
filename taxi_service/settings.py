@@ -28,9 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INTERNAL_IPS = [
-    "127.0.0.1",
+    "127.0.0.1.",
 ]
-
 
 # Application definition
 
@@ -132,6 +131,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = (BASE_DIR / "static",)
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
