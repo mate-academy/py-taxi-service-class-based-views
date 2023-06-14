@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-4">Manufacturers</h1>
+  <ul class="list-group">
+    {% for manufacturer in manufacturer_list %}
+      <li class="list-group-item"><a href="#">{{ manufacturer.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-4">Cars</h1>
+  <ul class="list-group">
+    {% for car in car_list %}
+      <li class="list-group-item"><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+  <div class="list-group">
+  <div class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h2 class="mb-2">Username: "{{ driver.username }}"</h2>
+    </div>
+        <small>First name: {{ driver.first_name }}</small><br>
+        <small>Last name: {{ driver.last_name }}</small>
+
+    <hr style="margin-top: 0; margin-bottom: 10px;"> <!-- Add the line/HR element -->
+
+    <h4 class="mb-4 mt-3">Drivers' cars:</h4>
+    {% for car in driver.cars.all %}
+      <ul class="list-group ml-3">
+        <li>
+          <p class="font-weight-light"><a href="{{ car.get_absolute_url }}">{{ car.model }}</a>
+             <small>  (manufacturer country: {{ car.manufacturer.country }})</small>
+          </p>
+        </li>
+      </ul>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}
