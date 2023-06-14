@@ -19,7 +19,7 @@ class Driver(AbstractUser):
         return reverse(
             "taxi:driver-detail",
             args=[str(self.pk)]
-        )  # car-detail is a !NAME! of the path
+        )
 
 
 class Car(models.Model):
@@ -31,4 +31,4 @@ class Car(models.Model):
         return reverse(
             "taxi:car-detail",
             args=[str(self.pk)]
-        )  # car-detail is a !NAME! of the path
+        )
