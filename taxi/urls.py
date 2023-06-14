@@ -10,9 +10,13 @@ from .views import (
 )
 
 urlpatterns = [
-    path("", index, name="index"),
     path(
-        "manufacturers/",
+        "",
+        index,
+        name="index"
+    ),
+    path(
+        "manufacturer/",
         ManufacturerListView.as_view(),
         name="manufacturer-list"
     ),
