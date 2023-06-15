@@ -8,15 +8,15 @@
   <div class="ml-3">
     <h3>Cars</h3>
 
-  {% for car in car.drivers.all %}
-    <hr>
-    <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
-    <p>
-      <strong>Information about cars:</strong>
-      {{ car.model }}
-    </p>
-    {% empty %}
-      <p>Has no cars</p>
-  {% endfor %}
+      {% for car in driver.cars.all %}
+        <hr>
+          <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
+          <p>
+            <strong>Information about cars:</strong>
+            {{ car.model }}
+          </p>
+      {% empty %}
+          <p>Has no cars</p>
+      {% endfor %}
   </div>
 {% endblock %}
