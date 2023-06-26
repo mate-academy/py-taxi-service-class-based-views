@@ -73,7 +73,7 @@ class DriverListTest(TestCase):
 
     def test_car_list_paginated_correctly(self):
         response = self.client.get(DRIVER_LIST_URL)
-        self.assertEqual(len(response.context["driver_list.html"]), PAGINATION)
+        self.assertEqual(len(response.context["driver_list"]), PAGINATION)
 
     def test_car_detail_response_with_correct_template(self):
         response = self.client.get(reverse("taxi:driver-detail", args=[1]))
