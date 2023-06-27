@@ -31,9 +31,9 @@ class ManufacturerListView(ListView):
 class CarListView(ListView):
     model = Car
     template_name = "taxi/car_list.html"
-    queryset = Car.objects\
-        .select_related("manufacturer")\
-        .prefetch_related("drivers")
+    queryset = (Car.objects
+                .select_related("manufacturer")
+                .prefetch_related("drivers"))
     ordering = "model"
     paginate_by = 5
 
