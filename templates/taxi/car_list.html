@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List of Cars</h1>
+  {% if car_list %}
+    <table class="table table-hover thead-light">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Manufactured in Country</th>
+          <th>Drivers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in car_list %}
+          <tr>
+            <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+            <td>{{ car.manufacturer.country }}</td>
+            <td>
+              {% for driver in car.drivers.all %}
+                {{ driver.username }} <br>
+              {% empty %}
+                No drivers
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No cars found.</p>
+  {% endif %}
+{% endblock %}
