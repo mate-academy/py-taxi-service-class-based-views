@@ -21,21 +21,10 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-def manufacturer_list_view(request):
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
     manufacturer_list = Manufacturer.objects.all().order_by("name")
-    paginator = Paginator(manufacturer_list, 5)
-    page = request.GET.get("page")
-    manufacturer_list_on_page = paginator.get_page(page)
-
-    context = {
-        "manufacturer_list": manufacturer_list_on_page,
-        "page": page,
-    }
-    return render(
-        request,
-        "taxi/manufacturer_list.html",
-        context=context
-    )
+    paginate_by = 5
 
 
 class CarListView(generic.ListView):
@@ -55,5 +44,5 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.all().prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related("cars")
     paginate_by = 5
