@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Car List</h1>
+  <ul>
+    {% if car_list %}
+      {% for car in car_list %}
+        <li>
+          <a href="{{ car.pk }}">{{ car.model }}</a>
+          (Manufacturer: {{ car.manufacturer.name }})
+        </li>
+      {% endfor %}
+    {% else %}
+      <p>The are no car</p>
+    {% endif %}
+  </ul>
+{% endblock %}

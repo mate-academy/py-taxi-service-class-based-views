@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Manufacturer List</h1>
+  <ul>
+    {% if manufacturer_list_on_page %}
+      {% for manufacturer in manufacturer_list %}
+        <li>
+          <a href="#">{{ manufacturer.name }}</a>
+          (Country: {{ manufacturer.country }})
+        </li>
+      {% endfor %}
+    {% else %}
+      <p>The are no manufacturer</p>
+    {% endif %}
+  </ul>
+{% endblock %}

@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Driver's cars</h1>
+  <ul>
+    {% if driver %}
+      {% for car in driver.cars.all %}
+        <li>
+          {{ car.model }}
+        </li>
+      {% endfor %}
+    {% else %}
+      <p>The are no car</p>
+    {% endif %}
+  </ul>
+{% endblock %}
