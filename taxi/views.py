@@ -42,5 +42,6 @@ class DriverListView(generic.ListView):
 class CarDetailView(generic.DetailView):
     model = Car
 
+
 class DriverDetailView(generic.DetailView):
     model = Driver
