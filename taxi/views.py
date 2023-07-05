@@ -1,7 +1,6 @@
 from django.shortcuts import render
-
-from .models import Driver, Car, Manufacturer
 from django.views import generic
+from .models import Driver, Car, Manufacturer
 
 
 def index(request):
