@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Drivers</h1>
+  {% if driver_list %}
+  <ul class="list">
+    <table id="customers">
+        <tr>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>License</th>
+        </tr>
+        {% for driver in driver_list %}
+            <tr>
+            <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></td>
+            <td>{{ driver.first_name }}</td>
+            <td>{{ driver.last_name }}</td>
+            <td>{{ driver.license_number }}</td>
+            </tr>
+        {% endfor %}
+      </table>
+  </ul>
+  {% else %}
+    <p>The are no drivers</p>
+  {% endif %}
+{% endblock %}
