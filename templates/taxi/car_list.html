@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Cars</h2>
+  {% if car_list %}
+    <div style="width: 18rem">
+      <ul class="list-group list-group-flush">
+      {% for car in car_list %}
+        <li class="list-group-item">
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">
+            Car number - {{ car.id }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endblock %}
