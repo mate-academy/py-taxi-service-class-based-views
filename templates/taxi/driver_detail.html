@@ -2,7 +2,7 @@
 
 {% block content %}
   {% if object.cars %}
-    <h1>This driver has:</h1>
+    <h1>This driver's cars:</h1>
     {% include "includes/cars_data.html" with object_list=object.cars.all %}
   {% else %}
       <p>This driver doesn't have any cars</p>
