@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if object_list %}
+    {% include "includes/cars_data.html" %}
+  {% else %}
+      <p>We don't know  any cars</p>
+  {% endif %}
+{% endblock %}

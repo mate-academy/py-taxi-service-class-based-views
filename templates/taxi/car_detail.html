@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if object.drivers %}
+    <h1>Manufacturer name: {{ object.manufacturer.name }}</h1>
+    <h1>Manufacturer country: {{ object.manufacturer.country }}</h1>
+    <br>
+    <h1>Drivers:</h1>
+    {% include 'includes/drivers_data.html' with object_list=object.drivers.all %}
+  {% else %}
+      <p>This car doesn't have any drivers</p>
+  {% endif %}
+{% endblock %}
