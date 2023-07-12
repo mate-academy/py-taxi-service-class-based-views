@@ -1,17 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
   {% if driver_list %}
-    <h2>Drivers</h2>
-    <div style="width: 18rem">
-      <ul class="list-group list-group-flush">
-      {% for driver in driver_list %}
-        <li class="list-group-item">
-          <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
-            {{ driver.username }}
-          </a>
-        </li>
-      {% endfor %}
-      </ul>
+    <div class="container">
+      <h2>Drivers</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Driver license</th>
+            <th>Cars owned</th>
+          </tr>
+        </thead>
+        {% for driver in driver_list %}
+          <tbody>
+          <tr>
+            <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></td>
+            <td>{{ driver.first_name }}</td>
+            <td>{{ driver.last_name }}</td>
+            <td>{{ driver.email }}</td>
+            <td>{{ driver.license_number }}</td>
+            <td>{{ driver.cars.count }}</td>
+          </tbody>
+        {% endfor %}
+      </table>
     </div>
   {% endif %}
+
+
 {% endblock %}
