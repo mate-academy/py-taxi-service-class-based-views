@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Car</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Model: {{ car.model }}</h1>
+  <p><strong>Manufacturer: </strong></p>
+  <p>{{ car.manufacturer.name }}, {{ car.manufacturer.country }}</p>
+
+  <h2>Car driver(s): </h2>
+  {% if car.drivers %}
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li>
+          <a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.first_name }} {{ driver.last_name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+
+
+    <p>This car has no owner.¯\_(ツ)_/¯</p>
+    <p>Hotwire and jack?  <a href="http://lnkiy.in/how-to-hijack" target="_blank">Hell yeah!!!</a>(Warning, for educational purposes only!!)</p>
+
+
+  {% endif %}
+{% endblock %}
