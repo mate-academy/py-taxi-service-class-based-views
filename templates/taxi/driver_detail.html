@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p class="text-muted"><strong>Driver name: </strong>{{ driver_detail.username }}</p>
+  <p class="text-muted">First name: <strong>{{ driver_detail.first_name }}</strong> </p>
+  <p class="text-muted">Last name: <strong>{{ driver_detail.last_name }}</strong> </p>
+
+<div class="ml-3">
+  <h5>Cars: </h5>
+  {% for car in driver_detail.cars.all %}
+    <ul>
+      <p class="text-muted"> {{ car.model }}</p>
+    </ul>
+  {% endfor %}
+</div>
+
+{% endblock %}
