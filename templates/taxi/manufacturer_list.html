@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Manufacturers</h2>
+  {% if manufacturer_list %}
+    <div style="width: 18rem">
+      <ul class="list-group list-group-flush">
+      {% for manufacturer in manufacturer_list %}
+        <li class="list-group-item">{{ manufacturer.name }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endblock %}
