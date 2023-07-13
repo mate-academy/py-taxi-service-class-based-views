@@ -1,6 +1,6 @@
 <ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
+  <li class="nav-item"><a href="{% url "taxi:index" %}" class="nav-link">Home page</a></li>
+  <li class="nav-item"><a href="{% url "taxi:manufacturer-list" %}" class="nav-link">Manufacturers</a></li>
+  <li class="nav-item"><a href="{% url "taxi:car-list" %}" class="nav-link">Cars</a></li>
+  <li class="nav-item"><a href="{% url "taxi:driver-list" %}" class="nav-link">Drivers</a></li>
 </ul>
