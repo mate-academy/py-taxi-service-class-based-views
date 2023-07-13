@@ -32,7 +32,7 @@ urlpatterns = [
         name="car-detail"
     ),
     path(
-        "drivers/<int:pk>",
+        "drivers/<int:pk>/",
         DriverDetailView.as_view(),
         name="driver-detail"
     ),
