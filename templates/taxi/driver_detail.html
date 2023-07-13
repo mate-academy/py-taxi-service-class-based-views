@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if driver.cars %}
+    <h1>This driver's cars:</h1>
+    {% include "includes/cars_data.html" with car_list=driver.cars.all %}
+  {% else %}
+      <p>This driver doesn't have any cars</p>
+  {% endif %}
+{% endblock %}
