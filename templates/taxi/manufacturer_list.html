@@ -8,10 +8,10 @@
   <h1>Manufacturers: </h1>
 
 
-  {% if manufacturers_list %}
+  {% if manufacturer_list %}
     <ul>
 
-    {% for manufacturer in manufacturers_list %}
+    {% for manufacturer in manufacturer_list %}
       <li>{{ manufacturer.name }}, {{ manufacturer.country }}</li>
     {% endfor %}
 
