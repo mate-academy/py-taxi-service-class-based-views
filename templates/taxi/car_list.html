@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="list">
+    {% for car in car_list%}
+      <li>
+        <a href={{ car.get_absolute_url }}>{{ car.id }}</a>. {{ car.model }}, Manufacturer: {{ car.manufacturer.name }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
