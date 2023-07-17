@@ -14,6 +14,8 @@
       {% for car in car_list %}
             <li class="cars-list-item"><a href="{% url "taxi:car-detail" pk=car.id %}" class="cars-link">{{ car.model }}</a></li>
       {% endfor %}
+  {% else %}
+    <p>There is no cars</p>
 
     </ul>  
   {% endif %}
