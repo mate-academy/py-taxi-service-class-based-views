@@ -9,9 +9,11 @@
           <p>Manufacturer: {{ car.manufacturer.name }}</p>
           <h5>Drivers: </h5>
           <ul class="list">
-            {% for car_driver in car.drivers.all %}
-              <li>{{ car_driver }}</li>
-            {% endfor %}
+            {% if car.drivers.all %}
+              {% for car_driver in car.drivers.all %}
+                <li>{{ car_driver }}</li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </div>
       </li>

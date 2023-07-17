@@ -5,10 +5,12 @@
   <h3>Country: {{ car.manufacturer.country }}</h3>
   <h3>Drivers: </h3>
   <ul class="list">
-    {% for driver in car.drivers.all %}
-      <li>
-        {{ driver.username }}
-      </li>
-    {%  endfor %}
+    {% if car.drivers.all %}
+      {% for driver in car.drivers.all %}
+        <li>
+          {{ driver.username }}
+        </li>
+      {%  endfor %}
+    {% endif %}
   </ul>
 {% endblock %}
