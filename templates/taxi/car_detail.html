@@ -11,6 +11,8 @@
           {{ driver.username }}
         </li>
       {%  endfor %}
+    {% else %}
+      <p>Car has no owners</p>
     {% endif %}
   </ul>
 {% endblock %}

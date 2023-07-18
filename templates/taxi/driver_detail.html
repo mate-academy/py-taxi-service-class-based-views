@@ -13,6 +13,8 @@
               {% for car_driver in car.drivers.all %}
                 <li>{{ car_driver }}</li>
               {% endfor %}
+            {% else %}
+              <p>Car has no owners</p>
             {% endif %}
           </ul>
         </div>
