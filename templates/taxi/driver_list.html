@@ -21,6 +21,8 @@
           <p><b>license number: </b>{{ driver.license_number }}</p>
           </div>
         {% endif %}
+      {% empty %}
+      <p>We don't have drivers yet, but you can be the first!</p>
       {% endfor %}
   </div>
 {% endblock %}

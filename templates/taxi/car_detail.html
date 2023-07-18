@@ -28,6 +28,8 @@
               </td>
               <td>{{ driver.license_number }}</td>
             </tr>
+          {% empty %}
+          <p>No driver is driving this car yet!</p>
           {% endfor %}
         </tbody>
       </table>

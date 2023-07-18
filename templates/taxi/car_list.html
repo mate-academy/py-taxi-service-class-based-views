@@ -24,6 +24,8 @@
           <td>{{ car.manufacturer }}</td>
           <td>{{ car.model }}</td>
       </tr>
+      {% empty %}
+        <p>We don't have cars yet, but soon there will be many!</p>
       {% endfor %}
       </tbody>
     </table>
