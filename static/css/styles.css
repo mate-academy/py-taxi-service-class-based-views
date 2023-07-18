@@ -1,3 +1,31 @@
 body {
     margin-top: 20px;
 }
+
+.driver {
+    width: 60%;
+    min-width: 350px;
+    padding: 15px 10px 0 10px;
+    margin: 10px 10px 15px;
+    box-shadow: 10px 10px lightblue;
+    border-style: solid;
+}
+
+tr:hover {
+    background-color: white;
+}
+
+thead {
+    background-color: lightgray;
+}
+
+table {
+    max-width: 700px;
+    min-width: 350px;
+    box-shadow: 10px 10px lightblue;
+    background-color: aliceblue;
+}
+
+.sidebar-nav {
+    background-color: aliceblue
+}
