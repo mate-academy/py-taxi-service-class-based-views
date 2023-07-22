@@ -6,11 +6,11 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 50%;
-  border: 2px solid #000; /* Добавляем рамку вокруг всей таблицы */
+  border: 2px solid #000;
 }
 
 th, td {
-  border: 1px solid #000; /* Добавляем рамку для ячеек */
+  border: 1px solid #000;
   text-align: left;
   padding: 8px;
 }
