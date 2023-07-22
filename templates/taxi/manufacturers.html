@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers</h1>
+
+  <div>
+    {% if manufacturers %}
+      <ul>
+        {% for manufacturer in manufacturers %}
+          <li>
+              <strong>Company: </strong><em>{{manufacturer.name}}</em>,
+              <strong> Made in: </strong><em>{{manufacturer.country}}</em>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h2>There are no manufacturers currently</h2>
+    {% endif %}
+  </div>
+
+{% endblock %}
