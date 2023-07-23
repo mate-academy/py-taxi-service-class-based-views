@@ -8,11 +8,14 @@
 
 	<div class="ml-3">
 		<h2>Drivers</h2>
-
-		{% for driver in car.drivers.all %}
-			<hr>
-			<p class="text-muted"><strong>Id: </strong>{{driver.id}}</p>
-			<p><strong>Username: </strong> {{driver.username}}</p>
-		{% endfor %}
+		{% if car.drivers.all %}
+			{% for driver in car.drivers.all %}
+				<hr>
+				<p class="text-muted"><strong>Id: </strong>{{driver.id}}</p>
+				<p><strong>Username: </strong> {{driver.username}}</p>
+			{% endfor %}
+		{% else %}
+			<h1>Car has no drivers</h1>
+		{% endif %}
 	</div>
 {% endblock %}
