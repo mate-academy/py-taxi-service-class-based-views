@@ -23,8 +23,8 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturers"
-    template_name = "taxi/manufacturers.html"
+    context_object_name = "manufacturer_list"
+    template_name = "taxi/manufacturer-list.html"
     paginate_by = 5
 
 
