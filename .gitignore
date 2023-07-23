@@ -4,6 +4,7 @@
 .env
 .DS_Store
 venv/
+project/
 .pytest_cache/
 **__pycache__/
 *.pyc
