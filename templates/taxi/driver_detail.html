@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>License number: {{ driver.license_number }}</h2>
+  <hr/>
+
+  <div class="ml-3">
+    <h3>Cars</h3>
+    {% for car in driver.cars.all %}
+{#      <p class="text-muted"><strong>ID:</strong> {{ driver.id }}</p>#}
+      <p><strong>Model:</strong> <a href="{{ car.get_absolute_url }}">{{ car.model }}</a></p>
+    {% endfor %}
+  </div>
+
+{% endblock %}
