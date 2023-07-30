@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cars</h1>
+  <table>
+    <tr>
+      <th>Cars ID</th>
+      <th>Cars name</th>
+      <th>Cars country</th>
+      <th>Cars drivers</th>
+    </tr>
+    {% for car in car_list %}
+      <tr>
+        <td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>
+          {% for driver in car.drivers.all %}
+            {{ driver.first_name }} {{ driver.last_name }}<br>
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
