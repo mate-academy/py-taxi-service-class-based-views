@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h3>Information about car: {{ car.model }}</h3><br>
-  <h4>This cars manufacturer is: {{ car.manufacturer.name }}, from {{ car.manufacturer.country }}</h4>
+  <h3>Information about the car: {{ car.model }}</h3><br>
+  <h4>This car`s manufacturer is: {{ car.manufacturer.name }}, from {{ car.manufacturer.country }}</h4>
   <div class="ml-2"><br>
     <h2>Drivers</h2>
 
@@ -15,7 +15,7 @@
       {% if driver.license_number %} {{ driver.license_number }} {% endif %}
       </p>
       {% empty %}
-        <p>No do not have Drivers Sorry :( </p>
+        <p>"Do not have Drivers, sorry. :(</p>
     {% endfor %}
   </div>
 {% endblock %}
