@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>Manufacturers</h1>
-  {% if manufacturer_list %}
+  {% if manufacturers %}
     <ul>
-    {% for manufacturer in manufacturer_list %}
+    {% for manufacturer in manufacturers %}
       <li>
         <p>
           <b>{{ manufacturer.name }}</b> <i>{{ manufacturer.country }}</i>
@@ -13,6 +13,6 @@
     {% endfor %}
     </ul>
   {% else %}
-    <p>The are no manufacturer list</p>
+    <p>There are no manufacturer list</p>
   {% endif %}
 {% endblock %}
