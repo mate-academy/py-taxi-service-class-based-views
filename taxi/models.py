@@ -13,9 +13,13 @@ class Driver(AbstractUser):
     class Meta:
         verbose_name = "driver"
         verbose_name_plural = "drivers"
+        ordering = ["last_name"]
 
 
 class Car(models.Model):
     model = models.CharField(max_length=255)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
+
+    class Meta:
+        ordering = ["model"]
