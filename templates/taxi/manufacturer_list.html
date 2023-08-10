@@ -3,8 +3,8 @@
 {% block content %}
     <h1>Manufacturer List</h1>
     <ul>
-        {% if manufacturers_list %}
-          {% for manufacturer in manufacturers_list %}
+        {% if manufacturer_list %}
+          {% for manufacturer in manufacturer_list %}
               <li>
                 <a href="{% url 'taxi:manufacturer-detail' manufacturer.pk %}">{{ manufacturer.name }}</a>
               </li>
