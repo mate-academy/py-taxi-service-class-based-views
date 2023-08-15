@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car list</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Model</th>
+      <th>Manufacture</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for car in car_list %}
+      <tr>
+        <td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a></td>
+        <td>{{ car.manufacturer.name }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
