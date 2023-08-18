@@ -21,7 +21,7 @@ def index(request):
 
 
 class ManufacturerListView(generic.ListView):
-    # queryset = Manufacturer.objects.all().order_by("name")
+    # queryset = Manufacturer.objects.order_by("name")
     model = Manufacturer
     ordering = ["name"]
     context_object_name = "manufacturer_list"
@@ -31,7 +31,7 @@ class ManufacturerListView(generic.ListView):
 
 class CarListView(generic.ListView):
     model = Car
-    queryset = Car.objects.all().select_related(
+    queryset = Car.objects.select_related(
         "manufacturer"
     ).prefetch_related("drivers")
     context_object_name = "car_list"
@@ -58,6 +58,6 @@ class DriverDetailView(generic.DetailView):
     template_name = "taxi/driver_detail.html"
 
     def get_queryset(self):
-        return self.model.objects.prefetch_related("cars").filter(
-            id=self.kwargs.get("pk")
-        )
+        return self.model.objects.prefetch_related(
+            "cars", "cars__manufacturer"
+        ).filter(id=self.kwargs.get("pk"))
