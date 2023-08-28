@@ -1,10 +1,18 @@
-.idea/
-.vscode/
-*.iml
-.env
-.DS_Store
+# Virtual environment
 venv/
-.pytest_cache/
-**__pycache__/
+
+# Compiled Python files
+__pycache__/
+
+# Local development settings
+*.sqlite3
 *.pyc
-/db.sqlite3
+*.pyo
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Project-specific settings
+taxi_service/__pycache__/
+taxi/__pycache__/
