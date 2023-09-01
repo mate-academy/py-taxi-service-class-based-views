@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Taxi Service - Cars</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Cars</h1>
+  <ul>
+    {% for car in car_list %}
+      <li>
+        <a href="{{ car.get_absolute_url }}">
+          {{ car }}
+        </a>
+      </li>
+    {% empty %}
+      <p>There are currently no cars in our Taxi Service.</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

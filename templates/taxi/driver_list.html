@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Taxi Service - Drivers</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Drivers</h1>
+  {% if paginator.count %}
+    <p>Total number of drivers: {{ paginator.count }}</p>
+    <ul>
+      {% for driver in driver_list %}
+        <li>
+          <a href="{{ driver.get_absolute_url }}">
+            {{ driver.first_name }} {{ driver.last_name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are currently no cars in our Taxi Service.</p>
+  {% endif %}
+{% endblock %}
