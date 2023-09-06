@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.http import Http404
 
 
 from .models import Driver, Car, Manufacturer
@@ -40,7 +41,10 @@ class CarsListView(generic.ListView):
 
 
 def car_detail_view(request, pk):
-    car = Car.objects.get(pk=pk)
+    try:
+        car = Car.objects.get(pk=pk)
+    except Car.DoesNotExist():
+        raise Http404
 
     context = {
         "car": car
@@ -57,4 +61,4 @@ class DriverListView(generic.ListView):
 class DriverDetailView(generic.DetailView):
     model = Driver
     template_name = "taxi/driver_detail.html"
-    queryset = Driver.objects.all().prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related("cars")
