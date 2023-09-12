@@ -20,7 +20,7 @@
     <div class="col-sm-2">
 
       {% block sidebar %}
-        {% include "includes/sidebar.html" %}
+        {% include "taxi/includes/sidebar.html" %}
       {% endblock %}
 
     </div>
@@ -29,6 +29,7 @@
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include "taxi/includes/pagination.html" %}
       {% endblock %}
 
     </div>
