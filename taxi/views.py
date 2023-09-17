@@ -40,7 +40,6 @@ class CarListView(generic.ListView):
 
 class CarDetailView(generic.DetailView):
     model = Car
-    # context_object_name = "car_detail"
     template_name = "taxi/car_detail.html"
 
 
@@ -53,6 +52,5 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    # context_object_name = "driver_detail"
     queryset = Driver.objects.prefetch_related("cars")
     template_name = "taxi/driver_detail.html"
