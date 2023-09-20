@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="col-sm-8">
+    <h1 class="text-center">Manufacturer List</h1>
+    <table class="table table-striped ">
+    {% if manufacturer_list  %}
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+          <td> {{ manufacturer.country }}</td>
+        </tr>
+       {% endfor %}
+
+    {% else %}
+      <p>There are no Literary formats</p>
+    {% endif %}
+    </table>
+  </div>
+
+{% endblock %}

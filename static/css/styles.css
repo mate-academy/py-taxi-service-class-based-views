@@ -1,3 +1,18 @@
 body {
     margin-top: 20px;
+
+}
+h1{
+    text-align: center;
+
+}
+th{
+    background: #007BFF;
+    color: snow;
+}
+h3{
+    color: #007BFF;
+}
+strong{
+    text-decoration: underline;
 }
