@@ -17,9 +17,6 @@ class Driver(AbstractUser):
         verbose_name = "driver"
         verbose_name_plural = "drivers"
 
-    def __str__(self) -> str:
-        return self.username
-
 
 class Car(models.Model):
     model = models.CharField(max_length=255)
