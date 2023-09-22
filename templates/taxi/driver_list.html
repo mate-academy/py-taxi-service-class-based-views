@@ -1,15 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% if driver_list %}
-    <h2>Drivers:</h2>
-    <hr>
-    <ul>
-    {% for driver in driver_list %}
-      <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver }}</a></li>
-    {% endfor %}
-    </ul>
-  {% else %}
-    <h2>There are no drivers!</h2>
-  {% endif %}
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col-md-6 offset-md-2 mt-5">
+        {% if driver_list %}
+          <h2 class="">Drivers:</h2>
+          <hr>
+          <ul class="list-group">
+            {% for driver in driver_list %}
+              <li class="list-group-item">
+                <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <h2 class="text-center">There are no drivers!</h2>
+        {% endif %}
+      </div>
+    </div>
+    <br>
+  </div>
 {% endblock %}

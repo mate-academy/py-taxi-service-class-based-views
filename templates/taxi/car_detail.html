@@ -1,20 +1,39 @@
-  {% extends "base.html" %}
+{% extends "base.html" %}
 
-  {% block content %}
+{% block content %}
+  <div class="container">
+    <br>
     {% if car %}
-      <h2>{{ car.model }} details:</h2>
-      <hr>
-      <h5>Manufacturer:</h5>
-      <ul>
-        <li>{{ car.manufacturer.name }}, {{ car.manufacturer.country }}</li>
-      </ul>
-      {% if car.drivers.count %}
-        <h5>Car Drivers:</h5>
-        <ul>
-          {% for driver in car.drivers.all %}
-            <li><a href="{{ driver.get_absolute_url }}">{{ driver }}</a></li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+      <div class="row">
+        <div class="col-md-8 offset-md-2 mt-5">
+          <h2>{{ car.model }} details:</h2>
+          <hr>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Manufacturer:</h5>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  {{ car.manufacturer.name }}, {{ car.manufacturer.country }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% if car.drivers.count %}
+            <div class="card mt-3">
+              <div class="card-body">
+                <h5 class="card-title">Car Drivers:</h5>
+                <ul class="list-group">
+                  {% for driver in car.drivers.all %}
+                    <li class="list-group-item">
+                      <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
     {% endif %}
-  {% endblock %}
+  </div>
+{% endblock %}
