@@ -13,7 +13,7 @@
     <ul>
     {% for car in driver.cars.all %}
       <li>
-        <a href="{% url 'taxi:car_detail' car.id %}" class="badge badge-light link mb-1">
+        <a href="{% url 'taxi:car-detail' car.id %}" class="badge badge-light link mb-1">
           {{ car.model }}
         </a>
       </li>
