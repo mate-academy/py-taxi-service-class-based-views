@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Car details</h2>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Car ID:</strong> {{ car.pk }}</li>
+              <li class="list-group-item"><strong>Model:</strong> {{ car.model }}</li>
+              <li class="list-group-item"><strong>Manufacturer:</strong> {{ car.manufacturer }}</li>
+              <li class="list-group-item"><strong>Drivers usernames:</strong>
+              {% if object_list %}
+                {% for object in object_list %}
+                  <a href="{% url 'taxi:driver-detail' object.pk %}">{{ object.username }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                {% else %}
+                  <p>No drivers associated with this car.</p>
+              {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

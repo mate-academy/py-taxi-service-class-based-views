@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if object_list %}
+  	<h2>Driver {{ driver.username }} has next cars</h2>
+    <table class="table-bordered">
+      <tr>
+        <th>Model</th>
+        <th>Manufacturer ID</th>
+      </tr>
+  	{% for car in object_list %}
+      <tr>
+        <td><a href={% url 'taxi:car-detail' car.pk %}>{{ car.model }}</a></td>
+        <td>{{ car.manufacturer.pk }}</td>
+      </tr>
+  	{% endfor %}
+  {% else %}
+  	<h2>Driver {{ driver.username }} has no cars</h2>
+  {% endif %}
+
+{% endblock %}
