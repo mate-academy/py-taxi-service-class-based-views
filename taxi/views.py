@@ -32,6 +32,7 @@ class CarListView(generic.ListView):
 
 class DriverListView(generic.ListView):
     model = Driver
+    paginate_by = 5
     queryset = Driver.objects.prefetch_related("cars").all()
 
 
