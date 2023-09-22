@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>Manufacturers:</h1>
-  {% if manufacturer_list %}
+  {% if manufacturer_list.all %}
     <ul>
-      {% for manufacturer in manufacturer_list %}
+      {% for manufacturer in manufacturer_list.all %}
         <li>
           <a href="#" class="badge badge-light link mb-1">
             {{manufacturer.name }} ({{ manufacturer.country }})
