@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if car_list %}
+    <h1>Cars:</h1>
+    <ul>
+    {% for car in car_list %}
+      <li>
+        <a href="{{ car.id }}" class="badge badge-light link mb-1">
+          {{ car.model }} ({{car.manufacturer.name}})
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <h3>Oops, seems we've run out of cars(</h3>
+  {% endif %}
+{% endblock %}

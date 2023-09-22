@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers:</h1>
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list %}
+        <li>
+          <a href="#" class="badge badge-light link mb-1">
+            {{manufacturer.name }} ({{ manufacturer.country }})
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h3>All our vehicles are handmade.</h3>
+  {% endif %}
+{% endblock %}

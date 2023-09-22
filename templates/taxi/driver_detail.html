@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-5">
+    {{ driver.first_name }} {{ driver.last_name }}
+    <small class="text-muted">{{ driver.username }}</small>
+  </h1>
+  <div class="info">
+    <p>Driving license: {{ driver.license_number }} <br> Rating: 9.8</p> <br>
+  </div>
+  <h4 class="mb-2 ml-3 font-italic">Cars in arsenal:</h4>
+  {% if driver.cars.all %}
+    <ul>
+    {% for car in driver.cars.all %}
+      <li>
+        <a href="{% url 'taxi:car_detail' car.id %}" class="badge badge-light link mb-1">
+          {{ car.model }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <h6 class="font-italic mb-2">Currently on vacation...</h6>
+  {% endif %}
+  <p class="font-italic mt-4">{{ driver.first_name }} is a very honored and lovely colleague of ours.</p>
+{% endblock %}
