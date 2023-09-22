@@ -23,9 +23,7 @@ def index(request):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
     queryset = Manufacturer.objects.all().order_by("name")
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -34,13 +32,11 @@ class CarListView(ListView):
     queryset = (
         Car.objects.select_related("manufacturer").all().order_by("model")
     )
-    template_name = "taxi/car_list.html"
     paginate_by = 5
 
 
 class CarDetailView(DetailView):
     model = Car
-    context_object_name = "car"
 
     def get_object(self, queryset=None):
         return (
@@ -52,7 +48,8 @@ class CarDetailView(DetailView):
     def get_context_data(self, **kwargs):
         car = self.object
         context = super().get_context_data(
-            object_list=car.drivers.all(), **kwargs
+            object_list=car.drivers.all(),
+            **kwargs  # to use in car-detail.html
         )
         return context
 
@@ -64,7 +61,6 @@ class DriverListView(ListView):
 
 class DriverDetailView(DetailView, MultipleObjectMixin):
     model = Driver
-    context_object_name = "driver"
     paginate_by = 2
 
     def get_context_data(self, **kwargs):

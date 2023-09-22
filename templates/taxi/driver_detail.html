@@ -2,7 +2,7 @@
 
 {% block content %}
   {% if object_list %}
-  	<h2>Driver {{ driver.username }} has next cars</h2>
+  	<h2>Driver {{ object.username }} has next cars</h2>
     <table class="table-bordered">
       <tr>
         <th>Model</th>
@@ -15,7 +15,7 @@
       </tr>
   	{% endfor %}
   {% else %}
-  	<h2>Driver {{ driver.username }} has no cars</h2>
+  	<h2>Driver {{ object.username }} has no cars</h2>
   {% endif %}
 
 {% endblock %}
