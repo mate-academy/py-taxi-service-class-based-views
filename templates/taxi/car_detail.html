@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-5">
+    {{ car.model }}
+    <small class="text-muted">{{ car.manufacturer.name }}</small>
+  </h1>
+  <div class="info">
+    <p>Manufacturer: {{ car.manufacturer.name }}</p>
+    <p>Country: {{ car.manufacturer.country }}</p>
+    <p class="mb-3 font-italic">Drivers:</p>
+    </div>
+  {% if car.drivers.all %}
+    <ul>
+    {% for driver in car.drivers.all %}
+      <li>
+        <a href="{% url 'taxi:driver-detail' driver.id %}" class="badge badge-light link mb-1">
+        {{ driver.username }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <h6 class="font-italic mb-2">He's having a rest...</h6>
+  {% endif %}
+  <p class="font-italic mt-4">Good boy.</p>
+{% endblock %}
