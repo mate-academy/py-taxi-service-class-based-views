@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 
 
 class Manufacturer(models.Model):
@@ -17,6 +18,9 @@ class Driver(AbstractUser):
         verbose_name = "driver"
         verbose_name_plural = "drivers"
 
+    def get_absolute_url(self):
+        return reverse("taxi:driver-detail", args=[self.pk])
+
 
 class Car(models.Model):
     model = models.CharField(max_length=255)
@@ -24,3 +28,6 @@ class Car(models.Model):
         Manufacturer, on_delete=models.CASCADE, related_name="cars"
     )
     drivers = models.ManyToManyField(Driver, related_name="cars")
+
+    def get_absolute_url(self):
+        return reverse("taxi:car-detail", args=[self.pk])

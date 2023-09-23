@@ -13,7 +13,7 @@
       {% for driver in driver_list %}
         <tr>
           <td>{{ driver.pk }}</td>
-          <td><a href={% url 'taxi:driver-detail' driver.pk %}>{{ driver.first_name }}</a></td>
+          <td><a href={{ driver.get_absolute_url }}>{{ driver.first_name }}</a></td>
           <td>{{ driver.last_name }}</td>
           <td>{{ driver.username }}</td>
         </tr>

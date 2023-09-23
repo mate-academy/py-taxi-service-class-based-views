@@ -13,8 +13,8 @@
               <li class="list-group-item"><strong>Manufacturer:</strong> {{ car.manufacturer }}</li>
               <li class="list-group-item"><strong>Drivers usernames:</strong>
               {% if object_list %}
-                {% for object in object_list %}
-                  <a href="{% url 'taxi:driver-detail' object.pk %}">{{ object.username }}</a>{% if not forloop.last %}, {% endif %}
+                {% for driver in object_list %}
+                  <a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %}
                 {% else %}
                   <p>No drivers associated with this car.</p>
