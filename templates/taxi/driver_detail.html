@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Driver:</h3>
+  <hr>
+  <div class="ml-2">
+  <strong>Personal info:</strong>
+  <ul>
+    {{ driver.first_name }} {{ driver.last_name }}
+    {% if driver.username %}
+      (<a href="driver_detail.html"> {{ driver.username }} </a>)
+    {% endif %}
+  </ul>
+  <strong>Cars:</strong>
+  {% for car in driver.cars.all %}
+    <ol>
+    <li>
+      {{ car.model }}
+    </li>
+    </ol>
+  {% empty %}
+    <p>No cars for this driver</p>
+  {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Cars of such manufacturers are available:</h3>
+<hr>
+  {% for manufacturer in manufacturer_list %}
+    <ul>
+    <li>{{ manufacturer.name }}</li>
+    </ul>
+  {% empty %}
+    <p>There are no manufacturers</p>
+  {% endfor %}
+{% endblock %}
