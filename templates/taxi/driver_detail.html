@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Taxi Service TELEPORT</h1>
+  <br>
+  <h3>Driver: {{ driver.last_name }} {{ driver.first_name }}</h3>
+  <br>
+  <div class="ml-5">
+    <h5>Cars:</h5>
+      {% for car in driver.cars.all %}
+        <hr>
+        {% if car.manufacturer.name in car.model %}
+          <p><a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a></p>
+        {% else %}
+          <p><a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }} {{ car.manufacturer.name }}</a></p>
+        {% endif %}
+      {% empty %}
+        <p>Car is temporarily unavailable</p>
+      {% endfor %}
+  </div>
+
+{% endblock %}
