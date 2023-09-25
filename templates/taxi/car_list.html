@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cars</h1>
+  <p>The list of cars:</p>
+  {% if car_list %}
+    <ul>
+      {% for car in car_list %}
+        <li><a href="{% url 'taxi:car-detail' car.id %}">{{ car.manufacturer.name }}: {{ car.model }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no cars in list!</p>
+  {% endif %}
+  {% include "includes/pagination.html" %}
+{% endblock %}
