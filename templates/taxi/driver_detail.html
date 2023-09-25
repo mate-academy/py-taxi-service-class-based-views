@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>Driver {{ driver.first_name }}, {{ driver.last_name }}</h1>
-  <p>{{ car.manufacturer.name }}</p>
   <div class="ml-3">
     <h3>Cars: </h3>
     {% for car in driver.cars.all %}
