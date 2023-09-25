@@ -9,7 +9,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -107,7 +106,9 @@ class Migration(migrations.Migration):
                         help_text="The groups this user belongs to. A user will get all permissions granted to each of their groups.",
                         related_name="user_set",
                         related_query_name="user",
+
                         to="auth.group",
+
                         verbose_name="groups",
                     ),
                 ),
@@ -118,15 +119,22 @@ class Migration(migrations.Migration):
                         help_text="Specific permissions for this user.",
                         related_name="user_set",
                         related_query_name="user",
-                        to="auth.permission",
+
+                        to="auth.Permission",
+
                         verbose_name="user permissions",
                     ),
                 ),
             ],
             options={
+
+                "verbose_name": "driver",
+                "verbose_name_plural": "drivers",
+
                 "verbose_name": "user",
                 "verbose_name_plural": "users",
                 "abstract": False,
+
             },
             managers=[
                 ("objects", django.contrib.auth.models.UserManager()),
@@ -171,7 +179,10 @@ class Migration(migrations.Migration):
                     "manufacturer",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
+
+
                         related_name="cars",
+
                         to="taxi.manufacturer",
                     ),
                 ),
