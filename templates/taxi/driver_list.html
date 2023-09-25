@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Taxi Service TELEPORT</h1>
+  <br>
+  <h4>List of our drivers:</h4>
+  <table class="table position-static table-striped table-success table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    {% if driver_list %}
+      <tbody>
+        {% for driver in driver_list %}
+          <tr>
+            <td>{{ driver.id }}</td>
+            <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
+            <td>{{ driver.last_name }} {{ driver.first_name }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    {% else %}
+      <p>There is no driver!</p>
+    {% endif %}
+  </table>
+{% endblock %}
+
+{% block pagination %}
+  {% include 'includes/pagination.html' %}
+{% endblock %}
