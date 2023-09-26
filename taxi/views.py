@@ -37,6 +37,6 @@ class DriverDetailView(generic.DetailView):
     queryset = Driver.objects.prefetch_related("cars")
 
 
-class CarDetailView(LoginRequiredMixin, generic.DetailView):
+class CarDetailView(generic.DetailView):
     model = Car
     queryset = Car.objects.prefetch_related("drivers")
