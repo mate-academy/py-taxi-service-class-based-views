@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+  <h3>Such cars are available:</h3>
+  <hr>
+    {% for car in car_list %}
+      <ul>
+      <li>
+        <p>
+          <a href="{{ car.get_absolute_url }}">{{ car.id }}</a>
+          {{ car.model }}
+        </p>
+      </li>
+      </ul>
+    {% empty %}
+      <p>There are no available cars.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
