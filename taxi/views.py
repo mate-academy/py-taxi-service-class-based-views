@@ -28,6 +28,7 @@ class CarListView(generic.ListView):
 
 class CarDetailView(generic.DetailView):
     model = Car
+    queryset = Car.objects.select_related("manufacturer")
 
 
 def index(request):
