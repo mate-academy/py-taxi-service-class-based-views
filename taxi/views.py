@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.views import generic
+from django.http import HttpRequest, HttpResponse
 
 from taxi.models import Driver, Car, Manufacturer
 
 
-def index(request):
+def index(request: HttpRequest) -> HttpResponse:
     """View function for the home page of the site."""
 
     context = {
