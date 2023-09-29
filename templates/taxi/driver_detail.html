@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Information about all cars of the driver</h1>
+  <ul>
+    <li>Driver username: {{ driver.username }}</li>
+    <li>Driver first_name: {{ driver.first_name }}</li>
+    <li>Driver last_name: {{ driver.last_name }}</li>
+    <li>Driver license number: {{ driver.license_number }}</li>
+  </ul>
+  <h2>Cars of the driver</h2>
+  {% for car in driver.cars.all %}
+    <ul>
+      <li>Model: {{ car.model }}</li>
+      <li>Country: {{ car.manufacturer.country }}</li>
+    </ul>
+    {% empty %}
+      <p>There are no cars!</p>
+  {% endfor %}
+{% endblock %}
