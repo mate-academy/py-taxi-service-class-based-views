@@ -56,7 +56,7 @@ body {
   }
 
   .page-item.active .page-link {
-    background-color: black;
+    background-color: #000000;
     color: #ffffff;
     border: 1px solid white;
   }
