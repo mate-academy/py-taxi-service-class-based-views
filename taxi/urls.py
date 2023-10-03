@@ -21,7 +21,6 @@ urlpatterns = [
         DriverDetailView.as_view(),
         name="driver-detail"
     ),
-    path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 app_name = "taxi"
