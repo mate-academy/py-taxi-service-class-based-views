@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Driver list page</h1><br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Full name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for driver in driver_list %}
+      <tr>
+        <th scope="row">{{ driver.id }}</th>
+        <td><a href="{% url 'taxi:driver-detail' driver.id %}"> {{ driver.username }} </a></td>
+        <td>{{ driver.get_full_name }}</td>
+      </tr>
+    {% empty %}
+      <p> Drivers do not exist in database </p>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
