@@ -4,6 +4,7 @@
     <h1>List of car</h1>
 
     {% if car_list %}
+
         <ul>
             {% for care in car_list %}
                 <li><a href="{% url 'taxi:car-detail' care.id %}">{{ care.model }}</a></li>
