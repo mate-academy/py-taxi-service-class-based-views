@@ -1,0 +1,264 @@
+[33mcommit b2958a398806db924b1839950174c7a525f0a548[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: Soloveyk1n <swain.volt@gmail.com>
+Date:   Sat Oct 14 15:42:10 2023 +0300
+
+    fixed -select -prefetch
+
+[33mcommit c81d818e24dd03d1e19d33e3a99a88f8554107ae[m
+Author: Soloveyk1n <swain.volt@gmail.com>
+Date:   Fri Oct 13 16:15:47 2023 +0300
+
+    fixed 2.0
+
+[33mcommit 47477476ae7041e9793b619c5b74359511d5dc6f[m
+Author: Soloveyk1n <swain.volt@gmail.com>
+Date:   Fri Oct 13 15:55:18 2023 +0300
+
+    fixed
+
+[33mcommit 3b482723f997c906cea63dc90fff758e19af1812[m
+Author: Soloveyk1n <swain.volt@gmail.com>
+Date:   Fri Oct 13 13:45:12 2023 +0300
+
+    Solution
+
+[33mcommit 15a2836bebd63cc503318c6508e2da91041640d1[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 89f69a4 292c5bb
+Author: Ivan Ramyk <ivan.ramyk@gmail.com>
+Date:   Thu Sep 21 19:52:19 2023 +0300
+
+    Merge pull request #421 from Serhii-Leonenko/refactoring
+    
+    added changes
+
+[33mcommit 292c5bbaac6d6945c9a44b8402c252c457737ee7[m
+Author: Serhii-Leonenko <leonenko3149@gmail.com>
+Date:   Thu Sep 21 19:48:03 2023 +0300
+
+    put back ordering
+
+[33mcommit 63c07e7ccee96142f0cfe160b8c4a2f5275ef9a5[m
+Author: Serhii-Leonenko <leonenko3149@gmail.com>
+Date:   Thu Sep 21 19:37:08 2023 +0300
+
+    added changes
+
+[33mcommit 89f69a4b394115d77cf44321668605edee545d90[m
+Author: Yaroslav <104159378+Y-Havryliv@users.noreply.github.com>
+Date:   Wed Nov 9 16:38:55 2022 +0200
+
+    Update README.md
+
+[33mcommit e67fcc9ddea43dd583c16ef82b7ca796f415ecb3[m
+Merge: 04039b9 4cb1d9a
+Author: Nataliia Zakharchuk <62181026+Nattalli@users.noreply.github.com>
+Date:   Tue Nov 1 03:01:28 2022 -0700
+
+    Merge pull request #109 from mate-academy/checklist
+    
+    added students checklist
+
+[33mcommit 4cb1d9af34c0f8d069ce7da7a30e839c5e27cdf8[m
+Author: Nataliia <dominok56@gmail.com>
+Date:   Tue Nov 1 12:00:52 2022 +0200
+
+    added some points
+
+[33mcommit c440373a7eab29bb1c8ffe6f3ac9286a52d5874c[m
+Author: Nataliia <dominok56@gmail.com>
+Date:   Tue Nov 1 11:59:38 2022 +0200
+
+    added some points
+
+[33mcommit 6eda2bde6ccc59fa14ad5b1b8f176689d62e4673[m
+Author: Nataliia <dominok56@gmail.com>
+Date:   Mon Oct 31 17:14:06 2022 +0200
+
+    added students checklist
+
+[33mcommit 04039b9b3b78eb2db5a47d034a867a03c4d34420[m
+Author: Alex Zhidkov <72562232+Abnormaltype@users.noreply.github.com>
+Date:   Tue Oct 25 10:51:59 2022 +0300
+
+    Update .gitignore
+
+[33mcommit 0611296853123440bf1e1e3b87190b4218053b66[m
+Author: Danylo Tiutiushkin <48014331+danylott@users.noreply.github.com>
+Date:   Tue Oct 11 14:42:00 2022 +0300
+
+    Update requirements.txt
+
+[33mcommit 3484b091dd11ffa1cc2bc2f9add18c00a37edbd9[m
+Author: Danylo Tiutiushkin <48014331+danylott@users.noreply.github.com>
+Date:   Tue Oct 11 14:09:10 2022 +0300
+
+    Update test.yml
+
+[33mcommit cb8d573031bcc20702fabaa1603961c42ad907a6[m
+Author: danylott <d.tuytuyshkin@gmail.com>
+Date:   Tue Oct 11 14:07:23 2022 +0300
+
+    Added flake8 plugins
+
+[33mcommit c4ed91789d6fadd6015483d75232bfb3c2db444d[m
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Thu Sep 8 14:44:20 2022 +0300
+
+    Update taxi_service_db_data.json
+
+[33mcommit 40945665244a7198415fddeccc0f920617dc5e24[m
+Merge: 0a7f2e6 5998c91
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Thu Sep 8 12:16:32 2022 +0300
+
+    Merge pull request #76 from mate-academy/pagination-5
+    
+    swich to pagination 5
+
+[33mcommit 5998c916a17ee29af9bef4fbf2ef42150dbd98c9[m
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Thu Sep 8 12:03:59 2022 +0300
+
+    test names corrected
+
+[33mcommit 19234395535d87640131277b5c2c9c4da5374bdf[m
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Thu Sep 8 12:02:21 2022 +0300
+
+    swich to pagination 5
+
+[33mcommit 0a7f2e6133fde385ac268fc1c85827b1f7978db5[m
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Wed Aug 31 16:09:54 2022 +0300
+
+    Update test_taxi_view.py
+
+[33mcommit b8528d92981b59738c1cbcdc3a56c4dc39e545af[m
+Author: Nataliia Zakharchuk <62181026+Nattalli@users.noreply.github.com>
+Date:   Tue Aug 23 10:42:45 2022 +0300
+
+    Update base.html
+
+[33mcommit 0b7a96a735d6d2944d66298228d4b3e71deca731[m
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Mon Aug 22 10:18:22 2022 +0300
+
+    Update test_taxi_view.py
+
+[33mcommit 6db8df40b87b41501956cecbdd193064e0eaa5a4[m
+Merge: 454d5c7 46aac26
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Fri Aug 19 14:21:15 2022 +0300
+
+    Merge pull request #66 from mate-academy/add-worckflow
+    
+    worckflow added
+
+[33mcommit 46aac26959f83ce4b7fbd92afdff1704029dadf6[m
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Fri Aug 19 13:49:19 2022 +0300
+
+    worckflow added
+
+[33mcommit 454d5c781c5fedf5d81917bef54fe62cf0b26e46[m
+Merge: 9d3c1d7 443182c
+Author: Nataliia Zakharchuk <62181026+Nattalli@users.noreply.github.com>
+Date:   Wed Aug 17 16:47:27 2022 +0300
+
+    Merge pull request #65 from mate-academy/readme_additional
+    
+    Update README.md
+
+[33mcommit 443182c3ff878f0e024792343c9b0049d556bffd[m
+Author: Nataliia Zakharchuk <62181026+Nattalli@users.noreply.github.com>
+Date:   Wed Aug 17 16:41:50 2022 +0300
+
+    Update README.md
+
+[33mcommit 9d3c1d7e5660522daeacc2b1bcdfe48afc91f08b[m
+Merge: da107f2 c43cdaf
+Author: Nataliia Zakharchuk <62181026+Nattalli@users.noreply.github.com>
+Date:   Wed Aug 17 14:40:35 2022 +0300
+
+    Merge pull request #64 from mate-academy/dev_html_fixing
+    
+    changed 4 table spaces for 2
+
+[33mcommit c43cdafcb2560c3eab17b627105f2bcf064eb210[m
+Author: Nataliia Zakharchuk <62181026+Nattalli@users.noreply.github.com>
+Date:   Wed Aug 17 13:52:01 2022 +0300
+
+    Update base.html
+
+[33mcommit 05b0060474bb9b654add984e88ffc8500c7da27e[m
+Author: Nataliia Zakharchuk <62181026+Nattalli@users.noreply.github.com>
+Date:   Wed Aug 17 13:33:12 2022 +0300
+
+    changed 4 table spaces for 2
+
+[33mcommit da107f2c8c13d7c44275b43b74927fa5e279b7f5[m
+Merge: db959e5 9b72b59
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Thu Aug 11 14:54:10 2022 +0300
+
+    Merge pull request #63 from mate-academy/add-tests
+    
+    tests added
+
+[33mcommit 9b72b596da3d48f6508e1ab66ea2381004d45c54[m
+Author: Dmytro Svirsa <dima.s@mate.academy>
+Date:   Thu Aug 11 14:27:50 2022 +0300
+
+    tests rebuild
+
+[33mcommit a764e2f2f446880cf98da6bbba43bdd88501934e[m
+Author: Dmytro Svirsa <dima.s@mate.academy>
+Date:   Thu Aug 11 12:24:59 2022 +0300
+
+    tests added first commit
+
+[33mcommit db959e595b02bd1141b9a23574512b6421ab3e1e[m
+Merge: d92c40b 4e34ab3
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Tue Aug 9 11:17:50 2022 +0300
+
+    Merge pull request #62 from mate-academy/add_fixture
+    
+    fixture added, how to load fixtuse added
+
+[33mcommit 4e34ab36dcd9c79d394daed22d794651e1a15533[m
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Tue Aug 9 11:17:43 2022 +0300
+
+    Update README.md
+    
+    Co-authored-by: Danylo Tiutiushkin <48014331+danylott@users.noreply.github.com>
+
+[33mcommit 023fb66cea02e71636e8d13d9efc332b8cadf986[m
+Author: Dmytro Svirsa <dima.s@mate.academy>
+Date:   Tue Aug 9 10:34:03 2022 +0300
+
+    small coment added
+
+[33mcommit bf35f6270c5b287ca5e9719cd7582247340cf3c9[m
+Author: Dmytro Svirsa <dima.s@mate.academy>
+Date:   Tue Aug 9 10:31:36 2022 +0300
+
+    superuser login data added
+
+[33mcommit d9fcf9b4080474008236d60ab5fb1882cad73167[m
+Author: Dmytro Svirsa <dima.s@mate.academy>
+Date:   Tue Aug 9 10:01:27 2022 +0300
+
+    small del form README
+
+[33mcommit 487a2fe2d9bcd86f133365adcc2095fd9be0bb6d[m
+Author: Dmytro Svirsa <dima.s@mate.academy>
+Date:   Tue Aug 9 09:52:50 2022 +0300
+
+    fixture added, how to load fixtuse added
+
+[33mcommit d92c40b65cb7b78e85f3130e24e9c5b1806ed27c[m
+Merge: 2c3ca36 3bfdb38
+Author: Dmytro Svirsa <104418771+DmytroSvirsa@users.noreply.github.com>
+Date:   Mon Aug 8 16:18:51 2022
