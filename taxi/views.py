@@ -30,8 +30,7 @@ class CarListView(generic.ListView):
     template_name = "taxi/car_list.html"
     context_object_name = "car_list"
 
-    def get_queryset(self):
-        return Car.objects.select_related("manufacturer").all()
+    queryset = Car.objects.select_related("manufacturer").all()
 
 
 class CarDetailView(generic.DetailView):
@@ -51,6 +50,4 @@ class DriverDetailView(generic.DetailView):
     model = Driver
     template_name = "taxi/driver_detail.html"
     context_object_name = "driver"
-
-    def get_queryset(self):
-        return Driver.objects.prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related("cars")
