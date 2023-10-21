@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>{{ driver.username }} Details</h1>
+    <h2>Driver Information:</h2>
+    <p>Username: {{ driver.username }}</p>
+    <p>Name: {{ driver.name }}</p>
+    <p>Email: {{ driver.email }}</p>
+
+
+    <h2>Driver's Cars:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in driver.cars.all %}
+                <tr>
+                    <td><a href="{% url 'car-detail' car.id %}">{{ car.id }}</a></td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.year }}</td>
+                    <td>{{ car.color }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
