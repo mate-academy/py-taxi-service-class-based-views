@@ -1,34 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>{{ car.model }} Details</h1>
-
-    <h2>Car Information:</h2>
-    <p>Model: {{ car.model }}</p>
-    <p>Year: {{ car.year }}</p>
-    <p>Color: {{ car.color }}</p>
-
-
-    <h2>Manufacturer Information:</h2>
-    <p>Name: {{ car.manufacturer.name }}</p>
-    <p>Country: {{ car.manufacturer.country }}</p>
-
-
-    <h2>Drivers of this Car:</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th><a href="{% url 'driver-detail' driver.id %}">Username</a></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for driver in car.driver_set.all %}
-                <tr>
-                    <td>{{ driver.id }}</td>
-                    <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.username }}</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<h1>Car Detail</h1>
+<p>Manufacturer: {{ car.manufacturer.name }}, Country: {{ car.manufacturer.country }}</p>
+<h2>Drivers of this Car</h2>
+<ul>
+    {% for driver in car.driver_set.all %}
+        <li><a href="{% url "taxi:driver-detail" pk=driver.pk %}">{{ driver }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}
