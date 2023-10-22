@@ -1,3 +1,25 @@
 body {
     margin-top: 20px;
 }
+
+.list-stuff {
+    padding-bottom: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+table.table-hover tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+a {
+    color: rgba(1,120,254,255);
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: rgba(1,120,254,255);
+}
