@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Car List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for car in car_list %}
+            <tr>
+                <td><a href="{% url "taxi:car-detail" pk=car.pk %}">{{ car.pk }}</a></td>
+                <td>{{ car.manufacturer.name }}</td>
+                <td>{{ car.model }}</td>
+            </tr>
+        {% endfor %}
+        {% if is_paginated %}
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
+            {% endif %}
+            <li class="page-item active"><span class="page-link"> {{ page_obj.number}} of {{ paginator.num_pages }}</span></li>
+            {% if page_obj.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number}}">Next</a></li>
+            {% endif %}
+          </ul>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
