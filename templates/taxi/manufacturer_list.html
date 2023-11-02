@@ -1,4 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-
+  {% for manufaturer in manufacturer_list %}
+    <ul>
+    <li>
+      {{ manufaturer.pk }}
+    </li>
+    <li>
+      {{ manufaturer.name }}
+    </li>
+    <li>
+      {{ manufaturer.country }}
+    </li>
+    </ul>
+  {% endfor %}
 {% endblock %}
