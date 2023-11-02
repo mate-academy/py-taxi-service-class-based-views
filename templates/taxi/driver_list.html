@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  {% for driver in driver_list %}
+    <ul>
+    <li>
+      <a href="{{ driver.get_absolute_url }}">{{ driver.pk }}</a>
+    </li>
+    <li>
+      {{ driver.license_number }}
+    </li>
+    </ul>
+  {% endfor %}
+{% endblock %}
