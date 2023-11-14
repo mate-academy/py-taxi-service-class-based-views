@@ -9,9 +9,6 @@ urlpatterns = [
         name="index"
     ),
     path(
-        "debug/",
-        include("debug_toolbar.urls")),
-    path(
         "manufacturers/",
         ManufacturerListView.as_view(),
         name="manufacturer_list"
