@@ -32,7 +32,7 @@ class CarListView(generic.ListView):
 class CarDetailView(generic.DetailView):
     model = Car
     queryset = Car.objects.select_related("manufacturer")
-    template_name = "taxi/driver-detail.html"
+    template_name = "taxi/car-detail.html"
 
 
 class DriverListView(generic.ListView):
