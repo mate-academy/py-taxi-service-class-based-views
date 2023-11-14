@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers</h1>
+
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list %}
+        <li><a href="#">{{ manufacturer.name }}</a>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are mo Manufacturers in the Taxi-Service</p>
+  {% endif %}
+
+{% endblock %}
