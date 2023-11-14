@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ car.model }}</h1>
+  <br>
+  <p>Driver: <strong>{{ driver.first_name }} {{ driver.last_name }}</strong></p>
+  <p>License number: <strong>{{ driver.license_number}}</strong></p>
+  <p>E-mail: <strong>{{ driver.email}}</strong></p>
+  <p>Is active: <strong>{{ driver.is_active}}</strong></p>
+  <p>Date joined: <strong>{{ driver.date_joined}}</strong></p>
+{% endblock %}
