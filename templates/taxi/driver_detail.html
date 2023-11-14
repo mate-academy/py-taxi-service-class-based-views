@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Driver {{ driver.username }}</h2>
+  <p>Name: {{ driver.first_name }}, surname: {{ driver.last_name }}</p>
+  <p>License number: {{ driver.license_number }}</p>
+  <h4>{{ driver.first_name }}'s cars:</h4>
+  {% for car in driver.cars.all %}
+    <p>{{ car.id }}: {{ car.model }}</p>
+  {% empty %}
+    <p>This driver do not have a car</p>
+  {% endfor %}
+  <button type="button" class="btn btn-outline-primary"><a href="{% url 'taxi:driver-list' %}">Go back</a></button>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="list-group">
+    {% for car in car_list %}
+      <li class="list-group-item">
+        <a href="{% url 'taxi:car-detail' car.id %}" class="btn">
+          {{ car.model }}, manufacturer: {{ car.manufacturer.name }}
+        </a>
+      </li>
+    {% empty %}
+      <p>Cars not found</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

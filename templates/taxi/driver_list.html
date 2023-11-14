@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="list-group">
+    {% for driver in driver_list %}
+      <li class="list-group-item">
+        <a href="{% url 'taxi:driver-detail' driver.id %}" class="btn">
+          {{ driver.username }}, licence number: {{ driver.license_number }}
+        </a>
+      </li>
+    {% empty %}
+      <p>Cars not found</p>
+    {% endfor %}
+  </ul>
+{% endblock %}
