@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h3>Manufacturers list</h3>
   <ul class="list-group">
     {% for manufacturer in manufacturer_list %}
       <li class="list-group-item">{{ manufacturer.name }}, {{ manufacturer.country }}</li>
