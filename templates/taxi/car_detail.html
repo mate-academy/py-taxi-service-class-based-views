@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-2">
+    <h1 class="mb-3">Car Details</h1>
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Model: {{ car.model }}</h3>
+        <p class="card-text">Manufacturer: {{ car.manufacturer.name }}</p>
+        <p class="card-text">Country: {{ car.manufacturer.country }}</p>
+        <h3 class="mt-4">Drivers:</h3>
+        <ul>
+          {% for driver in car.drivers.all %}
+            <li>
+              <strong>Driver Id:</strong> <a href="{{ driver.get_absolute_url }}">{{ driver.id }}</a><br>
+              <strong>Driver Name:</strong> {{ driver.first_name }}<br>
+              <strong>License Number:</strong> {{ driver.license_number }}<br>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

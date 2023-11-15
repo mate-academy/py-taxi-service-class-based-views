@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-2">
+    <h1 class="mb-3">Driver Details</h1>
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Driver Id: {{ driver.id }}</h3>
+        <p class="card-text">Driver Name: {{ driver.first_name }} {{ driver.last_name }}</p>
+        <p class="card-text">License Number: {{ driver.license_number }}</p>
+        <h3 class="mt-4">Cars:</h3>
+        {% if driver.cars.all %}
+          <ul>
+            {% for car in driver.cars.all %}
+              <li>
+                <strong>Car Id:</strong> <a href="{{ car.get_absolute_url }}">{{ car.id }}</a><br>
+                <strong>Car Model:</strong> {{ car.model }}<br>
+                <strong>Manufacturer:</strong> {{ car.manufacturer.name }}<br>
+                <strong>Country:</strong> {{ car.manufacturer.country }}<br>
+                <br>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>This driver doesn't have any associated cars.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

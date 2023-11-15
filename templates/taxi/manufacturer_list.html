@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-2">
+    <h1 class="mb-3">Our Partner Manufacturers</h1>
+    {% for manufacturer in manufacturer_list %}
+      <div class="card mb-2">
+        <div class="card-body">
+          <h3 class="card-title">Name: {{ manufacturer.name }}</h3>
+          <p class="card-text">Country: {{ manufacturer.country }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
