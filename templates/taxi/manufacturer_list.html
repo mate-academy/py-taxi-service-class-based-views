@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="list-group">
+  {% if manufacturer_list %}
+    <li class="list-group-item active">Manufacturer list</li>
+    {% for manufacturer in manufacturer_list %}
+      <li class="list-group-item">{{ manufacturer.name}} ({{ manufacturer.country }})</li>
+    {% endfor %}
+  {% else %}
+    <p>There are no manufacturers</p>
+  {% endif %}
+  </ul>
+{% endblock %}
