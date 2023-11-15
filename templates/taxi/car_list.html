@@ -14,7 +14,7 @@
     <tbody>
       {% for car in car_list %}
         <tr>
-          <td><a href="{% url "taxi:car-detail" car.id %}"></a>{{ car.id }}</td>
+          <td><a href="{% url "taxi:car-detail" car.id %}">{{ car.id }}</a></td>
           <td>{{ car.manufacturer }}</td>
           <td>{{ car.model }}</td>
           <td>{{ car.manufacturer.country }}</td>

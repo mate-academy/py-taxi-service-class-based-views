@@ -2,13 +2,13 @@
 
 {% block content %}
   <h1>Car Info</h1>
-  <h2>Car: {{ car.model }}</h2>
-  <h3>Manufacturer: {{ car.manufacturer.name }}, ({{ car.manufacturer.country }})</h3>
+  <h4>Car: {{ car.model }}</h4>
+  <h4>Manufacturer: {{ car.manufacturer.name }}, ({{ car.manufacturer.country }})</h4>
 
-  <h3>Drivers of {{ car.model }}</h3>
+  <h4>Drivers of {{ car.model }}</h4>
   <ul>
     {% for driver in car.drivers.all %}
-      <li><a href="{% url 'taxi:driver-detail' driver.id %}"><h3>{{ driver.username }}</h3></a></li>
+      <li><a href="{% url 'taxi:driver-detail' driver.id %}"><p>{{ driver.username }}</p></a></li>
     {% endfor %}
   </ul>
 {% endblock %}
