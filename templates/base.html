@@ -11,6 +11,7 @@
       crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
   {% load static %}
+
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
@@ -29,8 +30,8 @@
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include "includes/pagination.html" %}
       {% endblock %}
-
     </div>
   </div>
 </div>
