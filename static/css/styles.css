@@ -1,3 +1,44 @@
 body {
     margin-top: 20px;
+    background: linear-gradient(to right, #FFC0CB, #ADD8E6);
+}
+
+.container-fluid {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.sidebar-nav {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+}
+
+a {
+    display: inline-block;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: rgba(192, 192, 192, 0.5);
+}
+
+
+.sidebar-logo {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    float: left;
+}
+
+
+#a1 {
+    background-color: #333;
+    color: white;
 }
