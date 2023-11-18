@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ object.username }}</h2>
+
+<div class="card mt-5 mb-5" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ object.first_name }} {{ object.last_name }}</h5>
+        <p class="card-text">{{ object.license_number }}</p>
+        <a href="{% url 'taxi:driver-list' %}" class="btn btn-primary">All Drivers</a>
+    </div>
+</div>
+
+<h3>All Cars of the Driver</h2>
+    <table class="table">
+        <thead>
+          <tr>
+          <th scope="col">#</th>
+          <th scope="col">Model</th>
+          <th scope="col">Manufacturer</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for car in object.cars.all %}
+          <tr>
+          <th scope="row"><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a></th>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+{% endblock %}
