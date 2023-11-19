@@ -8,6 +8,8 @@
         <li>
           <a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>
         </li>
+      {% empty %}
+        <p>No drivers </p>
       {% endfor %}
     </ul>
   {% endif %}

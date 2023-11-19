@@ -8,6 +8,8 @@
         <li>
           {{ manufacturer.name }}, {{ manufacturer.country }}
         </li>
+      {% empty %}
+        <p>No users </p>
       {% endfor %}
     </ul>
   {% endif %}
