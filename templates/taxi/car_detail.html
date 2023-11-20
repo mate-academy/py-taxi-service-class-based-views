@@ -6,21 +6,17 @@
 <p><strong>Drivers: </strong>{{ car.drivers }}</p>
 <div class="ml-3">
   <h3>Manufacturer:</h3>
-  {% for manufacturer in car.manufacturer.all %}
-    <hr>
-  <p class="text-muted">{{ manufacturer.id }}</p>
-  <p>{{ manufacturer.name }} {{ manufacturer.country }}</p>
-  {% empty %}
-  <p>No manufacturer!</p>
-  {% endfor %}
+    <p class="text-muted">{{ car.manufacturer.id }}</p>
+    <p>Manufacturer: "{{ car.manufacturer.name }}", country {{ car.manufacturer.country }}</p>
 
   <h3>Drivers:</h3>
   {% for driver in car.drivers.all %}
     <hr>
   <p class="text-muted">{{ driver.id }}</p>
   <p>{{ driver.first_name }} {{ driver.last_name }}
+    <br>
     {% if driver.license_number %}
-      {{ driver.license_number }}
+      license: {{ driver.license_number }}
     {% endif %}
   </p>
   {% empty %}
