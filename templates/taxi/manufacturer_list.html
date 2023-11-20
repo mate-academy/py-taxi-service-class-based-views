@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for manufacture in manufacturer_list %}
+    <h1>Manufacturer: {{ manufacture.name }} ({{ manufacture.country }})</h1>
+    <ul>
+      {% for owned_car in manufacture.cars.all %}
+        <li><h4>{{ owned_car.model }}</h4></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% endblock %}
