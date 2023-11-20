@@ -1,7 +1,15 @@
+import os.path
+import django
+
+from taxi.models import Manufacturer
+
 from django.test import TestCase
 from django.urls import reverse
 
-from taxi.models import Manufacturer
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "taxi_service.settings")
+django.setup()
+
 
 MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
 DRIVER_LIST_URL = reverse("taxi:driver-list")
