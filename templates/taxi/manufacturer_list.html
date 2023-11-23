@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="col-sm-6">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Manufacturer's name</th>
+        <th scope="col">Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
