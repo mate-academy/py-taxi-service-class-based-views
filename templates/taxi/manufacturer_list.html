@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Manufacturer List</h1>
-  {% if manufacturer_list %}
+  {% for manufacture in manufacturer_list %}
+    <h1>Manufacturer: {{ manufacture.name }} ({{ manufacture.country }})</h1>
     <ul>
-      {% for manufacturer in manufacturer_list %}
-        <li>Name: {{ manufacturer.name }};</li>
-        <p>Country: {{ manufacturer.country }}.</p>
+      {% for owned_car in manufacture.cars.all %}
+        <li><h4>{{ owned_car.model }}</h4></li>
       {% endfor %}
     </ul>
-  {% else %}
-    <p>There are no manufacturer!</p>
-  {% endif %}
+  {% endfor %}
 {% endblock %}
