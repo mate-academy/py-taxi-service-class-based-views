@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="table">
+    <ul class="table_column">
+      <li class="table_name border_head">Username</li>
+      <li class="table_name border_head">First Name</li>
+      <li class="table_name border_head">Last Name</li>
+      <li class="table_name border_head">License number</li>
+    </ul>
+    {% for driver in driver_list %}
+      <ul class="table_column">
+        <li class="border table_name"><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></li>
+        <li class="border table_name">{{ driver.first_name }}</li>
+        <li class="border table_name">{{ driver.last_name }}</li>
+        <li class="border table_name">
+          {{ driver.license_number }}
+        </li>
+      </ul>
+    {% endfor %}
+  </div>
+{% endblock %}
