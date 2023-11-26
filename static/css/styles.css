@@ -1,3 +1,38 @@
 body {
     margin-top: 20px;
 }
+
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.table_column {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.table_name {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+.border_head {
+    border-bottom: black solid 2px;
+}
+
+.drivers {
+    width: 200px;
+    overflow-x: auto;
+}
+
+.pagination-list {
+    margin: 5px;
+    border: 2px solid dodgerblue;
+    padding: 4px;
+}
