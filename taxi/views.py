@@ -19,7 +19,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    template_name = "taxi/Manufacturers_list.html"
+    template_name = "taxi/manufacturers_list.html"
     context_object_name = "manufacturers_list"
     paginate_by = 5
 
