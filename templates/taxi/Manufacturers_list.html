@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Manufacturer list</h1>
+  <h1>Manufacturers list</h1>
   {% for manufacturer in manufacturers_list %}
     <li><strong>{{ manufacturer.name }}</strong> ({{ manufacturer.country }}) </li>
   {% endfor %}
