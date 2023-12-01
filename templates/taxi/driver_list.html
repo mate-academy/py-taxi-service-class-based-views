@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Car List</h1>
+  <ul>
+    {% if driver_list %}
+      {% for driver in driver_list %}
+        <li>
+          <a href="{{ driver.pk }}">{{ driver.first_name }} {{ driver.last_name }}</a>
+        </li>
+      {% endfor %}
+    {% else %}
+      <p>The are no driver</p>
+    {% endif %}
+  </ul>
+{% endblock %}
