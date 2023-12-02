@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for car in driver.cars.all %}
+    <p>{{ car.model }}</p>
+  {% endfor %}
+{% endblock %}
