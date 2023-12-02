@@ -38,7 +38,7 @@ class DriverListView(ListView):
     template_name = "taxi/driver_list.html"
     context_object_name = "driver_list"
     paginate_by = 5
-    queryset = Driver.objects.prefetch_related("cars")
+
 
 
 class CarDetailView(DetailView):
@@ -51,3 +51,4 @@ class DriverDetailView(DetailView):
     model = Driver
     template_name = "taxi/driver_detail.html"
     context_object_name = "driver_detail"
+    queryset = Driver.objects.prefetch_related("cars")
