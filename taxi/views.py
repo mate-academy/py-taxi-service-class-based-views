@@ -40,7 +40,6 @@ class DriverListView(ListView):
     paginate_by = 5
 
 
-
 class CarDetailView(DetailView):
     model = Car
     template_name = "taxi/car_detail.html"
