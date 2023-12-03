@@ -19,7 +19,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
-    queryset = Manufacturer.objects.prefetch_related("cars").order_by("name")
+    queryset = Manufacturer.objects.order_by("name")
     paginate_by = 5
 
 
