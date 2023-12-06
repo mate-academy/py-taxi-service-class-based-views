@@ -1,0 +1,11 @@
+{%  extends "base.html" %}
+{% block title %}
+  <title>{{ manufacturer.name }}</title>
+{% endblock title %}
+
+{% block content %}
+  <h3><strong>Manufacturer: </strong>{{ manufacturer.name }}</h3>
+  <div class="ml-3">
+    <p>Country: {{ manufacturer.country }}</p>
+  </div>
+{% endblock content %}

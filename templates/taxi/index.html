@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
+{% block title %}
+  <title>Home page</title>
+{% endblock title %}
+
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
+  <h1>Taxi Service</h1>
+  <p>Welcome to The Best Taxi Ever!</p>
+  <h3>What do we have?</h3>
   <p>The Taxi service has the following record counts:</p>
   <ul>
     <li><strong>Cars:</strong> {{ num_cars }}</li>
