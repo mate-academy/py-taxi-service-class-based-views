@@ -3,8 +3,10 @@
 {% block content %}
   <h1>Car List</h1>
   {% for car in car_list %}
-  	<li>
-      <a href="{% url 'taxi:car-detail' pk=car.id %}">Car id:{{ car.id }}</a>: {{ car.model }}
+    <li>
+      <a href="{% url 'taxi:car-detail' pk=car.id %}">
+        Car id:{{ car.id }}
+      </a>: {{ car.model }}
     </li>
   {% endfor %}
 {% endblock %}
