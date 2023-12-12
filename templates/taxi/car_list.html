@@ -15,7 +15,11 @@
             <td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></td>
             <td>{{ car.model }}</td>
             <td>{{ car.manufacturer }}</td>
-            <td>{{ car.drivers.all }}</td>
+            <td>
+              {% for driver in car.drivers.all %}
+                {{ driver.username }} ({{ driver.license_number }})<br>
+              {% endfor %}
+            </td>
           </tr>
         {% endfor %}
       </table>
