@@ -1,0 +1,22 @@
+ <table>
+    <thead>
+      <tr>
+        <th>Manufacturer</th>
+        <th>Country</th>
+        <th>Drivers</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.manufacturer.country }}</td>
+          <td>
+            <ul>
+              {% for driver in car.drivers.all %}
+                <li>{{ driver.username }} - {{ driver.license_number }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+    </tbody>
+  </table>
