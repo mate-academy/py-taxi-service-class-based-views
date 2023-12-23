@@ -9,8 +9,9 @@
 <h4>Drivers:</h4>
 {% for driver in car.drivers.all %}
 <ul>
-  <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.first_name }}
-    {{ driver.last_name }} ({{ driver.license_number }})</a></li>
+  <li><a href="{% url 'taxi:driver-detail' driver.id %}">
+    {{ driver.first_name }} {{ driver.last_name }} ({{ driver.license_number }})
+  </a></li>
 </ul>
 {% empty %}
 <h5>No Drivers</h5>

@@ -10,7 +10,9 @@
 
 {% for car in driver.cars.all %}
 <ul>
-  <li><a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }} ({{ car.manufacturer.name }})</a></li>
+  <li><a href="{% url 'taxi:car-detail' car.id %}">
+    {{ car.model }} ({{ car.manufacturer.name }})
+  </a></li>
 </ul>
 {% empty %}
 <h5>No Cars</h5>
