@@ -1,0 +1,7 @@
+<ul>
+    {% for car in car_list %}
+        <li>
+            <strong>ID:</strong> <a href="{% url 'taxi:car-list' %}">{{ car.id }}</a>
+        </li>
+    {% endfor %}
+</ul>
