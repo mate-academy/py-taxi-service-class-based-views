@@ -1,0 +1,13 @@
+<h1>{{ car.model }}</h1>
+<p>Information about the manufacturer of the car:</p>
+<ul>
+    <li><strong>Name:</strong> {{ car.manufacturer.name }}</li>
+    <li><strong>Country:</strong> {{ car.manufacturer.country }}</li>
+</ul>
+
+<p>Information about all drivers of that car:</p>
+<ul>
+    {% for driver in car.drivers.all %}
+        <li>{{ driver.username }}</li>
+    {% endfor %}
+</ul>
