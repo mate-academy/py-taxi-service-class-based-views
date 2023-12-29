@@ -1,7 +1,7 @@
 <ul>
     {% for driver in driver_list %}
         <li>
-            <strong>Username:</strong> <a href="{% url 'taxi:driver-list' %}">{{ driver.username }}</a>
+            <strong>Username:</strong> <a href="{% url 'taxi:driver-detail' pk=driver.pk %}">{{ driver.username }}</a>
         </li>
     {% endfor %}
 </ul>
