@@ -34,13 +34,9 @@ class CarDetailView(generic.DetailView):
 class CarListView(generic.ListView):
     model = Car
     paginate_by = 5
-
-    def get_queryset(self):
-        return Car.objects.all()
+    queryset = Car.objects.all()
 
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-
-    def get_queryset(self):
-        return Driver.objects.all()
+    queryset = Driver.objects.all()
