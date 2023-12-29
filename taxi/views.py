@@ -23,7 +23,7 @@ class ManufacturerListView(ListView):
     queryset = Manufacturer.objects.order_by("name")
     paginate_by = 5
     template_name = "taxi/manufacturer_list.html"
-    context_object_name = "manufacturers"
+    context_object_name = "manufacturer_list"
 
 
 class CarListView (ListView):
