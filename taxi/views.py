@@ -40,9 +40,11 @@ class CarListView(generic.ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return Car.objects.all().order_by("model")
+        return Car.objects.order_by("model")
 
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.all()
+
+    def get_queryset(self):
+        return Driver.objects.order_by("cars")
