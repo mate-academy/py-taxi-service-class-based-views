@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Driver List</h3>
+  {% if driver_list %}
+    <ul>
+      {% for driver in driver_list %}
+        <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>, {{ driver.license_number }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}
+{% endblock %}
