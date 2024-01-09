@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table class="table table-dark table">
+    <tr>
+      <th scope="col">id:</th>
+      <th scope="col">{{ car.id }}</th>
+    </tr>
+    <tr class="table-active">
+      <th scope="col">Model:</th>
+      <th scope="col">{{ car.model }}</th>
+    </tr>
+    <tr>
+      <th scope="col">Manufacturer:</th>
+      <th scope="col">{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</th>
+    </tr>
+    <tr>
+      <th scope="col">Drivers:</th>
+      <th scope="col">
+        {% for driver in car.drivers.all %}
+          <p><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></p>
+        {% endfor %}
+      </th>
+    </tr>
+  </table>
+{% endblock %}
