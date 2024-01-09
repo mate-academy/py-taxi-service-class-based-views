@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="display-5">Manufacturers list:</h1>
+  {% if manufacturer_list %}
+    <table class="table table-dark table">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+      </tr>
+      {% for manufacturer in manufacturer_list %}
+        <tr class="table-active">
+          <th scope="col">{{ manufacturer.id }}</th>
+          <th scope="col">{{ manufacturer.name }}</th>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No manufacturers in system!</p>
+  {% endif %}
+{% endblock %}
