@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}<h1>Manufacturers</h1>
+  <table class="table" style="max-width: 1000px">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      {% for manufacturer in manufacturer_list %}
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
