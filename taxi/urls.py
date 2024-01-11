@@ -9,14 +9,14 @@ urlpatterns = [
     path("", index, name="index"),
     path(
         "manufactures/", ManufacturerListView.as_view(),
-        name="manufactures_list"
+        name="manufactures-list"
     ),
-    path("cars/", CarListView.as_view(), name="cars_list"),
-    path("cars/<int:pk>/", CarDetailView.as_view(), name="car_detail"),
-    path("drivers/", DriverListView.as_view(), name="drivers_list"),
+    path("cars/", CarListView.as_view(), name="cars-list"),
+    path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
+    path("drivers/", DriverListView.as_view(), name="drivers-list"),
     path(
         "drivers/<int:pk>/", DriverDetailView.as_view(),
-        name="driver_detail"
+        name="driver-detail"
     ),
 ]
 
