@@ -32,6 +32,7 @@ class ManufacturerListView(ListView):
 
 class DriverListView(ListView):
     model = Driver
+    paginate_by = 5
 
 
 class DriverDetailView(DetailView):
