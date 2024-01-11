@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Driver: {{ driver.get_full_name }}</h2>
+  <p>License number: {{ driver.license_number }}</p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Car ID</th>
+      <th>Model</th>
+      <th>Manufacturer</th>
+      <th>Country</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% if driver.cars %}
+      {% for car in driver.cars.all %}
+        <tr>
+          <td><a href="{% url "taxi:car-detail" car.id %}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <p>This driver has no cars</p>
+    {% endif %}
+    </tbody>
+  </table>
+{% endblock %}

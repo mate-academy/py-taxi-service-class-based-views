@@ -1,3 +1,45 @@
 body {
     margin-top: 20px;
 }
+
+li {
+    padding: 10px 0;
+}
+
+.page-link {
+    color: black;
+}
+
+.page-link:hover {
+    background-color: rgb(247 205 71);
+    color: black;
+}
+
+.page-item.active .page-link{
+    background-color: rgb(247 205 71);
+    border-color: rgb(247 205 71);
+}
+
+.sidebar-nav {
+    padding: 0;
+    margin-top: 40px;
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+    border-radius: 5px;
+}
+
+.sidebar-link {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgb(247 205 71);
+    color: black;
+}
