@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Cars</h1>
+
+  {% for car in object_list %}
+<div class="card">
+  <h6>Model: 
+    <a href="{% url 'taxi:car-detail' car.pk %}">{{car.model}}</a>
+  </h6>
+  
+
+  
+</div>
+  {% endfor %}
+
+{% endblock %}

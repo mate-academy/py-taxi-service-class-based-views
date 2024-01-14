@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{object.first_name}} {{object.last_name}}</h1>
+<div class="card">
+  
+  
+  <ul>
+    <li>username: {{object.username}}</li>
+    <li>
+    Employed since: {{object.date_joined|date:"SHORT_DATE_FORMAT"}}</li>
+    <li>Licence number: {{object.license_number}}</li>
+    {% if object.cars %}
+    <ul>Cars:
+      {% for car in object.cars.all %}
+        <li>Model: {{car.model}} / Manufacturer: {{car.manufacturer}}</li>
+      {% endfor %}  
+    </ul>
+    {% endif %}
+  </ul>
+  
+  
+</div>
+
+{% endblock %}
