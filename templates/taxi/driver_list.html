@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Driver List - Taxi Service</title>{% endblock %}
+
+{% block content %}
+  <h2>Driver List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in object_list %}
+        <tr>
+          <th scope="row"><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.id }}</a></th>
+          <td>{{ driver.username }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include 'includes/pagination.html' %}
+{% endblock %}
