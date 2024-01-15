@@ -1,12 +1,9 @@
 {% extends "base.html" %}
-
 {% block content %}
 <h1>Drivers</h1>
-
   {% for driver in object_list %}
 <div class="card">
   <h6><a href="{% url 'taxi:driver-detail' driver.id %}">{{driver.username}}</a></h6>
 </div>
   {% endfor %}
-
 {% endblock %}

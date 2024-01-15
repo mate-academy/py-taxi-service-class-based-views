@@ -1,20 +1,13 @@
 {% extends "base.html" %}
-
 {% block content %}
 <h1>{{object.model}}</h1>
-
-
 <div class="card">
   <h6>Manufacturer: {{car.manufacturer}}</h6>
   <h6>Drivers:</h6>
   {% for driver in object.drivers.all %}
   <ul>
     <li>{{driver.first_name}} {{driver.last_name}}</li>
-
   </ul>
   {% endfor %}
-  
 </div>
-
-
 {% endblock %}
