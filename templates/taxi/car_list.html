@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Car list</h3>
+  <h2>Car list</h2>
   <br>
   {% if car_list %}
-    <ul>
+    <ul class="list-group list-group-flush">
       {% for car in car_list %}
-        <li>
-          <p><a href="{% url 'taxi:car_detail' pk=car.pk %}">{{ car.model }}</a></p>
+        <li class="list-group-item">
+          <a class="h4" style="color: white;" href="{% url 'taxi:car-detail' pk=car.pk %}">{{ car.model }}</a>
           {% if car.drivers.all %}
-            Driven by:
+            <p>Driven by:</p>
             <ul>
               {% for driver in car.drivers.all %}
-                <li><a href="{% url 'taxi:driver_detail' pk=driver.pk %}">{{ driver.username }}</a></li>
-              <br>
+                <li class="list-group-item"><a href="{% url 'taxi:driver-detail' pk=driver.pk %}">{{ driver.username }}</a></li>
               {% endfor %}
             </ul>
           {% else %}
