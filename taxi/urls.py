@@ -1,6 +1,5 @@
 from django.urls import path
 
-from .models import Car
 from .views import (
     index,
     ManufacturerListView,
