@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h4 style="color: red; font-weight: bold;"> {{ car.model }}</h4>
+  <ul>
+    <h5>The car is made in the {{ car.manufacturer.country }} by <strong>{{ car.manufacturer.name }}</strong> company.</h5>
+  </ul>
+
+  {% if car.drivers %}
+    <ul>
+      <h5 style="color: red;">Drivers:</h5>
+      {% for driver in car.drivers.all %}
+        <li class="list-group-item"><a href="{% url 'taxi:driver-detail' pk=driver.pk %}">{{ driver.username }}</a></li>
+      {% endfor %}
+    </ul>
+
+  {% endif %}
+{% endblock %}
