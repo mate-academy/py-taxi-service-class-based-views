@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Manufactures</h1>
+  {% for manufacturer in object_list %}
+  <div class="card">
+  <h6>{{manufacturer}}</h6>
+  </div>
+  {% endfor %}
+{% endblock %}
