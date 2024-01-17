@@ -2,15 +2,6 @@
 
 {% block content %}
   <h1>Drivers detail</h1>
-  <h2>Cars</h2>
-  {% for car in cars %}
-    <p>{{ car.model }} - {{ car.manufacturer.name }} - {{ car.manufacturer.country }}</p>
-  {% endfor %}
-  <h3>Driver detail</h3>
-  <p>Username: {{ driver.username }}</p>
-  <p>First name: {{ driver.first_name }}</p>
-  <p>Last name: {{ driver.last_name }}</p>
-  <p>Email: {{ driver.email }}</p>
-  <p>Date joined: {{ driver.date_joined }}</p>
-  <p>License: {{ driver.license_number }}</p>
+  <p><strong>Driver:</strong> {{ driver.first_name }} {{ driver.last_name }}: {{ driver.username }}</p>
+
 {% endblock %}
