@@ -4,7 +4,7 @@
   {% if car_list %}
     <ul>
       {% for car in  car_list %}
-        <li><a href="{% url  'taxi:cars-detail' car.id%}">{{ car.model }}
+        <li><a href="{% url  'taxi:car-detail' car.id%}">{{ car.model }}
           ({{ car.manufacturer.name }}({{ car.manufacturer.country }}))</a></li>
       {% endfor %}
     </ul>

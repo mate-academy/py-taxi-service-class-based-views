@@ -18,6 +18,7 @@ def index(request: HttpRequest) -> HttpResponse:
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
     paginate_by = 5
+    ordering = ["name"]
 
 
 class CarListView(generic.ListView):
