@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="subtitle">Driver List</h2>
+  
+  {% if driver_list %}
+    <ul class="list-group list-group-flush">
+      {% for driver in driver_list %}
+        <a href="{{ driver.get_absolute_url }}" class="list-group-item list-group-item-action">
+          {{ driver.first_name }} {{ driver.last_name }}
+        </a>     	
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No data</p>
+  {% endif %}
+{% endblock %}
