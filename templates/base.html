@@ -11,11 +11,13 @@
       crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href={% static "css/styles.css" %}>
 </head>
 
 <body>
 <div class="container-fluid">
+  <h1 class="title">Taxi Service</h1>
+  <hr>
   <div class="row">
     <div class="col-sm-2">
 
@@ -24,11 +26,12 @@
       {% endblock %}
 
     </div>
-    <div class="col-sm-10 ">
+    <div class="col-sm-10 page">
 
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include "includes/pagination.html" %}
       {% endblock %}
 
     </div>

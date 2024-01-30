@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="subtitle">Manufacturer List</h2>
+  
+  {% if manufacturer_list %}
+    <ul class="list-group list-group-flush">
+      {% for manufacturer in manufacturer_list %}
+        <li class="list-group-item list-group-item-action">{{ manufacturer.name }}</li>     	
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No data</p>
+  {% endif %}
+{% endblock %}
