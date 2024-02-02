@@ -43,4 +43,4 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    extra_context = {"url_driver": True}
+    queryset = Driver.objects.prefetch_related("cars")
