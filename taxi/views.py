@@ -25,20 +25,17 @@ class CarListView(generic.ListView):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_list.html"
-    context_object_name = "manufacturer_list"
     paginate_by = 5
 
 
 class CarDetailView(generic.DetailView):
     model = Car
-    extra_context = {"url_car": True}
 
 
 class DriverListView(generic.ListView):
     model = Driver
     paginate_by = 5
-    queryset = Driver.objects.all().order_by("username")
+    queryset = Driver.objects.order_by("username")
 
 
 class DriverDetailView(generic.DetailView):
