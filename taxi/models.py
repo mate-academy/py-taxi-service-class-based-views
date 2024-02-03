@@ -1,14 +1,26 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+from django.http import HttpResponse
+from django.urls import reverse
+
 
 class Manufacturer(models.Model):
     name = models.CharField(max_length=255, unique=True)
     country = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return f"{self.name} {self.country}"
+
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+    def get_absolute_url(self) -> HttpResponse:
+        return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
 
 
 class Car(models.Model):
@@ -17,3 +29,9 @@ class Car(models.Model):
         Manufacturer, on_delete=models.CASCADE, related_name="cars"
     )
     drivers = models.ManyToManyField(Driver, related_name="cars")
+
+    def __str__(self) -> str:
+        return f"{self.model} {self.manufacturer}"
+
+    def get_absolute_url(self) -> HttpResponse:
+        return reverse("taxi:car-detail", kwargs={"pk": self.pk})

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Driver <span style="color:red">{{driver.username }}</span> has such cars:</h2>
+{% for car in driver.cars.all %}
+<h3><strong>{{car.model}}</strong></h3>
+{% empty %}
+<h3>This driver has no car</h3>
+{% endfor %}
+{% endblock %}
