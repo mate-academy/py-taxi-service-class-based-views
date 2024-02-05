@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if car_list %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in car_list %}
+          <tr>
+            <td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></td>
+            <td>{{ car.model }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>There are no cars.</p>
+  {% endif %}
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
+{% endblock %}
