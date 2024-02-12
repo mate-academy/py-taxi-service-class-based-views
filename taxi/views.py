@@ -35,17 +35,11 @@ class DriversListView(generic.ListView):
 
 class CarDetailView(generic.DetailView):
     model = Car
-
-    def get_queryset(self):
-        return Car.objects.filter(
-            pk=self.kwargs.get("pk")
-        ).prefetch_related("drivers").select_related("manufacturer")
+    queryset = Car.objects.prefetch_related(
+        "drivers"
+    ).select_related("manufacturer")
 
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-
-    def get_queryset(self):
-        return Driver.objects.filter(
-            pk=self.kwargs.get("pk")
-        ).prefetch_related("cars__manufacturer")
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
