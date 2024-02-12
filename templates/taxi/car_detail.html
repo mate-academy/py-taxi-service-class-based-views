@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ car.model }}</h5>
+          <p class="card-text">Manufacturer: {{ car.manufacturer.name }}</p>
+          <p class="card-text">Drivers:</p>
+          <ul class="list-group list-group-flush">
+            {% for driver in car.drivers.all %}
+              <li class="list-group-item">{{ driver }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
