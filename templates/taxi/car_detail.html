@@ -4,5 +4,16 @@
   
   <h3>{{ car.model }}</h3>
   <p>{{ car.manufacturer.name }} | {{ car.manufacturer.country }}</p>
+  
+  {% if car.drivers.all %}
+    <p>Drivers of {{ car.model }}:</p>
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There's no drivers of {{ car.model }}</p>
+  {% endif %}
 
 {% endblock %}
