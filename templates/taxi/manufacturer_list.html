@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% if manufacturer_list %}
   <table border="1">
     <thead>
     <tr>
@@ -19,4 +20,7 @@
     {% endfor %}
     </tbody>
   </table>
+  {% else %} 
+    <p>There are no manufacturers.</p>
+  {% endif %}
 {% endblock %}
