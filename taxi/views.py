@@ -31,12 +31,11 @@ class CarListView(generic.ListView):
     template_name = "taxi/car_list.html"
 
 
-def car_detail_view(request: HttpRequest, pk: int) -> HttpResponse:
-    car = Car.objects.get(id=pk)
-    context = {
-        "car": car,
-    }
-    return render(request, "taxi/car_detail.html", context=context)
+class CarDetailView(generic.DetailView):
+    model = Car
+    template_name = "taxi/car_detail.html"
+    context_object_name = "car"
+    pk_url_kwarg = "pk"
 
 
 class DriverListView(generic.ListView):
@@ -46,9 +45,8 @@ class DriverListView(generic.ListView):
     template_name = "taxi/driver_list.html"
 
 
-def driver_detail_view(request: HttpRequest, pk: int) -> HttpResponse:
-    driver = Driver.objects.get(id=pk)
-    context = {
-        "driver": driver,
-    }
-    return render(request, "taxi/driver_detail.html", context=context)
+class DriverDetailView(generic.DetailView):
+    model = Driver
+    template_name = "taxi/driver_detail.html"
+    context_object_name = "driver"
+    pk_url_kwarg = "pk"
