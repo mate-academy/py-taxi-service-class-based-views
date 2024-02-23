@@ -18,7 +18,6 @@ def index(request):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    queryset = Manufacturer.objects.all()
     paginate_by = 5
 
 
