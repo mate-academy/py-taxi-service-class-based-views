@@ -2,12 +2,24 @@
 
 {% block content %}
   <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
+  <p class="font-weight-normal">🚕 Welcome to Best Taxi Ever! 🚕</p>
   <h2>Dynamic content</h2>
+  
   <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  
+  <div>
+  
+    <div>
+      <span class="font-weight-bolder">Cars: </span>{{ num_cars }}
+    </div>
+    
+    <div>
+      <span class="font-weight-bolder">Drivers: </span>{{ num_drivers }}
+    </div>
+    
+    <div>
+      <span class="font-weight-bolder">Manufacturers: </span>{{ num_manufacturers }}
+    </div>
+  
+  </div>
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Car detail:</h1>
+      <div>
+        <span class="font-weight-bolder">Manufacturer:</span>
+        {{ car.manufacturer.name }}
+      </div>
+  
+      <div>
+        <span class="font-weight-bolder">Country:</span>
+        {{ car.manufacturer.country }}
+      </div>
+  
+      <div>
+        <span class="font-weight-bolder">Driver:</span>
+        {% for driver in car.drivers.all %}
+          <a class="text-decoration-none" href="{% url 'taxi:driver-detail' driver.pk%}">{{ driver.username }}</a>{% include "taxi/comma.html" %}
+        {% empty %}
+          <p class="font-weight-normal">No drivers</p>
+        {% endfor %}
+      </div>
+{% endblock %}
