@@ -1,3 +1,51 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  height: 30px;
+}
+
 body {
-    margin-top: 20px;
+  margin: 0;
+  padding-top: 30px;
+  background-color: #ffffcc;
+}
+
+.link {
+  color: cornsilk;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.col-sm-2 {
+  background-color: rgb(25%, 25%, 25%);
+  width: 150px;
+  height: calc(100% - 30px);
+  position: fixed;
+  text-align: center;
+  top: 30px;
+}
+
+.col-sm-10 {
+  margin: 30px auto auto 170px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid gainsboro;
+  text-align: left;
+  background-color: white;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  height: 30px;
 }

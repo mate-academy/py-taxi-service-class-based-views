@@ -6,7 +6,7 @@
   {% if manufacturer_list %}
     <ul>
     {% for mnf in manufacturer_list %}
-      <li>{{ mnf.name }} - {{ mnf.country }}</li>
+      <li><strong>{{ mnf.name }}</strong> ({{ mnf.country }})</li>
     {% endfor %}
     </ul>
   {% else %}

@@ -14,7 +14,7 @@ class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
 
     class Meta:
-        ordering = ("first_name", )
+        ordering = ("id", )
 
 
 class Car(models.Model):
@@ -25,4 +25,4 @@ class Car(models.Model):
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
     class Meta:
-        ordering = ("model", )
+        ordering = ("id", )
