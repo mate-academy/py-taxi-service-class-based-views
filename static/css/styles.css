@@ -1,3 +1,8 @@
 body {
     margin-top: 20px;
+    background: rgba(240,230,140, 0.3) ;
+}
+
+.col-sm-10 {
+    padding-left: 27%;
 }
