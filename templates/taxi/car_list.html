@@ -5,7 +5,8 @@
     <div>
       {% for car in car_list %}
         <div>
-          <a class="text-decoration-none" href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }}</a>
+          <a class="text-decoration-none" href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          {{ car.model }}
         </div>
       {% empty %}
         <p class="font-weight-normal">No cars</p>
