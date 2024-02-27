@@ -2,13 +2,23 @@
 
 {% block content %}
   <h1>Taxi manufacturers</h1>
-  <p>The Taxi service has the following manufacturers:</p>
+
   {% if manufacturer_list %}
-    <ul>
-    {% for mnf in manufacturer_list %}
-      <li><strong>{{ mnf.name }}</strong> ({{ mnf.country }})</li>
-    {% endfor %}
-    </ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+      {% for mnf in manufacturer_list %}
+        <tr>
+          <td>{{ mnf.pk }}</td>
+          <td>{{ mnf.name }}</td>
+          <td>{{ mnf.country }}</td>
+        </tr>
+      {% endfor %}
+
+    </table>
   {% else %}
     <p>Oops, it's empty</p>
   {% endif %}

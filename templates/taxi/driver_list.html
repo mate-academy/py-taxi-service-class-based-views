@@ -2,13 +2,21 @@
 
 {% block content %}
   <h1>Taxi drivers</h1>
-  <p>Drivers list:</p>
+
   {% if driver_list %}
-    <ul>
-    {% for driver in driver_list %}
-      <li><a href="{% url 'taxi:driver-detail' driver.pk %}" >{{ driver.pk }} </a>{{ driver.username }}</li>
-    {% endfor %}
-    </ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+      </tr>
+      {% for driver in driver_list %}
+        <tr>
+          <td>{{ driver.pk }}</td>
+          <td><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></td>
+        </tr>
+      {% endfor %}
+
+    </table>
   {% else %}
     <p>Oops, it's empty</p>
   {% endif %}
