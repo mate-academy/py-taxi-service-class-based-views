@@ -2,14 +2,16 @@
 
 {% block content %}
   <h1>Car List</h1>
-  <ul>
+  <table>
     {% for car in car_list %}
-      <li>
-        <a href="{% url 'taxi:car-detail' car.id %}">
-        {{ car.id }}
-        </a>
-        | {{ car.model }}
-      </li>
+      <tr>
+        <td>
+          <a href="{% url 'taxi:car-detail' car.id %}">
+          {{ car.id }}
+          </a>
+        </td>
+        <td>{{ car.model }}</td>
+      </tr>
     {% endfor %}
-  </ul>
+  </table>
 {% endblock %}
