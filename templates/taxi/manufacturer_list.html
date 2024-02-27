@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Taxi manufacturers</h1>
+
+  {% if manufacturer_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+      {% for mnf in manufacturer_list %}
+        <tr>
+          <td>{{ mnf.pk }}</td>
+          <td>{{ mnf.name }}</td>
+          <td>{{ mnf.country }}</td>
+        </tr>
+      {% endfor %}
+
+    </table>
+  {% else %}
+    <p>Oops, it's empty</p>
+  {% endif %}
+{% endblock %}
