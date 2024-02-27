@@ -2,7 +2,8 @@
 
 {% block content %}
   {% if driver_list %}
-    <ul> Drivers:
+    <h2>Drivers:</h2>
+    <ul>
     {% for driver in driver_list %}
       <li><a href={{ driver.id }}>{{ driver.first_name }} {{ driver.last_name }} - {{ driver.username }}</a></li>
     {% endfor %}

@@ -2,7 +2,8 @@
 
 {% block content %}
   {% if manufacturer_list %}
-    <ul> Manufacturers:
+    <h2>Manufacturers:</h2>
+    <ul>
     {% for manufacturer in manufacturer_list %}
       <li>{{ manufacturer.name }} - {{ manufacturer.country }}</li>
     {% endfor %}
