@@ -1,3 +1,50 @@
 body {
-    margin-top: 20px;
+    background: rgba(255,165,122,0.2);
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+nav ul li {
+	font-size: 40px;
+	font-family: sans-serif;
+	background-color: white;
+	border: 2px solid black;
+	letter-spacing: 0.1em;
+	width: 7.7em;
+	height: 1.5em;
+	line-height: 1.5em;
+	position: relative;
+	overflow: hidden;
+	margin: 0.5em;
+	cursor: pointer;
+}
+
+nav ul li a {
+	color: rebeccapurple;
+	mix-blend-mode: difference;
+}
+
+nav ul li::before {
+	content: '';
+	position: absolute;
+	width: 1.5em;
+	height: inherit;
+	background-color: rgba(186, 216, 241, 0.6);
+	border-radius: 50%;
+	top: 0;
+	left: -0.75em;
+	transition: 0.5s ease-out;
+}
+
+nav ul li:hover::before {
+	transform: scale(11);
+	color: #4ac1f7;
+}
+
+.content-box {
+    margin-top: 5%;
+    padding-left: 25%;
 }
