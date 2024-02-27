@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ object.model }}</h1>
+  <p>Manufacturer: {{ object.manufacturer.name }} ({{ object.manufacturer.country }})</p>
+{% endblock %}
