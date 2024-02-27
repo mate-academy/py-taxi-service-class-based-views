@@ -21,7 +21,7 @@ class ManufacturerListView(generic.ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return Manufacturer.objects.all().order_by("name")
+        return Manufacturer.objects.order_by("name")
 
 
 class CarListView(generic.ListView):
