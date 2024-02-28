@@ -2,9 +2,10 @@
 
 {% block content %}
   <h1>Manufacturers</h1>
-  <ul>
+  <table>
   	{% for manufacturer in manufacturer_list %}
-  		<p>{{ manufacturer.name }} | {{ manufacturer.country }}</p>
+  		<td>{{ manufacturer.name }}</td>
+      <td>{{ manufacturer.country }}</td>
   	{% endfor %}
-    </ul>
+    </table>
 {% endblock %}
