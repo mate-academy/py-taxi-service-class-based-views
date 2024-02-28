@@ -14,7 +14,7 @@
       <div>
         <span class="font-weight-bolder">Driver:</span>
         {% for driver in car.drivers.all %}
-          <a class="text-decoration-none" href="{% url 'taxi:driver-detail' driver.pk%}">{{ driver.username }}</a>{% include "taxi/comma.html" %}
+          <a class="text-decoration-none" href="{% url 'taxi:driver-detail' driver.pk%}">{{ driver.username }}</a>{% if not forloop.last %},{% endif %}
         {% empty %}
           <p class="font-weight-normal">No drivers</p>
         {% endfor %}
