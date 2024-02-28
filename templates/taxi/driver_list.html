@@ -4,13 +4,15 @@
   <h1>Drivers List</h1>
   <table>
     {% for driver in driver_list %}
-      <td>
-        {{ driver.first_name }}</td> <td>{{ driver.last_name }}</td>
-        <td><a href="{% url 'taxi:driver-detail' driver.id %}">
+      <tr>
+        <td>{{ driver.first_name }}</td> 
+        <td>{{ driver.last_name }}</td>
+        <td>
+          <a href="{% url 'taxi:driver-detail' driver.id %}">
           {{ driver.username }}
-        </a></td>
-
-      </td>
+          </a>
+        </td>
+      </tr>
     {% endfor %}
   </table>
 {% endblock %}
