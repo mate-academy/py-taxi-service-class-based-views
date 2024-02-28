@@ -32,8 +32,6 @@ class CarDetailView(generic.DetailView):
 
 class DriverListView(generic.ListView):
     model = Driver
-    template_name = "taxi/driver_list.html"
-    context_object_name = "driver_list"
     paginate_by = 5
 
 
