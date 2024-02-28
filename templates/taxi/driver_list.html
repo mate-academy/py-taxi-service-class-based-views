@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Drivers List</h1>
+  {% if driver_list %}
+    <ul>
+      {% for driver in driver_list %}
+        <li>
+          <a href="{{driver.id}}">{{ driver.username }}</a>
+          (full name: {{ driver.first_name }}  {{driver.last_name}}, driver license: {{ driver.license_number }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no any drivers in the db</p>
+  {% endif %}
+{% endblock %}
