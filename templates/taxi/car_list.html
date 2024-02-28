@@ -10,10 +10,10 @@
     {% for car in car_list %}
       <tr>
         <td>
-          {{ car.id }}
+          <a href="/car/{{ car.id }}">{{ car.id }}</a>
         </td>
         <td>
-          <a href="/car/{{ car.id }}">{{ car.model }}</a>
+          {{ car.model }} ({{ car.manufacturer.name }})
         </td>
       </tr>
     {% endfor %}
