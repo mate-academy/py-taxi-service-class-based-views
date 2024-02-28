@@ -3,11 +3,15 @@
 {% block content %}
   {% if car_list %}
     <h2>Cars:</h2>
-    <table>
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>username</th>
+      </tr>
       {% for car in car_list %}
         <tr>
-          <th><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></th>
-          <th>{{ car.model }}</th>
+          <td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
         </tr>
       {% endfor %}
     </table>
