@@ -6,7 +6,7 @@
     <ul class="list-nav">
     {% for car in car_list %}
       <li>
-        <a href="{% url "taxi:car-detail" pk=car.pk %}">
+        <a href="{% url "taxi:car-detail" car.id %}">
           {{ car.model }}
         </a> 
         ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})
