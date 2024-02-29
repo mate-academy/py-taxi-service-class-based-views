@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.views import generic
 
@@ -8,7 +9,7 @@ def index(request):
     """View function for the home page of the site."""
 
     context = {
-        "num_drivers": Driver.objects.count(),
+        "num_drivers": get_user_model().objects.count(),
         "num_cars": Car.objects.count(),
         "num_manufacturers": Manufacturer.objects.count(),
     }
@@ -28,15 +29,13 @@ class CarListView(generic.ListView):
 
 
 class CarDetailView(generic.DetailView):
-    model = Car
     queryset = Car.objects.prefetch_related("drivers")
 
 
 class DriverListView(generic.ListView):
-    model = Driver
+    model = get_user_model()
     paginate_by = 5
 
 
 class DriverDetailView(generic.DetailView):
-    model = Driver
-    queryset = Driver.objects.prefetch_related("cars")
+    queryset = get_user_model().objects.prefetch_related("cars")
