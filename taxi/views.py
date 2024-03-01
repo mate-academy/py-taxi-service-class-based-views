@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.views import generic
 
@@ -17,13 +18,11 @@ def index(request):
 
 
 class ManufacturerListView(generic.ListView):
-    model = Manufacturer
     queryset = Manufacturer.objects.order_by("name")
     paginate_by = 5
 
 
 class CarListView(generic.ListView):
-    model = Car
     queryset = Car.objects.select_related("manufacturer")
     paginate_by = 5
 
@@ -38,5 +37,4 @@ class DriverListView(generic.ListView):
 
 
 class DriverDetailView(generic.DetailView):
-    model = Driver
-    queryset = Driver.objects.prefetch_related("cars")
+    queryset = get_user_model().objects.prefetch_related("cars")
