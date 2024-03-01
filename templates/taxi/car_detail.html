@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ object }}</h2>
+<p>Manufacturer: {{ object.manufacturer.name }}, {{ object.manufacturer.country }}</p>
+<p>Information about all drivers of this car:</p>
+<ul>
+  {% for driver in object.drivers.all %}
+  <li>{{ driver }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
