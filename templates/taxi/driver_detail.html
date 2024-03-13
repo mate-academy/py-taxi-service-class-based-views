@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Driver Detail</h2>
+  {% if object %}
+    <p>Username: {{ object.username }}</p>
+    <p>First name: {{ object.first_name }}</p>
+    <p>Last name: {{ object.last_name }}</p>
+    <p>Email: {{ object.email }}</p>
+
+    <h3>Cars owned by {{ object.username }}</h3>
+    {% if object.cars.all %}
+      <ul>
+        {% for car in object.cars.all %}
+          <li><a href="{% url 'taxi:car-detail' pk=car.pk %}">{{ car.model }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No cars owned by {{ object.username }}.</p>
+    {% endif %}
+  {% else %}
+    <p>User does not exist.</p>
+  {% endif %}
+{% endblock %}

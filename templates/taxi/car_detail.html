@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Car Detail</h2>
+
+  {% if object %}
+    <p><strong>Model: </strong>{{ object.model }}</p>
+    {% if object.manufacturer %}
+      <p><strong>Country: </strong>{{ object.manufacturer.country }}</p>
+      <p><strong>Manufacturer: </strong>{{ object.manufacturer.name }}</p>
+    {% else %}
+      <p>No manufacturer information available</p>
+    {% endif %}
+
+    {% if object.drivers.all %}
+      <p>Drivers:</p>
+      <ul>
+        {% for driver in object.drivers.all %}
+          <li>{{ driver }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No drivers associated with this car</p>
+    {% endif %}
+  {% else %}
+    <p>Car not found</p>
+  {% endif %}
+
+{% endblock %}
+
