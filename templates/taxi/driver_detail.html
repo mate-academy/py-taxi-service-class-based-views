@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <div>
+    <h4>Driver name: <strong>{{ driver.first_name }} {{ driver.last_name }}</strong></h4>
+    <h4>Username: <strong>{{ driver.username }}</strong></h4>
+    <h4>License number: <strong>{{ driver.license_number }}</strong></h4>
+    <h3>Cars:</h3>
+    {% if driver.cars.all %}
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Model</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Country</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for car in driver.cars.all %}
+          <tr>
+            <th scope="row">{{ car.model }}</th>
+            <td>{{ car.manufacturer.name }}</td>
+            <td>{{ car.manufacturer.country }}</td>
+          </tr>
+        {% empty %}
+          Cars not found !
+        {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+
+{% endblock %}
