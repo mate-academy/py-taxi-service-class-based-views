@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% if manufacturer %}
+  {% if manufacturer_list %}
     <table class="table">
       <thead>
       <tr>
@@ -11,7 +11,7 @@
       </tr>
       </thead>
       <tbody>
-      {% for manufacture in manufacturer %}
+      {% for manufacture in manufacturer_list %}
         <tr>
           <th scope="row">{{ manufacture.id }}</th>
           <td>{{ manufacture.name }}</td>

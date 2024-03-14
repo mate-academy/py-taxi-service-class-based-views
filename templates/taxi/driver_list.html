@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% if drivers %}
+  {% if driver_list %}
     <table class="table">
       <thead>
       <tr>
@@ -12,7 +12,7 @@
       </tr>
       </thead>
       <tbody>
-      {% for driver in drivers %}
+      {% for driver in driver_list %}
         <tr>
           <th scope="row">{{ driver.id }}</th>
           <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></td>
