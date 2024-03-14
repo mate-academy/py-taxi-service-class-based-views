@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.conf import settings
 from django.views.generic import ListView, DetailView
 from taxi.models import Driver, Car, Manufacturer
 
@@ -17,40 +16,24 @@ def index(request):
 class ManufacturerListView(ListView):
     model = Manufacturer
     paginate_by = 5
-    template_name = "taxi/manufacturer_list.html"
+    queryset = Manufacturer.objects.order_by("name")
 
 
 class CarListView(ListView):
     model = Car
     paginate_by = 5
-    template_name = "taxi/car_list.html"
+    queryset = Car.objects.select_related("manufacturer").all()
 
 
 class CarDetailView(DetailView):
     model = Car
-    template_name = "taxi/car_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["manufacturer"] = self.object.manufacturer
-        context["drivers"] = self.object.drivers.all()
-        return context
 
 
 class DriverListView(ListView):
-    model = settings.AUTH_USER_MODEL
+    model = Driver
     paginate_by = 5
-    template_name = "taxi/driver_list.html"
 
 
 class DriverDetailView(DetailView):
-    model = settings.AUTH_USER_MODEL
-    template_name = "taxi/driver_detail.html"
-
-    def get_queryset(self):
-        return Driver.objects.prefetch_related("cars").all()
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["cars"] = self.object.cars.all()
-        return context
+    model = Driver
+    queryset = Driver.objects.prefetch_related("cars__manufacturer").all()
