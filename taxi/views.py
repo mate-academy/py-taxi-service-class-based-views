@@ -1,5 +1,5 @@
-from django.contrib.auth import get_user_model
 from django.shortcuts import render
+from django.conf import settings
 from django.views.generic import ListView, DetailView
 from taxi.models import Driver, Car, Manufacturer
 
@@ -15,7 +15,7 @@ def index(request):
 
 
 class ManufacturerListView(ListView):
-    queryset = Manufacturer.objects.order_by("name")
+    model = Manufacturer
     paginate_by = 5
     template_name = "taxi/manufacturer_list.html"
 
@@ -38,13 +38,13 @@ class CarDetailView(DetailView):
 
 
 class DriverListView(ListView):
-    model = Driver
+    model = settings.AUTH_USER_MODEL
     paginate_by = 5
     template_name = "taxi/driver_list.html"
 
 
 class DriverDetailView(DetailView):
-    model = Driver
+    model = settings.AUTH_USER_MODEL
     template_name = "taxi/driver_detail.html"
 
     def get_queryset(self):
