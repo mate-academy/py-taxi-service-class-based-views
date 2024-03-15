@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Detail</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    h1, h2 {
+      color: #333;
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    .no-cars {
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Driver Detail</h1>
+    <h2>Driver Information</h2>
+    <ul>
+      <li><strong>ID:</strong> {{ driver.id }}</li>
+      <li><strong>Username:</strong> {{ driver.username }}</li>
+    </ul>
+
+    <h2>Cars</h2>
+    <ul>
+      {% for car in driver.car_set.all %}
+        <li>
+          <strong>Car ID:</strong> {{ car.id }}<br>
+          <strong>Manufacturer:</strong> {{ car.manufacturer }}
+        </li>
+      {% empty %}
+        <li class="no-cars">No cars found for this driver.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

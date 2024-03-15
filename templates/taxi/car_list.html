@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #f2f2f2;
+    }
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Car List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Manufacturer</th>
+        <!-- Add more fields as needed -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in object_list %}
+      <tr>
+        <td><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.id }}</a></td>
+        <td>{{ car.manufacturer.name }}</td> <!-- Changed this line -->
+        <!-- Display more fields as needed -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
