@@ -49,15 +49,13 @@
       <tr>
         <th>ID</th>
         <th>Manufacturer</th>
-        <!-- Add more fields as needed -->
       </tr>
     </thead>
     <tbody>
       {% for car in object_list %}
       <tr>
         <td><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.id }}</a></td>
-        <td>{{ car.manufacturer.name }}</td> <!-- Changed this line -->
-        <!-- Display more fields as needed -->
+        <td>{{ car.manufacturer.name }}</td>
       </tr>
       {% endfor %}
     </tbody>
