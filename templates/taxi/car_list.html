@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if car_list %}
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Car</th>
+        <th scope="col">Manufacture</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for car in car_list %}
+        <tr>
+          <th scope="row"><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></th>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    Car's not found !
+  {% endif %}
+{% endblock %}
