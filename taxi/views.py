@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from taxi.models import Driver, Car, Manufacturer
@@ -22,7 +23,7 @@ class ManufacturerListView(ListView):
 class CarListView(ListView):
     model = Car
     paginate_by = 5
-    queryset = Car.objects.select_related("manufacturer").all()
+    queryset = Car.objects.select_related("manufacturer")
 
 
 class CarDetailView(DetailView):
@@ -30,10 +31,10 @@ class CarDetailView(DetailView):
 
 
 class DriverListView(ListView):
-    model = Driver
+    model = get_user_model()
     paginate_by = 5
 
 
 class DriverDetailView(DetailView):
     model = Driver
-    queryset = Driver.objects.prefetch_related("cars__manufacturer").all()
+    queryset = Driver.objects.prefetch_related("cars").all()
