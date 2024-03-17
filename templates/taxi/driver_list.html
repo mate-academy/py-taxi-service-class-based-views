@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Drivers list</h1>
+{% if driver_list %}
+    <ul>
+        {% for driver in driver_list %}
+            <li>
+                <a href="{{ driver.get_absolute_url }}">
+                {{driver.first_name}},
+                {{ driver.last_name }},
+                {{ driver.license_number }}
+                </a>
+            </li>
+            {% empty %}
+            Manufacture not found !
+        {% endfor %}
+    </ul>
+
+{% endif %}
+{% endblock %}
