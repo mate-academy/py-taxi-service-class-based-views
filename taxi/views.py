@@ -1,9 +1,11 @@
+from django.http import HttpRequest, HttpResponse, Http404
 from django.shortcuts import render
+from django.views import generic
 
 from taxi.models import Driver, Car, Manufacturer
 
 
-def index(request):
+def index(request: HttpRequest) -> HttpResponse:
     """View function for the home page of the site."""
 
     context = {
@@ -13,3 +15,33 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer_list.html"
+    context_object_name = "manufacturer_list"
+    paginate_by = 5
+
+
+class CarListView(generic.ListView):
+    model = Car
+    queryset = Car.objects.prefetch_related("manufacturer", "drivers")
+    paginate_by = 5
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    queryset = Driver.objects.prefetch_related(
+        "cars__manufacturer",
+        "cars__drivers"
+    )
+    paginate_by = 5
+
+
+class DriverDetailView(generic.DetailView):
+    model = Driver
+
+
+class CarDetailView(generic.DetailView):
+    model = Car
