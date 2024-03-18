@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}  
+  <h1>{{ driver.get_name }}</h1>
+  <hr>
+  <p>
+    Username: {{ driver.username }}
+  </p>
+  <hr>
+  <p>
+    E-mail: {{ driver.email }}
+  </p>
+  <hr>
+  <p>License number: {{ driver.license_number }}, User ID: {{ driver.id }}</p>
+  <hr>
+  <p><strong>Cars:</strong></p>
+  <ul>
+  {% for car in driver.cars.all %}
+    <li>Model: {{ car.model }}; Manufacturer: {{ car.manufacturer.name}} ({{ car.manufacturer.country}})</li>
+  {% endfor %}
+  </ul>
+  {% if driver_list %}
+    <ul>
+    {% for driver in driver_list %}
+        <li><a href="{{ driver.get_absolute_url }}">{{ driver.get_name }}</a></li>
+
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
