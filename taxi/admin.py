@@ -34,7 +34,7 @@ class CarAdmin(admin.ModelAdmin):
     search_fields = ("model",)
     list_filter = ("manufacturer",)
 
-    def get_queryset(self, request: HttpRequest) -> QuerySet:
+    def get_queryset(self, request: HttpRequest) -> QuerySet[Car]:
         return super().get_queryset(request).select_related("manufacturer")
 
     @staticmethod
