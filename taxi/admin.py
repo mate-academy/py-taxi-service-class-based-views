@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.db.models import QuerySet
 from django.http import HttpRequest
 
-from .models import Driver, Car, Manufacturer
+from taxi.models import Driver, Car, Manufacturer
 
 
 @admin.register(Driver)
