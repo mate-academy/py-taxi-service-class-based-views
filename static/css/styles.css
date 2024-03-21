@@ -1,3 +1,31 @@
 body {
-    margin-top: 20px;
+    margin-top: 50px;
+    background-color: cornsilk;
 }
+
+.sidebar-nav {
+    background-color: rgba(245, 222, 179, 0.6);
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: x-large;
+    border-radius: 8px;
+}
+
+.page-link {
+    background-color: rgba(245, 222, 179, 0.6);
+    font-size: medium;
+    padding: 10px 20px;
+}
+
+.page-link:hover {
+    background-color: wheat;
+}
+
+.sidebar-box:hover {
+    background-color: wheat;
+}
+
+
+
+
