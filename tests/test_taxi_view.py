@@ -24,13 +24,13 @@ class ManufacturerListTest(TestCase):
         response = self.client.get(MANUFACTURER_LIST_URL)
 
         self.assertEqual(
-            len(response.context["manufacturer_list.html"]), PAGINATION
+            len(response.context["manufacturer_list"]), PAGINATION
         )
 
     def test_manufacturer_list_ordered_by_name(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
         man_list = Manufacturer.objects.all().order_by("name")
-        manufacturer_context = response.context["manufacturer_list.html"]
+        manufacturer_context = response.context["manufacturer_list"]
 
         self.assertEqual(
             list(manufacturer_context),
