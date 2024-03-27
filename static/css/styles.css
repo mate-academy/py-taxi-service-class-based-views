@@ -1,3 +1,8 @@
 body {
-    margin-top: 20px;
+    margin: 20px 20px;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
 }
