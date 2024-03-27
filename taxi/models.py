@@ -7,7 +7,6 @@ class Manufacturer(models.Model):
     country = models.CharField(max_length=255)
 
 
-
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
 
@@ -18,4 +17,3 @@ class Car(models.Model):
         Manufacturer, on_delete=models.CASCADE, related_name="cars"
     )
     drivers = models.ManyToManyField(Driver, related_name="cars")
-
