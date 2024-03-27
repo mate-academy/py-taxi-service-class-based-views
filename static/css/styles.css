@@ -14,6 +14,6 @@ footer {
     width: 100%;
     background-color: #333;
     color: #fff;
-    padding: 10px 0; /* відступи зверху і знизу */
-    text-align: center; /* вирівнювання тексту по центру */
+    padding: 10px 0;
+    text-align: center;
 }
