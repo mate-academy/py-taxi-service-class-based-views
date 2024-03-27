@@ -1,3 +1,19 @@
 body {
-    margin-top: 20px;
+    margin: 20px 20px;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0; /* відступи зверху і знизу */
+    text-align: center; /* вирівнювання тексту по центру */
 }
