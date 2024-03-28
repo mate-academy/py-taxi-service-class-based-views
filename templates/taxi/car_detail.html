@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Detail View
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Car Detail</h5>
+                  <p class="card-text">Details for <strong>{{ car.model }}</strong></p>
+                    <h4>Manufacturer of the car:</h4>
+                      <p class="card-text">{{ car.manufacturer.name }}</p>
+                      <p class="card-text">{{ car.manufacturer.country }}</p>
+                  <h4>Drivers:</h4>
+                    {% for driver in car.drivers.all %}
+                      <p><strong>{{ driver.first_name }}</strong></p>
+                  {% endfor %}
+
+                    <a href="{% url 'taxi:car-list' %}" class="btn btn-primary">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

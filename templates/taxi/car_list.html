@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Car model</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if car_list %}
+    {% for car in car_list %}
+      <tr>
+        <th scope="row"><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></th>
+        <td>{{ car.model }}</td>
+      </tr>
+      {% endfor %}
+
+    {% else %}
+    <tr>
+    <th scope="row" class="alert alert-warning">There are no such facilities</th>
+    </tr>
+  {% endif %}
+
+  </tbody>
+</table>
+{% endblock %}

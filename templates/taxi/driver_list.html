@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if driver_list %}
+    {% for driver in driver_list %}
+      <tr>
+        <th scope="row">{{ driver.pk }}</th>
+        <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
+      </tr>
+      {% endfor %}
+  
+    {% else %}
+    <tr>
+    <th scope="row" class="alert alert-warning">There are no such facilities</th>
+    </tr>
+  {% endif %}
+  
+  </tbody>
+</table>
+{% endblock %}
