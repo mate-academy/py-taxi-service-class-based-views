@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
-<body>
+<body style="margin: 50px 20px 0 0">
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
@@ -29,6 +29,7 @@
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include 'includes/pagination.html' %}
       {% endblock %}
 
     </div>
