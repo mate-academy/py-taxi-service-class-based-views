@@ -15,13 +15,13 @@
         <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
       </tr>
       {% endfor %}
-  
+
     {% else %}
     <tr>
     <th scope="row" class="alert alert-warning">There are no such facilities</th>
     </tr>
   {% endif %}
-  
+
   </tbody>
 </table>
 {% endblock %}
