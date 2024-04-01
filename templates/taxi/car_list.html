@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>All Cars</h1>
+  {% if car_list %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Number</th>
+          <th scope="col">ID</th>
+          <th scope="col">Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in car_list %}
+        <tr>
+          <th>{{ forloop.counter }} </th>
+          <td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock %}
