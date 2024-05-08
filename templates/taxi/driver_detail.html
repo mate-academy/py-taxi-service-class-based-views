@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <p>{{ object.license_number }}</p>
+  {% for car in object.cars.all %}
+    <ul>
+      <li>Model: {{ car.model }}</li>
+      <li>Manufacturer: {{ car.manufacturer.name }}</li>
+    </ul>
+  {% endfor %}
+{% endblock %}
+{% block pagination %}
+{% endblock %}

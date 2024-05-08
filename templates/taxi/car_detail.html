@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  <ul>
+    <li>Model: {{ object.model }}</li>
+    <li>Manufacturer name: {{ object.manufacturer.name }}</li>
+    <li>Manufacturer country: {{ object.manufacturer.country }}</li>
+    <li>Drivers:</li>
+    {% for driver in object.drivers.all %}
+      <ul>
+        <li>
+          License number: {{ driver.license_number }};
+          Username: {{ driver.username }};
+        </li>
+      </ul>
+    {% endfor %}
+  </ul>
+{% endblock %}
+{% block pagination %}
+{% endblock %}
