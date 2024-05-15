@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1>Driver List</h1>
+  <br>
+  <div class="table">
+    <table style="width: 50%">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+      </tr>
+      </thead>
+      {% for driver in driver_list %}
+        <tr>
+          <th>{{ driver.id }}</th>
+          <th><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></th>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}
+
+
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}

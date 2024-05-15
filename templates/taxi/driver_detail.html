@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <h1>Driver detail</h1>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong>Name: </strong>{{ driver.first_name }} {{ driver.last_name }}
+      </li>
+      <li class="list-group-item">
+        <strong>Age: </strong>
+        {% if driver.age %}
+          {{ driver.age }}
+        {% else %}
+          Not established
+        {% endif %}
+      </li>
+      <li class="list-group-item">
+        <strong>Username: </strong>{{ driver.username }}
+      </li>
+    </ul>
+  </div>
+  <br>
+  
+  <h3>The driver's cars</h3>
+  <p>The driver has {{ driver.cars.all.count }} cars:</p>
+  {% for car in driver.cars.all %}
+    <div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>ID: </strong>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a><br>
+          <strong>Model: </strong>{{ car.model }}<br>
+          <strong>Manufacturer: </strong>{{ car.manufacturer.name }}
+        </li>
+      </ul>
+    </div>
+  {% endfor %}
+{% endblock %}
