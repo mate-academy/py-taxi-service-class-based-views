@@ -1,10 +1,11 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views import generic
 
 from taxi.models import Driver, Car, Manufacturer
 
 
-def index(request):
+def index(request: HttpRequest) -> HttpResponse:
     """View function for the home page of the site."""
 
     context = {
@@ -35,6 +36,7 @@ class CarDetailView(generic.DetailView):
 
 class DriverListView(generic.ListView):
     model = Driver
+    paginate_by = 5
 
 
 class DriverDetailView(generic.DetailView):
