@@ -21,7 +21,7 @@ In this task, you should implement class-based list and detail views.
     - Set pagination equals to 5. It indicates how many instances should be displayed on a single page.
 
 2. Create `CarListView` list view.
-    - Set model, pagination equals to 5, queryset.
+    - Set model, pagination equals to 5, queryset. 
     - **Note**: Car model has foreign key `manufacturer`, so don't forget to improve query performance _(N+1 problem)_.
 
 3. Create `CarDetailView` detail view.
