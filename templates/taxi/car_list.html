@@ -9,7 +9,9 @@
       </tr>
     {% for car in car_list %}
       <tr>
-        <th><a href="{% url "taxi:car-detail" car.id %}">{{ car.id }}</a></th>
+        <li>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}" class="car-link">{{ car.id }} </a>
+        </li>
         <th>{{ car.model }}</th>
       </tr>
     {% endfor %}
