@@ -19,30 +19,25 @@ def index(request):
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
     queryset = Manufacturer.objects.order_by("name")
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
 class CarListView(generic.ListView):
     model = Car
     paginate_by = 5
-    template_name = "taxi/car_list.html"
     queryset = Car.objects.select_related("manufacturer").order_by("id")
 
 
 class CarDetailView(generic.DetailView):
     model = Car
-    template_name = "taxi/car_detail.html"
 
 
 class DriverListView(generic.ListView):
     model = Driver
-    template_name = "taxi/driver_list.html"
     paginate_by = 5
     queryset = Driver.objects.order_by("id")
 
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    template_name = "taxi/driver_detail.html"
     driver = Driver.objects.prefetch_related("cars__manufacturer")

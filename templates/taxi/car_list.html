@@ -7,7 +7,7 @@
     {% for car in object_list %}
       <li>
         <p>{{ car }}
-        <a href="{% url 'taxi:car-detail' car.id %}">Check info</a>
+        <a href="{% url 'taxi:car-detail' pk=car.id %}">Check info</a>
         </p>
       </li>
     {% endfor %}
