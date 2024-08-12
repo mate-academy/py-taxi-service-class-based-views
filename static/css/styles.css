@@ -1,3 +1,9 @@
 body {
     margin-top: 20px;
+    background: lightgoldenrodyellow;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
 }
