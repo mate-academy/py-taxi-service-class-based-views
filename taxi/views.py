@@ -47,5 +47,4 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    template_name = "taxi/driver_detail.html"
-    context_object_name = "drivers_detail"
+    queryset = Driver.objects.prefetch_related("cars")
