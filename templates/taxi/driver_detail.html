@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Info</title>{% endblock %}
+
+{% block content %}
+  <h1>{{ driver.username }} driver's info: </h1>
+  <hr>
+    <p><strong>Full name: </strong>
+      {{ driver.first_name }} {{ driver.last_name }}
+    </p>
+    <p><strong>Licence number: </strong>{{ driver.license_number }}</p>
+    <p><strong>Date joined: </strong>{{ driver.date_joined.date }}</p>
+  <div style="margin-left:20px;margin-top:20px">
+    <h3>Cars of the driver - {{ driver.cars.count }}</h3>
+
+    {%  for car in driver.cars.all %}
+      <hr>
+      <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
+      <p><strong>Model: </strong>{{ car.model }}</p>
+      <p><strong>Manufacturer: </strong>{{ car.manufacturer.name }}</p>
+    {% empty %}
+      <p>No cars for this driver</p>
+    {% endfor %}
+  </div>
+{% endblock %}

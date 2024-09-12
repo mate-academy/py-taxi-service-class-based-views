@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Cars</title>{% endblock %}
+
+{% block content %}
+  <h1>Car List</h1>
+  {% if car_list %}
+    <div class="table-responsive">
+      <table class="table" style="width: 100%;">
+        <thead>
+          <tr>
+            <th style="width: 15%;">Id</th>
+            <th style="width: 25%;">Model</th>
+            <th style="width: 30%;">Manufacturer</th>
+            <th style="width: 30%;">Number of drivers</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for car in car_list %}
+            <tr>
+              <td><a href="{%  url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.manufacturer.name }}</td>
+              <td>{{ car.drivers.count }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>There are no cars in the database.</p>
+  {% endif %}
+
+    <style>
+    table thead th {
+      background-color: #f1f1f1;
+    }
+  </style>
+
+{% endblock %}

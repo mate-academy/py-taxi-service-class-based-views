@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Drivers</title>{% endblock %}
+
+{% block content %}
+  <h1>Driver List</h1>
+  {% if driver_list %}
+    <div class="table-responsive">
+      <table class="table" style="width: 100%;">
+        <thead>
+          <tr>
+            <th style="width: 15%;">Username</th>
+            <th style="width: 15%;">First name</th>
+            <th style="width: 15%;">Last name</th>
+            <th style="width: 20%;">Email</th>
+            <th style="width: 15%;">License number</th>
+            <th style="width: 20%;">Date joined</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for driver in driver_list %}
+            <tr>
+              <td><a href="{%  url 'taxi:driver-detail' pk=driver.id %}">
+                {{ driver.username }}</a>
+              </td>
+              <td>{{ driver.first_name }}</td>
+              <td>{{ driver.last_name }}</td>
+              <td>{{ driver.email }}</td>
+              <td>{{ driver.license_number }}</td>
+              <td>{{ driver.date_joined.date }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>There are no drivers in the database.</p>
+  {% endif %}
+
+    <style>
+    table thead th {
+      background-color: #f1f1f1;
+    }
+  </style>
+
+{% endblock %}
