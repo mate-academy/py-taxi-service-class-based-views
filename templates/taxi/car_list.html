@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cars List</h1>
+  <p>Pick the most suitable car</p>
+
+  <h3>The Taxi service has the following Cars available:</h3>
+  {% for car in car_list %}
+  <ul>
+    <li><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a></li>
+  </ul>
+  {% endfor %}
+
+{% endblock %}
