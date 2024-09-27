@@ -1,3 +1,20 @@
 body {
     margin-top: 20px;
 }
+
+.paginator ul{
+    list-style: none;
+    display: flex;
+}
+
+.paginator ul li{
+    background-color: #444;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 1px;
+    color: #fff;
+}
+.paginator ul li a{
+    text-decoration: none;
+    color: #fff;
+}
