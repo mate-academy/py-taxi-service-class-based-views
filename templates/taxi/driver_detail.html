@@ -1,0 +1,29 @@
+<!-- templates/taxi/driver_detail.html -->
+{% extends 'taxi/base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Detail</title>
+</head>
+<body>
+   <h1>Driver Detail</h1>
+<p>ID: {{ object.id }}</p>
+<p>Name: {{ object.name }}</p>
+
+<h2>Cars:</h2>
+<ul>
+    {% for car in object.car_set.all %}
+        <li>{{ car.name }} - Manufacturer: {{ car.manufacturer.name }}</li>
+    {% empty %}
+        <li>No cars assigned to this driver.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'taxi:driver-list' %}">Back to Driver List</a>
+</body>
+</html>
+{% endblock %}

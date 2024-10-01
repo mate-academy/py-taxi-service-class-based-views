@@ -1,0 +1,20 @@
+<!-- templates/taxi/car_detail.html -->
+{% extends 'taxi/base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Detail</title>
+</head>
+<body>
+    <h1>{{ object.name }}</h1>
+    <p>ID: {{ object.id }}</p>
+    <p>Manufacturer: {{ object.manufacturer.name }}</p>
+    <p>Driver: {{ object.driver.name }}</p>  <!-- Modify based on your actual model relations -->
+    <a href="{% url 'taxi:car-list' %}">Back to Car List</a>
+</body>
+</html>
+{% endblock %}
