@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table>
+    {% if manufacturer_list %}
+      <h1 class="center">All manufacturers:</h1>
+      <tr>
+        <th class="point">Name</th>
+        <th class="point">Country</th>
+      </tr>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <th>{{ manufacturer.name }}</th>
+          <th>{{ manufacturer.country }}</th>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <h3>There are currently no drivers!</h3>
+    {% endif %}
+  </table>
+{% endblock %}
