@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Taxi Service Cars</h1>
+  <h2>Cars:</h2>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Model</th>
+      <th>Manufacturer</th>
+      <th>Drivers</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for car in car_list %}
+      <tr>
+        <td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>
+          {% for driver in car.drivers.all %}
+            <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>{% if not forloop.last %}, {% endif %}
+          {% empty %}
+            no driver
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+
+{% endblock %}
