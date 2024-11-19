@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<table class="table">
+  <tr>
+    <th>Model</th>
+    <th>More Info</th>
+  </tr>
+  {% for car in car_list %}
+  <tr>
+    <td>{{ car.model }}</td>
+    <td>
+      <a
+        href="{% url 'taxi:car-detail' pk=car.id %}"
+        class="btn btn-primary btn-sm"
+      >
+        Detail Info
+      </a>
+    </td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td colspan="2">No cars are available.</td>
+  </tr>
+  {% endfor %}
+</table>
+{% include 'includes/pagination.html' %} {% endblock %}
