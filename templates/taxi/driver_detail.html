@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+  <hr>
+  <p><strong>First name: </strong>{{ driver.first_name }}</p>
+  <p><strong>Last name: </strong>{{ driver.last_name }}</p>
+  <p><strong>Username: </strong>{{ driver.username }}</p>
+  <p><strong>Email address: </strong>{{ driver.email }}</p>
+  <p><strong>License number: </strong>{{ driver.license_number }}</p>
+  <hr>
+  <h3>Cars:</h3>
+  {% for car in driver.cars.all %}
+    <p>{{ forloop.counter }}. {{ car.model }}</p>
+  {% empty %}
+    <p>No cars!</p>
+  {% endfor %}
+{% endblock %}

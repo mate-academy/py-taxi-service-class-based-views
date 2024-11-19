@@ -1,0 +1,28 @@
+{%extends "base.html" %}
+
+{% block content %}
+  <h2>Our drivers</h2>
+  <hr>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>License number</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <td>{{ driver.id }}</td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.license_number }}</td>
+          <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table><br>
+{% endblock %}
