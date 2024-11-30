@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>List of Drivers</h1>
+  {% if driver_list %}
+    <table class="table table-hover thead-light">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>License Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for driver in driver_list %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'taxi:driver-detail' pk=driver.pk %}">{{ driver.username }}</a></td>
+            <td>{{ driver.license_number }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No drivers found.</p>
+  {% endif %}
+{% endblock %}
