@@ -1,0 +1,21 @@
+{% if is_paginated %}
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+      <form method="get" action="?page={{ page_obj.previous_page_number }}">
+        <button type="submit" class="btn btn-primary">&laquo; Previous</button>
+        <input type="hidden" name="page" value="{{ page_obj.previous_page_number }}">
+      </form>
+    {% endif %}
+
+    <span style="display: inline-block; margin: 0 1rem; line-height: 2.4rem;">
+      {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+      <form method="get" action="?page={{ page_obj.next_page_number }}">
+        <input type="hidden" name="page" value="{{ page_obj.next_page_number }}">
+        <button type="submit" class="btn btn-primary">&nbsp;Next&nbsp;&raquo;</button>
+      </form>
+    {% endif %}
+  </div>
+{% endif %}
