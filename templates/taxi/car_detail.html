@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Car Detail</h1>
+  <h2>Car Information</h2>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <td>{{ car.id }}</td>
+    </tr>
+    <tr>
+      <th>Model</th>
+      <td>{{ car.model }}</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>{{ car.year }}</td>
+    </tr>
+  </table>
+  <h2>Manufacturer Information</h2>
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <td>{{ car.manufacturer.name }}</td>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <td>{{ car.manufacturer.country }}</td>
+    </tr>
+  </table>
+{% endblock %}
