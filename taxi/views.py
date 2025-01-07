@@ -3,6 +3,7 @@ from django.views import generic
 
 from taxi.models import Driver, Car, Manufacturer
 
+
 def index(request):
     """View function for the home page of the site."""
     context = {
