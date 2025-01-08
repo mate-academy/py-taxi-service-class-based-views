@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Driver name: {{ driver.first_name }}</h1>
+  <h2>Driver last_name: {{ driver.last_name }}</h2>
+  <div>
+    <br>
+    <h2>Additional ingo</h2>
+    <h4>Username: {{ driver.username }}</h4>
+    <h4>Licence number: {{ driver.license_number }}</h4>
+  </div>
+{% endblock %}
