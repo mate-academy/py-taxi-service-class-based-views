@@ -1,13 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+<div class="container mt-5">
+  <div class="jumbotron bg-light text-center">
+    <h1 class="display-4 text-secondary">Taxi Service Home</h1>
+    <p class="lead text-muted">Welcome to <span class="font-weight-bold text-dark">Best Taxi Ever!</span></p>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2 class="text-secondary">Dynamic Content</h2>
+      <p class="text-muted">The Taxi service has the following record counts:</p>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-dark">Cars</h5>
+          <p class="card-text text-primary display-4">{{ num_cars }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-dark">Drivers</h5>
+          <p class="card-text text-success display-4">{{ num_drivers }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-dark">Manufacturers</h5>
+          <p class="card-text text-info display-4">{{ num_manufacturers }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
+
