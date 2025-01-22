@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Car {{ car.id }} details</h2>
+  <p>Model: {{ car.model }}</p>
+  <p>Manufacturer: {{ car.manufacturer.name }}</p>
+  {% if car.drivers %}
+    <table class="ml-3 table table-bordered">
+      <thead>
+      <tr>
+        <th>Username</th>
+        <th>Full Name</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for driver in car.drivers.all %}
+        <tr>
+          <td><a
+              href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a>
+          </td>
+          <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+          <td>{{ driver.email }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No drivers available</p>
+  {% endif %}
+{% endblock %}
