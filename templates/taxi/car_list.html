@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Car List</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Car List</h1>
+  {% if car_list %}
+    {% for car in car_list %}
+      <li class="list-group-item">
+        <a class="btn btn-primary" href="{% url 'taxi:car-detail' car.id %}">
+          <span>{{ car.model }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  {% else %}
+    <p>No cars found.</p>
+  {% endif %}
+{% endblock %}
