@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver info</h1>
+  <h6 class ="text-muted">{{ driver.username }}</h6>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Car model</th>
+        <th>Manufacturer</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for car in cars %}
+      <tr>
+        <td>{{ car.id }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

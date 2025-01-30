@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-lg border-primary">
+          <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Driver List</h4>
+          </div>
+          <div class="card-body">
+            {% if driver_list %}
+              <ul class="list-group">
+                {% for driver in driver_list %}
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'taxi:driver-detail' driver.id %}" class="btn btn-link text-info">{{ driver.username }}</a>
+                    <span class="font-weight-bold">{{ driver.first_name }} {{ driver.last_name }}</span>
+                    <span class="text-muted">{{ driver.email }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p class="text-muted">Currently, there is no information about drivers.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
