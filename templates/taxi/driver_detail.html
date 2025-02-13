@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+  <p><strong>License:</strong>
+    {% if driver.license_number %}
+      {{ driver.license_number }}
+    {% else %}
+      No license!
+    {% endif %}
+  </p>
+  <div class="ml-3">
+    <h6>Cars:</h6>
+    {% for car in driver.cars.all %}
+      <p>{{ car.model }}</p>
+    {% empty %}
+      <p>No car</p>
+    {% endfor %}
+  </div>
+{% endblock %}
