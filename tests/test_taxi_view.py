@@ -79,4 +79,4 @@ class DriverListTest(TestCase):
         response = self.client.get(reverse("taxi:driver-detail", args=[1]))
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/driver_detail.html")
+        self.assertTemplateUsed(response, "taxi/driver_list.html")
