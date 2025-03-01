@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Info about {{ car.model }}</h1>
+    <ul>
+      <li>Manufacturer: {{ car.manufacturer.name }}</li>
+      <li>Country: {{ car.manufacturer.country }}</li>
+      <h4 class="mt-3">Drivers</h4>
+      {% for driver in car.drivers.all %}
+      	<li>{{ driver.first_name }} {{ driver.last_name }}</li>
+      {% endfor %}
+    </ul>
+{% endblock %}
