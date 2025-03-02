@@ -1,20 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Cars</h2>
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Model</th>
-      <th>manufacturer</th>
-    </tr>
-    {% for car in cars %}
-      <tr>
-          <td><a href="{% url 'car-detail' car.id %}">{{ car.id }}</a></td>
-          <td>{{ car.model }}</td>
-          <td>{{ car.manufacturer.name }}</td>
-      </tr>
+  <h1>Car List</h1>
+  {% if car_list %}
+    <ul>
+    {% for car in car_list %}
+      <li><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></li>
     {% endfor %}
-  </table>
-  {% include "includes/pagination.html" %}
+    </ul>
+  {% endif %}
+
 {% endblock %}

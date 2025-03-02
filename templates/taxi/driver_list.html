@@ -1,18 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Drivers</h2>
-    <table>
-        <tr>
-            <th>Username</th>
-            <th>License</th>
-        </tr>
-        {% for driver in drivers %}
-            <tr>
-                <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.username }}</a></td>
-                <td>{{ driver.license_number }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    {% include "includes/pagination.html" %}
+  <h1>Driver List</h1>
+  {% if driver_list %}
+    <ul>
+    {% for driver in driver_list %}
+      <li><a href="{{ driver.get_absolute_url }}">{{ driver.first_name }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+
 {% endblock %}
