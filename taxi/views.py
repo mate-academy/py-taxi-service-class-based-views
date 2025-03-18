@@ -4,18 +4,22 @@ from django.db.models import QuerySet
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
+from django.views.generic import TemplateView
 
 from taxi.models import Car, Driver, Manufacturer
 
 
-def home_page(request: HttpRequest) -> render:
-    context = {
-        "num_cars": Car.objects.count(),
-        "num_drivers": get_user_model().objects.count(),
-        "num_manufacturers": Manufacturer.objects.count(),
+class HomePageView(TemplateView):
+    template_name = "taxi/index.html"
 
-    }
-    return render(request, "taxi/index.html", context=context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["num_cars"] = Car.objects.count()
+        context["num_drivers"] = get_user_model().objects.count()
+        context["num_manufacturers"] = Manufacturer.objects.count()
+
+        return context
 
 
 def manufacturers_list_view(request: HttpRequest) -> render:
