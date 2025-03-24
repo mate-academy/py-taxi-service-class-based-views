@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Drivers:</h3>
+  <ul>
+    {% for driver in driver_list %}
+      <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.license_number }}</a></li>
+    {% empty %}
+      <li>No drivers assigned.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

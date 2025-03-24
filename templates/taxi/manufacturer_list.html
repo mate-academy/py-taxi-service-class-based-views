@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Список виробників</h1>
+  <ul>
+    {% for manufacturer in manufacturer_list %}
+      <li>{{ manufacturer.name }} ({{ manufacturer.country }}</li>
+    {% empty %}
+      <li>Немає доступних виробників.</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'taxi:index' %}">🔙 На головну</a>
+{% endblock %}

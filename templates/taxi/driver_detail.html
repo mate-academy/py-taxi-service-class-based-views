@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver</h1>
+    <p><strong>Виробник:</strong></p>
+    <h2>Driver why used this auto:</h2>
+     <h2>Автомобілі водія:</h2>
+  <ul>
+    {% for car in driver.cars.all %}
+      <li>
+        <a href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }}</a>
+        ({{ car.manufacturer.name }})
+      </li>
+    {% empty %}
+      <li>Цей водій ще не має авто.</li>
+    {% endfor %}
+  </ul>
+
+    <a href="{% url 'taxi:driver-list' %}">🔙 Return to driver list</a>
+{% endblock %}
