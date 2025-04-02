@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Manufacturer list</h2><br>
+  {% for manufacturer in manufacturer_list %}
+    <h6><a href="{% url "taxi:manufacturer-detail" pk=manufacturer.id %}">{{ manufacturer.name }}</a></h6>
+  {% empty %}
+    <p>No manufacturers exist!</p>
+  {% endfor %}
+{% endblock %}
