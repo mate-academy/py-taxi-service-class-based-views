@@ -1,6 +1,60 @@
+{% load static %}
+
 <ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:index' %}">
+      <i class="fas fa-home mr-2"></i>Home page
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:manufacturer-list' %}">
+      <i class="fas fa-industry mr-2"></i>Manufacturers
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:car-list' %}">
+      <i class="fas fa-car mr-2"></i>Cars
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:driver-list' %}">
+      <i class="fas fa-users mr-2"></i>Drivers
+    </a>
+  </li>
 </ul>
+
+<style>
+.sidebar-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav .nav-item {
+  margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-link {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-nav .nav-link:hover {
+  background-color: #f0f0f0;
+  color: #007bff;
+}
+
+.sidebar-nav .nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.sidebar-nav .nav-link i {
+  width: 20px;
+  text-align: center;
+}
+</style>
