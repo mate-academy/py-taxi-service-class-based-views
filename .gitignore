@@ -8,3 +8,13 @@ venv/
 **__pycache__/
 *.pyc
 /db.sqlite3
+.github/
+.venv/
+static/
+taxi/migrations
+taxi/__init__.py
+taxi/admin.py
+taxi/apps.py
+taxi/models.py
+taxi/tests.py
+taxi_service/
