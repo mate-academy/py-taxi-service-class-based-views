@@ -10,9 +10,9 @@
     <p><strong>Country:</strong> {{ car.manufacturer.country }}</p>
 
     <h2>Drivers</h2>
-    {% if car.drivers.all %}
+    {% if car.drivers.all|length %}
         <ul>
-            {% for driver in car.drivers.all|length %}
+            {% for driver in car.drivers.all %}
                 <li>{{ driver.username }}</li>
             {% endfor %}
         </ul>
