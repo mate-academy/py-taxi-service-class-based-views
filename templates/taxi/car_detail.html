@@ -12,7 +12,7 @@
     <h2>Drivers</h2>
     {% if car.drivers.all %}
         <ul>
-            {% for driver in car.drivers.all %}
+            {% for driver in car.drivers.all|length %}
                 <li>{{ driver.username }}</li>
             {% endfor %}
         </ul>
