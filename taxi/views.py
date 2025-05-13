@@ -1,4 +1,6 @@
+from django.http import HttpRequest, HttpResponse, Http404
 from django.shortcuts import render
+from django.views import generic
 
 from taxi.models import Driver, Car, Manufacturer
 
@@ -13,3 +15,30 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    paginate_by = 5
+    queryset = Manufacturer.objects.all().order_by("name")
+
+
+class CarListView(generic.ListView):
+    model = Car
+    paginate_by = 5
+    queryset = (Car.objects.prefetch_related("drivers").all().
+                order_by("model"))
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    paginate_by = 5
+    queryset = Driver.objects.all().order_by("username")
+
+
+class DriverDetailView(generic.DetailView):
+    model = Driver
+
+
+class CarDetailView(generic.DetailView):
+    model = Car
