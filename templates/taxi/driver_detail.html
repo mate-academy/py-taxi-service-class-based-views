@@ -4,7 +4,7 @@
 
   {% for car in driver.cars.all %}
     <hr>
-    <p class="text-muted">car.manufacturer.name: {{ car.manufacturer_id }}</p>
+    <p class="text-muted">car.manufacturer.name: {{ car.manufacturer.name }}</p>
     <p>Model: {{ car.model }}</p>
   {% endfor %}
 {% endblock %}
