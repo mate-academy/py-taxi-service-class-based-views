@@ -5,7 +5,12 @@ from .models import Manufacturer, Car, Driver
 
 
 def index(request):
-    return render(request, 'taxi/index.html')
+    context = {
+        "num_drivers": Driver.objects.count(),
+        "num_cars": Car.objects.count(),
+        "num_manufacturers": Manufacturer.objects.count(),
+    }
+    return render(request, "taxi/index.html", context=context)
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
