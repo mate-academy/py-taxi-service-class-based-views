@@ -1,8 +1,11 @@
 from django.shortcuts import render
-
 from django.views import generic
 from .models import Manufacturer, Car, Driver
 
+
+
+def index(request):
+    return render(request, 'taxi/index.html')
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
