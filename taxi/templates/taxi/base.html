@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Taxi App</title>
+</head>
+<body>
+    {% include "taxi/includes/sidebar.html" %}
+
+    <div>
+        {% block content %}
+        <!-- Здесь будет содержимое страницы -->
+        {% endblock %}
+    </div>
+</body>
+</html>
