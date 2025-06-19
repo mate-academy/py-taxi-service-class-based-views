@@ -4,9 +4,9 @@
   <h1>{{ car.model }}</h1>
     <p>Manufacturer: {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
   <h3> Drivers:</h3>
+  <ul>
   {% for driver in car.drivers.all %}
-    <ul>
       <li>{{ driver.username }}</li>
-    </ul>
   {% endfor %}
+  </ul>
 {% endblock %}

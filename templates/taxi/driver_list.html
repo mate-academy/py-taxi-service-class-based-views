@@ -7,7 +7,7 @@
         <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>
       </li>
     {% empty %}
-      <p>There's no drivers on a Taxi Service.</p>
+      <li>There's no drivers on a Taxi Service.</li>
     {% endfor %}
   </ul>
 {% endblock %}
