@@ -3,7 +3,7 @@
   <ul>
     {% for car in car_list %}
       <li>
-        <a href={% url 'taxi:car-detail' car.id %}>ID: {{ car.id }}</a>
+        <a href="{% url 'taxi:car-detail' car.id %}">ID: {{ car.id }}</a>
       </li>
       <li>Model: {{ car.model }}</li>
       <li>Manufacturer: {{ car.manufacturer.name }}</li>
