@@ -8,13 +8,13 @@
     {% for car in car_list %}
       <div class="row">
       <div class="col col-3">
-        <a class="btn" href="{{car.id}}">
+        <a class="btn" href="{% url 'taxi:car-detail' car.id %}">
           {{ car.model }}
         </a>
       </div>
       <div class="col col-3">
         <p>
-          {{ car.manufacturer_name }}
+          {{ car.manufacturer.name }}
         </p>
       </div>
       </div>

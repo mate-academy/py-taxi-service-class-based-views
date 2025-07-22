@@ -8,7 +8,7 @@
     {% for driver in driver_list %}
       <div class="row">
         <div class="col-md-3">
-          <a class="btn" href={{ driver.id }}>{{ driver.get_full_name }}</a>
+          <a class="btn" href={% url 'taxi:driver-detail' driver.id %}>{{ driver.get_full_name }}</a>
         </div>
         <div class="col">
           <h2>{{ driver.license_number }}</h2>
