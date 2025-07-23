@@ -4,6 +4,8 @@
   <ul>
     {% for manufacturer in manufacturer_list %}
       <li>{{ manufacturer.name }} {{ manufacturer.country }}</li>
+    {% empty %}
+      <p>No manufacturers!</p>
     {% endfor %}
   </ul>
 {% endblock %}
