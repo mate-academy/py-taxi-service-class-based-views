@@ -15,11 +15,7 @@
       {% for manufacturer in manufacturer_list %}
         <tr>
           <td>{{ manufacturer.id }}</td>
-          <td>
-            <a href="{{ manufacturer.get_absolute_url }}">
-              {{ manufacturer.name }}
-            </a>
-          </td>
+          <td>{{ manufacturer.name }}</td>
           <td>{{ manufacturer.country }}</td>
         </tr>
       {% endfor %}
