@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3 style="text-align: center;">Car info</h3>
+  <table border="1" style="margin: 0 auto;">
+    {% for car in driver.cars.all %}
+      <tr>
+        <td>{{ car.model }}</td>
+      </tr>
+  {% endfor %}
+  </table>
+{% endblock %}
