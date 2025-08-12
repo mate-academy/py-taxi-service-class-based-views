@@ -6,6 +6,8 @@
     {% for car in driver.cars.all %}
       <tr>
         <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>{{ car.manufacturer.country }}</td>
       </tr>
   {% endfor %}
   </table>
