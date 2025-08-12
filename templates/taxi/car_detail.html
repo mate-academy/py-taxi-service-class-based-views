@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid mt-4">
+
+  <h2 class="mb-4">Car Information</h2>
+  <div class="card mb-3 col-md-4 p-0">
+    <div class="card-body">
+      <h5 class="card-title">{{ car.model }}</h5>
+      <p class="card-text"><strong>Manufacturer:</strong> {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
+    </div>
+  </div>
+  <h3 class="mt-4">Drivers of {{ car.model }}:</h3>
+  <div class="row">
+    {% for driver in car.drivers.all %}
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ driver.username }}</h5>
+            <p class="card-text"><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ driver.email }}</p>
+            <p class="card-text"><strong>License number:</strong> {{ driver.license_number }}</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <p>No drivers assigned to this driver.</p>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}

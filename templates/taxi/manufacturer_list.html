@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="conteiner-fluid mt-4">
+
+  <h2>Manufacturers:</h2>
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list %}
+        <li>{{ manufacturer.name }} ({{ manufacturer.country }})</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Manufacturers does not exist</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}

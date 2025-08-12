@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="conteiner-fluid mt-4">
+
+  <h2>Drivers:</h2>
+  {% if driver_list %}
+    <ul>
+      {% for driver in driver_list %}
+        <li>
+          {{ driver.first_name }} (
+            <a href="{% url 'taxi:driver-detail' driver.pk %}">
+              {{ driver.username }}
+            </a>
+          ) {{ driver.last_name }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>drivers does not exist</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}
