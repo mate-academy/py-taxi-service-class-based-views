@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Drivers list</h1>
+  {% if driver_list %}
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">License number</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <th scope="row"><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></th>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h2>There are no drivers!</h2>
+  {% endif %}
+{% endblock %}

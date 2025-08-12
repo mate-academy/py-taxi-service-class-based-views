@@ -1,3 +1,38 @@
 body {
     margin-top: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #f0f0f0;
+    border-right: 2px solid #ccc;
+    padding: 20px;
+    list-style: none;
+    margin: 0;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar-nav li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    padding: 8px 12px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+    background-color: #ddd;
+    color: #000;
 }
