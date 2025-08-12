@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1> Driver {{ driver.username }}</h1>
+  <div class="ml-3">
+    <h3>Cars:</h3>
+    {% if driver.cars.exists %}
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in driver.cars.all %}
+        <tr>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.manufacturer.country }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p>Have no cars</p>
+    {% endif %}
+  </div>
+{% endblock %}
