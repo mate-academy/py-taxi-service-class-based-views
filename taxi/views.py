@@ -17,12 +17,12 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-class ManufacturersListView(ListView):
+class ManufacturerListView(ListView):
     queryset = Manufacturer.objects.all().order_by("name")
     paginate_by = 5
 
 
-class CarsListView(ListView):
+class CarListView(ListView):
     queryset = Car.objects.select_related("manufacturer")
     paginate_by = 5
 
@@ -31,7 +31,7 @@ class CarDetailView(DetailView):
     model = Car
 
 
-class DriversListView(ListView):
+class DriverListView(ListView):
     model = Driver
     paginate_by = 5
 
