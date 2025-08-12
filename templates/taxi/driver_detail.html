@@ -10,7 +10,7 @@
         <th>Model</th>
         <th>Manufacturer</th>
     </tr>
-    {% for car in object.car_set.all %}
+    {% for car in object.cars.all %}
     <tr>
         <td>{{ car.id }}</td>
         <td>{{ car.model }}</td>

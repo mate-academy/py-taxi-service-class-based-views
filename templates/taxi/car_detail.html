@@ -4,7 +4,7 @@
 <p><strong>Manufacturer:</strong> {{ object.manufacturer.name }} ({{ object.manufacturer.country }})</p>
 <h2>Drivers:</h2>
 <ul>
-    {% for driver in object.driver_set.all %}
+    {% for driver in object.drivers.all %}
     <li>{{ driver.username }}</li>
     {% endfor %}
 </ul>
