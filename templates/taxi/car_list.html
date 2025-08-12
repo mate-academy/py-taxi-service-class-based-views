@@ -12,6 +12,7 @@
             <th>ID</th>
             <th>Model</th>
             <th>Manufacturer</th>
+            <th>Country</th>
           </tr>
         </thead>
         <tbody>
@@ -24,7 +25,8 @@
                 </a>
               </td>
               <td>{{ car.model }}</td>
-              <td>{{ car.manufacturer }}</td>
+              <td>{{ car.manufacturer.name }}</td>
+              <td>{{ car.manufacturer.country }}</td>
             </tr>
           {% endfor %}
         </tbody>
