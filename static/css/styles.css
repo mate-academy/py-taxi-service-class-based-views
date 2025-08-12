@@ -1,3 +1,22 @@
 body {
     margin-top: 20px;
 }
+
+table th, td {
+    border: #1b1b1b 2px solid;
+    padding: 15px;
+    text-align: center;
+}
+
+.paginator {
+    text-align: center;
+}
+
+.paginator a {
+    font-size: 25px;
+    color: black;
+}
+
+.paginator span {
+    font-size: 20px;
+}
