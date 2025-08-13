@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div>
+    <h3>Manufacturers:</h3>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ forloop.counter0|add:page_obj.start_index }}</td>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">Oops... there are no manufacturers</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+
+{% endblock %}

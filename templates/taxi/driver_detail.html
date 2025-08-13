@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>About driver</h3>
+
+  <div class="mb-3">
+    <ul class="mb-2">
+      <li><strong>Username:</strong> {{ driver.username }}</li>
+      <li><strong>First name:</strong> {{ driver.first_name }}</li>
+      <li><strong>Last name:</strong> {{ driver.last_name }}</li>
+      <li><strong>License #:</strong> {{ driver.license_number }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h5>Cars</h5>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Manufacturer</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.manufacturer.country }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">Oops... there are no cars for this driver</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-3">
+    <a href="{% url 'taxi:driver-list' %}">← Back to drivers</a>
+  </div>
+{% endblock %}
