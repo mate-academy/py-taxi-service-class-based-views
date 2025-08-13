@@ -3,7 +3,7 @@
   <h1>Car list:</h1>
   <ul>
     {% for car in car_list %}
-      <li>Model: {{ car.model }}, ID:<a href="{{ car.get_absolute_url }}"> {{ car.id }} </a>
+      <li>Model: {{ car.model }}, Made: {{ car.manufacturer.name }}, Country: {{ car.manufacturer.country }} ID:<a href="{{ car.get_absolute_url }}"> {{ car.id }} </a>
       </li>
     {% endfor %}
   </ul>
