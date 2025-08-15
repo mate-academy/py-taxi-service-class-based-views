@@ -6,7 +6,7 @@
   <h3>Cars:</h3>
 <br>
     <ul>{% for car in driver.cars.all %}
-      <li>{{ car.model }}</li>
+      <li>{{ car.model }} ({{ car.manufacturer.name }})</li>
 
   {% empty %}
   <p>No cars found</p>{% endfor %}</ul>
