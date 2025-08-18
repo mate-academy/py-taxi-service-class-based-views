@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Driver: {{ driver.username }}
+{% endblock %}
+
+{% block content %}
+  <h1>Driver Details</h1>
+  
+  <div class="card">
+    <div class="card-header">
+      <h3>{{ driver.first_name }} {{ driver.last_name }} ({{ driver.username }})</h3>
+    </div>
+    <div class="card-body">
+      <p><strong>ID:</strong> {{ driver.id }}</p>
+      <p><strong>Username:</strong> {{ driver.username }}</p>
+      <p><strong>First Name:</strong> {{ driver.first_name }}</p>
+      <p><strong>Last Name:</strong> {{ driver.last_name }}</p>
+      <p><strong>License Number:</strong> {{ driver.license_number }}</p>
+    </div>
+  </div>
+
+  <h2 class="mt-4">Cars</h2>
+  {% if driver.cars.all %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in driver.cars.all %}
+          <tr>
+            <td><a href="{% url 'taxi:car-detail' pk=car.pk %}">{{ car.id }}</a></td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>This driver has no assigned cars.</p>
+  {% endif %}
+{% endblock %}

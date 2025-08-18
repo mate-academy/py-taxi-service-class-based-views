@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Car: {{ car.model }}
+{% endblock %}
+
+{% block content %}
+  <h1>Car Details</h1>
+  
+  <div class="card">
+    <div class="card-header">
+      <h3>{{ car.model }}</h3>
+    </div>
+    <div class="card-body">
+      <p><strong>ID:</strong> {{ car.id }}</p>
+      <p><strong>Model:</strong> {{ car.model }}</p>
+    </div>
+  </div>
+
+  <h2 class="mt-4">Manufacturer Information</h2>
+  <div class="card">
+    <div class="card-body">
+      <p><strong>Name:</strong> {{ car.manufacturer.name }}</p>
+      <p><strong>Country:</strong> {{ car.manufacturer.country }}</p>
+    </div>
+  </div>
+
+  <h2 class="mt-4">Drivers</h2>
+  {% if car.drivers.all %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>License Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for driver in car.drivers.all %}
+          <tr>
+            <td>{{ driver.id }}</td>
+            <td><a href="{% url 'taxi:driver-detail' pk=driver.pk %}">{{ driver.username }}</a></td>
+            <td>{{ driver.first_name }}</td>
+            <td>{{ driver.last_name }}</td>
+            <td>{{ driver.license_number }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>This car has no assigned drivers.</p>
+  {% endif %}
+{% endblock %}
