@@ -21,9 +21,7 @@ class ManufacturerListView(generic.ListView):
     context_object_name = "manufacturers"
     template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
-
-    class Meta:
-        ordering = ["name", ]
+    queryset = Manufacturer.objects.order_by("name")
 
 
 class CarListView(generic.ListView):
@@ -48,3 +46,4 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
