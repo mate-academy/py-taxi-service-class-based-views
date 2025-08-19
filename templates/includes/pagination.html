@@ -1,0 +1,131 @@
+{% if is_paginated %}
+  <nav class="mt-4 flex justify-center" aria-label="Pagination">
+    <ul class="inline-flex rounded-md shadow-sm">
+
+      {% if page_obj.has_previous %}
+        <li>
+          <a href="?page=1" rel="first" aria-label="Go to first page"
+             class="relative inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] rounded-l-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
+            First
+          </a>
+        </li>
+        <li>
+          <a href="?page={{ page_obj.previous_page_number }}" rel="prev" aria-label="Go to previous page"
+             class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
+            Previous
+          </a>
+        </li>
+      {% else %}
+        <li>
+          <span aria-disabled="true"
+                class="relative inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] rounded-l-md border border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed select-none">
+            First
+          </span>
+        </li>
+        <li>
+          <span aria-disabled="true"
+                class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed select-none">
+            Previous
+          </span>
+        </li>
+      {% endif %}
+
+      <li>
+        {% if page_obj.number == 1 %}
+          <span aria-current="page" aria-label="Current page, page 1"
+                class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-blue-600 bg-blue-600 text-white">
+            1
+          </span>
+        {% else %}
+          <a href="?page=1" aria-label="Go to page 1"
+             class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
+            1
+          </a>
+        {% endif %}
+      </li>
+
+      {% if page_obj.number > 3 %}
+        <li>
+          <span aria-hidden="true"
+                class="relative -ml-px inline-flex items-center justify-center h-9 w-[2.25rem] border border-gray-300 bg-white text-gray-500 select-none">
+            …
+          </span>
+        </li>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if num > 1 and num < page_obj.paginator.num_pages and num >= page_obj.number|add:"-1" and num <= page_obj.number|add:"1" %}
+          <li>
+            {% if num == page_obj.number %}
+              <span aria-current="page" aria-label="Current page, page {{ num }}"
+                    class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-blue-600 bg-blue-600 text-white">
+                {{ num }}
+              </span>
+            {% else %}
+              <a href="?page={{ num }}" aria-label="Go to page {{ num }}"
+                 class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
+                {{ num }}
+              </a>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.number < page_obj.paginator.num_pages|add:"-2" %}
+        <li>
+          <span aria-hidden="true"
+                class="relative -ml-px inline-flex items-center justify-center h-9 w-[2.25rem] border border-gray-300 bg-white text-gray-500 select-none">
+            …
+          </span>
+        </li>
+      {% endif %}
+
+      {% if page_obj.paginator.num_pages > 1 %}
+        <li>
+          {% if page_obj.number == page_obj.paginator.num_pages %}
+            <span aria-current="page" aria-label="Current page, page {{ page_obj.paginator.num_pages }}"
+                  class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-blue-600 bg-blue-600 text-white">
+              {{ page_obj.paginator.num_pages }}
+            </span>
+          {% else %}
+            <a href="?page={{ page_obj.paginator.num_pages }}"
+               aria-label="Go to page {{ page_obj.paginator.num_pages }}"
+               class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
+              {{ page_obj.paginator.num_pages }}
+            </a>
+          {% endif %}
+        </li>
+      {% endif %}
+
+      {% if page_obj.has_next %}
+        <li>
+          <a href="?page={{ page_obj.next_page_number }}" rel="next" aria-label="Go to next page"
+             class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
+            Next
+          </a>
+        </li>
+        <li>
+          <a href="?page={{ page_obj.paginator.num_pages }}" rel="last"
+             aria-label="Go to last page ({{ page_obj.paginator.num_pages }})"
+             class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] rounded-r-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500">
+            Last
+          </a>
+        </li>
+      {% else %}
+        <li>
+          <span aria-disabled="true"
+                class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] border border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed select-none">
+            Next
+          </span>
+        </li>
+        <li>
+          <span aria-disabled="true"
+                class="relative -ml-px inline-flex items-center justify-center h-9 px-3 min-w-[2.25rem] rounded-r-md border border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed select-none">
+            Last
+          </span>
+        </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+{% endif %}

@@ -1,13 +1,47 @@
 {% extends "base.html" %}
 
+{% block title %}<title>Home — Taxi Service</title>{% endblock %}
+
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  <div class="space-y-6">
+    <header>
+      <h1 class="text-3xl font-bold text-gray-800">
+        Taxi Service Home
+      </h1>
+      <p class="mt-2 text-lg text-gray-600">
+        Welcome to
+        <span class="font-semibold text-indigo-600">Best Taxi Ever!</span>
+      </p>
+    </header>
+
+    <section aria-labelledby="dynamic-content-heading">
+      <h2 id="dynamic-content-heading" class="text-2xl font-semibold text-gray-700">
+        Dynamic content
+      </h2>
+      <p class="mt-1 text-gray-600">
+        The Taxi service has the following record counts:
+      </p>
+
+      <ul class="mt-4 grid gap-3 sm:grid-cols-3">
+        <li class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="text-sm text-gray-500">Cars</p>
+          <p class="text-2xl font-bold text-indigo-600 tabular-nums">
+            {{ num_cars }}
+          </p>
+        </li>
+        <li class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="text-sm text-gray-500">Drivers</p>
+          <p class="text-2xl font-bold text-indigo-600 tabular-nums">
+            {{ num_drivers }}
+          </p>
+        </li>
+        <li class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="text-sm text-gray-500">Manufacturers</p>
+          <p class="text-2xl font-bold text-indigo-600 tabular-nums">
+            {{ num_manufacturers }}
+          </p>
+        </li>
+      </ul>
+    </section>
+  </div>
 {% endblock %}

@@ -1,6 +1,99 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+{% with path=request.path %}
+  <nav aria-label="Sidebar">
+    <ul class="space-y-2">
+      <li>
+        {% if path == '/' %}
+          <span aria-current="page"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-50 text-blue-700 font-medium cursor-default border-l-4 border-blue-600">
+            <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 10.5 12 3l9 7.5M5 10v10h5v-6h4v6h5V10"></path>
+            </svg>
+            Home
+          </span>
+        {% else %}
+          <a href="{% url 'taxi:index' %}"
+             class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 10.5 12 3l9 7.5M5 10v10h5v-6h4v6h5V10"></path>
+            </svg>
+            Home
+          </a>
+        {% endif %}
+      </li>
+
+      <li>
+        {% if path|slice:":15" == "/manufacturers/" %}
+          <span aria-current="page"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-50 text-blue-700 font-medium cursor-default border-l-4 border-blue-600">
+            <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 21v-6l4-2 4 2V9l4-2 4 2v12"></path>
+              <rect x="7" y="11" width="2" height="3" rx="0.5"></rect>
+              <rect x="17" y="12" width="2" height="5" rx="0.5"></rect>
+            </svg>
+            Manufacturers
+          </span>
+        {% else %}
+          <a href="{% url 'taxi:manufacturer-list' %}"
+             class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 21v-6l4-2 4 2V9l4-2 4 2v12"></path>
+              <rect x="7" y="11" width="2" height="3" rx="0.5"></rect>
+              <rect x="17" y="12" width="2" height="5" rx="0.5"></rect>
+            </svg>
+            Manufacturers
+          </a>
+        {% endif %}
+      </li>
+
+      <li>
+        {% if path|slice:":6" == "/cars/" %}
+          <span aria-current="page"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-50 text-blue-700 font-medium cursor-default border-l-4 border-blue-600">
+            <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5M5 16h14M7 16v2m10-2v2M7 16a2 2 0 1 1-4 0m18 0a2 2 0 1 1-4 0"></path>
+            </svg>
+            Cars
+          </span>
+        {% else %}
+          <a href="{% url 'taxi:car-list' %}"
+             class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5M5 16h14M7 16v2m10-2v2M7 16a2 2 0 1 1-4 0m18 0a2 2 0 1 1-4 0"></path>
+            </svg>
+            Cars
+          </a>
+        {% endif %}
+      </li>
+
+      <li>
+        {% if path|slice:":9" == "/drivers/" %}
+          <span aria-current="page"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg bg-blue-50 text-blue-700 font-medium cursor-default border-l-4 border-blue-600">
+            <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 14a4 4 0 10-8 0m12 6v-1a6 6 0 00-12 0v1M12 8a4 4 0 110-8 4 4 0 010 8z"></path>
+            </svg>
+            Drivers
+          </span>
+        {% else %}
+          <a href="{% url 'taxi:driver-list' %}"
+             class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white">
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 14a4 4 0 10-8 0m12 6v-1a6 6 0 00-12 0v1M12 8a4 4 0 110-8 4 4 0 010 8z"></path>
+            </svg>
+            Drivers
+          </a>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+{% endwith %}

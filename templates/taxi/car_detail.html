@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}<title>{{ car.manufacturer.name }} {{ car.model }}</title>{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl font-bold mb-4">
+    {{ car.manufacturer.name }} {{ car.model }}
+  </h1>
+
+  <section class="p-4 border rounded bg-gray-50 mb-6">
+    <h2 class="text-xl font-semibold mb-3">Manufacturer</h2>
+    <dl class="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1 text-gray-700">
+      <dt>Name:</dt>
+      <dd>{{ car.manufacturer.name }}</dd>
+      <dt>Country:</dt>
+      <dd>{{ car.manufacturer.country }}</dd>
+    </dl>
+  </section>
+
+  <section class="p-4 border rounded bg-gray-50">
+    <h2 class="text-xl font-semibold mb-3">Drivers</h2>
+    <ul class="list-disc pl-6 text-gray-800">
+      {% for d in car.drivers.all %}
+        <li>
+          <a href="{% url 'taxi:driver-detail' d.pk %}" class="text-blue-600 hover:underline">
+            {{ d.username }}
+          </a>
+          <span class="text-gray-500">({{ d.license_number|default:"—" }})</span>
+        </li>
+      {% empty %}
+        <li class="text-gray-500">No drivers assigned</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}
