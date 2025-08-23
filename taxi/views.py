@@ -29,12 +29,12 @@ class CarListView(generic.ListView):
     context_object_name = "cars"
     template_name = "taxi/car_list.html"
     paginate_by = 5
-    queryset = Car.objects.prefetch_related("manufacturer")
+    queryset = Car.objects.select_related("manufacturer")
 
 
 class CarDetailView(generic.DetailView):
     model = Car
-    queryset = Car.objects.prefetch_related("manufacturer")
+    queryset = Car.objects.select_related("manufacturer").prefetch_related("drivers")
 
 
 class DriverListView(generic.ListView):

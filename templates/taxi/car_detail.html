@@ -26,7 +26,7 @@
     <tbody>
     {% for driver in car.drivers.all %}
       <tr>
-        <td>{{ driver.license_number }}</td>
+        <td><a href="{{ driver.get_absolute_url }}">{{ driver.license_number }}</a></td>
       </tr>
     {% endfor %}
     </tbody>

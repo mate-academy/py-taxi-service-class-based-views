@@ -9,7 +9,7 @@
     <tbody>
     {% for driver in drivers %}
       <tr>
-        <td><a href="{{ driver.get_absolute_url }}">{{ driver.license_number }}</a></td>
+        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></td>
       </tr>
     {% endfor %}
     </tbody>

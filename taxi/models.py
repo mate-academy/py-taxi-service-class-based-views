@@ -15,7 +15,7 @@ class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
-        return f"{self.license_number}"
+        return f"{self.username} {self.license_number}"
 
     def get_absolute_url(self):
         return reverse("taxi:driver-detail", args=[str(self.id)])
@@ -29,7 +29,7 @@ class Car(models.Model):
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
     def __str__(self):
-        return f"{self.manufacturer.name} {self.model}"
+        return f"{self.manufacturer.name}, {self.model}"
 
     def get_absolute_url(self):
         return reverse("taxi:car-detail", args=[str(self.id)])

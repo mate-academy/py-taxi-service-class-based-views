@@ -1,11 +1,11 @@
 {% if is_paginated %}
   <div class="paginator d-flex">
     {% if page_obj.has_previous %}
-      <button class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a></button>
+      <a class="page-link page-item" href="?page={{ page_obj.previous_page_number }}">Prev</a>
     {% endif %}
     <p class="page-item active"><span class="page-link d-inline-block">{{ page_obj.number }} of {{ paginator.num_pages }}</span></p>
     {% if page_obj.has_next %}
-      <button class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></button>
+      <a class="page-link page-item" href="?page={{ page_obj.next_page_number }}">Next</a>
     {% endif %}
   </div>
 {% endif %}

@@ -9,7 +9,7 @@
     <tbody>
     {% for car in driver.cars.all %}
       <tr>
-        <td>{{ car.model }}</td>
+        <td><a href="{{ car.get_absolute_url }}">{{ car }}</a></td>
       </tr>
     {% endfor %}
     </tbody>
