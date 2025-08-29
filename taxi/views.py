@@ -1,5 +1,4 @@
-from tkinter.font import names
-
+from django.db.models import Prefetch
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic import ListView, DetailView
@@ -22,14 +21,14 @@ def index(request):
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
     queryset = Manufacturer.objects.all().order_by("name")
-    template_name = "taxi/manufacturers_list.html"
+    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
 class CarListView(generic.ListView):
     model = Car
-    queryset = Car.objects.select_related("manufacturer")
-    template_name = "taxi/cars_list.html"
+    queryset = Car.objects.select_related("manufacturer").all()
+    template_name = "taxi/car_list.html"
     paginate_by = 5
 
 
@@ -39,11 +38,14 @@ class CarDetailView(generic.DetailView):
 
 class DriverListView(generic.ListView):
     model = Driver
-    template_name = "taxi/drivers_list.html"
+    template_name = "taxi/driver_list.html"
     paginate_by = 5
 
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related(
+        Prefetch(
+            "cars",
+            queryset=Car.objects.select_related("manufacturer")))
     template_name = "taxi/driver_detail.html"

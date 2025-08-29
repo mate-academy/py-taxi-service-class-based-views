@@ -15,7 +15,7 @@ class Driver(AbstractUser):
         return f"{self.username}: ({self.first_name} {self.last_name})"
 
     def get_absolute_url(self):
-        return reverse("taxi:driver_detail", args=[str(self.id)])
+        return reverse("taxi:driver-detail", args=[str(self.id)])
 
 
 class Car(models.Model):
@@ -26,4 +26,4 @@ class Car(models.Model):
     driver = models.ManyToManyField(Driver, related_name="cars")
 
     def get_absolute_url(self):
-        return reverse("taxi:car_detail", args=[str(self.id)])
+        return reverse("taxi:car-detail", args=[str(self.id)])
