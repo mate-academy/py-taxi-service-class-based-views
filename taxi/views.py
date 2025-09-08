@@ -1,3 +1,4 @@
+from django.db.models import Prefetch
 from django.shortcuts import render
 from django.views import generic
 
@@ -24,12 +25,14 @@ class ManufacturerListView(generic.ListView):
 
 class CarListView(generic.ListView):
     model = Car
-    queryset = Car.objects.prefetch_related("manufacturer", "drivers")
+    queryset = (Car.objects.select_related("manufacturer").
+                prefetch_related("drivers"))
     paginate_by = 5
 
 
 class CarDetailView(generic.DetailView):
     model = Car
+    Prefetch("cars", queryset=Car.objects.select_related("manufacturer"))
 
 
 class DriverListView(generic.ListView):
