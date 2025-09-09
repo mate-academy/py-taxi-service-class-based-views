@@ -2,11 +2,11 @@
 
 {% block content %}
   <h1>Manufacturer List</h1>
-    <table class="table">
-      <tr>
-        <th>Name</th>
-        <th>Country</th>
-      </tr>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+    </tr>
     {% for manufacturer in manufacturer_list %}
       <tr>
         <td>{{ manufacturer.name }}</td>
@@ -14,5 +14,6 @@
       </tr>
     {% endfor %}
 
-    </table>
+  </table>
 {% endblock %}
+

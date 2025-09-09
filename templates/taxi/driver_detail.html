@@ -8,9 +8,10 @@
   <div class="ml-3">
     <h3>Cars:</h3>
     {% for car in driver.cars.all %}
-    	<p>{{ car.model }} - {{ car.manufacturer.name }}</p>
+      <p>{{ car.model }} - {{ car.manufacturer.name }}</p>
       <p class="border-bottom"></p>
     {% endfor %}
 
   </div>
 {% endblock %}
+

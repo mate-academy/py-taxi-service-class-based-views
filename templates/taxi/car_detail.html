@@ -7,11 +7,12 @@
     <h3>Drivers:</h3>
     {% for driver in car.drivers.all %}
       <p class="text-muted"><strong>Username: </strong>{{ driver.username }}</p>
-    	<p><strong>Name: </strong>{{ driver.first_name }}</p>
-    	<p><strong>Last name: </strong>{{ driver.last_name }}</p>
-    	<p><strong>License number: </strong>{{ driver.license_number }}</p>
+      <p><strong>Name: </strong>{{ driver.first_name }}</p>
+      <p><strong>Last name: </strong>{{ driver.last_name }}</p>
+      <p><strong>License number: </strong>{{ driver.license_number }}</p>
       <p class="border-bottom"></p>
     {% endfor %}
 
   </div>
 {% endblock %}
+
