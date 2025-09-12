@@ -41,15 +41,6 @@ class DriverListView(generic.ListView):
     paginate_by = 5
 
 
-def grt_queryset():
-    return Driver.objects.all().prefetch_related(
-        Prefetch(
-            "cars",
-            queryset=Car.objects.select_related("manufacturer"),
-        )
-    )
-
-
 class DriverDetailView(generic.DetailView):
     model = Driver
     queryset = Driver.objects.prefetch_related("cars__manufacturer")

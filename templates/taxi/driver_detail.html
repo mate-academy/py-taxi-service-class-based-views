@@ -7,11 +7,10 @@
 	<ul>
 		{% for car in driver.cars.all %}
 			<li>{{ car.model }} ({{ car.manufacturer.name }})</li>
-		{% empty %}
-		<p>No cars found</p>
+			{% empty %}
+			<p>No cars found</p>
 		{% endfor %}
 
 	</ul>
-
 
 {% endblock %}
