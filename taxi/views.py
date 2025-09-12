@@ -9,9 +9,9 @@ def index(request):
     """View function for the home page of the site."""
 
     context = {
-        "num_drivers": Driver.objects.count(),
-        "num_cars": Car.objects.count(),
-        "num_manufacturers": Manufacturer.objects.count(),
+        "num-drivers": Driver.objects.count(),
+        "num-cars": Car.objects.count(),
+        "num-manufacturers": Manufacturer.objects.count(),
     }
 
     return render(request, "taxi/index.html", context=context)
@@ -39,16 +39,17 @@ class DriverListView(generic.ListView):
     paginate_by = 5
 
 
+def grt_queryset():
+    return Driver.objects.all().prefetch_related(
+        Prefetch(
+            "cars",
+            queryset=Car.objects.select_related("manufacturer"),
+        )
+    )
+
+
 class DriverDetailView(generic.DetailView):
     model = Driver
     queryset = Driver.objects.prefetch_related("cars__manufacturer")
     template_name = "taxi/driver_detail.html"
     context_object_name = "driver"
-
-    def grt_queryset(self):
-        return Driver.objects.all().prefetch_related(
-            Prefetch(
-                "cars",
-                queryset=Car.objects.select_related("manufacturer"),
-            )
-        )
