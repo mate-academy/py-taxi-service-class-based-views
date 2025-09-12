@@ -3,11 +3,11 @@
 {% block content %}
 	<h1>Manufacturer List</h1>
 	<ul>
-		{% if manufacturers %}
-			{% for manufacturer in manufacturers %}
-				<li>{{ manufacturer }}</li>
-			{% endfor %}
-		{% endif %}
-	</ul>
+		{% for manufacturer in manufacturers %}
+			<li>{{ manufacturer.name }} {{ manufacturer.country }}</li>
+			{% empty %}
+			<p>No manufacturers found</p>
 
+		{% endfor %}
+	</ul>
 {% endblock %}
