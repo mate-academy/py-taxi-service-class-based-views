@@ -3,7 +3,7 @@
 {% block content %}
 	<h1>Manufacturer List</h1>
 	<ul>
-		{% for manufacturer in manufacturers %}
+		{% for manufacturer in manufacturer_list %}
 			<li>{{ manufacturer.name }} {{ manufacturer.country }}</li>
 			{% empty %}
 			<p>No manufacturers found</p>
