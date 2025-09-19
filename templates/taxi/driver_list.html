@@ -8,7 +8,7 @@
   {% if driver_list %}
     <ul>
     {% for driver in driver_list %}
-      <li><a href="{% url "taxi:driver-detail" driver.username %}">{{ driver.username }}</a></li>
+      <li><a href="{% url "taxi:driver-detail" driver.id %}">{{ driver.id }}</a></li>
     {% empty %}
     <p>No drivers found</p>
     {% endfor %}
