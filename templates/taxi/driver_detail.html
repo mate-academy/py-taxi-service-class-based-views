@@ -4,7 +4,7 @@
   <h1>Cars of the {{ driver.username }}</h1>
   <ul>
   {% for car in driver.cars.all %}
-    <li>{{ car.model }}, {{ car.manufacturer }}</li>
+    <li>{{ car.model }}, {{ car.manufacturer.name }}, {{ car.manufacturer.country }}</li>
   {% empty %}
     <p>No cars!</p>
   {% endfor %}
