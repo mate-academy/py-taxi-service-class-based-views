@@ -1,9 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Manufacturers</h3>
-  <hr>
-  {% for manuf in manufacturer_list %}
-    <table>{{ manuf.name }} - {{ manuf.country }}</table>
-  {% endfor %}
+  <table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for manuf in manufacturer_list %}
+      <tr>
+        <td>{{ manuf.id }}</td>
+        <td>{{ manuf.name }}</td>
+        <td>{{ manuf.country }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

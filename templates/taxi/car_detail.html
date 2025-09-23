@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer - {{ car.manufacturer.name }}, {{ car.manufacturer.country }}</p>
-  {% for driver in car.drivers.all %}
-    <p>{{ driver.first_name }}, {{ driver.last_name }}, {{ driver.license_number }}</p>
-  {% endfor %}
+  <h2>Manufacturer - {{ car.manufacturer.name }}, {{ car.manufacturer.country }}</h2>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>License number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for driver in car.drivers.all %}
+      <tr>
+        <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
+        <td>{{ driver.license_number }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
