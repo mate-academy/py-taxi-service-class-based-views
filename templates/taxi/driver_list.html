@@ -4,10 +4,10 @@
   <h3>Drivers</h3>
   <hr>
   {% for driver in driver_list %}
-    <p>
+    <table>
       <a href="{% url 'taxi:driver-detail' driver.id %}">
       {{ driver.username }}
       </a> - {{ driver.license_number }}
-    </p>
+    </table>
   {% endfor %}
 {% endblock %}

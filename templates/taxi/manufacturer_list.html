@@ -4,6 +4,6 @@
   <h3>Manufacturers</h3>
   <hr>
   {% for manuf in manufacturer_list %}
-    <p>{{ manuf.name }} - {{ manuf.country }}</p>
+    <table>{{ manuf.name }} - {{ manuf.country }}</table>
   {% endfor %}
 {% endblock %}
