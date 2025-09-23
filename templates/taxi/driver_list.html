@@ -2,12 +2,25 @@
 
 {% block content %}
   <h1>Drivers List</h1>
-  <ul>
-    {% for driver in driver_list %}
-        <li><a href="{% url "taxi:driver-detail" driver.pk %}">{{ driver.username }} - </a>{{ driver.license_number }}</li>
-    {% empty %}
-      <li>No drivers found.</li>
-    {% endfor %}
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>License Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <td><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="2">No drivers found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   {% include "includes/pagination.html" %}
 {% endblock %}

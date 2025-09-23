@@ -2,12 +2,23 @@
 
 {% block content %}
   <h1>Manufacturers List</h1>
-  <ul>
-    {% for manufacturer in manufacturer_list %}
-      <li>{{ manufacturer.name }}</li>
-    {% empty %}
-      <li>No manufacturers found.</li>
-    {% endfor %}
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td>No manufacturers found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   {% include "includes/pagination.html" %}
 {% endblock %}
