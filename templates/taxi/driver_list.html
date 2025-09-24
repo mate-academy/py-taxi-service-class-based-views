@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if driver_list %}
+    <ul>
+      {% for driver in driver_list %}
+        <li>
+          <a
+            href="{% url 'taxi:driver-detail' driver.id %}"
+          >
+            {{ driver.first_name }} {{ driver.last_name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no drivers in the database</p>
+  {% endif %}
+{% endblock %}
+
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}

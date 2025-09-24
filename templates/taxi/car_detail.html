@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>
+    Car model: {{ car.model }}
+    <br>
+    Manufacturer: {{ car.manufacturer.name }} ({{ car.manufacturer.country }})
+  </p>
+{% endblock %}
