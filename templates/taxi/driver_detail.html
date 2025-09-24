@@ -8,13 +8,17 @@
     <br>
     Cars:
   </p>
-      {% if driver.cars.all %}
+  {% with cars=driver.cars.all %}
+      {% if cars %}
         <ul>
-          {% for car in driver.cars.all %}
-            <li>{{ car.model }} {{ car.manufacturer }}</li>
+          {% for car in cars %}
+            <li>
+              {{ car.model }} {{ car.manufacturer.name }} {{ car.manufacturer.country }}
+            </li>
           {% endfor %}
         </ul>
       {% else %}
         <p>This driver has no cars.</p>
       {% endif %}
+  {% endwith %}
 {% endblock %}
