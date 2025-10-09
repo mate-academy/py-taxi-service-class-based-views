@@ -22,7 +22,7 @@
     {% for driver in object.drivers.all %}
     <tr>
       <td>{{ forloop.counter }}</td>
-      <td><a href="{% url 'taxi:driver_detail' driver.pk %}">{{ driver.username }}</a></td>
+      <td><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></td>
       <td>{{ driver.license_number }}</td>
     </tr>
     {% empty %}
