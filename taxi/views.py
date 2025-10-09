@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.db.models import Prefetch
 
 from taxi.models import Driver, Car, Manufacturer
 
@@ -39,4 +40,6 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.select_related("cars__manufacturer")
+    queryset = Driver.objects.prefetch_related(
+        Prefetch('cars', queryset=Car.objects.select_related('manufacturer'))
+    )
