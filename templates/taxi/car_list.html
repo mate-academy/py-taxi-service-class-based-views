@@ -7,7 +7,12 @@
     {% if car_list %}
         <ul>
             {% for car in object_list %}
-                <li><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.manufacturer.name }}</a></li>
+                <li>
+                    <strong>ID: </strong><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a>
+                    <p><strong>Model: </strong> {{car.model}}</p>
+                    <p><strong>Manufacturer: </strong> {{car.manufacturer.name}}</p>
+                </li>
+                
             {% endfor %}
         </ul>
     {% else %}
