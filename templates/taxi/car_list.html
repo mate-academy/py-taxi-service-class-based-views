@@ -5,16 +5,22 @@
 {% endblock %}
 {% block content %}
     {% if car_list %}
-        <ul>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Manufacturer</th>
+            </tr>
+
             {% for car in object_list %}
-                <li>
-                    <strong>ID: </strong><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a>
-                    <p><strong>Model: </strong> {{car.model}}</p>
-                    <p><strong>Manufacturer: </strong> {{car.manufacturer.name}}</p>
-                </li>
+                <tr>
+                    <td><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a></td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.manufacturer.name}}</td>
+                </tr>
                 
             {% endfor %}
-        </ul>
+        </table>
     {% else %}
     <p>there are no cars</p>
     {% endif %}
