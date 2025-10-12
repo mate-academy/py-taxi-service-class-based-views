@@ -1,33 +1,33 @@
 {% if is_paginated %}
   <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center align-items-center">
+    <ul class="pagination">
       {% if page_obj.has_previous %}
         <li class="page-item">
-          <a class="page-link btn btn-sm btn-outline-primary" href="?page={{ page_obj.previous_page_number }}">
+          <a class="pg-link btn prim" href="?page={{ page_obj.previous_page_number }}">
             &laquo; Prev
           </a>
         </li>
       {% else %}
         <li class="page-item disabled">
-          <span class="page-link btn btn-sm btn-outline-secondary">&laquo; Prev</span>
+          <span class="pg-link btn secondary">&laquo; Prev</span>
         </li>
       {% endif %}
 
       <li class="page-item disabled mx-2">
-        <span class="page-link border-0 bg-transparent text-dark small">
+        <span class="pg-link small">
           Page {{ page_obj.number }} of {{ paginator.num_pages }}
         </span>
       </li>
 
       {% if page_obj.has_next %}
         <li class="page-item">
-          <a class="page-link btn btn-sm btn-outline-primary" href="?page={{ page_obj.next_page_number }}">
+          <a class="pg-link btn prim" href="?page={{ page_obj.next_page_number }}">
             Next &raquo;
           </a>
         </li>
       {% else %}
         <li class="page-item disabled">
-          <span class="page-link btn btn-sm btn-outline-secondary">Next &raquo;</span>
+          <span class="pg-link btn secondary">Next &raquo;</span>
         </li>
       {% endif %}
     </ul>
