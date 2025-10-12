@@ -3,23 +3,40 @@
 {% block content %}
   <h1>Car List</h1>
 
-  <ul>
-    {% for car in car_list %}
-      <li>
-        <a href="{% url 'taxi:car-detail' car.pk %}">
-          {{ car.pk }}:</a> {{ car.model }}
-          ({{ car.manufacturer.name }})
-        — Drivers:
-        {% if car.drivers.all %}
-          {% for driver in car.drivers.all %}
-            {{ driver.license_number }}{% if not forloop.last %}, {% endif %}
-          {% endfor %}
-        {% else %}
-          No drivers
-        {% endif %}
-      </li>
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
-  </ul>
+  {% if car_list %}
+    <table class="table">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Drivers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in car_list %}
+          <tr>
+            <td>{{ car.id }}</td>
+            <td>
+              <a href="{% url 'taxi:car-detail' car.pk %}">
+                {{ car.model }}
+              </a>
+            </td>
+            <td>{{ car.manufacturer.name }}</td>
+            <td>
+              {% if car.drivers.all %}
+                {% for driver in car.drivers.all %}
+                  {{ driver.username }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+              {% else %}
+                No drivers
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No cars!</p>
+  {% endif %}
 {% endblock %}

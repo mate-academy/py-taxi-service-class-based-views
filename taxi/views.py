@@ -35,7 +35,6 @@ class CarListView(generic.ListView):
 
 class CarDetailView(generic.DetailView):
     model = Car
-    context_object_name = "car"
 
 
 class DriverListView(generic.ListView):
