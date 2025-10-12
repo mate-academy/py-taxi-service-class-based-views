@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car List</h1>
+
+  <ul>
+    {% for car in car_list %}
+      <li>
+        <a href="{% url 'taxi:car-detail' car.pk %}">
+          {{ car.pk }}:</a> {{ car.model }} ({{ car.manufacturer.name }})
+        — Drivers:
+        {% if car.drivers.all %}
+          {% for driver in car.drivers.all %}
+            {{ driver.license_number }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        {% else %}
+          No drivers
+        {% endif %}
+      </li>
+    {% empty %}
+      <p>No cars!</p>
+    {% endfor %}
+  </ul>
+{% endblock %}
