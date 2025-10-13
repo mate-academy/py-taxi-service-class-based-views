@@ -1,14 +1,11 @@
 {% extends "base.html" %}
-
 {% block content %}
   <h2>Car Detail</h2>
-
   <ul class="list-group mb-4">
     <li class="list-group-item"><strong>Model:</strong> {{ car.model }}</li>
     <li class="list-group-item"><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</li>
     <li class="list-group-item"><strong>Country:</strong> {{ car.manufacturer.country }}</li>
   </ul>
-
   <h4>Drivers</h4>
   <ul class="list-group">
     {% for driver in car.drivers.all %}
@@ -18,4 +15,3 @@
     {% endfor %}
   </ul>
 {% endblock %}
-
