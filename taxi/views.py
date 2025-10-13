@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.db.models import Prefetch
 from taxi.models import Driver, Car, Manufacturer
 
 
@@ -15,7 +16,7 @@ def index(request):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    queryset = Manufacturer.objects.all().order_by("name")
+    queryset = Manufacturer.objects.order_by("name")
     paginate_by = 5
 
 
@@ -23,7 +24,6 @@ class CarListView(ListView):
     model = Car
     queryset = (
         Car.objects.select_related("manufacturer")
-        .all()
         .order_by("model")
     )
     paginate_by = 5
@@ -42,4 +42,9 @@ class DriverDetailView(DetailView):
     model = Driver
 
     def get_queryset(self):
-        return Driver.objects.prefetch_related("cars__manufacturer")
+        return Driver.objects.prefetch_related(
+            Prefetch(
+                "cars",
+                queryset=Car.objects.select_related("manufacturer")
+            )
+        )
