@@ -9,28 +9,30 @@
   <hr>
   <h2>Cars of Driver</h2>
 
-  {% if driver.cars.all%}
-    <table border="1" cellpadding="15" cellspacing="0">
-      <thead>
+  <table border="1" cellpadding="15" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Manufacturer</th>
+        <th>Country</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in driver.cars.all %}
         <tr>
-          <th>Model</th>
-          <th>Manufacturer</th>
-          <th>Country</th>
-          <th>Details</th>
+          <td>{{car.model}}</td>
+          <td>{{car.manufacturer.name}}</td>
+          <td>{{car.manufacturer.country}}</td>
+          <td>
+            <a href="{{ car.get_absolute_url }}">View</a>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        {% for car in driver.cars.all %}
-          <tr>
-            <td>{{car.model}}</td>
-            <td>{{car.manufacturer.name}}</td>
-            <td>{{car.manufacturer.country}}</td>
-            <td>
-              <a href="{{ car.get_absolute_url }}">View</a>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  {% endif %}
+      {% empty %}
+        <tr>
+          <td colspan="4">No cars assigned to this driver.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
