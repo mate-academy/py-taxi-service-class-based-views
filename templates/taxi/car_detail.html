@@ -3,26 +3,27 @@
 {% block title %}Car Details{% endblock %}
 
 {% block content %}
-  <h2>Car Details</h2>
-
-  <p><strong>Model:</strong> {{ car.model }}</p>
+  <h2>Car: {{ car.model }}</h2>
 
   <h3>Manufacturer</h3>
   <p>
     {{ car.manufacturer.name }} — {{ car.manufacturer.country }}
   </p>
 
-  <h3>Drivers</h3>
-  {% if car.drivers.all %}
-    <ul>
-      {% for driver in car.drivers.all %}
-        <li>
-          <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>
-          — License: {{ driver.license_number }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No drivers assigned.</p>
-  {% endif %}
+  {% with drivers=car.drivers.all %}
+    {% if drivers %}
+      <h3>Drivers assigned:</h3>
+      <ul>
+        {% for driver in drivers %}
+          <li>
+            <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a> —
+            License Number: {{ driver.license_number }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No drivers assigned to this car.</p>
+    {% endif %}
+  {% endwith %}
+
 {% endblock %}
