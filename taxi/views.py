@@ -7,7 +7,7 @@ from taxi.models import Driver, Car, Manufacturer
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    queryset = Manufacturer.objects.all().order_by("name")
+    queryset = Manufacturer.objects.order_by("name")
     template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
