@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.views import generic
-from django.http import HttpRequest, HttpResponse
-
 from taxi.models import Driver, Car, Manufacturer
 
 
@@ -24,7 +22,7 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.all()
+    queryset = Driver.objects.prefetch_related("cars")
 
 
 class CarListView(generic.ListView):
@@ -36,11 +34,11 @@ class CarListView(generic.ListView):
 
 class CarDetailView(generic.DetailView):
     model = Car
-    queryset = Car.objects.all()
+    queryset = Car.objects.select_related("manufacturer").prefetch_related("drivers")
 
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
     template_name = "taxi/manufacturers_list.html"
-    queryset = Manufacturer.objects.all()
+    queryset = Manufacturer.objects.all().order_by("name")
     paginate_by = 5
