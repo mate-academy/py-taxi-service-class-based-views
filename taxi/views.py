@@ -23,7 +23,6 @@ class ManufacturerListView(generic.ListView):
 
 
 class CarListView(generic.ListView):
-    context_object_name = "cars"
     model = Car
     queryset = Car.objects.select_related("manufacturer").prefetch_related("drivers")
     paginate_by = 5
@@ -35,7 +34,6 @@ class CarDetailView(generic.DetailView):
 
 
 class DriverListView(generic.ListView):
-    context_object_name = "drivers"
     model = Driver
     paginate_by = 5
 

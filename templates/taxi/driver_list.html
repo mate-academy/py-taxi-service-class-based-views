@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>Active drivers</h1>
-  {% if drivers %}
+  {% if driver_list %}
     <ul>
-    {% for driver in drivers %}
+    {% for driver in driver_list %}
       <li>
         <a href="{% url 'taxi:driver-detail' driver.pk %}">
           <strong style="color: darkgray">Driver username:</strong> {{ driver.username }}

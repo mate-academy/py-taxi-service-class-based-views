@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>Taxi active cars</h1>
-  {% if cars %}
+  {% if car_list %}
     <ul>
-    {% for car in cars %}
+    {% for car in car_list %}
       <li><a href="{% url 'taxi:car-detail' car.pk %}">Car ID: {{ car.id }}</a></li>
       <ul>
         <li>model: {{ car.model }}</li>
