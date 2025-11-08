@@ -41,4 +41,4 @@ class DriverListView(generic.ListView):
 class DriverDetailView(generic.DetailView):
     context_object_name = "driver"
     model = Driver
-    queryset = Driver.objects.prefetch_related("cars")
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
