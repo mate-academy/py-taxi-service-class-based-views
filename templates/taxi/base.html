@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Taxi Service</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Taxi Service</h1>
+      </header>
+      <div class="main">
+        <aside>
+          {% include "includes/sidebar.html" %}
+        </aside>
+        <section class="content">
+          {% block content %}{% endblock %}
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
