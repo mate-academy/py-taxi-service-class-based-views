@@ -3,15 +3,15 @@
   <h1>Cars</h1>
   <table>
     <tr>
+      <th>ID</th>
       <th>Model</th>
       <th>Manufacturer</th>
-      <th>Details</th>
     </tr>
     {% for car in car_list %}
       <tr>
+        <td><a href="{% url 'car-detail' car.id %}">{{ car.id }}</a></td>
         <td>{{ car.model }}</td>
         <td>{{ car.manufacturer.name }}</td>
-        <td><a href="{% url 'car-detail' car.id %}">View</a></td>
       </tr>
     {% endfor %}
   </table>
