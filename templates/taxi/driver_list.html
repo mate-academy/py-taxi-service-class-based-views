@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "taxi/base.html" %}
 {% block content %}
   <h1>Drivers</h1>
   <table>
@@ -9,11 +9,10 @@
     </tr>
     {% for driver in driver_list %}
       <tr>
-        <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.username }}</a></td>
+        <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
       </tr>
     {% endfor %}
   </table>
-  {% include "includes/pagination.html" %}
 {% endblock %}
