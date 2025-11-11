@@ -5,7 +5,7 @@
   <hr>
   <table>
     {% for driver in driver_list %}
-      <tr><td><a href="{% url "taxi:driver-detail" driver.id %}">{{ driver.first_name }} {{ driver.last_name }}</a></td></tr>
+      <tr><td><a href="{% url "taxi:driver-detail" driver.id %}">{{ driver.username }}</a> ({{ driver.first_name }} {{ driver.last_name }})</td></tr>
     {% empty %}
       <tr><td>No driver found</td></tr>
     {% endfor %}
