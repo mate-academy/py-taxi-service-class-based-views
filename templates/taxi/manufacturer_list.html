@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturer List</h1>
+  {% if manufacturer_list %}
+    <table>
+    {% for manufacturer in manufacturer_list %}
+      <li><a href="#">
+        {{ manufacturer.name }}
+      </a> </li>
+    {% endfor %}
+    </table>
+  {% endif %}
+  {% if is_paginated %}
+
+  {% endif %}
+{% endblock %}
