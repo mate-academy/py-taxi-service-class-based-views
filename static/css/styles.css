@@ -1,3 +1,13 @@
 body {
     margin-top: 20px;
 }
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.no-items{
+    text-align: center;
+    color: red;
+    font-style: italic;
+}
