@@ -1,0 +1,11 @@
+{% extends "taxi/base.html" %}
+{% block content %}
+  <h1>{{ car.model }}</h1>
+  <p>Manufacturer: {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
+  <p>Drivers:</p>
+  <ul>
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.username }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
