@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Manufacturers{% endblock %}
+
+{% block content %}
+  <h2>Manufacturers</h2>
+
+  {% if manufacturer_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for manufacturer in manufacturer_list %}
+          <tr>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Пагінація -->
+    {% include "includes/pagination.html" %}
+
+  {% else %}
+    <p>There are no manufacturers.</p>
+  {% endif %}
+{% endblock %}
