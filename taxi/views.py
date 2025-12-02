@@ -1,15 +1,31 @@
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from django.db.models import Prefetch
+from .models import Manufacturer, Car, Driver
 
-from taxi.models import Driver, Car, Manufacturer
+
+class ManufacturerListView(ListView):
+    model = Manufacturer
+    paginate_by = 5
+    ordering = ["name"]
 
 
-def index(request):
-    """View function for the home page of the site."""
+class CarListView(ListView):
+    model = Car
+    paginate_by = 5
+    queryset = Car.objects.select_related("manufacturer")
 
-    context = {
-        "num_drivers": Driver.objects.count(),
-        "num_cars": Car.objects.count(),
-        "num_manufacturers": Manufacturer.objects.count(),
-    }
 
-    return render(request, "taxi/index.html", context=context)
+class CarDetailView(DetailView):
+    model = Car
+
+
+class DriverListView(ListView):
+    model = Driver
+    paginate_by = 5
+
+
+class DriverDetailView(DetailView):
+    model = Driver
+    queryset = Driver.objects.prefetch_related(
+        Prefetch("cars", queryset=Car.objects.select_related("manufacturer"))
+    )

@@ -1,6 +1,9 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+<nav>
+  <ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'manufacturer-list' %}">Manufacturers</a></li>
+    <li><a href="{% url 'car-list' %}">Cars</a></li>
+    <li><a href="{% url 'driver-list' %}">Drivers</a></li>
+  </ul>
+</nav>
+
