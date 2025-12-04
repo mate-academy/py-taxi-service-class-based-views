@@ -1,0 +1,13 @@
+{% if is_paginated %}
+  <div>
+    <span>Strona: {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}</span>
+    <div>
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Poprzedni</a>
+      {% endif %}
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Dalej</a>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
