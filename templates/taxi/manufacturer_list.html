@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Manufacturers</h1>
+  <ol class="list-group-item">
+    {% for manufacturer in manufacturer_list %}
+      <li class="class-item">
+        {{ manufacturer.name }}
+      </li>
+    {% endfor %}
+  </ol>
+
+{% endblock %}
