@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block content %}
+<table>
+  <tr>
+    <th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Username</th>
+  </tr>
+  {% for obj in object_list%}
+  <tr>
+    <td>{{ obj.id }}</td>
+    <td>{{ obj.first_name }}</td>
+    <td>{{ obj.last_name }}</td>
+    <td><a href="{% url 'taxi:driver_detail' obj.id %}">{{ obj.username }}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

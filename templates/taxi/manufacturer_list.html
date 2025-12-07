@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+{% block content %}
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Country</th>
+  </tr>
+  {% for obj in object_list%}
+  <tr>
+    <td>{{ obj.id }}</td>
+    <td>{{ obj.name }}</td>
+    <td>{{ obj.country }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
