@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+
+    <h3 class="mb-3">Driver Details</h3>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+
+        <h5 class="card-title mb-2">
+          {{ driver.username }}
+          <span class="badge bg-primary">{{ driver.license_number }}</span>
+        </h5>
+
+        <p class="mb-1"><strong>First name:</strong> {{ driver.first_name }}</p>
+        <p class="mb-1"><strong>Last name:</strong> {{ driver.last_name }}</p>
+        <p class="mb-1"><strong>Email:</strong> {{ driver.email }}</p>
+
+      </div>
+    </div>
+
+    <h5 class="mb-3">Cars Assigned</h5>
+
+    {% if driver.cars.count %}
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {% for car in driver.cars.all %}
+          <tr>
+            <td>
+              <a href="{% url 'taxi:car-detail' car.id %}" class="text-decoration-none fw-semibold">
+                {{ car.id }}
+              </a>
+            </td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+
+      </table>
+
+    {% else %}
+      <div class="alert alert-secondary">
+        No cars assigned to this driver.
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}

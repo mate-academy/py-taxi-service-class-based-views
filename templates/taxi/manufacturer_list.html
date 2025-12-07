@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container mt-4">
+
+    <h1 class="mb-4">Manufacturer List</h1>
+
+    {% if object_list %}
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for manufacturer in object_list %}
+          <tr>
+            <td><strong>{{ manufacturer.name }}</strong></td>
+            <td class="text-secondary">{{ manufacturer.country }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+    {% else %}
+      <div class="alert alert-warning mt-3">
+        Sorry, there are no manufacturers yet...
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}

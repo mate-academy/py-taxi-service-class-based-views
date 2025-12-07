@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+
+    <h2 class="mb-4">Car Details</h2>
+
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+
+        <h5 class="card-title">
+          Car ID: <span class="text-primary">{{ car.id }}</span>
+        </h5>
+
+        <p><strong>Model:</strong> {{ car.model }}</p>
+
+        <p>
+          <strong>Manufacturer:</strong>
+          {{ car.manufacturer.name }}
+          <span class="text-muted">({{ car.manufacturer.country }})</span>
+        </p>
+
+      </div>
+    </div>
+
+    <h4 class="mb-3">Drivers</h4>
+    {% with drivers=car.drivers.all %}
+      {% if drivers %}
+        <table class="table table-hover table-striped align-middle">
+          <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last name</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          {% for driver in drivers %}
+            <tr>
+              <td>{{ driver.id }}</td>
+              <td>{{ driver.username }}</td>
+              <td>{{ driver.first_name }}</td>
+              <td>{{ driver.last_name }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <div class="alert alert-warning">
+          This car has no assigned drivers yet.
+        </div>
+      {% endif %}
+    {% endwith %}
+
+  </div>
+{% endblock %}
