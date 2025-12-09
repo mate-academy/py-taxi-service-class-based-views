@@ -28,12 +28,13 @@
 
       {% block content %}{% endblock %}
 
-      {% block pagination %}
-      {% endblock %}
-
+      {% if is_paginated %}
+        {% block pagination %}
+          {% include "includes/pagination.html" %}
+        {% endblock %}
+      {% endif %}
     </div>
   </div>
 </div>
 </body>
-
 </html>
