@@ -6,23 +6,23 @@ from .views import (
     CarListView,
     CarDetailView,
     DriverListView,
-    DriverDetailsView
+    DriverDetailView
 )
 
 urlpatterns = [
     path("", index, name="index"),
     path(
-        "manufacturers/ ",
+        "manufacturers/",
         ManufacturerListView.as_view(),
         name="manufacturer-list"
     ),
     path(
-        "cars/ ",
+        "cars/",
         CarListView.as_view(),
         name="car-list"
     ),
     path(
-        "cars/<int:pk>",
+        "cars/<int:pk>/",
         CarDetailView.as_view(),
         name="car-detail"
     ),
@@ -32,8 +32,8 @@ urlpatterns = [
         name="driver-list"
     ),
     path(
-        "drivers/<int:pk>",
-        DriverDetailsView.as_view(),
+        "drivers/<int:pk>/",
+        DriverDetailView.as_view(),
         name="driver-detail"
     ),
 
