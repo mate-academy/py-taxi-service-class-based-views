@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturer list</h1>
+  {% if manufacturer_list %}
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for manufacture in manufacturer_list %}
+        <tr>
+        <td><a href="{% url 'taxi:manufacturer-detail' manufacture.id %}">{{ manufacture.name }}</a></td>
+        <td>{{ manufacture.country }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <strong>No one manufacturer exists</strong>
+  {% endif %}
+{% endblock %}

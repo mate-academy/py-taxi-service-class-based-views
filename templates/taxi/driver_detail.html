@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver: {{ driver.first_name }} {{ driver.last_name }}</h1>
+
+  {% with cars=driver.cars.all %}
+    {% if cars %}
+
+      <h2>Cars information:</h2>
+      <ul>
+        {% for car in cars %}
+          <li>model: {{ car.model }}, manufacturer: {{ car.manufacturer.name }}</li>
+        {% endfor %}
+      </ul>
+
+    {% else %}
+      <h2>Cars information:</h2>
+      <strong>Driver don't have any car. How it's even possible, driver without car?...</strong>
+
+    {% endif %}
+  {% endwith %}
+{% endblock %}
