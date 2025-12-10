@@ -3,7 +3,8 @@
   <h1>Car details</h1>
   {% if car.manufacturer %}
     <ul>
-      <li>{{ car.manufacturer }}</li>
+      <li>{{ car.manufacturer.name }}
+        {{ car.manufacturer.country }}</li>
     </ul>
   {% endif %}
   {% if car.drivers %}

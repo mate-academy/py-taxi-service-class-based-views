@@ -2,10 +2,13 @@
 {% block content %}
   <h1>Driver list</h1>
   {% if driver_list %}
-    <ul>
+    <table>
+    <thead><tr><th>Username</th></tr></thead>
+    <tbody>
       {% for driver in driver_list %}
-        <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></li>
+        <tr><td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td></tr>
       {% endfor %}
-    </ul>
+    </tbody>
+    </table>
   {% endif %}
 {% endblock %}
