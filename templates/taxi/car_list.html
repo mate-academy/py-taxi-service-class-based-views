@@ -3,10 +3,17 @@
   <h1>Car list</h1>
   {% if car_list %}
     <table>
-    <thead><tr><th>Car`s id</th></tr></thead>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Car's model</th>
+      <th>Car's manufacturer</th>
+    </tr></thead>
     <tbody>
         {% for car in car_list %}
-          <tr><td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></td></tr>
+          <tr><td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer }}</td></tr>
         {% endfor %}
     </tbody>
     </table>

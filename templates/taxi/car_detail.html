@@ -7,7 +7,7 @@
         {{ car.manufacturer.country }}</li>
     </ul>
   {% endif %}
-  {% if car.drivers %}
+  {% if car.drivers.all %}
     <ul>
       {% for driver in car.drivers.all %}
         <li>
