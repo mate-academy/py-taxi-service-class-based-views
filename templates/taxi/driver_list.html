@@ -3,17 +3,31 @@
 {% block content %}
   <h1>Drivers</h1>
 
-  <ul>
-    {% for driver in object_list %}
-      <li>
-        <a href="{% url 'taxi:driver-detail' driver.id %}">
-          {{ driver.username }}
-        </a>
-        — {{ driver.first_name }} {{ driver.last_name }}
-      </li>
-    {% empty %}
-      <li>No drivers available.</li>
-    {% endfor %}
-  </ul>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Full name</th>
+        <th>License number</th>
+      </tr>
+    </thead>
 
+    <tbody>
+      {% for driver in object_list %}
+        <tr>
+          <td>
+            <a href="{% url 'taxi:driver-detail' driver.id %}">
+              {{ driver.username }}
+            </a>
+          </td>
+          <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No drivers available.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
