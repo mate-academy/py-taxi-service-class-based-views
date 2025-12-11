@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
+from django.db.models import Prefetch
 from .models import Manufacturer, Car, Driver
 
 
@@ -27,7 +28,6 @@ class CarListView(ListView):
 
 class CarDetailView(DetailView):
     model = Car
-    queryset = Car.objects.select_related("manufacturer").all()
 
 
 class DriverListView(ListView):
@@ -38,3 +38,9 @@ class DriverListView(ListView):
 
 class DriverDetailView(DetailView):
     model = Driver
+    queryset = Driver.objects.prefetch_related(
+        Prefetch(
+            "cars",
+            queryset=Car.objects.select_related("manufacturer")
+        )
+    )

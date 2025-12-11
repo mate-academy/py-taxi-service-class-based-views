@@ -7,7 +7,7 @@
 
 <h2>Drivers</h2>
 <ul>
-  {% for driver in object.driver_set.all %}
+  {% for driver in object.drivers.all %}
     <li>{{ driver.username }} ({{ driver.license_number }})</li>
   {% empty %}
     <li>No drivers assigned</li>
