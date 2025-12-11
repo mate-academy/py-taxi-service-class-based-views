@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Taxi Service</title>
+    </head>
+    <body>
+
+      <aside id="sidebar">
+        {% include "includes/sidebar.html" %}
+      </aside>
+
+      <main id="content">
+        {% block content %}{% endblock %}
+      </main>
+
+      {% include "includes/pagination.html" %}
+
+    </body>
+    </html>
+
