@@ -47,5 +47,3 @@ class DriverDetailView(DetailView):
             queryset=Car.objects.select_related("manufacturer")
         )
     )
-
-
