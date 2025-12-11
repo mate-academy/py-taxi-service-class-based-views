@@ -16,9 +16,7 @@ db.sqlite3
 media/
 staticfiles/
 
-# Migrations (keep __init__.py)
-*/migrations/*.py
-!*/migrations/__init__.py
+
 
 # IDE
 .idea/
