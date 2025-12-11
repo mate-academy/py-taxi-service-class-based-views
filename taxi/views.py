@@ -16,13 +16,13 @@ class IndexView(TemplateView):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    queryset = Manufacturer.objects.all().order_by("name")
+    ordering = ["name"]
     paginate_by = 5
 
 
 class CarListView(ListView):
     model = Car
-    queryset = Car.objects.select_related("manufacturer").all()
+    queryset = Car.objects.select_related("manufacturer").order_by("id")
     paginate_by = 5
 
 

@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Car Detail</h1>
-<p>ID: {{ object.id }}</p>
-<p>Model: {{ object.model }}</p>
-<p>Manufacturer: {{ object.manufacturer.name }} ({{ object.manufacturer.country }})</p>
+<h1>Driver Detail: {{ object.username }}</h1>
+<p>License Number: {{ object.license_number }}</p>
 
-<h2>Drivers</h2>
+<h2>Cars:</h2>
 <ul>
-  {% for driver in object.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.license_number }})</li>
+  {% for car in object.cars.all %}
+    <li>{{ car.model }} - {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</li>
   {% empty %}
-    <li>No drivers assigned</li>
+    <li>No cars assigned</li>
   {% endfor %}
 </ul>
 {% endblock %}
