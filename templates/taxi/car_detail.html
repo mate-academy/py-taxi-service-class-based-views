@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ car.model }}</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Model</td>
+      <td>{{ car.model }}</td>
+    </tr>
+    <tr>
+      <td>Manufacturer</td>
+      <td>
+        {{ car.manufacturer.name }}
+        <br>
+        Country: {{ car.manufacturer.country }}
+      </td>
+    </tr>
+    <tr>
+      <td>Drivers</td>
+      <td>
+        {% if car.drivers.all %}
+          <ul>
+            {% for driver in car.drivers.all %}
+              <li>
+                <a href="{% url 'taxi:driver-detail' driver.pk %}">
+                  {{ driver.username }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          No drivers assigned to this car.
+        {% endif %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="{% url 'taxi:car-list' %}">Back to car list</a>
+{% endblock %}
