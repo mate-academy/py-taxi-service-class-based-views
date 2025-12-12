@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="taxi-title">Manufacturer List</h1>
+  <ul class="manufacturer-list">
+  {% if manufacturer_list %}
+    {% for manufactur in manufacturer_list %}
+      <li class="manufacturer-item">
+        <p class="manufacturer-info">Brand: {{ manufactur.name }}</p>
+        <p class="manufacturer-info">Country: {{ manufactur.country }}</p>
+      </li>
+    {% endfor %}
+  {% endif %}
+  </ul>
+{% endblock %}

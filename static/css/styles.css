@@ -1,3 +1,182 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #212121;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+a {
+    display: block;
+    color: inherit;
+}
+
+
+h2 {
+    margin-top: 10px;
+}
+
 body {
-    margin-top: 20px;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: 14px;
+
+    background-color: #fff;
+    color: #212121
+}
+
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    outline: 1px solid red
+}
+
+.aside-link {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+    color: darkgray;
+}
+
+.aside-link:hover,
+.aside-link:focus {
+    color: blueviolet;
+}
+
+header, footer {
+    background-color: #212121;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 25% auto;
+}
+
+.aside-item {
+    margin-top: 15px;
+}
+
+main {
+    padding: 20px;
+}
+
+.taxi-title,.taxi-info {
+    color: darkgray;
+}
+
+.taxi-info {
+    margin-top: 15px;
+}
+
+.data-list,
+.manufacturer-list,
+.driver-list,
+.car-list{
+    font-size: 16px;
+    color: darkgray;
+    margin-top: 15px;
+    margin-left: 30px;
+    width: 250px;
+}
+
+.manufacturer-item,
+.driver-item,
+.car-item{
+    border: 2px solid darkgray;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.driver-item:hover,
+.driver-item:focus,
+.car-item:hover,
+.car-item:focus {
+    border-color: red;
+    background-color: darkgray;
+    color: #ffffff;
+}
+
+.manufacturer-item:not(:first-child) {
+    margin-top: 15px;
+}
+.manufacturer-info:not(:first-child) {
+    margin-top: 10px;
+}
+
+.driver-item:not(:first-child) {
+    margin-top: 15px;
+}
+.driver-info:not(:first-child) {
+    margin-top: 10px;
+}
+
+.car-item:not(:first-child) {
+    margin-top: 15px;
+}
+.car-info:not(:first-child) {
+    margin-top: 10px;
+}
+
+.data-item:not(:first-child){
+    margin-top: 15px;
+}
+
+.pages {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 250px;
+    justify-content: center;
+}
+
+.page {
+    padding: 10px;
+    background-color: cornflowerblue;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.page.current {
+    background-color: darkgray;
+}
+
+.page:not(:first-child) {
+    margin-left: 10px;
+}
+
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

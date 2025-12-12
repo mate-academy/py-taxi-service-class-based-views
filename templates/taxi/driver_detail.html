@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="taxi-title">{{ driver.first_name }} {{ driver.last_name }}</h1>
+  {% if driver.cars %}
+    <h2 class="taxi-title">List of cars:</h2>
+    <ul class="car-list">
+      {% for car in driver.cars.all %}
+        <li class="car-item">
+          <p class="car-info">ID: {{ car.id }}</p>
+          <p class="car-info">Manufacturer: {{ car.manufacturer.name }}</p>
+          <p class="car-info">Model: {{ car.model }}</p>
+        </li>
+      {% empty %}
+        <p class="car-info">No cars!</p>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
