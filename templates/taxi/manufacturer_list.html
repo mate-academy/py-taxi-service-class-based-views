@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Manufacturers</title>{% endblock %}
+
+{% block content %}
+<h2>Manufacturers</h2>
+
+{% if manufacturer_list %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.id }}</td>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No manufacturers available.</p>
+{% endif %}
+
+{% include "includes/pagination.html" %}
+{% endblock %}
