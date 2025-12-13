@@ -3,11 +3,11 @@
 {% block content %}
   <h1>Car List</h1>
   {% if car_list %}
-    <table>
+    <tr>
       {% for car in car_list %}
-        <li><a href="{{ car.id }}">{{ car.model }} ({{ car.manufacturer.name }})</a></li>
+        <td><a href="{{ car.id }}">{{ car.model }} ({{ car.manufacturer.name }})</a></td>
       {% endfor %}
-    </table>
+    </tr>
   {% else %}
     <p>There are no cars in the Taxi Service</p>
   {% endif %}
