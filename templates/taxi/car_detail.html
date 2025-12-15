@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car Details ({{ car.model }})</h1>
+
+  <h2>Manufacturer</h2>
+  <ul>
+    <li><strong>Name:</strong> {{ car.manufacturer.name }}</li>
+    <li><strong>Country:</strong> {{ car.manufacturer.country }}</li>
+  </ul>
+
+  <h2>Drivers</h2>
+  {% if car.drivers.all %}
+    <ul class="list-group">
+      {% for driver in car.drivers.all %}
+        <li class="list-group-item">
+          <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
+            {{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>This car currently has no assigned drivers.</p>
+  {% endif %}
+{% endblock %}
