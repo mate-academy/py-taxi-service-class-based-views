@@ -7,29 +7,30 @@
   <p><strong>License Number:</strong> {{ driver.license_number }}</p>
 
   <h2>Cars Assigned to Driver</h2>
-  
-  {% if driver.cars.all %}
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Model</th>
-          <th>Manufacturer</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for car in driver.cars.all %}
+  {% with driver.cars.all as cars %}
+    {% if cars %}
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
-            </td>
-            <td>{{ car.model }}</td>
-            <td>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</td>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  {% else %}
-    <p>This driver is not currently assigned to any car.</p>
-  {% endif %}
+        </thead>
+        <tbody>
+          {% for car in cars %}
+            <tr>
+              <td>
+                <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
+              </td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>This driver is not currently assigned to any car.</p>
+    {% endif %}
+  {% endwith %}
 {% endblock %}
