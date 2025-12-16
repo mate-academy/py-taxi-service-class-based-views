@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 style="color:Orange;">Driver</h1>
+  <h2 style="color:SlateBlue;"> {{ driver.first_name }} {{ driver.last_name }}</h2>
+  <p><strong>Driver's license number: </strong>{{ driver.license_number }}</p>
+  <div>
+    <h3>Cars assigned to {{ driver.first_name }}</h3>
+    {% for car in driver.cars.all %}
+      <hr>
+      <p class="text-muted">{{ car.id }}</p>
+      <p><strong>{{ car.model }}</strong></p>
+      <p> Made in {{ car.manufacturer.country }}</p>
+    {% empty %}
+      <p>No Cars Assigned</p>
+    {% endfor %}
+  </div>
+{% endblock %}
