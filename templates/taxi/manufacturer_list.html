@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Manufacturers list</h1>
+  <table class="table table-bordered">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Country</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for manufacturer in manufacturer_list %}
+  <tr>
+    <td>{{ manufacturer.name }}</td>
+    <td>{{ manufacturer.country }}</td>
+  </tr>
+    {% if not forloop.last %}
+    {% endif %}
+  {% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

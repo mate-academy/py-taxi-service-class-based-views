@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ car.model }} info</h1>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="row">ID:</th>
+      <td >{{ car.id }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Model:</th>
+      <td>{{ car.model }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Manufacturer:</th>
+      <td>{{ car.manufacturer.name }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Country:</th>
+      <td>{{ car.manufacturer.country }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Drivers:</th>
+      <td>
+      {% for driver in car.drivers.all %}
+        <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>
+        {% if not forloop.last %}
+        {% endif %}
+      {% endfor %}
+      </td>
+  </table>
+{% endblock %}
