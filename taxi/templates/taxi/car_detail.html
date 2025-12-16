@@ -1,0 +1,26 @@
+{% extends "taxi/base.html" %}
+
+{% block title %}
+Car Detail
+{% endblock %}
+
+{% block content %}
+<h1>Car Detail</h1>
+
+<p><strong>Manufacturer Name:</strong> {{ car.manufacturer.name }}</p>
+<p><strong>Manufacturer Country:</strong> {{ car.manufacturer.country }}</p>
+
+<h2>Drivers</h2>
+
+{% if car.drivers.all %}
+  <ul>
+  {% for driver in car.drivers.all %}
+  <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No drivers assigned to this car.</p>
+  {% endif %}
+{% endblock %}
+
+{% include "includes/pagination.html" %}

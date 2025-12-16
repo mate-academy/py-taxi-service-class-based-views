@@ -1,0 +1,37 @@
+{% extends "taxi/base.html" %}
+
+{% block title %}
+Driver list
+{% endblock %}
+
+{% block content %}
+<h1>Driver list</h1>
+
+  {% if driver_list %}
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+  <tbody>
+  {% for driver in driver_list %}
+  <td>
+      <a href="{% url 'taxi:driver-detail' driver.id %}">
+        {{ driver.username }}
+      </a>
+    </td>
+    <td>{{ driver.first_name }}</td>
+    <td>{{ driver.last_name }}</td>
+  </td>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>No drivers are available.</p>
+  {% endif %}
+{% endblock %}
+
+{% include "includes/pagination.html" %}

@@ -1,0 +1,32 @@
+{% extends "taxi/base.html" %}
+
+{% block title %}
+Driver Detail
+{% endblock %}
+
+{% block content %}
+<h1>Driver Detail</h1>
+
+  {% if cars %}
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Manufacturer</th>
+      </tr>
+    </thead>
+  <tbody>
+  {% for car in cars %}
+  <tr>
+    <td>{{ car.model }}</td>
+    <td>{{ car.manufacturer.name }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>No cars found for this driver.</p>
+  {% endif %}
+{% endblock %}
+
+{% include "includes/pagination.html" %}
