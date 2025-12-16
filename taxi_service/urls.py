@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-urlpatterns = [
+urlpatterns = ([
     path("admin/", admin.site.urls),
     path("", include("taxi.urls", namespace="taxi")),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
