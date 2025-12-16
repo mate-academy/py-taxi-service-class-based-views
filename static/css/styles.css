@@ -1,3 +1,63 @@
 body {
+    padding: 0;
     margin-top: 20px;
+    background: bisque;
+}
+
+.sidebar-nav{
+    list-style: none;
+    background: gray;
+    padding: 5px;
+}
+
+.nav-item{
+
+    text-align: center;
+    align-content: center;
+    margin: 5px;
+}
+
+.nav-link{
+    text-align: center;
+    background: darkgray;
+    color: black;
+    padding: 1em;
+}
+
+.manufacturers-list{
+    list-style: none;
+}
+.manufacturers-list-item{
+    margin: 2px;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+.cars-list{
+    list-style: none;
+}
+
+.cars-list-item{
+    margin: 3px;
+    border: solid;
+    border-width: 2px;
+}
+
+.cars-link{
+    color: black;
+}
+
+.drivers-list{
+    list-style: none;
+}
+
+.driver-item{
+    margin: 3px;
+    border: solid;
+    border-width: 2px;
+}
+
+.driver-link{
+    color: black;
 }
