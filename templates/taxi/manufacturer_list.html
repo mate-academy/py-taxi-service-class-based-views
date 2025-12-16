@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if manufacturer_list %}
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <td>Manufacturer Name</td>
+          <td>Origin Country</td>
+        </tr>
+
+      </thead>
+      {% for manufacturer in manufacturer_list %}
+
+        <tr class="table-success">
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <h1>Sorry, there are no existing manufacturers</h1>
+  {% endif %}
+{% endblock %}
