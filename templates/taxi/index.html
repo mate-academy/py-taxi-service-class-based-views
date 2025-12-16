@@ -1,13 +1,44 @@
-{% extends "base.html" %}
+<!-- templates/taxi/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home - Taxi Service{% endblock %}
 
 {% block content %}
   <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Drivers</h5>
+          <p class="card-text">Total: {{ num_drivers }}</p>
+          <a href="{% url 'taxi:driver-list' %}" class="btn btn-primary">View All Drivers</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Cars</h5>
+          <p class="card-text">Total: {{ num_cars }}</p>
+          <a href="{% url 'taxi:car-list' %}" class="btn btn-primary">View All Cars</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Manufacturers</h5>
+          <p class="card-text">Total: {{ num_manufacturers }}</p>
+          <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-primary">View All Manufacturers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-4">
+    <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+  </div>
 {% endblock %}

@@ -1,0 +1,39 @@
+<!-- templates/taxi/car_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ car.model }} - Car Details{% endblock %}
+
+{% block content %}
+  <h1>Car Details</h1>
+  
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ car.model }}</h5>
+      
+      <h6>Manufacturer Information:</h6>
+      <ul>
+        <li><strong>Name:</strong> {{ car.manufacturer.name }}</li>
+        <li><strong>Country:</strong> {{ car.manufacturer.country }}</li>
+      </ul>
+      
+      <h6>Drivers:</h6>
+      {% if car.drivers.all %}
+        <ul>
+          {% for driver in car.drivers.all %}
+            <li>
+              <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
+                {{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No drivers assigned to this car.</p>
+      {% endif %}
+    </div>
+  </div>
+  
+  <div class="mt-3">
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Back to Cars</a>
+  </div>
+{% endblock %}

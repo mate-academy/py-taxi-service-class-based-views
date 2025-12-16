@@ -1,0 +1,37 @@
+<!-- templates/taxi/driver_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Drivers - Taxi Service{% endblock %}
+
+{% block content %}
+  <h1>Drivers</h1>
+  
+  {% if driver_list %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>License Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for driver in driver_list %}
+          <tr>
+            <td>{{ driver.id }}</td>
+            <td>
+              <a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a>
+            </td>
+            <td>{{ driver.first_name }}</td>
+            <td>{{ driver.last_name }}</td>
+            <td>{{ driver.license_number }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No drivers available.</p>
+  {% endif %}
+{% endblock %}
