@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver</h1>
+  {% if driver.id %}
+    <p>{{ driver.first_name }} {{ driver.last_name }}</p>
+  {% endif %}
+{% endblock %}
