@@ -1,6 +1,14 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+<div class="list-group">
+  <a href="{% url 'taxi:index' %}" class="list-group-item list-group-item-action {% if request.path == '/' %}active{% endif %}">
+    🏠 Home
+  </a>
+  <a href="{% url 'taxi:manufacturer-list' %}" class="list-group-item list-group-item-action {% if 'manufacturer' in request.path %}active{% endif %}">
+    🏭 Manufacturers
+  </a>
+  <a href="{% url 'taxi:car-list' %}" class="list-group-item list-group-item-action {% if 'car' in request.path and not 'driver' in request.path %}active{% endif %}">
+    🚗 Cars
+  </a>
+  <a href="{% url 'taxi:driver-list' %}" class="list-group-item list-group-item-action {% if 'driver' in request.path %}active{% endif %}">
+    👨‍✈️ Drivers
+  </a>
+</div>
