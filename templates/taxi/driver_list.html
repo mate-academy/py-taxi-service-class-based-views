@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="list-group">
+    {% for driver in driver_list %}
+      <li class="list-item">
+        <a class="list-item-link" href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>
+      </li>
+    {% empty %}
+      <p>The drivers list is empty!</p>
+    {% endfor %}
+  </ul>
+  {% include "includes/pagination.html" %}
+{% endblock %}

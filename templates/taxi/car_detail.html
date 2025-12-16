@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="content">
+    <h1>Information about Model: {{ car.model }}</h1>
+    <ul class="list-group">
+      <li class="list-item">Manufacturer name: {{ car.manufacturer.name }}</li>
+      <li class="list-item">Manufacturer country: {{ car.manufacturer.country }}</li>
+    </ul>
+  </div>
+{% endblock %}

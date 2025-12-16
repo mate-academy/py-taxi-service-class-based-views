@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="content">
+    <h1>Information about User: {{ driver.username }}</h1>
+    <ul class="list-group">
+      <li class="list-item">First Name: {{ driver.first_name }}</li>
+      <li class="list-item">Last Name: {{ driver.last_name }}</li>
+      <li class="list-item">License Number: {{ driver.license_number }}</li>
+    </ul>
+  </div>
+{% endblock %}

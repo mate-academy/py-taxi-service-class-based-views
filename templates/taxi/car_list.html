@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="list-group">
+    {% for car in car_list %}
+      <li class="list-item">
+        <a class="list-item-link" href="{{ car.get_absolute_url }}">{{ car.model }}</a>
+      </li>
+    {% empty %}
+      <p>The cars list is empty!</p>
+    {% endfor %}
+  </ul>
+  {% include "includes/pagination.html" %}
+{% endblock %}

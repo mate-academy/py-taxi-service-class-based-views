@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="list-group">
+    {% for manufacture in manufacturer_list %}
+      <li class="list-item">{{ manufacture.name }} ({{ manufacture.country }})</li>
+    {% empty %}
+      <p>The manufacturers list is empty!</p>
+    {% endfor %}
+  </ul>
+  {% include "includes/pagination.html" %}
+{% endblock %}
