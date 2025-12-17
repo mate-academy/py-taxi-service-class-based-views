@@ -5,9 +5,28 @@
   <p>Welcome to Best Taxi Ever!</p>
   <h2>Dynamic content</h2>
   <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  <div class="stats-container">
+    <table class="table" style="max-width: 400px;">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Total Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><a href="{% url 'taxi:car-list' %}">Cars</a></strong></td>
+          <td>{{ num_cars }}</td>
+        </tr>
+        <tr>
+          <td><strong><a href="{% url 'taxi:driver-list' %}">Drivers</a></strong></td>
+          <td>{{ num_drivers }}</td>
+        </tr>
+        <tr>
+          <td><strong><a href="{% url 'taxi:manufacturer-list' %}">Manufacturers</a></strong></td>
+          <td>{{ num_manufacturers }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 {% endblock %}

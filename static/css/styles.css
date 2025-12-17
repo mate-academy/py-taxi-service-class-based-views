@@ -1,3 +1,32 @@
 body {
     margin-top: 20px;
 }
+
+.paginator {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.paginator li {
+    display: inline-block;
+}
+
+.paginator a, .paginator li:not(:has(a)) {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.paginator a:hover {
+  background-color: #f8f9fa;
+  border-color: #007bff;
+  color: #007bff;
+}
