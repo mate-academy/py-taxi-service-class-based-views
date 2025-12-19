@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if driver.cars.all %}
+    {% for car in driver.cars.all %}
+      <p>{{ car.model }} - {{ car.manufacturer.name }}</p>
+    {% endfor %}
+    {% else %}
+    <p>There were not cars</p>
+  {% endif %}
+{% endblock %}
