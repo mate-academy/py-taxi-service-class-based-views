@@ -5,13 +5,13 @@
   <p>Manufacturer: {{ car.manufacturer.name }}<br>
   Country: {{ car.manufacturer.country }}</p>
   <h4>Drivers:</h4>
-  {% if car.drivers %}
+  {% if car.drivers.all %}
     <ul>
       {% for driver in car.drivers.all %}
         <li>{{ driver.first_name }} {{ driver.last_name }}</li>
+        {% empty %}
+        <p>Car didn't have any drivers!</p>
       {% endfor %}
     </ul>
-    {% else %}
-    <p>Car didn't have any drivers!</p>
   {% endif %}
 {% endblock %}
