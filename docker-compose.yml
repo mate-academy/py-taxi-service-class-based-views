@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web-app:
+    build:
+      context: .
+    volumes:
+      - .:/main_app
+      - ./db.sqlite3:/main_app/db.sqlite3
+      - ./media:/main_app/media
+    environment:
+      - DB_HOST=localhost
+      - DB_NAME=dbname
+      - DB_USER=dbuser
+      - DB_PASS=pass
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  db_data:
+  media_data:
