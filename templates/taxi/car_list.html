@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cars:</h1>
+  {% if car_list %}
+    {% for car in car_list %}
+      <p><a href="{{ car.get_absolute_url }}">{{ car.id }}</a> {{ car.model }}</p>
+    {% endfor %}
+  {% else %}
+    <h1>Car list is empty!</h1>
+  {% endif %}
+{% endblock %}
