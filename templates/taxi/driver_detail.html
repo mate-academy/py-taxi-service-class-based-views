@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Information about all cars of the driver:</h1>
+  <br>
+  <hr>
+  <div>
+    <strong><span style="color:rebeccapurple">Driver: </span>{{ driver.username }}</strong>
+    <br>
+    <italic>License Number: {{ driver.license_number }}</italic>
+  </div>
+  <hr>
+  {% if driver.cars.all %}
+    <ul>
+      {% for car in driver.cars.all%}
+        <li>
+          {{ car.model }} Manufacturer: {{ car.manufacturer.name }}
+          <hr>
+        </li>
+
+      {% endfor %}
+    </ul>
+  {% else %}
+  <p>{{ driver.username }} does not have any cars .</p>
+  {% endif %}
+{% endblock %}
