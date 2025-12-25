@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="table">
+    <ul class="table_column">
+      <li class="table_name border_head">Name</li>
+      <li class="table_name border_head">Country</li>
+    </ul>
+    {% for manufacturer in manufacturer_list %}
+      <ul class="table_column">
+        <li class="border table_name">{{ manufacturer.name }}</li>
+        <li class="border table_name">{{ manufacturer.country }}</li>
+      </ul>
+    {% endfor %}
+  </div>
+{% endblock %}
