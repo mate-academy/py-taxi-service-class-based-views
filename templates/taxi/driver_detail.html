@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Driver: {{ object.username }}</h1>
+<p>License: {{ object.license_number }}</p>
+
+<h2>Cars</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Manufacturer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for car in object.cars.all %}
+    <tr>
+      <td>{{ car.model }}</td>
+      <td>{{ car.manufacturer.name }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="2">No cars assigned</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
