@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h1>Car Details: {{ car.model }}</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Model: {{ car.model }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Manufacturer: {{ car.manufacturer.name }}</h6>
+
+        <h5>Drivers:</h5>
+        <ul>
+        {% for driver in car.drivers.all %}
+            <li>{{ driver.username }}</li>
+        {% endfor %}
+        </ul>
+
+        <a href="{% url 'taxi:car-list' %}" class="card-link">Back to Car List</a>
+    </div>
+</div>
+{% endblock %}
