@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ driver_detail.first_name }} {{ driver_detail.last_name }}</h1>
+  <h4>Driver's cars</h4>
+  <ul>
+    {% if cars %}
+      {% for car in cars %}
+        <li>{{ car }}</li>
+      {% endfor %}
+    {% else %}
+      <p>Current driver doesn't have any cars</p>
+    {% endif %}
+  </ul>
+{% endblock %}
