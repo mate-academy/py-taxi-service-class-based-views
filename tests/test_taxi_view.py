@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.urls import reverse
-
 from taxi.models import Manufacturer
 
 MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
