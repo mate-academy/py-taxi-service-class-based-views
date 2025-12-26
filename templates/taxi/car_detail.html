@@ -1,0 +1,18 @@
+{% extends "taxi/base.html" %}
+
+{% block title %}Car Details{% endblock %}
+
+{% block content %}
+<h1>{{ object.name }} Details</h1>
+
+<h3>Manufacturer:</h3>
+<p>Name: {{ object.manufacturer.name }}</p>
+<p>Country: {{ object.manufacturer.country }}</p>
+
+<h3>Drivers:</h3>
+<ul>
+    {% for driver in object.driver_set.all %}
+        <li>{{ driver.username }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

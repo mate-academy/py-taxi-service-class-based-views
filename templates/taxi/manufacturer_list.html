@@ -1,0 +1,26 @@
+{% extends "taxi/base.html" %}
+
+{% block title %}Manufacturer List{% endblock %}
+
+{% block content %}
+<h1>Manufacturer List</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for manufacturer in object_list %}
+      <tr>
+        <td>{{ manufacturer.name }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+{% block pagination %}
+  {% include 'includes/pagination.html' %}
+{% endblock %}
