@@ -1,3 +1,17 @@
 body {
     margin-top: 20px;
 }
+
+a.green-link {
+    color: green;
+    text-decoration: none;
+}
+
+a.green-link:visited {
+    color: green;
+    text-decoration: none;
+}
+
+a.green-link:hover {
+    color: darkgreen;
+}
