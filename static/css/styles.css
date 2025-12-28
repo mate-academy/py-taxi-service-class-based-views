@@ -1,3 +1,13 @@
 body {
     margin-top: 20px;
 }
+
+.car-table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.car-table th, .car-table td {
+  border: 1px solid black;
+  padding: 5px;
+}
