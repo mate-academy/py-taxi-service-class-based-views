@@ -47,7 +47,7 @@ class CarListTest(TestCase):
         response = self.client.get(CAR_LIST_URL)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/car_list.html")
+        self.assertTemplateUsed(response, "taxi/cars_list.html")
 
     def test_car_list_paginated_correctly(self):
         response = self.client.get(CAR_LIST_URL)
@@ -69,7 +69,7 @@ class DriverListTest(TestCase):
         response = self.client.get(DRIVER_LIST_URL)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/driver_list.html")
+        self.assertTemplateUsed(response, "taxi/drivers_list.html")
 
     def test_car_list_paginated_correctly(self):
         response = self.client.get(DRIVER_LIST_URL)
