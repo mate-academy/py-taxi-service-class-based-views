@@ -1,6 +1,5 @@
 from django.urls import path
 
-from taxi.models import Car
 from taxi.views import (
     CarDetailView,
     CarListView,
