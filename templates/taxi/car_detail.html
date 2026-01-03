@@ -1,0 +1,26 @@
+<!-- car_detail.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>About Car</h1>
+  <ul style="list-style-type: circle">
+    <li><strong>ID: </strong>{{ car.id }}</li>
+    <li><strong>Model: </strong>{{ car.model }}</li>
+  </ul>
+  <br>
+  <h2>Manufacturer:</h2>
+  <ul style="list-style-type: square">
+    <li><strong>Manufacturer name: </strong>{{ car.manufacturer.name }}</li>
+    <li><strong>Manufacturer country: </strong>{{ car.manufacturer.country }}</li>
+  </ul>
+  <br>
+  <h2>Drivers:</h2>
+  <ul>
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.id }} | {{ driver.first_name }} {{ driver.last_name }} ({{ driver.username }})</li>
+    {% empty %}
+      <p>There is no drivers for this car</p>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
