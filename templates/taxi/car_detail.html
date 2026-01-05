@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <h1 class="mb-4">Car Details: {{ car.model }} ({{ car.license_plate }})</h1>
+  <h3 class="mt-4 mb-3">Manufacturer Information</h3>
+  <ul class="list-group list-group-flush mb-4">
+    <li class="list-group-item bg-dark text-light">Name: {{ car.manufacturer.name }}</li>
+    <li class="list-group-item bg-dark text-light">Country: {{ car.manufacturer.country }}</li>
+  </ul>
+  <h3 class="mt-4 mb-3">Drivers</h3>
+  {% with drivers=car.drivers.all %}
+    {% if drivers %}
+      <div class="table-responsive">
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for driver in drivers %}
+              <tr>
+                <td>
+                  <a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a>
+                </td>
+                <td>{{ driver.first_name }}</td>
+                <td>{{ driver.last_name }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="text-white-50">No drivers are currently assigned to this car.</p>
+    {% endif %}
+  {% endwith %}
+  <a href="{% url 'taxi:car-list' %}" class="btn btn-outline-info mt-3">Back to Car List</a>
+{% endblock %}

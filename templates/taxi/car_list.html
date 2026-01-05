@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <h1>Car List</h1>
+  {% if car_list %}
+    <div class="table-responsive">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for car in car_list %}
+            <tr>
+              <td>
+                <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
+              </td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.manufacturer.name }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="text-white-50">There are no cars in the taxi service.</p>
+  {% endif %}
+{% endblock %}
+{% block pagination %}
+  {% include 'includes/pagination.html' %}
+{% endblock %}
+
