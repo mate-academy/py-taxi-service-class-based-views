@@ -1,6 +1,6 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
+<ul class="list-group">
+    <li><a href="{% url 'taxi:index' %}" class="list-group-item list-group-item-action">Головна</a></li>
+    <li><a href="{% url 'taxi:manufacturer-list' %}" class="list-group-item list-group-item-action">Автомобільні виробники</a></li>
+    <li><a href="{% url 'taxi:car-list' %}" class="list-group-item list-group-item-action">Автомобілі</a></li>
+    <li><a href="{% url 'taxi:driver-list' %}" class="list-group-item list-group-item-action">Водії</a></li>
 </ul>
