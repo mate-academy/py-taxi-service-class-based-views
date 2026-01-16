@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <th>id</th>
+      <th>model</th>
+    </tr>
+    {% for car in car_list %}
+    <tr>
+      <td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></td>
+      <td>{{ car.model }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
