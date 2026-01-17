@@ -1,3 +1,26 @@
 body {
     margin-top: 20px;
+    background-color: rgb(240, 255, 255);
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.container {
+    width: 60%;
+    margin-left: 0;
 }
