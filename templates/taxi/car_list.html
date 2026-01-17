@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Car List</h1>
+  {% if car_list %}
+    <ul>
+      {% for car in car_list %}
+        <li>{{ car.model }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
