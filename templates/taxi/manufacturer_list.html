@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers list:</h1>
+  <ul>
+  {% for manufacturer in manufacturer_list %}
+    <li>
+      {{ manufacturer.name }}, {{ manufacturer.country }}
+    </li>
+    {% empty %}
+    <span>No manufacturers found!</span>
+  {% endfor %}
+  </ul>
+{% endblock %}
