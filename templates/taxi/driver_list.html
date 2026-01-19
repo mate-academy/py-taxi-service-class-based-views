@@ -3,11 +3,22 @@
 {% block content %}
   <h1>Drivers:</h1>
 
-  <ul>
-    {% for driver in driver_list %}
-      <li><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></li>
-    {% empty %}
-      <p>There are no drivers</p>
-    {% endfor %}
-  </ul>
+  {% if driver_list %}
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+      </tr>
+      {% for driver in driver_list %}
+        <tr>
+          <td>
+            <a href="{{ driver.get_absolute_url }}">{{ driver.id }}</a>
+          </td>
+          <td>{{ driver.username }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no drivers</p>
+  {% endif %}
 {% endblock %}
