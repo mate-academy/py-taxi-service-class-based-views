@@ -6,9 +6,16 @@ class Manufacturer(models.Model):
     name = models.CharField(max_length=255, unique=True)
     country = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ["name"]
+
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
+
+    class Meta:
+        verbose_name = "driver"
+        verbose_name_plural = "drivers"
 
 
 class Car(models.Model):
