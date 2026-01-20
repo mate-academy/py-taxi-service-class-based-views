@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Manufacturers</title>
+{% endblock %}
+{% block content %}
+  <h3>Manufacturer list: </h3>
+    {% if manufacturer_list %}
+      <table class="table">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Country</th>
+        </tr>
+        {% for manufacturer in manufacturer_list %}
+        <tr>
+            <th>{{ manufacturer.id }}</th>
+            <th>{{ manufacturer.name }}</th>
+            <th>{{ manufacturer.country }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+      <p>Manufacturer list is empty.</p>
+    {% endif %}
+{% endblock %}
