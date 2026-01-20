@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Detail Driver</h1>
+    <table>
+    <thead>
+    <tr>
+        <th>Model</th>
+        <th>Name manu</th>
+        <th>Country manu</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if driver.cars.all %}
+        {% for car in driver.cars.all %}
+            <tr>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+            <td>{{ car.manufacturer.country }}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+    </table>
+    
+{% endblock %}
