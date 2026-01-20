@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Car</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Model: {{ car.model }}</h1>
+  <p><strong>Manufacturer: </strong></p>
+  <p>{{ car.manufacturer.name }}, {{ car.manufacturer.country }}</p>
+
+  <h2>Car driver(s): </h2>
+  {% if car.drivers %}
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li>
+          <a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.first_name }} {{ driver.last_name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+
+    <p>There are no drivers here.¯\_(ツ)_/¯</p>
+    <p>Hotwire and jack?  <a href="https://www.youtube.com/watch?v=icoOOiSlKK0" target="_blank">Hell yeah!!!</a>(Warning, good music!!)</p>
+
+
+  {% endif %}
+{% endblock %}
