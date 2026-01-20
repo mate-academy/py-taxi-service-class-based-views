@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Driver List{% endblock %}
+
+{% block content %}
+<h2>Driver List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>License number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for driver in object_list %}
+            <tr>
+                <td>{{ driver.id }}</td>
+                <td>{{ driver.username }}</td>
+                <td>{{ driver.license_number }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>There's no drivers</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
