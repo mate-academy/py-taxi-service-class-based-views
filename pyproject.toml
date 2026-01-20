@@ -1,0 +1,15 @@
+[tool.black]
+line-length = 79
+target-version = ["py313"]
+
+# Виключаємо з форматування середовище і службові папки
+exclude = '''
+(
+  \.venv
+  | venv
+  | migrations
+  | build
+  | dist
+  | __pycache__
+)
+'''
