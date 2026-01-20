@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Taxi Service Cars</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Car details</h2>
+  <p>Model: {{ car.model }}</p>
+  <p>Manufacturer: {{ car.manufacturer.name }}</p>
+  <p>Manufacturer country: {{ car.manufacturer.country }}</p>
+  <h4>Drivers</h4>
+  {% if drivers%}
+    <table>
+    <thead>
+      <tr>
+        <th scope="col">User name</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">email</th>
+        <th scope="col">License number</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in drivers %}
+        <tr>
+          <th scope="row">{{ driver.username }}</th>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.email }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+  {% else %}
+    <p>There is no any driver</p>
+  {% endif %}
+
+
+{% endblock %}

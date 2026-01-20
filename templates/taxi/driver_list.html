@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Taxi Service Cars</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Drivers</h2>
+
+  {% if driver_list%}
+    <table>
+    <thead>
+      <tr>
+        <th scope="col">User name</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">email</th>
+        <th scope="col">License number</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <th scope="row"><a href="{{ driver.id }}">{{ driver.username }}</a></th>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.email }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+  {% else %}
+    <p>There is no any driver</p>
+  {% endif %}
+
+  <br>
+
+  {% include "includes/pagination.html" %}
+
+{% endblock %}

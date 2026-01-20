@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Taxi Service Cars</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Cars</h2>
+
+  {% if car_list%}
+    <table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Model</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in car_list %}
+        <tr>
+          <th scope="row"><a href="{{ car.id }}">{{ car.id }}</a></th>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.model }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+  {% else %}
+    <p>There is no any car</p>
+  {% endif %}
+
+  <br>
+
+  {% include "includes/pagination.html" %}
+
+
+{% endblock %}

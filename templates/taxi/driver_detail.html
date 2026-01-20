@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Taxi Service Cars</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Driver detail</h2>
+
+  <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+
+  <h2>Cars:</h2>
+  <ul>
+    {% for car in cars %}
+      <li>{{ car.model }}</li>
+    {% empty %}
+      <li>No cars found</li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock %}
