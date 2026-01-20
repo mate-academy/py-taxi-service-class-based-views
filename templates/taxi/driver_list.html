@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+  <thead>
+    <tr>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>username</th>
+      <th>license_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for driver in driver_list %}
+    <tr>
+      <td>{{ driver.first_name }}</td>
+      <td>{{ driver.last_name }}</td>
+      <td>
+        <a href="{% url "taxi:driver-detail" driver.pk %}">{{ driver.username }}</a>
+      </td>
+      <td>{{ driver.license_number }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">No drivers found.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
