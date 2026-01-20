@@ -20,7 +20,7 @@
     <div class="col-sm-2">
 
       {% block sidebar %}
-        {% include "includes/sidebar.html" %}
+        <div class="sidebar">{% include "includes/sidebar.html" %}</div>
       {% endblock %}
 
     </div>
@@ -29,6 +29,7 @@
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include "includes/pagination.html" %}
       {% endblock %}
 
     </div>
