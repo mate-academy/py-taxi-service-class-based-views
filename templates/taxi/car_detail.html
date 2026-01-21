@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <table class="table">
+    <tr>
+      <th>name</th>
+      <th>country</th>
+    </tr>
+    <tr>
+      <td>{{ car.model }}</td>
+      <td>{{ car.manufacturer.country }}</td>
+    </tr>
+  </table>
+{% endblock %}
