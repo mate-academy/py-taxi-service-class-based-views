@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Driver info:</h2>
+  <div>
+    <strong>Username: {{ object.username }}</strong><br>
+    {{ object.first_name }} {{ object.last_name }}<br>
+    Licence number: {{ object.license_number }}
+  </div>
+  <h3>Cars:</h3>
+  {% if object.cars.exists %}
+    {% for car in object.cars.all %}
+      <div>
+        <a href="{% url 'taxi:car-detail' car.id %}">Car ID: {{ car.id }}</a><br>
+        {{ car.model }} ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})
+      </div>
+    {% empty %}
+      <p>This driver has no assigned cars.</p>
+    {% endfor %}
+  {% else %}
+    <p>This driver has no assigned cars.</p>
+  {% endif %}
+{% endblock %}
