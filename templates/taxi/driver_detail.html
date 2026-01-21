@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+  <hr>
+  <div class="mb-4">
+    <li class="list-group-item">
+      <p class="text-muted"><strong>Id: </strong>{{ driver.id }}</p>
+      <p>
+        <strong>Username: </strong>{{ driver.username }}<br>
+        <strong>Email: </strong>{{ driver.email }}<br>
+        <strong>License_number: </strong>{{ driver.license_number }}
+      </p>
+    </li>
+  </div>
+  <div class="ml-3">
+    <h3>Cars</h3>
+    <div class="ml-3">
+      <ul class="list-group list-group-flush">
+        {% for car in driver.cars.all %}
+          <li class="list-group-item click" onclick="location.href='{% url 'taxi:car-detail' pk=car.pk %}';">
+            <p class="text-muted"><strong>Id: </strong>{{ car.id }}</p>
+            <p>
+              <strong>Model: </strong>{{ car.model }}<br>
+              {% if car.manufacturer %}
+                <strong>Manufacturer: </strong>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})<br>
+              {% endif %}
+            </p>
+          </li>
+        {% empty %}
+          This driver does not drive any car
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}
