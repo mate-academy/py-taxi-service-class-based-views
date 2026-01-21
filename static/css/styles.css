@@ -1,3 +1,22 @@
 body {
     margin-top: 20px;
 }
+
+.dark-link {
+    font-style: italic;
+    color: black;
+}
+
+.page-link {
+    color: black;
+}
+
+.sidebar-nav {
+    padding-left: 10px;
+    list-style: none;
+}
+
+.list-style {
+    color: black;
+    list-style: none;
+}
