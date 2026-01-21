@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car Detail</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Car ID</th>
+        <th>Car Name</th>
+        <th>Manufacturer</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ car.id }}</td>
+        <td>{{ car.name }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>{{ car.manufacturer.country }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Drivers</h2>
+  <ul>
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.username }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
