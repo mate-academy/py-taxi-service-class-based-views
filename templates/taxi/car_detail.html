@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1 class="display-4 mb-4">{{ car.model }}</h1>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header bg-primary text-white">
+            <h5>Manufacturer Information</h5>
+          </div>
+          <div class="card-body">
+            <p><strong>Name:</strong> {{ car.manufacturer.name }}</p>
+            <p><strong>Country:</strong> <span class="badge badge-info">{{ car.manufacturer.country }}</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h5>Assigned Drivers</h5>
+          </div>
+          <div class="card-body">
+            {% if car.drivers.all %}
+              <ul class="list-group">
+                {% for driver in car.drivers.all %}
+                  <li class="list-group-item">
+                    <a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>
+                    <span class="badge badge-secondary float-right">{{ driver.license_number }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <div class="alert alert-warning">No drivers assigned to this car.</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

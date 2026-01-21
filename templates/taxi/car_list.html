@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1 class="display-4 mb-4">Car List</h1>
+
+    {% if car_list %}
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Model</th>
+            <th scope="col">Manufacturer</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for car in car_list %}
+            <tr>
+              <th scope="row">
+                <a href="{{ car.get_absolute_url }}" class="btn btn-sm btn-outline-info">
+                  {{ car.id }}
+                </a>
+              </th>
+              <td>{{ car.model }}</td>
+              <td>{{ car.manufacturer.name }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="alert alert-info" role="alert">
+        There are no cars in the service.
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
