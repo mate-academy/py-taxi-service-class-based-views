@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for car in car_list %}
+      <tr>
+        <th scope="row"><a href={{ car.id }}>{{ car.id }}</a></th>
+        <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

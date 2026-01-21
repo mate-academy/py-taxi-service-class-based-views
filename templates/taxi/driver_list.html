@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">license number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for driver in driver_list %}
+      <tr>
+        <th scope="row">{{ driver.id }}</th>
+        <td>{{ driver.username }}</td>
+        <td>{{ driver.first_name }}</td>
+        <td><a href={{driver.id}}>{{ driver.last_name }}</a></td>
+        <td>{{ driver.email }}</td>
+        <td>{{ driver.license_number }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
