@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1><strong>Driver:</strong></h1>
+  <div class="ml-3">
+    <hr>
+      <p>
+        <strong>First name:</strong>
+        {{ driver_detail.first_name }}<br>
+      <strong>Last name:</strong>
+        {{ driver_detail.last_name }}<br>
+        <strong>Username:</strong>
+        {{ driver_detail.username }}<br>
+        <strong>Email:</strong>
+        {{ driver_detail.email }}<br>
+        <strong>license number:</strong>
+        {{ driver_detail.license_number }}<br>
+      </p>
+  </div>
+{% endblock %}
+
+
+
