@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}<title>{{ driver.username }}</title>{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl font-bold mb-4">{{ driver.username }}</h1>
+
+  <section class="p-4 border rounded bg-gray-50 mb-6">
+    <h2 class="text-xl font-semibold mb-3">Profile</h2>
+    <dl class="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1 text-gray-700">
+      <dt>First name:</dt>
+      <dd>{{ driver.first_name|default:"—" }}</dd>
+      <dt>Last name:</dt>
+      <dd>{{ driver.last_name|default:"—" }}</dd>
+      <dt>Email:</dt>
+      <dd>
+        <a href="mailto:{{ driver.email }}" class="text-blue-600 hover:underline">
+          {{ driver.email|default:"—" }}
+        </a>
+      </dd>
+      <dt>License:</dt>
+      <dd>{{ driver.license_number|default:"—" }}</dd>
+    </dl>
+  </section>
+
+  <section class="p-4 border rounded bg-gray-50">
+    <h2 class="text-xl font-semibold mb-3">Cars</h2>
+    <ul class="list-disc pl-6 text-gray-800">
+      {% for c in driver.cars.all %}
+        <li>
+          <a href="{% url 'taxi:car-detail' c.pk %}" class="text-blue-600 hover:underline">
+            {{ c.manufacturer.name }} {{ c.model }}
+          </a>
+        </li>
+      {% empty %}
+        <li class="text-gray-500">No cars</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

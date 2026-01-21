@@ -1,0 +1,31 @@
+<div class="overflow-x-auto" style="min-height: {{ table_min_h_px }}px">
+  <table
+      class="min-w-full border border-gray-200 rounded-lg table-fixed table--uniform"
+      style="--row-h: {{ table_spec.row_height }}px; --thead-h: {{ table_spec.head_height }}px;"
+  >
+    {% if table_title or table_description %}
+      <caption class="sr-only">
+        {% if table_title %}{{ table_title }}{% endif %}
+        {% if table_description %} — {{ table_description }}{% endif %}
+      </caption>
+    {% endif %}
+
+    <colgroup>
+      {% for column_width in column_widths %}
+        <col class="{{ column_width }}">
+      {% endfor %}
+    </colgroup>
+
+    <thead class="bg-gray-100 text-left">
+    <tr>
+      {% for label, align in header_cells %}
+        <th scope="col" class="border-b align-middle {{ align }}">{{ label }}</th>
+      {% endfor %}
+    </tr>
+    </thead>
+
+    <tbody>
+    {% include rows_template %}
+    </tbody>
+  </table>
+</div>

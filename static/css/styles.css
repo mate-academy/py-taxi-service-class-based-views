@@ -1,3 +1,19 @@
-body {
-    margin-top: 20px;
+.table--uniform thead th {
+    height: var(--thead-h);
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.table--uniform tbody td {
+    height: var(--row-h);
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.table--uniform th,
+.table--uniform td {
+    padding-left: 3rem;
+    padding-right: 3rem;
 }

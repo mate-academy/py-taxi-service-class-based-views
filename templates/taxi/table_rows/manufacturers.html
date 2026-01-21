@@ -1,0 +1,19 @@
+{% for manufacturer in items %}
+  <tr class="hover:bg-gray-50">
+    <td class="border-b text-right tabular-nums">
+      {{ start_index|add:forloop.counter0 }}
+    </td>
+    <td class="border-b">
+      {{ manufacturer.name }}
+    </td>
+    <td class="border-b whitespace-nowrap">
+      {{ manufacturer.country }}
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="{{ headers|length }}" class="px-4 py-2 text-center text-gray-500">
+      No manufacturers
+    </td>
+  </tr>
+{% endfor %}
