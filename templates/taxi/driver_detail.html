@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Cars:</h1>
+  {% if car_list %}
+    <ul>
+      {% for car in car_list %}
+        <li>{{ car.model }} - Manufacturer: {{ car.manufacturer.name }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No cars associated with this driver.</p>
+  {% endif %}
+{% endblock %}
