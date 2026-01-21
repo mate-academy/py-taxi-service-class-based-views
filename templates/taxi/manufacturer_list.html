@@ -1,0 +1,8 @@
+<ul>
+    {% for manufacturer in manufacturer_list %}
+        <li>
+            <strong>Name:</strong> {{ manufacturer.name }}, 
+            <strong>Country:</strong> {{ manufacturer.country }}
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,7 @@
+<h1>{{ driver.username }}</h1>
+<p>Information about all cars of the driver:</p>
+<ul>
+    {% for car in driver.cars.all %}
+        <li>{{ car.id }} - {{ car.model }}</li>
+    {% endfor %}
+</ul>
