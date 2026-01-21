@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="ml-3">
+  
+  {% if manufacturer_list %}
+    {% for manufacturer in manufacturer_list %}
+      <p>
+        {{ manufacturer.name }}
+      </p>
+    {% endfor %}
+  {% else %}
+    <p>Manufacturer does not exist</p>
+  {% endif %}
+  </div>
+{% endblock %}
