@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver_detail.first_name }} {{ driver_detail.last_name }}</h1>
+  <p>License number: {{ driver_detail.license_number }}</p>
+  <h4>Driver` car(s):</h4>
+  {% for driver in driver_detail.cars.all %}
+    <ul>
+      <li>{{ driver.model }}</li>
+    </ul>
+  {% endfor %}
+{% endblock %}
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}

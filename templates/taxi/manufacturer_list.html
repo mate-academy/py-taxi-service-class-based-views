@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Taxi Service | Manufacturers</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Our manufacturers: </h2>
+  {% for manufacturer in manufacturer_list %}
+    <ul>
+      <li><strong>Manufacturer:</strong> {{ manufacturer.name }}</li>
+    </ul>
+  {% endfor %}
+{% endblock %}
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}
