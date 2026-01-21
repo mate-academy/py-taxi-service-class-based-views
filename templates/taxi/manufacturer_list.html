@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}<title>Manufacturer</title>{% endblock %}
+{% block content %}
+  <h1>Manufacturer List</h1>
+   {% for manufacturer in manufacturer_list %}
+     <li style="list-style: none;">{{ manufacturer.name }} ({{ manufacturer.country}})</li>
+   {% endfor %}
+{% endblock %}
