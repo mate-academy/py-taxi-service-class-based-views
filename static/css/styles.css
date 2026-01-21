@@ -1,3 +1,38 @@
 body {
     margin-top: 20px;
 }
+
+table {
+    border: 2px solid;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+#title {
+    background: green;
+}
+
+caption {
+    font-size: 24px;
+    caption-side: top;
+    text-align: left;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.manufacturer_list{
+    width: 30%;
+}
+
+.car_list{
+    width: 50%;
+}
