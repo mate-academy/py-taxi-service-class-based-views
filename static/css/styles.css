@@ -1,3 +1,47 @@
 body {
     margin-top: 20px;
+    ul{
+        margin-top: 50px;
+        list-style: square;
+        li{
+            padding: 5px;
+            border-radius: 10px;
+            a{
+                text-decoration: none;
+            }
+        }
+        li:hover{
+            a{
+                color:white;
+            }
+            background-color: black;
+        }
+    }
+    a{
+        color:black;
+    }
+}
+.col-sm-6{
+    background-color: lightblue;
+    border-radius: 5%;
+    padding: 30px;
+    ul{
+        list-style: None;
+        li{
+            padding: 5px;
+            border-radius: 10px;
+            a{
+                text-decoration: none;
+            }
+        }
+        li:hover{
+            a{
+                color:white;
+            }
+            background-color: black;
+        }
+    }
+    a{
+        color:black;
+    }
 }

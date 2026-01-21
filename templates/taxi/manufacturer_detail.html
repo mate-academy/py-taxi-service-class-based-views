@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Manufacturer Detail</h1>
+  <h3>
+    Country: {{ manufacturer.country }}
+  </h3>
+  <div class="ml-5">
+    {% for car in manufacturer.cars.all %}
+      <li>
+        <hr>
+          Car: {{ car.model }}
+        <hr>
+      </li>
+    {% empty %}
+      <p>No cars has been produced</p>
+    {% endfor %}
+  </div>
+{% endblock %}
