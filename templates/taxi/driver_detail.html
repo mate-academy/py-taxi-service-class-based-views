@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Driver Detail</h1>
+  <h2>Driver Information</h2>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <td>{{ driver.id }}</td>
+    </tr>
+    <tr>
+      <th>Username</th>
+      <td>{{ driver.username }}</td>
+    </tr>
+    <tr>
+      <th>Full Name</th>
+      <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+    </tr>
+    <tr>
+      <th>License Number</th>
+      <td>{{ driver.license_number }}</td>
+    </tr>
+  </table>
+{% endblock %}
