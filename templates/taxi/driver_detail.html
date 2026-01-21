@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% include "includes/sidebar.html" %}
+
+{% block content %}
+  <h1>Driver Info:</h1>
+  <ul>
+    <li>First Name: {{ driver_detail.first_name }}</li>
+    <li>Last Name: {{ driver_detail.last_name }}</li>
+    <li>License number: {{ driver_detail.license_number }}</li>
+    <li>Cars:
+      <ul>
+        {% for car in driver_detail.cars.all %}
+          <li><a href={{ car.get_absolute_url }}>{{ car.model }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+{% endblock %}

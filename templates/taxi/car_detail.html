@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% include "includes/sidebar.html" %}
+
+{% block content %}
+  <h1>Car Details: </h1>
+  <ul>
+    <li>Manufacturer: {{ car_detail.manufacturer.name }} ({{ car_detail.manufacturer.country }})</li>
+    <li>Model: {{ car_detail.model }}</li>
+  </ul>
+{% endblock %}
