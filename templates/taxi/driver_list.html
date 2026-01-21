@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Our Drivers:</h1>
+  {% if driver_list %}
+    <table>
+      <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>first name</th>
+        <th>last name</th>
+      </tr>
+      {% for driver in driver_list %}
+        <tr>
+          <th>{{ driver.id }}</th>
+          <th><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></th>
+          <th>{{ driver.first_name }}</th>
+          <th>{{ driver.last_name }}</th>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No manufacturers found!</p>
+  {% endif %}
+{% endblock %}
