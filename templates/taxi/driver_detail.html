@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.get_full_name }}</h1>
+  <h3>licence number: ({{ driver.license_number }})</h3>
+  <table class="table">
+    <tr>
+      <th>Car_ID</th>
+      <th>Model</th>
+      <th>Manufacturer</th>
+      <th>Country</th>
+    </tr>
+    <tr>
+      {% if driver.cars %}
+        {% for car in driver.cars.all %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+            <td>{{ car.manufacturer.country }}</td>
+          </tr>
+        {% empty %}  
+        <p>No info</p>
+        {% endfor %}
+      {% endif %}
+    </tr>
+  </table>
+{% endblock %}

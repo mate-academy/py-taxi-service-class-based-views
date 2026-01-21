@@ -1,3 +1,27 @@
+html{
+    background-color: lightgray;
+}
+
 body {
     margin-top: 20px;
+    background-color: lightgray;
+}
+
+a{
+    color: darkcyan;
+}
+
+.table{
+    border: 1px solid gray;
+}
+
+/* sidebar.html */
+.sidebar-nav{
+    padding: 20px 20px;
+    list-style: none;
+    border: 2px solid darkcyan;
+}
+
+.hover-sidebar-nav:hover{
+    background-color: grey;
 }
