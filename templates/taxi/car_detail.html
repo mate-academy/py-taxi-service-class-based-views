@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <h1>Car: {{ object.model }}</h1>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Manufacturer name</th>
+        <th scope="col">Manufacturer Country</th>
+        <th scope="col">Drivers</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ object.manufacturer.name }}</td>
+        <td>{{ object.manufacturer.country }}</td>
+        <td>{% for driver in object.drivers.all %}
+          Driver name: {{ driver.first_name }} {{ driver.last_name }} <br>
+          License number: {{ driver.license_number }} <br>
+          <br>
+        {% endfor %}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

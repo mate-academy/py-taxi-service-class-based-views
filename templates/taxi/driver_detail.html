@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Driver:  {{ object.first_name }} {{ object.last_name }}
+</h1>
+<h4>Cars:</h4>
+  {% for car in object.cars.all %}
+    <span>{{ car.model }}</span><br>
+  {% endfor %}
+</div>
+{% endblock %}
