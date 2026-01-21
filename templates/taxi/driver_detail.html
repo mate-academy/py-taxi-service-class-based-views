@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Cars</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ driver.first_name }}</th>
+      <td>{{ driver.email }}</td>
+      <td>
+        {% for car in driver.cars.all %}
+          <p>{{ car.model }}</p>
+        {% endfor %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
