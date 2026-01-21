@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Drivers List</h1>
+  <hr>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <!-- Table header -->
+      <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Cars</th>
+      </tr>
+      </thead>
+
+      <!-- Table body -->
+      <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.id }}</a></td>
+          <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.first_name }} {{ driver.last_name }}</a></td>
+          <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
+          <td>
+            {% for car in driver.cars.all %}
+              <a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a>
+              {% if not forloop.last %}, {% endif %}
+            {% empty %}
+              No cars assigned
+            {% endfor %}
+          </td>
+        </tr>
+      {% empty %}
+        <p>There are no drivers here!</p>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

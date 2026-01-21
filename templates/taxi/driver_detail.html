@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+    <p>{{ driver.username }}</p>
+    <hr>
+    <h2>Cars:</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <!-- Table header -->
+        <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        {% for car in driver.cars.all %}
+          <tr>
+            <td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></td>
+            <td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a></td>
+            <td>{{ car.manufacturer.name }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="2" class="text-center">There are no cars assigned!</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

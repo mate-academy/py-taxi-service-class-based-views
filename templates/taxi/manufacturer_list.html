@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers List</h1>
+  <hr>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <!-- Table header -->
+      <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Cars</th>
+      </tr>
+      </thead>
+
+      <!-- Table body -->
+      <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.id }}</td>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+          <td>
+            {% for car in manufacturer.cars.all %}
+              <a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a>
+              {% if not forloop.last %}, {% endif %}
+            {% empty %}
+              No cars created
+            {% endfor %}
+          </td>
+        </tr>
+      {% empty %}
+        <p>There are no manufacturers here!</p>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
