@@ -1,3 +1,50 @@
 body {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.sidebar-nav {
+    background-color: dimgrey;
+    list-style: none;
+    height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.sidebar-link {
+    color: white;
+    font-size: 1.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.sidebar-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.content {
     margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.table-id {
+    text-align: center;
+}
+
+.pagination {
+    margin-top: 20px;
+    color: dimgrey;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: dimgrey;
+    border-color: dimgrey;
 }
