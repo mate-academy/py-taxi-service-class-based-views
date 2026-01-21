@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturer List</h1>
+    <table class="ml-3">
+      <tr>
+        <td><strong>ID</strong></td>
+        <td class="col-sm-3"><strong>Name</strong></td>
+        <td class="col-sm-3"><strong>Country</strong></td>
+      </tr>
+      {% for manufacture in manufacturer_list %}
+        <tr>
+          <td>{{ manufacture.id }}</td>
+          <td class="col-sm-3">{{ manufacture.name }}</td>
+          <td class="col-sm-3">{{ manufacture.country }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+{% endblock %}
