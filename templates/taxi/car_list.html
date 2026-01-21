@@ -1,0 +1,33 @@
+{% extends "base.html"%}
+{% block title %}
+  <title>Cars</title>
+{% endblock %}
+{% block content %}
+  <div class="col-sm-9">
+  <h1>Taxi Service</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>List of our cars</h2>
+    <table class="table">
+      <thead>
+        <th scope="col">#</th>
+        <th scope="col">manufacturer</th>
+        <th scope="col">model</th>
+      </thead>
+      <tbody>
+      {% for car in car_list %}
+        <tr>
+          <th scope="row">
+            <a href="{% url 'taxi:car-detail' pk=car.id %}">
+              {{ car.id }}
+            </a>
+          </th>
+          <td>{{ car.manufacturer }}</td>
+          <td>{{ car.model }}</td>
+      </tr>
+      {% empty %}
+        <p>We don't have cars yet, but soon there will be many!</p>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
