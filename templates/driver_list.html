@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Drivers</h2>
+<table>
+  <tr><th>Username</th></tr>
+  {% for driver in object_list %}
+    <tr>
+      <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.username }}</a></td>
+    </tr>
+  {% endfor %}
+</table>
+{% include "includes/pagination.html" %}
+{% endblock %}
