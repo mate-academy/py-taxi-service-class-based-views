@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>List of manufacturers</title>
+</head>
+<body>
+    <h1>List of manufacturers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>  <!-- Заголовок столбца -->
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manufacturer in object_list %}  <!-- исправлено: for -->
+            <tr>
+                <td>{{ manufacturer.name }}</td>
+                <td>{{ manufacturer.country }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
