@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Detail</title>
+</head>
+<body>
+  <h1>Car Details</h1>
+
+  <h2>{{ car.name }}</h2>
+
+  <h3>Manufacturer</h3>
+  <p>
+    <strong>Name:</strong> {{ car.manufacturer.name }} <br>
+    <strong>Country:</strong> {{ car.manufacturer.country }}
+  </p>
+
+  <h3>Drivers of {{ car.name }}</h3>
+  {% if car.drivers.exists %}
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Driver Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for driver in car.drivers.all %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ driver.name }}</td>
+          <td>{{ driver.username }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p>This car does not have any drivers.</p>
+  {% endif %}
+</body>
+</html>
