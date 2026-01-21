@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+  <title>Manufacturer</title>
+{% endblock %}
+
+{% block content %}
+  <h2>Manufacturers</h2>
+<table class="table-simple">
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>COUNTRY</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for manufacturer in manufacturer_list %}
+      <tr>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="2">No manufacturers found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
