@@ -1,6 +1,36 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="{% url "taxi:index" %}" class="nav-link" aria-current="page">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="{% url "taxi:index" %}"></use>
+        </svg>
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="{% url "taxi:manufacturer-list" %}" class="nav-link link-dark">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="{% url "taxi:manufacturer-list" %}"></use>
+        </svg>
+        Manufacturers
+      </a>
+    </li>
+    <li>
+      <a href="{% url "taxi:car-list" %}" class="nav-link link-dark">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="{% url "taxi:car-list" %}"></use>
+        </svg>
+        Cars
+      </a>
+    </li>
+    <li>
+      <a href="{% url "taxi:driver-list" %}" class="nav-link link-dark">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="{% url "taxi:driver-list" %}"></use>
+        </svg>
+        Drivers
+      </a>
+    </li>
+  </ul>
+</div>
