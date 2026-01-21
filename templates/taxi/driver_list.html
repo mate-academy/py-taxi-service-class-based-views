@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-2">
+    <h1 class="mb-3">Meet Our Professional Drivers</h1>
+    {% for driver in driver_list %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h3 class="card-title">Driver's username: <a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></h3>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
