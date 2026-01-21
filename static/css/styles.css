@@ -1,3 +1,52 @@
 body {
     margin-top: 20px;
 }
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 2px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #ccffcc;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #e6ffe6;
+}
+
+tr:hover {
+    background-color: #efffcc;
+}
+
+a {
+    color: #008000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #008000;
+    text-decoration: underline;
+}
+
+.page-item.active .page-link {
+    background-color: #008000;
+    border-color: #008000;
+}
+
+.page-link {
+    color: #008000;
+}
