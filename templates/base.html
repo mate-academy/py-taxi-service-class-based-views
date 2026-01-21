@@ -12,6 +12,17 @@
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{# ---------------------  #}
+    <style>
+      table, th, td {
+      border: 1px solid #a6a1a1;
+      border-collapse: collapse;
+      }
+      th, td {
+      padding: 3px 10px;
+      }
+    </style>
+{#  ------------------------#}
 </head>
 
 <body>
@@ -29,6 +40,7 @@
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        {% include "includes/pagination.html" %}
       {% endblock %}
 
     </div>
