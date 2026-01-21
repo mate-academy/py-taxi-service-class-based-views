@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block DynamicTitle %}
+<h3>Dynamic content Drivers List</h3>
+{% endblock %}
+
+{% block content %}
+
+{% if driver_list %}
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+        </tr>
+        {% for driver in object_list %}
+            <tr>
+                <td>{{ driver.pk }}</td>
+                <td><a href="{% url 'taxi:driver-detail' driver.pk %}">{{driver.username }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock%}

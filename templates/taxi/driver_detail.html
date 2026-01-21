@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block DynamicTitle %}
+<h3>Information Dynamic Driver</h3>
+{% endblock %}
+
+{%block content %}
+    <p><strong>Username: </strong> {{driver.first_name}} {{driver.last_name}}</p>
+    <p><strong>Email: </strong> {{driver.email}}</p>
+    <p><strong>License Number: </strong> {{driver.license_number}}</p>
+{% endblock %}

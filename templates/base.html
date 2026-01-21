@@ -25,10 +25,16 @@
 
     </div>
     <div class="col-sm-10 ">
+      <h1>Taxi Service Home</h1>
+      <p>Welcome to Best Taxi Ever!</p>
+
+      {% block DynamicTitle %}{% endblock %}
+      
 
       {% block content %}{% endblock %}
 
       {% block pagination %}
+      {% include "includes/pagination.html" %}
       {% endblock %}
 
     </div>

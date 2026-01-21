@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block DynamicTitle %}
+<h3> Information Dynamic Car </h3>
+{% endblock %}
+
+{% block content %}
+<div>
+    <p><strong>Model: </strong> {{ car.model }}</p>
+    <p><strong>Manufacturer Name: </strong>{{ car.manufacturer.name }}</p>
+</div>
+
+{% endblock %}

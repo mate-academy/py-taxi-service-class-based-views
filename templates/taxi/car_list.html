@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block DynamicTitle %}
+<h3>Dynamic content Cars List</h3>
+{% endblock %}
+{% block content %}
+    {% if car_list %}
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Manufacturer</th>
+            </tr>
+
+            {% for car in object_list %}
+                <tr>
+                    <td><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a></td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.manufacturer.name}}</td>
+                </tr>
+                
+            {% endfor %}
+        </table>
+    {% else %}
+    <p>there are no cars</p>
+    {% endif %}
+{% endblock %}
