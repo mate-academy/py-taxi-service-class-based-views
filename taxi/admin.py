@@ -29,6 +29,12 @@ class DriverAdmin(UserAdmin):
 class CarAdmin(admin.ModelAdmin):
     search_fields = ("model",)
     list_filter = ("manufacturer",)
+    list_display = ("model", "display_manufacturer_name",)
+
+    def display_manufacturer_name(self, obj):
+        return obj.manufacturer.name
 
 
-admin.site.register(Manufacturer)
+@admin.register(Manufacturer)
+class ManufacturerAdmin(admin.ModelAdmin):
+    list_display = ("name", "country",)
