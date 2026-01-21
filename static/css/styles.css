@@ -1,3 +1,8 @@
 body {
     margin-top: 20px;
 }
+
+.driver {
+    padding: 10px;
+    border-left: 1px solid #ff0000;
+}
