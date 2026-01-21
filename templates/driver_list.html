@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Driver List
+{% endblock %}
+{% block content %}
+  <h1>Driver List</h1>
+  {%if object_list%}
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for driver in object_list %}
+            <tr>
+                <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
+                <td>{{driver.email}}</td>
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+  {%else%}
+    <p>No driver available.</p>
+  {% endif %}
+{% endblock %}
