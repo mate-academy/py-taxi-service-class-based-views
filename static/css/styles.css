@@ -1,3 +1,54 @@
 body {
-    margin-top: 20px;
+  line-height: 1.6;
+}
+
+.container-fluid {
+  padding: 1rem;
+}
+
+.sidebar-nav {
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  height: 100vh;
+}
+
+.sidebar-nav .nav-link {
+  color: #495057;
+}
+
+.sidebar-nav .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+.pagination {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+.page-item .page-link {
+  padding: 0.5rem 1rem;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.page-link {
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar-nav {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+    height: auto;
+  }
+
+  .container-fluid {
+    padding: 0.5rem;
+  }
 }

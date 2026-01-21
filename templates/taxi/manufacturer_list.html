@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Manufacturers</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="my-4">Manufecturer List</h1>
+    <ul class="list-group">
+      {% for manufecturer in manufacturer_list %}
+        <li class="list-group-item">
+          {{ manufecturer.name }} {{ manufecturer.country }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
