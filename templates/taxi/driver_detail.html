@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <h2 class="mt-5">Driver Info</h2>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <strong>Name:</strong> {{ driver.first_name }}
+        </div>
+        <div class="mb-3">
+          <strong>Last name:</strong> {{ driver.last_name }}
+        </div>
+        <div class="mb-3">
+          <strong>Username:</strong> {{ driver.username }}
+        </div>
+        <div class="mb-3">
+          <strong>Status:</strong>
+          {% if driver.is_active %}
+            Ready for order
+          {% else %}
+            Not working
+          {% endif %}
+        </div>
+        <div class="mb-3">
+          <strong>License number:</strong> {{ driver.license_number }}
+        </div>
+        <div class="mb-3">
+          <strong>Joined date:</strong> {{ driver.date_joined }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include "includes/pagination.html" %}
+{% endblock %}
