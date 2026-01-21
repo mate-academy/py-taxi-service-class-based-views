@@ -1,6 +1,30 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+<div class="sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'taxi:index' %}">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'taxi:manufacturer-list' %}">
+          <i class="fas fa-industry"></i>
+          Manufacturers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'taxi:car-list' %}">
+          <i class="fas fa-car"></i>
+          Cars
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'taxi:driver-list' %}">
+          <i class="fas fa-users"></i>
+          Drivers
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
