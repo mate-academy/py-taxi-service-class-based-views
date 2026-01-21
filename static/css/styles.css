@@ -1,3 +1,16 @@
 body {
-    margin-top: 20px;
+  margin-top: 20px;
+  background: linear-gradient(
+      217deg,
+      rgba(247, 224, 224, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+      ), linear-gradient(127deg, rgba(193, 230, 193, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(144, 144, 230, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 20px);
+}
+
+.pagination-container {
+  margin: 20px 15vw;
 }
