@@ -1,3 +1,29 @@
-body {
-    margin-top: 20px;
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link {
+    font-size: 16px;
+    left: 20px;
+}
+
+.sidebar .nav-link.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.content-wrapper {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+p.italic {
+  font-style: italic;
 }
