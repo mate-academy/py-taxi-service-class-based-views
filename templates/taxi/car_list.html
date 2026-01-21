@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Page Cars</h1>
+  {% if car_list %}
+    <table border="1">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Model</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for car in car_list %}
+        <tr>
+          <td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a>
+          </td>
+          <td>{{ car.model }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No cars found.</p>
+  {% endif %}
+<br>
+  {% include "includes/pagination.html" %}
+{% endblock %}
