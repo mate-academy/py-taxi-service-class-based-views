@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Taxi Service | Manufacturers</title>
+{% endblock %}
+
+{% block content %}
+  <h3>Manufacturers List</h3>
+  <table class="calltable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    {% for manufacturer in manufacturer_list %}
+      <tr>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+      </tr>
+    {% empty %}
+    <p>There are no manufacturers in database</p>
+    {% endfor %}
+  </table>
+{% endblock %}

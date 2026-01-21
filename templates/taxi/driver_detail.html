@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Taxi Service | Driver detail</title>
+{% endblock %}
+
+{% block content %}
+  <h5>Driver: <strong>{{ driver.first_name }} {{ driver.last_name }}</strong></h5>
+  <h5>Username: <strong>{{ driver.username }}</strong></h5>
+  <h5>License: <strong>{{ driver.license_number }}</strong></h5>
+  <h5>Email: <strong>{{ driver.email }}</strong></h5>
+  <h6>Drivers:</h6>
+  <ul>
+    {% for car in driver.cars.all %}
+      <li>Model: {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
