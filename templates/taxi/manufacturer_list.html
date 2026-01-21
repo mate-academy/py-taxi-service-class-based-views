@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Manufacturer List</h1>
+  <h2>Dynamic content</h2>
+  <ul>
+    {% for manufacturer in object_list %}
+      <li>
+        <a href="#">{{ manufacturer.name }} ({{ manufacturer.country }})</a>
+      </li>
+    {% empty %}
+      <li>No manufacturers</li>
+    {% endfor %}
+  </ul>
+  {% include "includes/pagination.html" %}
+{% endblock %}

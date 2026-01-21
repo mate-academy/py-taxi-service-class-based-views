@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Details for {{ object.model }}</h1>
+  <p>
+    <strong>Manufacturer:</strong> {{ object.manufacturer.name }} ({{ object.manufacturer.country }})
+  </p>
+  <p>
+    <strong>Drivers:</strong>
+  </p>
+  <ul>
+    {% for driver in object.drivers.all %}
+      <li>{{ driver.first_name }} {{ driver.last_name }}</li>
+    {% empty %}
+      <li>No drivers</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
