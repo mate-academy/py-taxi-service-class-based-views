@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Car detail</h1>
+    
+    <p><strong>Car's model:</strong> {{ car.model }}</p>
+    
+    <h2>Manufacturer</h2>
+    <p><strong>Name:</strong> {{ car.manufacturer.name }}</p>
+    <p><strong>Country:</strong> {{ car.manufacturer.country }}</p>
+    
+    <h2>Car drivers</h2>
+    {% if car.drivers.all %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User's name</th>
+                    <th>License number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for driver in car.drivers.all %}
+                    <tr>
+                        <td>{{ driver.id }}</td>
+                        <td>{{ driver.username }}</td>
+                        <td>{{ driver.license_number }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>This car has no drivers!.</p>
+    {% endif %}
+{% endblock %}

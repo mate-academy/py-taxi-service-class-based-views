@@ -1,0 +1,20 @@
+<div class="pagination">
+    {% if is_paginated %}
+        <span>Сторінка {{ page_obj.number }} із {{ page_obj.paginator.num_pages }}</span>
+        <ul>
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">Попередня</a></li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li><strong>{{ num }}</strong></li>
+                {% else %}
+                    <li><a href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">Наступна</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</div>
