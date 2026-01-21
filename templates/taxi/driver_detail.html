@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver: {{ driver.first_name }} {{ driver.last_name }}</h1>
+  <div class="ml-3">
+    <p>Aka: {{ driver.username }}</p>
+    <p>License: {{ driver.license_number }}</p>
+    <ul>
+      {% for car in driver.cars.all %}
+        <li><strong>{{ car.model }}</strong></li>
+        <li class="ml-1">
+          {{ car.manufacturer.name }} - {{ car.manufacturer.country }}
+        </li>
+      {% empty %}
+        <p>No cars</p>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
+{% block sidebar %}
+  <a href="{% url 'taxi:driver-list' %}">Back</a>
+{% endblock %}
