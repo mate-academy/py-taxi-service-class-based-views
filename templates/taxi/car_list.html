@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Car List - Taxi Service</title>{% endblock %}
+
+{% block content %}
+  <h2>Car List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Model</th>
+        <th scope="col">Year</th>
+        <th scope="col">Manufacturer</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in object_list %}
+        <tr>
+          <th scope="row"><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></th>
+          <td>{{ car.model }}</td>
+          <td>{{ car.year }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include 'includes/pagination.html' %}
+{% endblock %}
