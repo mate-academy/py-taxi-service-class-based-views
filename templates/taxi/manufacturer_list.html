@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if manufacturer_list %}
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for manufacture in manufacturer_list %}
+        <tr>
+          <th scope="row">{{ manufacture.id }}</th>
+          <td>{{ manufacture.name }}</td>
+          <td>{{ manufacture.country }}</td>
+        </tr>
+      {% empty %}
+        Manufacture not found !
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock %}
