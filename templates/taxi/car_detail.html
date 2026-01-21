@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Detail</title>
+</head>
+<body>
+{% block content %}
+  <h1>Car {{ object.model }}</h1>
+  <p><strong>ID: </strong>{{ object.id}}</p>
+  <p><strong>Year: </strong>{{ object.year }}</p>
+  <h2>Manufacturer info</h2>
+  <p><strong>Name: </strong>{{ object.manufacturer.name}}</p>
+  <p><strong>Country </strong>{{ object.manufacturer.country }}</p>
+  
+  <h2>Driver of the Car</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Model</th> 
+        <th>License number</th>
+      </tr>
+    </thead>
+  </table>
+  {% for driver in object.drivers.all %}
+    <tr>
+      <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.id }}</a></td>
+      <td>{{ driver.username }}</td>
+      <td>{{ driver.license_number }}</td>
+  {% endfor %}
+{% endblock %}
+</body>
+</html>

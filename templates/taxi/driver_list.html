@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Driver List</title>
+</head>
+<body>
+  <h1>Driver List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Model</th> 
+        <th>License number</th>
+      </tr>
+    </thead>
+  </table>
+  {% for driver in object_list %}
+    <tr>
+      <td>{{ driver.id }}</td>
+      <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.username }}</a></td>
+      <td>{{ driver.license_number }}</td>
+  </tr>
+{% endfor %}
+<div>
+  {%  if paginated %}
+    <div>
+    <ul class="pagination"></ul>
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+    </div>
+  {% endif %}
+</div>
+</body>
+</html>

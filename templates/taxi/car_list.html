@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car List</title>
+</head>
+<body>
+  <h1>Car List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Model</th> 
+        <th>Manufacturer</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+  </table>
+{% for car in object_list %}
+    <tr>
+    <td><a href="{% url 'car-detail' car.id %}">{{ car.id }}</a></td>
+    <td>{{ car.model }}</td>
+    <td>{{ car.manufacturer.name}}</td>
+    <td>{{ car.year }}</td>
+  </tr>
+{% endfor %}
+<div>
+  {%  if paginated %}
+    <div>
+    <ul class="pagination"></ul>
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+    </div>
+  {% endif %}
+</div>
+</body>
+</html>

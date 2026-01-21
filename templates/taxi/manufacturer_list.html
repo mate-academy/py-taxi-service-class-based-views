@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manufacturer</title>
+</head>
+<body>
+  <h1>Manufacturer List</h1>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Country</th>
+{% for manufacturer in object_list %}
+  <tr>
+    <td>{{ manufacturer.id }}</td>
+    <td>{{ manufacturer.name }}</td>
+    <td>{{ manufacturer.country }}</td>
+  </tr>
+{% endfor %}
+<div>
+  {%  if paginated %}
+    <div>
+    <ul class="pagination"></ul>
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">Prev</a>
+    {% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+    </div>
+  {% endif %}
+</div>
+</body>
+</html>
