@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Driver Detail{% endblock %}
+
+{% block content %}
+<h1>Driver: {{ object.username }}</h1>
+<p><strong>License Number:</strong> {{ object.license_number }}</p>
+<p><strong>Number of Cars:</strong> {{ object.cars.count }}</p>
+
+<h2>Cars of {{ object.username }}</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for car in object.cars.all %}
+        <tr>
+            <td>{{ car.id }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer.name }}</td>
+            <!-- Додаємо посилання на сторінку деталей автомобіля -->
+            <a href="{% url 'taxi:driver-detail' pk=driver.id %}">View Details</a>
+
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

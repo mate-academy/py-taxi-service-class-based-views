@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Car Detail - Taxi Service{% endblock %}
+
+{% block content %}
+  <h1>Car Details</h1>
+  
+  <p><strong>Car ID:</strong> {{ car.id }}</p>
+  <p><strong>Car Model:</strong> {{ car.model }}</p>
+  <p><strong>Year:</strong> {{ car.year }}</p>
+
+  <h2>Manufacturer Information</h2>
+  <p><strong>Name:</strong> {{ car.manufacturer.name }}</p>
+  <p><strong>Country:</strong> {{ car.manufacturer.country }}</p>
+
+  <h2>Drivers for this Car</h2>
+  <ul>
+      {% for driver in car.drivers.all %}
+          <li>
+              <strong>Driver Name:</strong> <a href="{% url 'taxi:car-detail' pk=car.id %}">View Details {{ driver.username }}</a>
+          </li>
+      {% empty %}
+          <li>No drivers assigned to this car.</li>
+      {% endfor %}
+  </ul>
+{% endblock %}
