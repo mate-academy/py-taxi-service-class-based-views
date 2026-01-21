@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Car detail</h1>
+  <h2>{{ car.model }}</h2>
+  <p><b>Manufacturer: </b>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
+
+  <div>
+    <h3>Drivers</h3>
+    {% for driver in car.drivers.all %}
+      <hr>
+      <p><b>Username: </b><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></p>
+      <p><b>Name: </b>{{ driver.first_name }} {{ driver.last_name }}</p>
+    {% empty %}
+      There are no drivers
+    {% endfor %}
+  </div>
+{% endblock %}
