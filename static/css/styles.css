@@ -1,3 +1,75 @@
 body {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+ padding: 20px;
+}
+
+h1, h2 {
+ color: #4CAF50;
+}
+
+table {
+ width: 100%;
+ border-collapse: collapse;
+}
+
+table th, table td {
+ border: 1px solid #ddd;
+ padding: 8px;
+ text-align: left;
+}
+
+table th {
+ background-color: #f2f2f2;
+}
+
+table tr:nth-child(even) {
+ background-color: #f2f2f2;
+}
+
+.sidebar ul {
+ list-style-type: none;
+ padding: 0;
+}
+
+.sidebar li a {
+ display: block;
+ padding: 10px 15px;
+ color: #333;
+ text-decoration: none;
+}
+
+.sidebar li a:hover {
+ background-color: #f2f2f2;
+}
+
+.pagination {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 20px;
+}
+
+.pagination li {
+ display: inline;
+ margin-right: 10px;
+}
+
+.pagination li a {
+ display: inline-block;
+ padding: 5px 10px;
+ background-color: #f2f2f2;
+ color: #333;
+ text-decoration: none;
+}
+
+.pagination li a:hover {
+ background-color: #ddd;
 }
