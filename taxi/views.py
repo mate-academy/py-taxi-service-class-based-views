@@ -1,6 +1,45 @@
+from django.views.generic import ListView
 from django.shortcuts import render
-
 from taxi.models import Driver, Car, Manufacturer
+from django.views.generic import DetailView
+
+
+class CarListView(ListView):
+    model = Car
+    queryset = Car.objects.select_related("manufacturer").order_by("model")
+    context_object_name = "car_list"
+    template_name = "taxi/car_list.html"
+    paginate_by = 5  # Пагінація
+
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = "taxi/car_detail.html"
+
+
+class DriverListView(ListView):
+    model = Driver
+    paginate_by = 5
+    template_name = "taxi/driver_list.html"
+    context_object_name = "driver_list"
+    queryset = Driver.objects.all().order_by("username")
+
+
+class DriverDetailView(DetailView):
+    model = Driver
+    queryset = Driver.objects.prefetch_related(
+        "cars__manufacturer"
+    )
+    template_name = "taxi/driver_detail.html"
+    context_object_name = "driver"
+
+
+class ManufacturerListView(ListView):
+    model = Manufacturer
+    queryset = Manufacturer.objects.all().order_by("name")  # Сортуємо за ім’ям
+    context_object_name = "manufacturer_list"  # Назва змінної у шаблоні
+    template_name = "taxi/manufacturer_list.html"  # Шлях до HTML-шаблону
+    paginate_by = 5  # Пагінація: 5 елементів на сторінку
 
 
 def index(request):

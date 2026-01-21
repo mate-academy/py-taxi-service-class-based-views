@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ car.model }}</title>
+</head>
+<body>
+  <h2>{{ car.model }}</h2>
+  <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
+  <p><strong>Year:</strong> {{ car.year }}</p>
+  <p><strong>Price:</strong> ${{ car.price }}</p>
+  <a href="{% url 'taxi:car-list' %}">Back to list</a>
+</body>
+</html>
