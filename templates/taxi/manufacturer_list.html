@@ -1,0 +1,23 @@
+{%  extends "base.html" %}
+
+{% block content %}
+  <h1><strong>All Manufacturers</strong></h1>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>Manufacturer name</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for company in manufacturer_list %}
+        <tr>
+          <td>{{ company.name }}</td>
+          <td>{{ company.country }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

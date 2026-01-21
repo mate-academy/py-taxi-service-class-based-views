@@ -1,3 +1,13 @@
 body {
     margin-top: 20px;
 }
+
+table {
+    width: 80%;
+}
+
+table, th, td {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+}
+
