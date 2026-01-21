@@ -1,0 +1,28 @@
+{% if is_paginated %}
+  <nav aria-label="...">
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1">1</a>
+        </li>
+        {% if page_obj.previous_page_number != 1 %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+          </li>
+        {% endif %}
+      {% endif %}
+      <li class="page-item active">
+        <a class="page-link" href="#">{{ page_obj.number }} <span class="sr-only">(current)</span></a>
+      </li>
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+        </li>
+        {% if page_obj.next_page_number != paginator.num_pages %}
+        <li class="page-item"><a class="page-link" href="?page={{ paginator.num_pages }}">{{ paginator.num_pages }}</a></li>
+        {% endif %}
+      {% endif %}
+
+    </ul>
+  </nav>
+{% endif %}
