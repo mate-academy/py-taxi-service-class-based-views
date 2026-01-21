@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.views.generic import ListView, DetailView
 from taxi.models import Driver, Car, Manufacturer
 
 
@@ -13,3 +13,37 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+class ManufacturerListView(ListView):
+    model = Manufacturer
+    ordering = ["name"]
+    paginate_by = 5
+
+
+class CarListView(ListView):
+    model = Car
+    queryset = Car.objects.select_related("manufacturer").all()
+    paginate_by = 5
+    template_name = "taxi/car_list.html"
+    context_object_name = "car_list"
+
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = "taxi/car_detail.html"
+    context_object_name = "car"
+
+
+class DriverListView(ListView):
+    model = Driver
+    paginate_by = 5
+    template_name = "taxi/driver_list.html"
+    context_object_name = "driver_list"
+
+
+class DriverDetailView(DetailView):
+    model = Driver
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
+    template_name = "taxi/driver_detail.html"
+    context_object_name = "driver"
