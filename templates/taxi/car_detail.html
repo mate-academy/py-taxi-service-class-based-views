@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="card text-center">
+    <div class="card-header">
+      Car: #{{ car.id }}
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">{{ car.model }}</h5>
+
+      <ul class="list-group">
+        <li class="list-group-item active">Drivers</li>
+
+        {% for driver in car.drivers.all %}
+          <li class="list-group-item">
+            <a href="{% url 'taxi:driver-detail' driver.id %}">
+              {{ driver.first_name }} {{ driver.last_name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="card-footer text-muted">
+      by {{ car.manufacturer.name }}
+    </div>
+  </div>
+{% endblock %}

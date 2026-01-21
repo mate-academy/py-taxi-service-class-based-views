@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">License number</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <th scope="row">
+            <a href="{% url 'taxi:driver-detail' driver.id %}">
+              {{ driver.id }}
+            </a>
+          </th>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.username }}</td>
+          <td>{{ driver.email }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% include 'includes/pagination.html' %}
+{% endblock %}

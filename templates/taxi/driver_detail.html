@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      Driver #{{ driver.id }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ driver.username }}
+      </h5>
+
+      <p class="card-text">
+        <strong>First name:</strong> {{ driver.first_name }}
+      </p>
+
+      <p class="card-text">
+        <strong>Last name:</strong> {{ driver.last_name }}
+      </p>
+
+      <p class="card-text">
+        <strong>Email:</strong> {{ driver.email }}
+      </p>
+
+      <p class="card-text">
+        <strong>License number:</strong> {{ driver.license_number }}
+      </p>
+    </div>
+
+    <div class="card-footer text-muted">
+      Joined at <strong>{{ driver.date_joined|date:"F j, Y" }}</strong>
+    </div>
+  </div>
+{% endblock %}
