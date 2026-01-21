@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Cars</title>
+{% endblock %}
+
+{% block content %}
+  <h2>Cars list</h2>
+  {% if car_list %}
+    <ul>
+    {% for car in car_list %}
+      <li><a href="{{ car.id }}">{{ car.model }}</a>
+        <p> (manufacturer: {{ car.manufacturer.name }})</p></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no such manufacturers in our database</p>
+  {% endif %}
+{% endblock %}
