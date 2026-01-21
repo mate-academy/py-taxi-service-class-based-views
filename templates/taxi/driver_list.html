@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Drivers</title>
+{% endblock %}
+{% block content %}
+  <h1>Drivers Table!</h1>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>E-mail</th>
+      <th>License number</th>
+    </tr>
+    </thead>
+
+    {% for driver in driver_list %}
+      <tr>
+        <th><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></th>
+        <th>{{ driver.first_name }}</th>
+        <th>{{ driver.last_name }}</th>
+        <th>{{ driver.email }}</th>
+        <th>{{ driver.license_number }}</th>
+      </tr>
+    {% empty %}
+      <p>There is no drivers!</p>
+    {% endfor %}
+  </table>
+{% endblock %}
