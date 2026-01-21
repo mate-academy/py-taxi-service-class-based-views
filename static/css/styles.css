@@ -1,3 +1,46 @@
-body {
-    margin-top: 20px;
+    @font-face {
+        font-family: Roboto;
+    }
+
+    body {
+        margin-top: 20px;
+        background-color: #fff;
+    }
+
+    .wrapper-main {
+        width: 900px;
+        margin: 0 auto;
+        margin-left: 1px;
+    }
+
+    table, th, td {
+        border-collapse: collapse;
+        padding: 20px;
+    }
+
+    th {
+        font-weight: bold;
+        border: 2px solid #000;
+    }
+
+    table {
+        width: 100%;
+        border: 4px solid #000;
+        border-style: dashed;
+    }
+
+    td {
+        border: 3px solid #000;
+    }
+
+    table tr td:nth-child(2) {
+        width: 400px;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #cccbcb;
+    }
+
+    table tr:first-child th {
+    background-color: #00ccff;
 }

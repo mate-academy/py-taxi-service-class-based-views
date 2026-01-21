@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if car_list %}
+    <section class="wrapper-main">
+      <table>
+      <colgroup>
+        <col span="2" style="background-color: aquamarine">
+      </colgroup>
+        <tr>
+          <th>Username</th>
+        </tr>
+        <tr>
+          {% for car in car_list %}
+            <tr>
+              <td><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></td>
+            </tr>
+          {% endfor %}
+      </table>
+    </section>
+ {% endif %}
+{% endblock %}
