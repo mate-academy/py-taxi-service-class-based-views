@@ -1,14 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 
 
 class Manufacturer(models.Model):
     name = models.CharField(max_length=255, unique=True)
     country = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ("name",)
+
+    def get_absolute_url(self):
+        return reverse("taxi:driver-detail", kwargs={"pk": self.id})
+
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
+
+    def get_absolute_url(self):
+        return reverse("taxi:car-detail", kwargs={"pk": self.id})
 
 
 class Car(models.Model):
