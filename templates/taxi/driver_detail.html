@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>{{ driver.first_name }}  {{ driver.last_name }}</h3>
+  <h4>License: {{ driver.license_number }}</h4>
+  <h5>{{ driver.username }} ({{ driver.email }}) </h5>
+  {% if driver.cars %}
+    <ul class="list-group list-group-flush">
+    {% for car in driver.cars.all %}
+      <li class="list-group-item"><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
