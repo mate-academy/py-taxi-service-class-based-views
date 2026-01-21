@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Driver</th>
+      <th>Licence number</th>
+    </tr>
+    {% for driver in driver_list %}
+      <tr>
+        <th>{{ driver.id }}</th>
+        <th><a href = {% url "taxi:driver-detail" driver.id %}>{{ driver.username }}</a></th>
+        <th>{{ driver.license_number }}</th>
+      </tr>
+    {% endfor %}
+  </table>
+  {% include "includes/pagination.html" %}
+{% endblock %}
