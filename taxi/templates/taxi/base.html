@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Taxi Service{% endblock %}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav {
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      box-sizing: border-box;
+      min-height: 100vh;
+    }
+    main {
+      flex-grow: 1;
+      padding: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  {% include "taxi/includes/sidebar.html" %}
+
+  <main>
+    {% block content %}
+    {% endblock %}
+
+    {% include "taxi/includes/pagination.html" %}
+  </main>
+
+</body>
+</html>
