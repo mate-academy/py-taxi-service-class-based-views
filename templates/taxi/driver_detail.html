@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver details</h1>
+  <div class="ml-3">
+    <h3>Cars:</h3>
+    {% if driver.cars.all %}
+      {% for car in driver.cars.all%}
+        <hr>
+        <p class="text-muted">{{ car.model }}</p>
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endblock %}
