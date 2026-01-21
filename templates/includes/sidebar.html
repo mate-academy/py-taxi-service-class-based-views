@@ -1,6 +1,43 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'taxi:index' %}">Taxi Service</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <div class="dropdown">
+								<button class=" nav-link active btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+									<a class="navbar-text" href="{% url 'taxi:manufacturer-list' %}">Manufacturers</a>
+								</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{% url 'taxi:manufacturer-list' %}">Test link 1</a></li>
+                <li><a class="dropdown-item" href="{% url 'taxi:manufacturer-list' %}">Test link 2</a></li>
+							</ul>
+							</a>
+            </div>
+          </li>
+          <li class="nav-item">
+						<div class="dropdown">
+            <button class=" nav-link active btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="navbar-text" href="{% url 'taxi:car-list' %}">Cars</a>
+            </button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{% url 'taxi:car-list' %}">Test link 1</a></li>
+                <li><a class="dropdown-item" href="{% url 'taxi:car-list' %}">Test link 2</a></li>
+							</ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+            <button class=" nav-link active btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="navbar-text" href="{% url 'taxi:driver-list' %}">Drivers</a>
+            </button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{% url 'taxi:driver-list' %}">Test link 1</a></li>
+                <li><a class="dropdown-item" href="{% url 'taxi:driver-list' %}">Test link 2</a></li>
+							</ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
