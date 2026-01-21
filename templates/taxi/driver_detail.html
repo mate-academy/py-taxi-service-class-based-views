@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    This driver works on this cars:
+    <ul>
+        {% for car in driver.cars.all %}
+            <li>{{ car.model }}</li>
+        {% empty %}
+            This driver does not work now
+        {% endfor %}
+    </ul>
+{% endblock %}
