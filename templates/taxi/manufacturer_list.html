@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers</h1>
+
+  {% if manufacturer_list %}
+    <table>
+      <th>name</th>
+      <th>country</th>
+      <th>cars</th>
+
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <td>{{ manufacturer.country }}</td>
+          <td>{{ manufacturer.name }}</td>
+          <td>
+            {% for car in manufacturer.cars.all %}
+              <span>{{ car.model }};</span>
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Doesn't exist manufacturers</p>
+  {% endif %}
+{% endblock %}
