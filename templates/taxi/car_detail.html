@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if car %}
+    <h1 class="h1">Car info</h1>
+    <br>
+    <h4 class="h4">Manufacturer info</h4>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>{{ car.manufacturer.country }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <h4 class="h4">Car's drivers</h4>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Staff</th>
+        <th scope="col">Active</th>
+        <th scope="col">Date joined</th>
+        <th scope="col">License number</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      {% for driver in car.drivers.all %}
+        <tr>
+          <th scope="row">{{ driver.pk }}</th>
+          <td><a
+              href="{% url "taxi:driver-detail" driver.pk %}">{{ driver.username }}</a>
+          </td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.email }}</td>
+          <td>{{ driver.is_staff }}</td>
+          <td>{{ driver.is_active }}</td>
+          <td>{{ driver.date_joined }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>
+  {% endif %}
+
+{% endblock %}
