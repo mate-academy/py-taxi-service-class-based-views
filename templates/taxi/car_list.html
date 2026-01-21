@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-light text-dark">
+            <h4 class="mb-0">Cars List</h4>
+          </div>
+          <div class="card-body">
+            {% if car_list %}
+              <ul class="list-group">
+                {% for car in car_list %}
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'taxi:car-detail' car.id %}" class="btn btn-link">{{ car.id }}</a>
+                    <span>{{ car.model }}</span>
+                    <span class="badge badge-secondary">{{ car.manufacturer.name }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p class="text-muted">At the moment we have no information about cars.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
