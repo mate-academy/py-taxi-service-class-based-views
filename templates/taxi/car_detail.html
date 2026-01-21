@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+
+{%block content%}
+    <h1>{{car.model}}</h1>
+    <p>Manufacturer: {{car.manufacturer.name}}</p>
+    {%if car.drivers%}
+    <h2>Drivers</h2>
+    <ul>
+        {%for driver in car.drivers.all%}
+            <li><a href="{{driver.get_absolute_url}}">{{ driver.get_full_name }}</a></li>
+        {%endfor%}
+    </ul>
+    {%endif%}
+{%endblock%}
