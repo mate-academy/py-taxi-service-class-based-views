@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Cars</title>
+{% endblock %}
+
+{% block content %}
+  <h2>Car List</h2>
+  <ul>
+  {% if car_list %}
+    {% for car in car_list %}
+      <li>
+        <a href="{% url 'taxi:car-detail' pk=car.id %}" >{{ car.id }}</a>
+      - {{ car.model }}
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no car in the list</p>
+  {% endif %}
+{% endblock %}
