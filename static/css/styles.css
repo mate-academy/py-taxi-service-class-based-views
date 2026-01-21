@@ -1,3 +1,27 @@
 body {
     margin-top: 20px;
 }
+
+.table-cell {
+    text-align: center;
+    padding: 2px 10px;
+    border: 1px solid black;
+}
+
+.id-link {
+    padding: 0px 10px;
+}
+
+.pagination {
+    padding: 10px 0px;
+}
+
+.page-link {
+    height: 100%;
+}
+
+.disabled-link {
+    color: black;
+    background-color: dimgrey;
+    pointer-events: none;
+}
