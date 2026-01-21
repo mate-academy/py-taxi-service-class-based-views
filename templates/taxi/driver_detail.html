@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{%  block content %}
+  <h1>
+    {{ driver.username }}
+  </h1>
+  {% if driver.is_superuser %}
+    <p class="text-muted">SUPERUSER</p>
+  {% elif driver.is_staff %}
+    <p class="text-muted">STAFF</p>
+  {% endif %}
+  <hr>
+  <p><strong>First name:</strong> {{ driver.first_name }}</p>
+  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
+  <p><strong>Email:</strong> {{ driver.email }}</p>
+  <br>
+  <p><strong>License number:</strong> {{ driver.license_number}}</p>
+  <br>
+  <p><strong>Joined:</strong> {{ driver.date_joined.date }}</p>
+
+  <hr>
+  <h3>Cars:</h3>
+  {% if driver.cars %}
+    {% for car in driver.cars.all %}
+      <ul>
+        <li>{{ car.model }}</li>
+      </ul>
+    {%  endfor %}
+  {% else %}
+    <p>Cars not found</p>
+  {% endif %}
+
+{% endblock %}
