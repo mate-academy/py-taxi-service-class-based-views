@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.first_name }} {{ driver.last_name }}:</h1>
+  <h4>username: {{ driver.username }}</h4>
+  <h4>Cars:</h4>
+  {% if driver.cars.count %}
+  <ul>
+    {% for car in driver.cars.all %}
+      <li><a href="../../cars/{{ car.id }}">{{ car.model }}</a></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    There are no cars
+  {% endif %}
+
+{% endblock %}
