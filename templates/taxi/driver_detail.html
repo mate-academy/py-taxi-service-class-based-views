@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver: {{ driver.username }}</h1>
+  <div>
+    {% if driver.cars %}
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for car in driver.cars.all %}
+            <tr>
+              <td><a href="{{ car.get_absolute_url }}">{{ car.pk }}</a></td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.manufacturer.name }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No cars</p>
+    {% endif %}
+  </div>
+{% endblock %}
