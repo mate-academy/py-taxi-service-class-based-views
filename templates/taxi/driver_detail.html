@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <table>
+    <thead>
+    <tr>
+      <th>Driver: {{ driver.license_number }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for car in driver.cars.all %}
+      <tr>
+        <td><a href="{{ car.get_absolute_url }}">{{ car }}</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
