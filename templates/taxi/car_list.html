@@ -1,0 +1,22 @@
+<!-- templates/taxi/car_list.html -->
+{% extends "taxi/base.html" %}
+
+{% block content %}
+<h2>Cars</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Model</th>
+    <th>Year</th>
+  </tr>
+  {% for car in object_list %}
+  <tr>
+    <td><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a></td>
+    <td>{{ car.model }}</td>
+    <td>{{ car.year }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% include "includes/pagination.html" %}
+{% endblock %}

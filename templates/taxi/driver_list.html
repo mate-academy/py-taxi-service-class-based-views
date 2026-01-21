@@ -1,0 +1,19 @@
+{% extends "taxi/base.html" %}
+
+{% block content %}
+<h2>Drivers</h2>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Name</th>
+  </tr>
+  {% for driver in object_list %}
+  <tr>
+    <td><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></td>
+    <td>{{ driver.name }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% include "includes/pagination.html" %}
+{% endblock %}
