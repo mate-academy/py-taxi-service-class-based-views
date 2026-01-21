@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Driver: {{ driver.username }}</h1>
+
+  <p><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+  <p><strong>License number:</strong> {{ driver.license_number }}</p>
+
+  <h2>Assigned Cars:</h2>
+  <ul>
+    {% for car in driver.cars.all %}
+      <li>
+        <a href="{% url "taxi:car-detail" car.id %}">
+          {{ car.model }} ({{ car.manufacturer.name }})
+        </a>
+      </li>
+    {% empty %}
+      <li>This driver is not assigned to any cars</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
