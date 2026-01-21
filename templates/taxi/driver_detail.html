@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h4>Driver`s cars</h4>
+  {% for car in driver_detail.cars.all %}
+    <ul>
+      <li>
+        <strong>Car model:</strong>
+        ({{ car.model }})
+      </li>
+      <li>
+        <strong>Car manufacturer:</strong>
+        ({{ car.manufacturer.name }})
+      </li>
+    </ul>
+  {% empty %}
+    <p>There is no available data to view (</p>
+  {% endfor %}
+
+{% endblock %}

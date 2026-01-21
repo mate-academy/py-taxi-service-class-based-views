@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h4>Car detail</h4>
+
+    <ul>
+      <li>
+        <strong>
+          Manufacturer:
+        </strong>
+        <ul>
+          <li>
+            <strong>
+              name:
+            </strong>
+            {{car_detail.manufacturer.name }}
+          </li>
+          <li>
+            <strong>
+              country:
+            </strong>
+            {{car_detail.manufacturer.country}}
+          </li>
+        </ul>
+      </li>
+      <h5 class="mt-3">Drivers</h5>
+      {% for driver in car_detail.drivers.all %}
+        <li>
+          <strong>
+            Driver license number:
+          </strong>
+          {{driver.license_number}}
+        </li>
+      {% endfor %}
+    </ul>
+
+
+{% endblock %}

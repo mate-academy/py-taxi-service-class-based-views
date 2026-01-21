@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for manufacturer in manufacturer_list %}
+    <ul>
+      <li><strong>Name:</strong> {{ manufacturer.name }}</li>
+      <li><strong>Country:</strong> {{ manufacturer.country }}</li>
+    </ul>
+  {% empty %}
+    <p>There is no available data to view (</p>
+  {% endfor %}
+
+{% endblock %}
