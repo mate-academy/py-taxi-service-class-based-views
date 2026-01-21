@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ driver.username }}</h1>
+  <h3>Cars:</h3>
+  {% if driver.cars.all %}
+    <ul class="list-group">
+      {% for car in driver.cars.all %}
+        <li class="list-group-item">{{ car.model }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>This driver has no cars</p>
+  {% endif %}
+{% endblock %}

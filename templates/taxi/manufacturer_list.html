@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Manufacturers</h1>
+  {% if manufacturer_list %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for manufacturer in manufacturer_list %}
+          <tr>
+            <td>{{ manufacturer.id }}</td>
+            <td>{{ manufacturer.name }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No manufacturers available</p>
+  {% endif %}
+{% endblock %}
