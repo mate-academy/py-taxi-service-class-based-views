@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Driver Detail</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<div class="container">
+  <h1>Driver Detail</h1>
+  <p><strong>Username:</strong> {{ driver.username }}</p>
+  <p><strong>License Number:</strong> {{ driver.license_number }}</p>
+  <h2>Cars:</h2>
+  <ul>
+    {% for car in driver.cars.all %}
+      <li>{{ car.model }}</li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+</html>
