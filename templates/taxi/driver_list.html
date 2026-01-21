@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List of drivers</h1>
+  {% if driver_list %}
+    <table>
+      <th>username</th>
+      {% for driver in driver_list %}
+        <tr>
+          <td><a href="{% url 'taxi:driver-detail' pk=driver.id%}">{{ driver.username }}</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}
