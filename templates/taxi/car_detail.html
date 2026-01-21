@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Detail info about <span class="badge badge-info"> ({{ car.model }}) </span> </h1>
+   <h5>Drivers:</h5>
+    <ul>
+      {% for driver in car.drivers.all %}
+            <li>
+                {{ driver.first_name }} {{ driver.last_name }}
+            </li>
+        {% empty %}
+        <p>This car has no drivers</p>
+      {% endfor %}
+
+    </ul>
+
+    <h5>Manufacturers:</h5>
+      <ul>
+        <li>
+          ID - {{ car.manufacturer.id }}
+        </li>
+        <li>
+          Country - {{ car.manufacturer.country }}
+        </li>
+      </ul>
+
+{% endblock %}
