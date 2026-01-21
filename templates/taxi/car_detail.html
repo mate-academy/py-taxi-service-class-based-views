@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ car.model }}</h1>
+  <ul>
+    <li><i class="bi bi-globe"></i> Country:  {{ car.manufacturer.country }}</li>
+    <li><i class="bi bi-tools"></i> Manufacturer:  {{ car.manufacturer.name }}</li>
+  </ul>
+  <h3>Drivers on this car</h3>
+  <hr>
+  {% if car.drivers.all %}
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li>
+          <i class="bi bi-person-check"></i>
+          ({{ driver.username }}) {{ driver.first_name }} {{ driver.last_name }} &nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="bi bi-file-earmark-break"></i> License Number: {{ driver.license_number }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

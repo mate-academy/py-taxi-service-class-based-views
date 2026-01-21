@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>We work with these manufacturers</h1>
+  <hr>
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list %}
+        <li><i class="bi bi-globe"></i> {{ manufacturer.name }} - {{ manufacturer.country }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Something, went wrong...</p>
+  {% endif %}
+{%  endblock %}

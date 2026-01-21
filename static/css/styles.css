@@ -1,3 +1,57 @@
-body {
-    margin-top: 20px;
+#sidebar {
+    width: 200px;
+    height: 800px;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+a:hover {
+  opacity: 0.8;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+#sidebar .nav-link {
+    color: black !important; /* !important щоб перекрити bootstrap кольори */
+    background-color: #e9ecef; /* світло-сірий фон */
+    margin-bottom: 0.3rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* простір між іконкою і текстом */
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+    background-color: #bcd4e6;
+    color: black !important;
+    text-decoration: none;
+}
+
+#sidebar .nav-link i {
+    font-size: 1.2rem;
+}
+
+.driver-name {
+  margin-right: 20px;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
