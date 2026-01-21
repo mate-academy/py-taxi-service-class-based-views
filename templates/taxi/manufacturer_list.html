@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Car manufacturers</h2>
+  <p> Taxi service has cars of the following manufacturers:</p>
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list%}
+        <li>{{ manufacturer.name }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>There are no manufacturer in our database</p>
+  {% endif %}
+{% endblock %}
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}
