@@ -1,3 +1,175 @@
-body {
-    margin-top: 20px;
+:root{
+  --pink-100: #fff0f6;
+  --pink-200: #ffd6e8;
+  --pink-300: #ffb6d5;
+  --pink-400: #ff87c1;
+  --pink-500: #ff4da6;
+  --accent: #6b1556; /* darker accent for text */
+  --muted: #6b6b6b;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+}
+
+html,body{
+  height:100%;
+  margin:20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, serif;
+  background: linear-gradient(180deg, var(--pink-100) 0%, #ffeef8 50%, #fff 100%);
+  color: var(--accent);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Main heading */
+h1{
+  font-size:1.8rem;
+  margin:0 0 1rem 0;
+  color: var(--accent);
+  letter-spacing: -.5px;
+}
+
+/* Links */
+a{
+  color: var(--pink-500);
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover, a:focus{
+  text-decoration: underline;
+  color: var(--pink-400);
+}
+
+/* --- Sidebar (from your earlier snippets) --- */
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 85px; /* keep your existing width */
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(107,21,86,0.08);
+  border-right: 1px solid rgba(255,77,166,0.06);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: 1rem 0;
+  z-index: 50;
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+/* small header inside sidebar */
+.sidebar-header{
+  width:100%;
+  text-align:center;
+  padding: 0.6rem 0;
+  font-size:0.95rem;
+  font-weight:700;
+  color: var(--pink-500);
+  text-transform:uppercase;
+  letter-spacing: .6px;
+}
+
+/* If you have a .content wrapper (recommended) */
+.content{
+  margin-left: 100px; /* leave space for sidebar */
+  padding: 2rem;
+}
+
+/* --- Table styles (driver/car lists) --- */
+table{
+  width:100%;
+  border-collapse: collapse;
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(107,21,86,0.06);
+  margin: 0 0 1.25rem 0;
+}
+
+/* header cells */
+th{
+  text-align:left;
+  padding: 0.9rem 1rem;
+  font-weight:700;
+  font-size:0.95rem;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(107,21,86,0.04);
+}
+
+/* body cells */
+td{
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(107,21,86,0.03);
+  color: var(--muted);
+  font-size:0.95rem;
+}
+
+/* row hover */
+tbody tr:hover{
+  background: linear-gradient(90deg, rgba(255,77,166,0.03), rgba(255,182,213,0.02));
+}
+
+/* Make ID links look pretty but small */
+th a, td a{
+  display:inline-block;
+  padding: .25rem .5rem;
+  border-radius: 8px;
+  background: rgba(255,77,166,0.08);
+  color: var(--pink-500);
+  font-weight:700;
+  font-size:0.9rem;
+}
+th a:hover, td a:hover{
+  background: rgba(255,77,166,0.14);
+  transform: translateY(-1px);
+  transition: all .12s ease-out;
+}
+
+/* --- Pagination include --- */
+.pagination{
+  display:flex;
+  gap:.5rem;
+  justify-content:flex-end;
+  align-items:center;
+  padding-top: .5rem;
+}
+.pagination a, .pagination span{
+  display:inline-block;
+  min-width:36px;
+  text-align:center;
+  padding:.45rem .6rem;
+  border-radius:10px;
+  font-weight:600;
+  background: rgba(107,21,86,0.04);
+  color: var(--accent);
+  text-decoration:none;
+}
+.pagination a:hover{
+  background: rgba(255,77,166,0.10);
+  color: var(--pink-500);
+}
+
+/* simple button style if you use .btn */
+.btn{
+  display:inline-block;
+  padding: .5rem .8rem;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--pink-300), var(--pink-400));
+  color: white;
+  font-weight:700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(255,77,166,0.14);
+}
+.btn:active{ transform: translateY(1px); }
+.btn[disabled]{ opacity:.6; cursor: default; box-shadow:none; }
+
+/* small responsive tweak */
+@media (max-width:720px){
+  .sidebar{ width:64px; }
+  .content{ margin-left:80px; padding:1rem; }
+  h1{ font-size:1.3rem; }
+  th, td{ padding:.7rem .6rem; }
 }

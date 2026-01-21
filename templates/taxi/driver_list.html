@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Driver list</h1>
+    {% if driver_list %}
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>first name</th>
+            <th>last name</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for driver in driver_list %}
+          <tr>
+            <th><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></th>
+            <th>{{ driver.first_name }}</th>
+            <th>{{ driver.last_name }}</th>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+        <p>No drivers found</p>
+    {% endif %}
+
+    {% block pagination %}
+        {% include "includes/pagination.html" %}
+    {% endblock %}
+{% endblock %}
