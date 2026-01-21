@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Driver's car</h2>
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Driver's car model</th>
+      <th>Driver's manufacturer</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="2">The driver doesn't have a car</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
