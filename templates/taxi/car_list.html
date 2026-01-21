@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Cars:</h2>
+{% if car_list %}
+  <ul>
+  {% for car in car_list%}
+    <li>
+      <a href="{% url 'taxi:car-detail' pk=car.id %}"> {{ car.model }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  There are no manufacturers in database!
+{% endif %}
+{% endblock %}
