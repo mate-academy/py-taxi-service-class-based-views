@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <p>{{ object.first_name }} {{ object.last_name }} has next cars:</p><br>
+  {% for car in driver.cars.all %}
+    <a href="/cars/{{ car.pk }}">{{ car.model }}</a>
+    {% if not forloop.last %}<br>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
