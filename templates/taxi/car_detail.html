@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Car: {{ car.model }} - {{ car.manufacturer.name }}</h3>
+  {% if car.drivers.all %}
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.first_name }} {{ driver.last_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h6>There are no drivers (-__-)</h6>
+  {% endif %}
+  <div class="paginator">
+    {% if is_paginated %}
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary">Previous</a>
+      {% endif %}
+      {{ page_obj.number }} of {{ paginator.num_pages }}
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary">Next</a>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endblock %}
