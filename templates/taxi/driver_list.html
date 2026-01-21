@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="text-center">All Drivers</h1>
+  <div class="list-group" >
+    {% for driver in driver_list %}
+      <a href="{% url "taxi:driver-detail" pk=driver.pk %}" class="list-group-item  list-group-item-action list-group-item-dark">{{ driver.first_name }} {{ driver.last_name }}</a>
+    {% endfor %}
+  </div>
+{% endblock %}
