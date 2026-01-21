@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car Detail</h1>
+  <h6>{{ car.model }}</h6>
+  <hr><strong>Manufacturer: </strong>{{ car.manufacturer.name}}, ({{ car.manufacturer.country }})
+  <hr><strong>Drivers:
+  {% if car.drivers %}
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no drivers for this car. Be first for it!</p>
+  {% endif %}
+{% endblock %}
