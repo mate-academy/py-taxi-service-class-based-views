@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Інформація про водія</h2>
+  <p>ID: {{ driver.id }}</p>
+  <p>Ім'я користувача: {{ driver.username }}</p>
+  <p>Ім'я: {{ driver.first_name }}</p>
+  <p>Прізвище: {{ driver.last_name }}</p>
+
+  <h3>Автомобілі водія</h3>
+  <table border="2">
+    <tr>
+      <th>ID</th>
+      <th>Модель</th>
+      <th>Виробник</th>
+    </tr>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td>
+            <a href="{% url 'taxi:car-detail' car.pk %}">{{ car.id }}</a>
+          </td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+        </tr>
+      {% endfor %}
+  </table>
+{% endblock %}
