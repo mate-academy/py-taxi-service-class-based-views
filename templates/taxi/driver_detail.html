@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+   <h1>Driver: {{ driver.username }}</h1>
+   <p><strong>Full name: </strong>{{ driver.first_name }} {{ driver.last_name }}</p>
+   <p>License number: {{ driver.license_number }}</p>
+   <div class=”ml-3”>
+      <h3>Cars: </h3>
+      {% for car in driver.cars.all %}
+         <hr>
+        <p class=”text-muted”>
+          <b>Car: </b><a href="{{ car.get_absolute_url }}">{{ car.model }}</a>
+        </p>
+        <p class=”text-muted”>
+          Other drivers: 
+          {% for other_driver in car.drivers.all %}
+            <a href="{{ other_driver.get_absolute_url }}">{{ other_driver.username }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+      {% empty %}
+         <p>No cars!</p>
+      {% endfor %}
+   </div>
+{% endblock%}
