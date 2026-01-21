@@ -1,3 +1,13 @@
 body {
-    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    background-color: WhiteSmoke;
+}
+
+.content {
+    margin: 20px;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
 }
