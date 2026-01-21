@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="content">
   <h1>Taxi Service Home</h1>
   <p>Welcome to Best Taxi Ever!</p>
   <h2>Dynamic content</h2>
   <p>The Taxi service has the following record counts:</p>
-  <ul>
+  <ul class="list-unstyled">
     <li><strong>Cars:</strong> {{ num_cars }}</li>
     <li><strong>Drivers:</strong> {{ num_drivers }}</li>
     <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
   </ul>
+</div>
 {% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Car detail</h2>
+  <div class="mt-3 pt-2">
+    <p>Name: <span class="font-weight-bold">{{ car.manufacturer.name }}</span></p>
+    <p>Country: <span class="font-weight-bold">{{ car.manufacturer.country }}</span></p>
+    <ul class="list-group">Drivers:
+      {% for driver in car.drivers.all %}
+        <li class="list-group-item"><a href="{{ driver.get_absolute_url }}">{{ driver.first_name }} {{ driver.last_name }}</a></li>
+      {% empty %}
+        <p class="alert alert-warning">Hasn't founded drivers!</p>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

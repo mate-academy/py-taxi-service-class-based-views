@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver detail</h1>
+    <h3>{{ driver.first_name }} {{ driver.last_name }}</h3>
+    <p>Username: <span class="font-weight-bold">{{ driver.username }}</span></p>
+    <ul class="list-group">Cars: 
+      {% for car in driver.cars.all %}
+        <li class="list-group-item ml-2"><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></li>
+      {% empty %}
+        <p class="alert alert-warning">This driver hasn't any cars!</p>
+      {% endfor %}
+    </ul>
+{% endblock %}
