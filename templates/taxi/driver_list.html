@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Driver List</h2>
+
+  {% if drivers %}
+    <ul>
+      {% for driver in drivers %}
+        <li>
+          <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No drivers available.</p>
+  {% endif %}
+
+  {% include "includes/pagination.html" %}
+{% endblock %}
