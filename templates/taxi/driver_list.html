@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+  {% if drivers_list %}
+    <ul>
+    {% for driver in drivers_list %}
+      <li><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nothing to show</p>
+  {% endif %}
+
+  {% include "includes/pagination.html" %}
+{% endblock %}
