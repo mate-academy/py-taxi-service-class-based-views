@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>ManufacturerList</h1>
+    {% if manufacturers %}
+        {% for manufacturer in manufacturers %}
+        <ul>
+            <li>{{ manufacturer.name }}</li>
+        </ul>
+        {% endfor %}
+    {% endif %}
+{% include "includes/pagination.html" %}
+{% endblock %}

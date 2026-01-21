@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car List</h1>
+    {% if cars %}
+        {% for car in cars %}
+        <ul>
+            <a href="{% url 'car-detail' car.pk %}">
+            {{ car.model }}
+          </a>
+        </ul>
+        {% endfor %}
+    {% endif %}
+    {% include "includes/pagination.html" %}
+{% endblock %}
