@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver List</h1>
+  {% if driver_list %}
+    <table>
+      <thead>
+      <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>License number</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <th><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></th>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    The taxi service is currently unavailable, as there are no drivers available for passenger transportation.
+  {% endif %}
+{% endblock %}
