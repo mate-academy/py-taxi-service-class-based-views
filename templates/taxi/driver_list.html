@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+  Drivers list
+  </h1>
+  {% if driver_list is not None %}
+    {% for driver in driver_list %}
+      <div class="row">
+        <div class="col-md-3">
+          <a class="btn" href={% url 'taxi:driver-detail' driver.id %}>{{ driver.get_full_name }}</a>
+        </div>
+        <div class="col">
+          <h2>{{ driver.license_number }}</h2>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
