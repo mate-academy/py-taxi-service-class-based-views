@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}<title>Cars</title>{% endblock %}
+{% block content %}
+  <h1>Cars</h1>
+  <hr>
+  <h2>All cars: </h2>
+
+  <ul>
+    {% for car in car_list %}
+      <li><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
