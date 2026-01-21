@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if car_list%}
+    <ul>
+      {% for car in car_list %}
+        <li>
+          <a href="{{ car.get_absolute_url }}">{{ car.id }}</a> ({{ car.model }})
+        </li>
+      {% endfor%}
+    </ul>
+    {% else %}
+    No cars found
+  {% endif %}
+{% endblock %}
