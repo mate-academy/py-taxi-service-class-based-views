@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mb-4">🚗 Car Details</h1>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4 class="card-title">{{ car.model }}</h4>
+      <p class="card-text"><strong>Manufacturer:</strong> {{ manufacturer_list.name }} ({{ manufacturer_list.country }})</p>
+    </div>
+  </div>
+
+  {% if driver_list %}
+    <h5>👨‍✈️ Car Drivers:</h5>
+    <ul class="list-group mb-3">
+      {% for driver in driver_list %}
+        <li class="list-group-item">
+          <a href="{% url 'taxi:driver-detail' driver.id %}" class="text-decoration-none">
+            {{ driver.username }}
+          </a> — License: {{ driver.license_number }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-warning">No drivers available for this car at the moment.</div>
+  {% endif %}
+</div>
+{% endblock %}

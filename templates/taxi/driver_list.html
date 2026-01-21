@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mb-4">👨‍✈️ Driver List</h1>
+    {% if drivers %}
+      <div class="row">
+        {% for driver in drivers %}
+          <div class="col-md-4">
+            <div class="card mb-3 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">{{ driver.username }}</h5>
+                <p class="card-text">License: {{ driver.license_number }}</p>
+                <a href="{% url 'taxi:driver-detail' driver.id %}" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-warning">No drivers available at the moment.</div>
+    {% endif %}
+  </div>
+{% endblock %}
