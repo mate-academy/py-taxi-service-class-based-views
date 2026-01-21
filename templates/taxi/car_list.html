@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Cars</h1>
+  <table border="2px">
+    <tr>
+      <th>Model</th>
+      <th>Manufacturer</th>
+    </tr>
+    {% for car in car_list %}
+      <tr>
+        <th><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></th>
+        <th>{{ car.manufacturer }}</th>
+      </tr>
+    {% empty %}
+      <th>No cars</th>
+      <th>No cars</th>
+    {% endfor %}
+  </table>
+{% endblock %}
+
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Drivers</h1>
+  <table border="2px">
+    <tr>
+      <th>License number</th>
+    </tr>
+    {% for driver in driver_list %}
+      <tr>
+        <th><a href="{{ driver.get_absolute_url }}">{{ driver.license_number }}</a></th>
+      </tr>
+    {% empty %}
+      <th>No drivers</th>
+      <th>No drivers</th>
+    {% endfor %}
+  </table>
+{% endblock %}
+
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}

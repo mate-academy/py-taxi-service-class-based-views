@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Manufacturers</h1>
+  <table border="2px">
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+    </tr>
+    {% for manufacturer in manufacturer_list %}
+      <tr>
+        <th>{{ manufacturer.name }}</th>
+        <th>{{ manufacturer.country }}</th>
+      </tr>
+    {% empty %}
+      <th>No manufacturers</th>
+      <th>No manufacturers</th>
+    {% endfor %}
+  </table>
+{% endblock %}
+
+{% block pagination %}
+  {% include "includes/pagination.html" %}
+{% endblock %}
