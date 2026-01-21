@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Taxi Service Cars</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Cars</h2>
+  <p>The Taxi service has the following cars:</p>
+  <ul>
+    {% if car_list %}
+      {% for car in car_list %}
+        <li><a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a></li>
+      {% endfor %}
+    {% else %}
+      <p>There are no cars.</p>
+    {% endif %}
+  </ul>
+{% endblock %}

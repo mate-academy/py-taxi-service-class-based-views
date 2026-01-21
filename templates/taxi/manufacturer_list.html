@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Taxi Service Manufacturers</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Manufacturers</h2>
+  <p>The Taxi service has the following car manufacturers:</p>
+  <ul>
+    {% if manufacturer_list %}
+      {% for manufacturer in manufacturer_list %}
+        <li>{{ manufacturer.name }}</li>
+      {% endfor %}
+    {% else %}
+      <p>There are no manufacturers.</p>
+    {% endif %}
+  </ul>
+{% endblock %}
