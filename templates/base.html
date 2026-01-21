@@ -29,6 +29,9 @@
       {% block content %}{% endblock %}
 
       {% block pagination %}
+        <div class="pagination">
+          {% include "includes/pagination.html" %}
+        </div>
       {% endblock %}
 
     </div>
@@ -37,3 +40,4 @@
 </body>
 
 </html>
+

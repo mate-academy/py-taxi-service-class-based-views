@@ -1,3 +1,23 @@
 body {
+    font-family: Arial, sans-serif;
     margin-top: 20px;
+}
+
+a {
+   text-decoration: none;
+   color: pink;
+}
+
+a:hover {
+    color: darkmagenta;
+}
+
+.pagination .page-link {
+    background: pink !important;
+    color: white !important;
+    border: none !important;
+}
+
+.pagination .page-link:hover {
+    background: deeppink !important;
 }
