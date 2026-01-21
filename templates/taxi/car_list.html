@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Cars list</title>
+{% endblock %}
+
+{% block content %}
+  <h3>Cars list:</h3>
+  {% if car_list %}
+  	<ul>
+      {% for car in car_list %}
+      	<li><a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.model }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if is_paginated %}
+  	{% load static %}
+    {% include "includes/pagination.html" %}
+  {% endif %} 
+{% endblock %}

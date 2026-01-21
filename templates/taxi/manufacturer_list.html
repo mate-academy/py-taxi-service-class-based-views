@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Manufacturer list</title>
+{% endblock %}
+
+{% block content %}
+  <h3>Manufacturer list:</h3>
+	{% if manufacturer_list %}
+		<ul class="">
+      {% for manufacturer in manufacturer_list %}
+      	<li>{{ manufacturer.name }} - {{ manufacturer.country }}</li>
+      {% endfor %}
+    </ul>
+	{% endif %} 
+  {% if is_paginated %}
+  	{% load static %}
+    {% include 'includes/pagination.html' %}
+  {% endif %} 
+{% endblock %}
