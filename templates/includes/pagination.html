@@ -1,0 +1,11 @@
+{% if is_paginated %}
+<div class=pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a href="?page1">1</a>
+      </li>
+    {% endif %} 
+  </span>
+</div>  	
+{% endif %} 
