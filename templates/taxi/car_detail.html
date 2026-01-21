@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-2 mt-5 h2">
+    <span class="h4">Car:</span>&nbsp;&nbsp;
+    <span class="text-primary">{{ car.model }}</span>
+  </h1>
+  <h2 class="mb-3 h2">
+    <span class="h4">Manufacturer:</span>&nbsp;&nbsp;
+    <span class="text-secondary"> {{ car.manufacturer }}</span>
+  </h2>
+  <hr class="mb-5">
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-2 mt-5 h2">
+    <span class="h4">Driver:</span>&nbsp;&nbsp;
+    <span class="text-primary">{{ driver }}</span>
+  </h1>
+  <h2 class="mb-3 h2">
+    <span class="h4">Lisence:</span>&nbsp;&nbsp;
+    <span class="text-secondary">{{ driver.license_number }}</span>
+  </h2>
+  <hr class="mb-5">
+  {% if driver.cars.all %}
+    <p class="h4">
+      <span>The driver works on the following cars:</span>
+      <span class="driver-cars-list">
+        {% for car in driver.cars.all %}
+          <span class="text-primary line-block">{{ car }}</span>
+        {% endfor %}
+      </span>
+    </p>
+  {% else %}
+    <p class="h3">This driver doesn't have a car yet.</p>
+  {% endif %}
+  <style>.driver-cars-list span:not(:last-child)::after{content: ",";}</style>
+{% endblock %}

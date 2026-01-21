@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-5 mt-5">Cars </h1>
+  <p>Drivers from God. Here they are, meet them!</p>
+  {% if driver_list %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Lisence number</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <th scope="row"><span class="c_counter"></span></th>
+          <td><a href="{% url 'taxi:driver-detail' driver.pk %}"> {{ driver }}</a></td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+        </tbody>
+      </table>
+    
+  {% else %}
+    <p>No drivers in fleet.</p>
+  {% endif %}
+  <div>   </div>
+  <style>body {counter-reset: item;} .c_counter::before{content: counter(item); counter-increment: item}</style>
+{% endblock %}
