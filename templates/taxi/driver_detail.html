@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Driver: {{ driver.license_number }}</h3>
+
+  {% if cars %}
+    <h4>Car List</h4>
+    <ul>
+    {% for car in cars %}
+      <li>{{ car.model }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>Driver has no cars</p>
+  {% endif %}
+{% endblock %}
