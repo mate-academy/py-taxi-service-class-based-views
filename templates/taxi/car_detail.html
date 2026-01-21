@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <ol>
+        <li>Manufacturer:</li>
+        <ul>
+            <li>{{car.manufacturer.name}}</li>
+            <li>{{car.manufacturer.country}}</li>
+        </ul>
+        <br>
+        <li>Drivers:</li>
+        <ul>
+            {% for driver in car.drivers.all %}
+                <li>{{driver.license_number}}</li>
+                <li>{{driver.username}}</li>
+                <li>{{driver.first_name}}</li>
+                <li>{{driver.last_name}}</li>
+                <li>{{driver.email}}</li>
+                <li>{{driver.date_joined}}</li>
+            {% endfor %}
+        </ul>
+    </ol>
+{% endblock %}
