@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if object_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in object_list %}
+          <tr>
+            <td>{{ car.name }}</td>
+            <td>{{ car.country }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="2">No manufacturers available</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% include 'includes/pagination.html' %}
+  {% endif %}
+
+{% endblock %}
