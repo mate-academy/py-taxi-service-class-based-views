@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <span>{{ driver.first_name }} {{ driver.license_number }}</span>
+  <ul>
+  {% for car in driver.cars.all %}
+   <li>{{car.model}} {{ car.manufacturer }}</li>
+
+  {% endfor %}
+  </ul>
+{% endblock %}
