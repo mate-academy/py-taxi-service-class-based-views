@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="ml-3">
+
+    <h3>
+      Driver <strong>{{ driver.username }}</strong> details:
+    </h3>
+
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">License number</th>
+        <th scope="col">Cars</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <th scope="row">{{ driver.id }}</th>
+        <td>{{ driver.username }}</td>
+        <td>{{ driver.first_name }}</td>
+        <td>{{ driver.last_name }}</td>
+        <td>{{ driver.license_number }}</td>
+        <td>
+          {% for car in driver.cars.all %}
+            <a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a>
+            {% if not forloop.last %}, {% endif %}
+            {% empty %}
+            No cars
+          {% endfor %}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

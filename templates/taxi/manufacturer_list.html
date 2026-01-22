@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="ml-3">
+
+    <h3>
+      Manufacturers:
+    </h3>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Country</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      {% for manufacturer in manufacturer_list %}
+        <tr>
+          <th scope="row">{{ manufacturer.id }}</th>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

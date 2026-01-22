@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="ml-3">
+
+    <h3>
+      Drivers:
+    </h3>
+
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">License number</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      {% for driver in driver_list %}
+        <tr>
+          <th scope="row">{{ driver.id }}</th>
+          <td>
+            <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>
+          </td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
