@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver Info</h1>
+  <p>First name: {{ driver.first_name }}</p>
+  <p>Last:name: {{ driver.last_name }}</p>
+  {% for car in driver.cars.all %}
+    <ul>
+    <li><a href="{% url 'taxi:driver-detail' car.pk %}">{{ car.model }}</a></li>
+    </ul>
+  {% endfor %}
+{% endblock %}
