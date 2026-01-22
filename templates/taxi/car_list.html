@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <table>
+    {% if car_list %}
+      <h1 class="center">Cars table:</h1>
+      <tr>
+        <th class="point">Car ID</th>
+        <th class="point">Manufacturer</th>
+        <th class="point">Model</th>
+      </tr>
+      {% for car in car_list %}
+        <tr>
+          <th><a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a></th>
+          <th>{{ car.manufacturer.name }}</th>
+          <th>{{ car.model }}</th>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <h3>There are no cars!</h3>
+    {% endif %}
+  </table>
+{% endblock %}
