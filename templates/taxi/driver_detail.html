@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver:</h1>
+  <div>{{ driver.first_name }} {{ driver.last_name }}</div>
+
+  <h2>Cars:</h2>
+  {% for car in driver.cars.all %}
+    <div>
+    <p><strong>Model:</strong><a href="{% url 'taxi:car-detail' pk=car.pk %}">{{ car.model }}</a></p>
+    <p><strong>Country:</strong> {{ car.manufacturer.country }}</p>
+    </div>
+    <hr>
+  {% endfor %}
+
+{% endblock %}
