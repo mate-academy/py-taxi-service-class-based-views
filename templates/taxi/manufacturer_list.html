@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for object in manufacturer_list %}
+    <div class="col-sm-4 mb-2">
+      <ul class="list-group">
+        <li class="list-group-item">{{ object.name }}</li>
+      </ul>
+    </div>
+  {% endfor %}
+{% endblock %}
