@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Driver info:</h3>
+  <div class="card border-primary mb-4" style="width: 18rem;">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Username: {{ driver.username }}</h5>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ driver.first_name }} {{ driver.last_name }}</h5>
+      <p class="card-text">Licence number: {{ driver.license_number }}</p>
+    </div>
+  </div>
+
+  <h3>Cars:</h3>
+  <div class="d-flex flex-wrap">
+    {% for car in driver.cars.all %}
+      <div class="card border-dark mr-3 mb-3" style="width: 18rem;">
+        <div class="card-header">
+          Car ID: <a href="{{ car.get_absolute_url }}">{{ car.id }}</a>
+        </div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">{{ car.model }}</h5>
+          <p class="card-text">Country: {{ car.manufacturer.country }}</p>
+        </div>
+      </div>
+    {% empty %}
+      <p>Driver don't have any car!</p>
+    {% endfor %}
+  </div>
+{% endblock %}
