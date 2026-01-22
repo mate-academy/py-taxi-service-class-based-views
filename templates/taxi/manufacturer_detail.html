@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>{{ manufacturer.name }} - Details</h1>
+  <p><strong>Country:</strong> {{ manufacturer.country }}</p>
+
+  <h2>Cars by {{ manufacturer.name }}</h2>
+  {% if manufacturer.cars.all %}
+    <ul>
+      {% for car in manufacturer.cars.all %}
+        <li>
+          <strong><a href="{% url 'taxi:car-detail' car.id %}">{{ car.model }}</a></strong>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No cars available for this manufacturer.</p>
+  {% endif %}
+  
+  <a href="{% url 'taxi:manufacturer-list' %}">Back to Manufacturer List</a>
+{% endblock %}
