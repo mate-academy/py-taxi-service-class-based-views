@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car detail</h1>
+  <p>{{ car.model }}</p>
+  {% if car.drivers.all %}
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li>{{ driver.first_name }} {{ driver.last_name }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{%  endblock %}
