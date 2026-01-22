@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Manufacturer List{% endblock %}
+
+{% block content %}
+    <h1>Manufacturer List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manufacturer in object_list %}
+                <tr>
+                    <td>{{ manufacturer.id }}</td>
+                    <td>{{ manufacturer.name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
