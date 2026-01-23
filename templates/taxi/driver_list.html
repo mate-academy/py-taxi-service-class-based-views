@@ -2,22 +2,26 @@
 
 {% block content %}
   <h1>Driver List</h1>
-  {% if driver_list %}
-    <table>
-      <thead>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>LICENCE NUMBER</th>
+        <th>FULL NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in driver_list %}
         <tr>
-          <th>USERNAME</th>
+          <td><a href="{{ driver.get_absolute_url }}">{{ driver.id }}</a></td>
+          <td>{{ driver.username }}</td>
+          <td>{{ driver.license_number }}</td>
+          <td>{{ driver.first_name }} {{ driver.last_name }}</td>
         </tr>
-      </thead>
-      <tbody>
-        {% for driver in driver_list %}
-          <tr>
-            <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  {% else %}
-    <p>No drivers</p>
-  {% endif %}
+      {% empty %}
+        <tr><td colspan="3">No Drivers</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
