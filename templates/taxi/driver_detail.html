@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Driver: {{driver.username}} </h1>
+<p><strong>License Number:</strong> {{ driver.license_number }}</p>
+
+<h3>Assigned Cars</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Model</th>
+      <th>Manufacturer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for car in driver.cars.all %}
+    <tr>
+      <td>{{ car.id }}</td>
+      <td>{{ car.model }}</td>
+      <td>{{ car.manufacturer.name }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3">This driver is not assigned to any cars.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
