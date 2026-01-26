@@ -7,14 +7,13 @@
       <th>Username</th>
       <th>License Number</th>
     </tr>
-    {% for driver in drivers_list %}
+    {% for driver in driver_list %}
     <tr>
       <td>
         <a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a>
       </td>
       <td>{{ driver.license_number }}</td>
     </tr>
-
     {% endfor %}
   </table>
 {% else %}

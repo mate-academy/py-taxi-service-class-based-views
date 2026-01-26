@@ -1,5 +1,3 @@
-from symtable import Class
-
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic import ListView
@@ -21,7 +19,6 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
-    template_name = "templates/manufacturer_list.html"
     queryset = model.objects.all().order_by("name")
     paginate_by = 5
 
@@ -44,7 +41,7 @@ class DriverListView(generic.ListView):
 
 
 class DriverDetailView(generic.DetailView):
-    model = Car
+    model = Driver
     queryset = Driver.objects.prefetch_related(
         "cars__manufacturer"
     )

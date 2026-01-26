@@ -2,16 +2,18 @@
 
 {% block content %}
 
-{% for car in car.manufacturer.all %}
-  <p>
-    Model: {{car.model}} <br>
-    Manufacturer: {{ car.manufacturer.name }} <br>
-    Country: {{ car.manufacturer.country }} <br>
-    {% for driver in driver.car.all %}
-      <p>{{driver.username}}</p>  <br>
-    {% endfor %}
-  </p>
+<p>
+  <strong>Model:</strong> {{ car.model }} <br>
+  <strong>Manufacturer:</strong> {{ car.manufacturer.name }} <br>
+  <strong>Country:</strong> {{ car.manufacturer.country }}
+</p>
+
+<h3>Drivers</h3>
+
+{% for driver in car.drivers.all %}
+  <p>{{ driver.username }}</p>
 {% empty %}
   <p>Nothing is found.</p>
 {% endfor %}
+
 {% endblock %}
