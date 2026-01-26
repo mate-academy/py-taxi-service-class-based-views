@@ -1,4 +1,8 @@
+from symtable import Class
+
 from django.shortcuts import render
+from django.views import generic
+from django.views.generic import ListView
 
 from taxi.models import Driver, Car, Manufacturer
 
@@ -13,3 +17,34 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    template_name = "templates/manufacturer_list.html"
+    queryset = model.objects.all().order_by("name")
+    paginate_by = 5
+
+
+class CarListView(generic.ListView):
+    model = Car
+    queryset = model.objects.select_related("manufacturer")
+    ordering = ["id"]
+    paginate_by = 5
+
+
+class CarDetailView(generic.DetailView):
+    model = Car
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    paginate_by = 5
+    ordering = ["id"]
+
+
+class DriverDetailView(generic.DetailView):
+    model = Car
+    queryset = Driver.objects.prefetch_related(
+        "cars__manufacturer"
+    )
