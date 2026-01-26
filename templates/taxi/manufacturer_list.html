@@ -1,16 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Manufacturer list</h1>
-  {% if manufacturer_list %}
-    <ol>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if manufacturer_list %}
       {% for manufacturer in manufacturer_list %}
-        <li>
-          <div>Manufacturer's name: <strong>{{ manufacturer.name }}</strong></div>
-          <div>Country of origin: <strong>{{ manufacturer.country }}</strong></div>
-        </li>
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
       {% endfor %}
-    </ol>
-  {% else %}
-    <p>Manufacturers have not yet been created</p>
-  {% endif %}
+    {% else %}
+      <td colspan="2" class="text-center align-middle">
+        Manufacturers have not yet been created
+      </td>
+    {% endif %}
+    </tbody>
+  </table>
 {% endblock %}

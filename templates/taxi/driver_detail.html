@@ -5,7 +5,7 @@
     {{ driver.last_name }}
     ({{ driver.username }})
   </h1>
-  {% if driver.cars %}
+  {% if driver.cars.all %}
     <ol>
       {% for car in driver.cars.all %}
         <li>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Car: {{ car.manufacturer.name }} {{ car.manufacturer.country }}</h1>
-  {% if car.drivers %}
+  {% if car.drivers.all %}
     <ol>
       {% for driver in car.drivers.all %}
         <li>
