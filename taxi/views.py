@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.views import generic
-from django.views.generic import ListView
-
 from taxi.models import Driver, Car, Manufacturer
 
 
@@ -25,7 +23,7 @@ class ManufacturerListView(generic.ListView):
 
 class CarListView(generic.ListView):
     model = Car
-    queryset = model.objects.select_related("manufacturer")
+    queryset = model.objects.select_related("manufacturer").prefetch_related("drivers")
     ordering = ["id"]
     paginate_by = 5
 
