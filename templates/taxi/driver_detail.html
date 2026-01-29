@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Detalhes do Motorista: {{ object.username }}{% endblock %}
+
+{% block content %}
+    <h2>Detalhes do Motorista</h2>
+    <p><strong>ID:</strong> {{ object.pk }}</p>
+    <p><strong>Username:</strong> {{ object.username }}</p>
+    <p><strong>Nome:</strong> {{ object.first_name }} {{ object.last_name }}</p>
+    <p><strong>Email:</strong> {{ object.email }}</p>
+
+    <h3>Carros Atribuídos</h3>
+    {% if object.cars.all %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Fabricante</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in object.cars.all %}
+                    <tr>
+                        <td>{{ car.pk }}</td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.year }}</td>
+                        <td>{{ car.manufacturer.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Este motorista não possui carros atribuídos.</p>
+    {% endif %}
+{% endblock %}

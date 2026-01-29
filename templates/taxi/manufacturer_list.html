@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Fabricantes{% endblock %}
+
+{% block content %}
+    <h2>Fabricantes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manufacturer in object_list %}
+            <tr>
+                <td>{{ manufacturer.pk }}</td>
+                <td>{{ manufacturer.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include "includes/pagination.html" %}
+{% endblock %}

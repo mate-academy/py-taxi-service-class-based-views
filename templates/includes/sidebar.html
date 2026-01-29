@@ -1,6 +1,25 @@
-<ul class="sidebar-nav">
-  <li><a href="#">Home page</a></li>
-  <li><a href="#">Manufacturers</a></li>
-  <li><a href="#">Cars</a></li>
-  <li><a href="#">Drivers</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Serviço de Táxi</title>
+    <style>
+        /* Estilos mínimos para a estrutura */
+        .content { display: flex; }
+        .sidebar { width: 200px; padding: 1em; border-right: 1px solid #ccc; }
+        .main { flex-grow: 1; padding: 1em; }
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Navegação</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'taxi:manufacturer-list' %}">Fabricantes</a></li>
+            <li><a href="{% url 'taxi:car-list' %}">Carros</a></li>
+            <li><a href="{% url 'taxi:driver-list' %}">Motoristas</a></li>
+        </ul>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Detalhes do Carro: {{ object.model }}{% endblock %}
+
+{% block content %}
+    <h2>Detalhes do Carro</h2>
+    <p><strong>ID:</strong> {{ object.pk }}</p>
+    <p><strong>Modelo:</strong> {{ object.model }}</p>
+    <p><strong>Ano:</strong> {{ object.year }}</p>
+    <p><strong>Placa:</strong> {{ object.plate }}</p>
+    <h3>Fabricante</h3>
+    <p><strong>Nome:</strong> {{ object.manufacturer.name }}</p>
+    <p><strong>País:</strong> {{ object.manufacturer.country }}</p>
+
+    <h3>Motoristas</h3>
+    {% if object.drivers.all %}
+        <ul>
+            {% for driver in object.drivers.all %}
+                <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum motorista associado a este carro.</p>
+    {% endif %}
+{% endblock %}
