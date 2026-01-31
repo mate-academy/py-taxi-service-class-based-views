@@ -1,3 +1,38 @@
 body {
-    margin-top: 20px;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar-nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin: 8px 0;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.sidebar-nav a:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table th {
+  background-color: #f8f9fa;
+  text-align: left;
 }
