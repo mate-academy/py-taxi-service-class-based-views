@@ -1,4 +1,3 @@
-from django.db.models import QuerySet
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
@@ -40,6 +39,4 @@ class DriverListView(ListView):
 
 class DriverDetailView(DetailView):
     model = Driver
-
-    def get_queryset(self) -> QuerySet:
-        return Driver.objects.prefetch_related("cars__manufacturer")
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
