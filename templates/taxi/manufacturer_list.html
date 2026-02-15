@@ -4,7 +4,8 @@
   <table>
     <thead>
     <tr>
-      <th>Manufacturer List</th>
+      <th>Name</th>
+      <th>Country</th>
     </tr>
     </thead>
     <tbody>
@@ -18,7 +19,7 @@
         </td>
       </tr>
     {% empty %}
-      <li>No manufacturer found</li>
+      <tr><td colspan="2">No manufacturer found</td></tr>
     {% endfor %}
     </tbody>
   </table>
