@@ -1,15 +1,12 @@
-from django.shortcuts import render
-
+from django.views.generic import TemplateView
 from taxi.models import Driver, Car, Manufacturer
 
+class IndexView(TemplateView):
+    template_name = "taxi/index.html"
 
-def index(request):
-    """View function for the home page of the site."""
-
-    context = {
-        "num_drivers": Driver.objects.count(),
-        "num_cars": Car.objects.count(),
-        "num_manufacturers": Manufacturer.objects.count(),
-    }
-
-    return render(request, "taxi/index.html", context=context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["num_drivers"] = Driver.objects.count()
+        context["num_cars"] = Car.objects.count()
+        context["num_manufacturers"] = Manufacturer.objects.count()
+        return context
