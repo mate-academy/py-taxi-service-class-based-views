@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">License number</th>
+    </tr>
+  </thead>
+
+  {% for driver in driver_list %}
+  <tr>
+    <td scope="row"><a href="{% url 'taxi:driver-detail' driver.id %}">{{driver.username}}</a></td>
+    <td scope="row">{{driver.license_number}}</td>
+  </tr>
+    {% empty %}
+  <tr>
+    <td scope="row">No driver</td>
+    <td scope="row">No driver</td>
+
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

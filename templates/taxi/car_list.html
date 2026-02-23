@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+    </tr>
+  </thead>
+  {% for car in car_list %}
+  <tr>
+    <td scope="row"><a href="{% url 'taxi:car-detail' car.id %}">{{car.id}}</a></td>
+    <td scope="row">{{car.model}}</td>
+    <td scope="row">{{car.manufacturer}}</td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td scope="row">No car id</td>
+    <td scope="row">No model</td>
+    <td scope="row">No manufacturer</td>
+  </tr>
+  {% endfor %}
+
+</table>
+{% endblock %}

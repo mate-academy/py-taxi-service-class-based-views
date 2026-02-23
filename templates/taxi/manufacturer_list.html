@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Company name</th>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+  {% for manufacturer in object_list %}
+  <tr>
+    <td scope="row">{{ manufacturer.name }}</td>
+    <td scope="row">{{ manufacturer.country }}</td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td scope="row">No manufacturers</td>
+    <td scope="row">No manufacturers</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
