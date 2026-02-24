@@ -3,9 +3,20 @@
 {% block content %}
   <h1>Driver: {{ driver.username }}</h1>
   <p><strong>All cars of a driver:</strong></p>
-  <ul>
-    {% for car in driver.cars.all %}
-      <li>Model: {{ car.model }}, manufacturer: {{ car.manufacturer.name }}.</li>
-    {% endfor %}
-  </ul>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Model</td>
+        <td>Manufacturer</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

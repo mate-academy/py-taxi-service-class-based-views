@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car: {{ car.model }}</h1>
-  <p>Manufacturer: {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
-  <p>All drivers:</p>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }}</li>
-  {% endfor %}
-  </ul>
+  <h1>Car details:</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Manufacturer</td>
+        <td>Drivers</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ car.manufacturer.name }}, {{ car.manufacturer.country }}</td>
+        <td>{% for driver in car.drivers.all %} {{ driver.username }}{% if not forloop.last %}, {% endif %} {% endfor %}</td>
+      </tr>
+    </tbody>
+  </table>
 {% endblock %}
