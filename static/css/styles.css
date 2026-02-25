@@ -1,3 +1,17 @@
 body {
     margin-top: 20px;
+
+}
+
+td {
+    background: aqua;
+    border: 1px solid bisque;
+    padding: 2px;
+    min-width: 200px;
+}
+
+th {
+    font-weight: bold;
+    padding: 2px;
+    text-align: center;
 }
