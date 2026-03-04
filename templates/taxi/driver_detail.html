@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Driver: {{ driver.username }}</h1>
+  <p><strong>First name: </strong>{{ driver.first_name }}</p>
+  <p><strong>Last name: </strong>{{ driver.last_name }}</p>
+  <p><strong>Licence: </strong>{{ driver.license_number }}</p>
+
+  <div class="ml-3">
+    <p><strong>Cars:</strong></p>
+    {% if driver.cars.all %}
+      <table class="table table-bordered small">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Model</th>
+          <th scope="col">Manufacturer</th>
+        </tr>
+      </thead>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+      {% else %}
+        <p>There are no cars!</p>
+      {% endif %}
+  </div>
+
+{% endblock %}
