@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1><strong>Driver Username:</strong> {{ driver.username }}</h1>
+  <p><strong>Driver Name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+  <p>Email: {{ driver.email }}</p>
+  <p>Licence number: {{ driver.license_number }}</p>
+  <p>Date joined: {{ driver.date_joined }}</p>
+  <p>Is Active: {{ driver.is_active }}</p>
+  <br>
+  <p><strong>Cars of the Driver:</strong></p>
+  {% if driver.cars.all %}
+    <table>
+    <tr>
+      <th>ID</th>
+      <th>Model</th>
+    </tr>
+    {% for car in driver.cars.all %}
+      <tr>
+      <td><a href="{{ car.get_absolute_url }}"> {{ car.id }}</a></td>
+      <td>{{ car.model }}</td>
+      </tr>
+      {% empty %}
+       "This driver has no cars!"
+    {% endfor %}
+    </table>
+    {% else %}
+      <p>There are no Cars</p>
+  {% endif %}
+{% endblock %}
