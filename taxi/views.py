@@ -1,4 +1,3 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
@@ -17,7 +16,7 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-class ManufacturerListView(LoginRequiredMixin, generic.ListView):
+class ManufacturerListView(generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
     template_name = "taxi/manufacturer_list.html"
@@ -25,23 +24,23 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
-class CarListView(LoginRequiredMixin, generic.ListView):
+class CarListView(generic.ListView):
     model = Car
     paginate_by = 5
     # Оптимізація запиту до іноземного ключа (Manufacturer)
     queryset = Car.objects.select_related("manufacturer")
 
 
-class CarDetailView(LoginRequiredMixin, generic.DetailView):
+class CarDetailView(generic.DetailView):
     model = Car
 
 
-class DriverListView(LoginRequiredMixin, generic.ListView):
+class DriverListView(generic.ListView):
     model = Driver
     paginate_by = 5
 
 
-class DriverDetailView(LoginRequiredMixin, generic.DetailView):
+class DriverDetailView(generic.DetailView):
     model = Driver
     # Оптимізація запиту ManyToMany (cars)
     # та вкладеного ForeignKey (manufacturer)
