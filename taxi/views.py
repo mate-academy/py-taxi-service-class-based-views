@@ -43,5 +43,6 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
-    # Оптимізація запиту ManyToMany (cars) та вкладеного ForeignKey (manufacturer)
+    # Оптимізація запиту ManyToMany (cars)
+    # та вкладеного ForeignKey (manufacturer)
     queryset = Driver.objects.prefetch_related("cars__manufacturer")
