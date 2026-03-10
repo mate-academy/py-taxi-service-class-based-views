@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Car: {{ car.model }}</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">Manufacturer country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ car.manufacturer.name }}</td>
+      <td>{{ car.manufacturer.country }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Drivers</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">User name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for driver in car.drivers.all %}
+      <tr>
+        <td>{{ driver.username }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td>No drivers assigned to this car.</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+

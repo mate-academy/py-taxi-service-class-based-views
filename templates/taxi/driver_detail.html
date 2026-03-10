@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Driver: {{ driver.username }}</h2>
+  <h3>Assigned car:</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">Manufacturer country</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for car in driver.cars.all %}
+      <tr>
+        <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>{{ car.manufacturer.country }}</td>
+
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="3">This driver is not assigned to any car.</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
