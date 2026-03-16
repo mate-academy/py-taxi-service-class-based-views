@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+   <h1>Driver: {{ object.username }}</h1>
+  <ul>
+    <li>First name: {{ object.first_name }}</li>
+    <li>Last name: {{ object.last_name }}</li>
+    <li>Email: {{ object.email }}</li>
+  </ul>
+  <h2>Cars</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Manufacturer</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in object.cars.all %}
+        <tr>
+          <td><a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a></td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No cars</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
