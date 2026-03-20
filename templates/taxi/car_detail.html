@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1>Car: {{ car.model }}</h1>
+  <hr>
+
+  <div class="car-info">
+    <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }} {{ car.manufacturer.country }}</p>
+  </div>
+
+  <h3>Drivers Assigned to this car:</h3>
+  <ul class="list-group">
+    {% for driver in car.drivers.all %}
+      <li class="list-group-item">
+        {{ driver.username }} - (Licence number: {{ driver.license_number|default:"N/A" }})
+      </li>
+    {% empty %}
+      <li>No drivers assigned to this car.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
