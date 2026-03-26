@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for car in driver.cars.all %}
+        <p class="fw-bold">Car Id: {{ car.id }}</p>
+        <p class="text-primary">Model: {{ car.model }}</p>
+        <br>
+        <br>
+    {% endfor %}
+{% endblock %}
