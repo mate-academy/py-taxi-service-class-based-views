@@ -14,10 +14,10 @@
     <tbody id="driver-table-body">
       {% for driver in object_list %}
       <tr>
+        <td>{{ driver.id }}</td>
         <td>
-          <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.id }}</a>
+          <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a>
         </td>
-        <td>{{ driver.username }}</td>
         <td>{{ driver.license_number }}</td>
       </tr>
       {% empty %}
