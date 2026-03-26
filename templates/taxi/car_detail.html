@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Car Detail</h2>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row">ID</th>
+        <td>{{ object.id }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Model</th>
+        <td>{{ object.model }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Manufacturer</th>
+        <td>{{ object.manufacturer.name }} — {{ object.manufacturer.country }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Drivers</th>
+        <td>
+          {% if object.drivers.all %}
+            <ul class="list-unstyled mb-0">
+              {% for driver in object.drivers.all %}
+                <li>{{ driver.username }}</li>
+              {% empty %}
+                <li>No drivers assigned.</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            No drivers assigned.
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary mt-3">Back to Car List</a>
+</div>
+{% endblock %}
