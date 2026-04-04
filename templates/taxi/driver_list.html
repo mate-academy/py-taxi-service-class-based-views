@@ -3,18 +3,18 @@
 {% block content %}
   <h1>Drivers</h1>
   <p>
-    <ul>
+    <table>
       {% if driver_list %}
         {% for driver in driver_list %}
           <li>
           <a href="{% url "taxi:driver-detail" driver.id %}">
-            {{ driver.license_number }}
+            {{ driver.username }}
           </a>
           </li>
         {% endfor %}
       {% else %}
         Not any drivers in taxi
       {% endif %}
-    </ul>
+    </table>
   </p>
 {% endblock %}

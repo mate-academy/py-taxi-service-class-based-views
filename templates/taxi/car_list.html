@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Cars</h1>
   <p>
-    <ul>
+    <table>
       {% if car_list %}
         {% for car in car_list %}
           <li>
@@ -13,6 +13,6 @@
       {% else %}
         Not any car in taxi
       {% endif %}
-    </ul>
+    </table>
   </p>
 {% endblock %}

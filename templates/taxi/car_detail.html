@@ -7,14 +7,14 @@
     in {{ car.manufacturer.country }}
     <br>
     All drivers of this car:
-    <un>
+    <ul>
       {% for driver in car.drivers.all %}
         <li>
-        <a href="#">{{ driver.license_number }}</a>
+        <a href="{% url "taxi:driver-detail" driver.id %}">{{ driver.username }}</a>
         </li>
       {% empty %}
         No any drivers
       {% endfor %}
-    </un>
+    </ul>
   </p>
 {% endblock %}

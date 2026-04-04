@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Manufacturers</h1>
   <p>
-    <ul>
+    <table>
       {% if manufacturer_list %}
         {% for man in manufacturer_list %}
           <li>
@@ -13,6 +13,6 @@
       {% else %}
         No any manufacturer
       {% endif %}
-    </ul>
+    </table>
   </p>
 {% endblock %}
