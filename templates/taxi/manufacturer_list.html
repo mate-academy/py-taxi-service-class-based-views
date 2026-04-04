@@ -5,10 +5,23 @@
   <p>
     <table>
       {% if manufacturer_list %}
+        <tr>
+            <td>
+              Name
+            </td>
+            <td>
+              Country
+            </td>
+          </tr>
         {% for man in manufacturer_list %}
-          <li>
-          {{ man.name }}, {{ man.country }}
-          </li>
+          <tr>
+            <td>
+              {{ man.name }}
+            </td>
+            <td>
+              {{ man.country }}
+            </td>
+          </tr>
         {% endfor %}
       {% else %}
         No any manufacturer
