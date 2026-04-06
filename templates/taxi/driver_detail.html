@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Driver Detail</h1>
+  {% if page_obj %}
+    <ul>
+      <li>ID : {{ object.id }}</li>
+      <li>license_number : {{ object.license_number }}</li>
+      <li></li>
+    </ul>
+  {% endif %}
+  {% include 'includes/pagination.html' %}
+{% endblock %}
