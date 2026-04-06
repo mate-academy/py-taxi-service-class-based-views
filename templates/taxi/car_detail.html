@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>Car Detail</h1>
-  {% if page_obj %}
-    <ul>
-      <li>ID : {{ object.id }}</li>
-      <li>Model : {{ object.Model }}</li>
-      <li>Manufacturer: {{ object.manufacturer.name }}, {{ object.manufacturer.country }}</li>
-      <li>Driver : {% for d in object.drivers.all %} {{ d.username }} {% endfor %}</li>
-      <li></li>
-    </ul>
-  {% endif %}
+
+  <ul>
+    <li>ID : {{ object.id }}</li>
+    <li>Model : {{ object.model }}</li>
+    <li>Manufacturer: {{ object.manufacturer.name }}, {{ object.manufacturer.country }}</li>
+    <li>Driver : {% for d in object.drivers.all %} {{ d.username }}{% if not forloop.last %}, {% endfor %}</li>
+  </ul>
 {% endblock %}
