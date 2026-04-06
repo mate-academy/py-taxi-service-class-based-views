@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>Driver Detail</h1>
-  {% if page_obj %}
-    <ul>
-      <li>ID : {{ object.id }}</li>
-      <li>license_number : {{ object.license_number }}</li>
-      <li></li>
-    </ul>
-  {% endif %}
-  {% include 'includes/pagination.html' %}
+  <ul>
+    {% for ob in object.cars.all %}
+    <li>ID : {{ ob.id }}</li>
+    <li>license_number : {{ ob.license_number }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}
