@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Driver Detail</h1>
+  <ul>
+    {% for ob in object.drivers.all %}
+    <li>ID : {{ ob.id }}</li>
+    <li>license_number : {{ ob.licence_number }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
