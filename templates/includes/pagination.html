@@ -1,0 +1,20 @@
+{% block pagination %}
+  {% if is_paginated %}
+    <div class="pagination" style="display:flex; align-items:center; gap:8px;">
+
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Prev</a>
+{#      {% else %}#}
+      {% endif %}
+
+      <div>
+        {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </div>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+{#      {% else %}#}
+      {% endif %}
+
+    </div>
+  {% endif %}
+{% endblock %}
