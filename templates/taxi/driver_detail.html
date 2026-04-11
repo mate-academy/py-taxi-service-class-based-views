@@ -5,7 +5,7 @@
   {% for car in driver.cars.all %}
     <ul>
       <li>{{ car.model }}</li>
-      <li>{{ car.manufacturer }}</li>
+      <li>{{ car.manufacturer.name }}</li>
     </ul>
   {% endfor %}
 {% endblock %}

@@ -14,8 +14,14 @@
         {{ car.pk }} </a>
       </td>
       <td>{{ car.model }}</td>
-      <td>{{ car.manufacturer }}</td>
-      <td>{{ car.drivers }}</td>
+      <td>{{ car.manufacturer.name }}</td>
+      <td>
+        <ul>
+          {% for driver in car.drivers.all %}
+            <li>{{ driver.first_name }} {{ driver.last_name }}</li>
+          {% endfor %}
+        </ul>
+      </td>
     </tr>
     {% endfor %}
   </table>
