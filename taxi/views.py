@@ -23,9 +23,8 @@ class ManufacturerListView(generic.ListView):
 
 class CarListView(generic.ListView):
     model = Car
-    queryset = Car.objects.all().order_by("manufacturer__name")
     paginate_by = 5
-    queryset = Car.objects.select_related("manufacturer")
+    queryset = Car.objects.select_related("manufacturer").order_by("manufacturer__name")
 
 
 class CarDetailView(generic.DetailView):
