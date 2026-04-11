@@ -2,10 +2,10 @@
 
 {% block content %}
 	<h2>{{ driver.first_name }} {{ driver.last_name }} has cars:</h2>
-    {% for car in driver.cars.all %}
         <ul>
+            {% for car in driver.cars.all %}
             <li>{{ car.model }}</li>
+            {% endfor %}
         </ul>
-    {% endfor %}
 
 {% endblock %}

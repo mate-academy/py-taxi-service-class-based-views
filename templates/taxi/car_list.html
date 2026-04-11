@@ -17,11 +17,11 @@
                 <td>{{ car.model }}</td>
                 <td>{{ car.manufacturer.name }}</td>
                 <td>
-                {% for driver in car.drivers.all %}
                     <ul>
+                    {% for driver in car.drivers.all %}
                         <li>{{ driver.first_name }}</li>
+                    {% endfor %}
                     </ul>
-                {% endfor %}
 
                 </td>
             </tr>
