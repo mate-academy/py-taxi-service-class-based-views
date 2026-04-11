@@ -11,6 +11,7 @@ from taxi.views import (
 app_name = "taxi"
 
 urlpatterns = [
+    path("", ManufacturerListView.as_view(), name="index"),
     path(
         "manufacturers/",
         ManufacturerListView.as_view(),
