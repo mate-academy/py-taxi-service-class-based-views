@@ -1,0 +1,14 @@
+{% if is_paginated %}
+  <table class="paginator">
+    <thead>
+    {% if page_obj.has_previous %}
+      <th class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a></th>
+    {% endif %}
+      <th class = "page-item active"><span class="page-link">{{ page_obj.number }}</span></th>
+    {% if page_obj.has_next %}
+      <th class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></th>
+    {% endif %}
+    </thead>
+  </table>
+{% endif %}
+
