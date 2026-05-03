@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<table class="table">
+		<thead>{{ driver.first_name }} {{ driver.last_name }}</thead>
+		<tbody>
+		{% if driver.cars.all %}
+			{% for car in driver.cars.all %}
+				<tr><td>{{ car.model }}. Manufacturer: {{ car.manufacturer.name }}</td></tr>
+					{% empty %}
+					<tr><td>No cars found.</td></tr>
+				{% endfor %}
+		{% endif %}
+		</tbody>
+	</table>
+{% endblock %}

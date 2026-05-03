@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<table class="table table">
+		<thead>Cars</thead>
+		<tbody>
+			{% if car_list %}
+					{% for car in car_list %}
+						<tr><td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></td></tr>
+						{% empty %}
+						<tr><td>No cars yet.</td></tr>
+					{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock %}

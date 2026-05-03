@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<table class="table">
+		<thead>Drivers</thead>
+		<tbody>
+			{% if driver_list %}
+				{% for driver in driver_list %}
+					<tr>
+						<td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></td>
+					</tr>
+					{% empty %}
+					<tr><td>No drivers.</td></tr>
+				{% endfor %}
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock %}
