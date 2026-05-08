@@ -1,0 +1,11 @@
+{% if is_paginated %}
+  <ul class="plagination">
+    {% if page_object.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_object.previous_page_number }}">Prev</a></li>
+    {% endif %}
+    <li class="page-item active"><a class="page-link">{{ page_object.number }} {{ paginator.num_pages }}</a></li>
+    {% if page_object.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_object.next_page_number }}">Next</a></li>
+    {% endif %}
+  </ul>
+{% endif %}
