@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">
+      Car: {{ car.model }}
+    </h1>
+    <hr>
+    <p>
+      <strong>Manufacturer:</strong>
+      {{ car.manufacturer.name }} ({{ car.manufacturer.country }})
+    </p>
+    <h2>Drivers:</h2>
+    <ul class="list-group">
+      {% for driver in car.drivers.all %}
+        <li class="list-group-item">
+          {{ driver.username }} ({{ driver.license_number }})
+        </li>
+      {% empty %}
+        <li class="list-group-item">No drivers assigned.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
