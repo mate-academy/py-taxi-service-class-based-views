@@ -5,7 +5,8 @@ from .views import (
     ManufacturerListView,
     CarListView,
     CarDetailView,
-    DriverListView, DriverDetailView,
+    DriverListView,
+    DriverDetailView,
 )
 
 urlpatterns = [
@@ -38,7 +39,7 @@ urlpatterns = [
         "drivers/",
         DriverListView.as_view(),
         name="driver-list"
-    )
+    ),
 ]
 
 app_name = "taxi"
