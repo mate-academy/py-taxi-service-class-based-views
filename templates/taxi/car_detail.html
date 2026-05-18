@@ -6,6 +6,7 @@
     <h3 class="mb-4">Info:</h3>
     <p><strong>Model:</strong> {{ car.model }}</p>
     <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
+    <p><strong>Country:</strong> {{ car.manufacturer.country }}</p>
     <h3 class="mb-4">Drivers:</h3>
     {% for driver in car.drivers.all %}
       <p>

@@ -10,6 +10,7 @@
     {% for car in driver.cars.all %}
       <p>
         <strong>Car:</strong> {{ car.model }}
+        <strong>Manufacturer:</strong> {{ car.manufacturer.name }}
       </p>
     {% endfor %}
   {% endif %}
