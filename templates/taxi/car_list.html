@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="text-center mb-4">Cars</h1>
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+      <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 30%;">Model</th>
+        <th style="width: 30%;">Manufacturer</th>
+        <th style="width: 30%;">Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for car in car_list %}
+        <tr>
+          <td><a href="{% url "taxi:car-detail" pk=car.pk %}">{{ car.id }}</a></td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.manufacturer.country }}</td>
+        </tr>
+      {% empty %}
+        <tr class="empty-row">
+          <td colspan="4" class="text-center py-4">
+            No cars available.
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
