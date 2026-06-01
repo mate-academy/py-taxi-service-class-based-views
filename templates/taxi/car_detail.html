@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+{%block content%}
+  <h1>Car: {{car.model}}</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Information about manufacture</h5>
+      <p class="card-text"><strong>Name:</strong> {{car.manufacturer.name}}</p>
+      <p class="card-text"><strong>Country:</strong> {{car.manufacture.country}}</p>
+    </div>
+  </div>
+
+  <h3>Car's drivers</h3>
+  <ul class="list-group">
+    {%for driver in car.drivers.all%}
+      <li class="list-group-item">
+        <a href="{% url 'taxi:driver-detail' pk=driver.id%}">{{driver.username}}</a>
+          {{driver.first_name}} {{driver.last_name}}
+      </li>
+    {%empty%}
+      <li class="list-group-item">No drivers yet</li>
+    {%endfor%}
+  </ul>
+{%endblock%}
