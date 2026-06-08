@@ -1,18 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ car.model }}</h1>
+  <h1>Driver Detail</h1>
 
-  <h2>Manufacturer</h2>
+  <p>
+    <strong>Username:</strong> {{ driver.username }}
+  </p>
 
-  <p>Name: {{ car.manufacturer.name }}</p>
-  <p>Country: {{ car.manufacturer.country }}</p>
+  <p>
+    <strong>First name:</strong> {{ driver.first_name }}
+  </p>
 
-  <h2>Drivers</h2>
+  <p>
+    <strong>Last name:</strong> {{ driver.last_name }}
+  </p>
+
+  <h2>Cars</h2>
 
   <ul>
-    {% for driver in car.drivers.all %}
-      <li>{{ driver.username }}</li>
+    {% for car in driver.cars.all %}
+      <li>
+        {{ car.model }} ({{ car.manufacturer.name }})
+      </li>
+    {% empty %}
+      <li>No cars assigned</li>
     {% endfor %}
   </ul>
 {% endblock %}
