@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <div>
+  Manufacturer:
+  {{ car.manufacturer.name }} {{ car.manufacturer.country }}
+  </div>
+  <div>
+    Drivers:
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li> {{ driver.username }} {{ driver.licence_number }} </li>
+        {% empty %}
+          No drivers found
+      {% endfor %}
+
+    </ul>
+
+  </div>
+
+{% endblock %}
