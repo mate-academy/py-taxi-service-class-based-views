@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Manufacturers</h2>
+  <table class="table table-bordered w-50">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for manufacturer in manufacturer_list %}
+      <tr>
+        <th scope="row">{{ manufacturer.id }}</th>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+      </tr>
+    {% empty %}
+      <p>No manufacturers yet.</p>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
