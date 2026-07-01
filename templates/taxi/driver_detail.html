@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-4">Driver: {{ driver.first_name }} {{ driver.last_name }}</h1>
+
+  <div class="card mb-4" style="max-width: 500px;">
+    <div class="card-body">
+      <p class="card-text"><strong>Username:</strong> {{ driver.username }}</p>
+      <p class="card-text"><strong>License Number:</strong> <code>{{ driver.license_number }}</code></p>
+    </div>
+  </div>
+  
+  <h3 class="mb-3">Cars</h3>
+  {% if driver.cars.all %}
+    <table class="table table-striped table-hover align-middle">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 10%;">ID</th>
+          <th scope="col">Model</th>
+          <th scope="col">Manufacturer</th>
+          <th scope="col">Country</th>
+          <th scope="col" style="width: 15%;">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in driver.cars.all %}
+          <tr>
+            <th scope="row">{{ car.id }}</th>
+            <td><strong>{{ car.model }}</strong></td>
+            <td>{{ car.manufacturer.name }}</td>
+            <td>{{ car.manufacturer.country }}</td>
+            <td>
+              <a href="{% url 'taxi:car-detail' car.id %}" class="btn btn-sm btn-outline-primary">
+                View Detail
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="text-muted">This driver is not assigned to any cars yet.</p>
+  {% endif %}
+{% endblock %}
