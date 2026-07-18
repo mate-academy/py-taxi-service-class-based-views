@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ driver.username }} - Details</title>{% endblock %}
+
+{% block content %}
+  <h1 class="my-4">Driver: {{ driver.username }}</h1>
+
+  <div class="card mb-4">
+    <div class="card-header bg-dark text-white">
+      <h5 class="mb-0">Personal Profile</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><strong>Full Name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+      <p class="card-text"><strong>License Number (CNH):</strong> {{ driver.license_number }}</p>
+    </div>
+  </div>
+
+  <h3 class="mb-3">Assigned Cars</h3>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Manufacturer</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td>{{ car.id }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>
+            <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-sm btn-primary">Details</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4" class="text-center text-muted">This driver has no assigned cars.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'taxi:driver-list' %}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}
