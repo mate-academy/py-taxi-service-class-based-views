@@ -23,6 +23,7 @@ class ManufacturerListView(generic.ListView):
     context_object_name = "manufacturer_list"
     template_name = "taxi/manufacturer_list.html"
 
+
 class CarListView(generic.ListView):
     model = Car
     paginate_by = 5
