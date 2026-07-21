@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>All our drivers:</h2>
+<ul>
+  {% for driver in driver_list %}
+    <li><a href="/drivers/{{ driver.username }}/">{{ driver.username }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
