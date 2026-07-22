@@ -37,6 +37,7 @@ class CarDetailView(generic.DetailView):
     model = Car
     context_object_name = "car_info"
     template_name = "taxi/car_detail.html"
+    queryset = Car.objects.select_related("manufacturer").prefetch_related("drivers")
 
     def get_object(self, queryset=None):
         try:
