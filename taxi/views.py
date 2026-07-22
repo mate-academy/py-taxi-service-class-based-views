@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.views import generic
 
@@ -36,6 +37,12 @@ class CarDetailView(generic.DetailView):
     model = Car
     context_object_name = "car_info"
     template_name = "taxi/car_detail.html"
+
+    def get_object(self, queryset=None):
+        try:
+            return super().get_object(queryset)
+        except Http404:
+            return None
 
 
 class DriverListView(generic.ListView):

@@ -19,17 +19,16 @@
         </a>
       </td>
       <td>{{ car.model }}</td>
-      <td>{{ car.manufacturer }}</td>
+      <td>{{ car.manufacturer.name }}, {{ car.manufacturer.country }}</td>
       <td>
         {% for driver in car.drivers.all %}
           {{ driver.username }}{% if not forloop.last %}, {% endif %}
+          </td>
         {% empty %}
-          No drivers
+          <td>No drivers</td>
         {% endfor %}
-      </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
 {% endblock %}
-

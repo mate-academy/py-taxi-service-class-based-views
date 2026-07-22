@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% if car_info %}
 <h1>Car: {{ car_info.model }}</h1>
-<h2>Manufacturer: {{ car_info.manufacturer }}</h2>
+<h2>Manufacturer: {{ car_info.manufacturer.name }}, {{ car_info.manufacturer.country }}</h2>
 <ul>
 <h2>Drivers:</h2>
   {% for driver in car_info.drivers.all %}
@@ -10,6 +11,8 @@
   {% empty %}
     <h2>Car has no drivers</h2>
 {% endfor %}
+  {% else %}
+    <h2>Car not found</h2>
+  {% endif %}
 </ul>
 {% endblock %}
-
