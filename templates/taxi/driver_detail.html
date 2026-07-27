@@ -11,7 +11,7 @@
       {% for cars in driver.cars.all %}
         <hr>
         <p class="text-muted">{{ cars.id }}</p>
-        <p><a href="{{ cars.get_absolute_url }}">{{ cars.model }}</a></p>
+        <p><a href="{{ cars.get_absolute_url }}">{{ car.id }}</a></p>
       {% endfor %}
     </div>
   </div>
