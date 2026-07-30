@@ -1,11 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Drivers</h1>
-  <ul>
+  <table>
+    <thead>
+    <tr>
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
+    </thead>
+    <tbody>
     {% for driver in driver_list %}
-      <li><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>; {{ driver.first_name }} {{ driver.last_name }}</li>
+      <tr>
+        <td>
+          <a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a>
+        </td>
+        <td>{{ driver.first_name }}</td>
+        <td>{{ driver.last_name }}</td>
+      </tr>
     {% empty %}
-      <li>There are no drivers in service</li>
+      <tr>
+        <td colspan="3">There are no drivers in service</td>
+      </tr>
     {% endfor %}
-  </ul>
+
+    </tbody>
+  </table>
 {% endblock %}

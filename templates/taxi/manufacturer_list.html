@@ -1,11 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Manufacturers</h1>
-  <ul>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
     {% for manufacturer in manufacturer_list %}
-      <li><strong>{{ manufacturer.name }}</strong> (Country: {{ manufacturer.country }})</li>
+      <tr>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+      </tr>
     {% empty %}
-      <li>There are no manufacturers</li>
+      <tr>
+        <td colspan="2">There are no manufacturers</td>
+      </tr>
     {% endfor %}
-  </ul>
+    </tbody>
+  </table>
 {% endblock %}

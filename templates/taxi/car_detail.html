@@ -3,11 +3,26 @@
   <h1>Car model: {{ car.model }}</h1>
   <p>Manufacturer: <strong>{{ car.manufacturer.name }}</strong> ({{ car.manufacturer.country }})</p>
   <h3>Drivers:</h3>
-  <ul>
+  <table>
+    <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>License number</th>
+    </tr>
+    </thead>
+    <tbody>
     {% for driver in car.drivers.all %}
-      <li><strong>{{ driver.first_name }} {{ driver.last_name }}</strong> License: {{ driver.license_number }}</li>
+      <tr>
+        <td>{{ driver.first_name }}</td>
+        <td>{{ driver.last_name }}</td>
+        <td>{{ driver.license_number }}</td>
+      </tr>
     {% empty %}
-      <li>There are no drivers in this car</li>
+      <tr>
+        <td colspan="3">There are no drivers in this car</td>
+      </tr>
     {% endfor %}
-  </ul>
+    </tbody>
+  </table>
 {% endblock %}
