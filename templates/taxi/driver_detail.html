@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Driver: {{ driver.username }}</h1>
-
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
+  <h1>Username: {{ driver.username }}</h1>
+  <p><strong>First Name:</strong> {{ driver.first_name }}</p>
+  <p><strong>Last Name:</strong> {{ driver.last_name }}</p>
   <p><strong>License number:</strong> {{ driver.license_number }}</p>
 
   <h3>Cars</h3>
-  {% if driver.cars.all %}
+  {% if driver.cars.exists %}
     <table class="table">
       <thead>
         <tr>
@@ -20,7 +19,7 @@
       <tbody>
         {% for car in driver.cars.all %}
           <tr>
-            <td>{{ car.id }}</td>
+            <td><a href="{{ car.get_absolute_url }}">{{ car.id }}</a></td>
             <td>{{ car.model }}</td>
             <td>{{ car.manufacturer.name }}</td>
           </tr>

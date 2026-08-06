@@ -6,27 +6,23 @@
   {% if manufacturer_list %}
     <table class="table">
       <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Country</th>
-      </tr>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Country</th>
+        </tr>
       </thead>
       <tbody>
-      {% for manufacturer in manufacturer_list %}
-        <tr>
-          <td>{{ manufacturer.id }}</td>
-          <td>{{ manufacturer.name }}</td>
-          <td>{{ manufacturer.country }}</td>
-        </tr>
-      {% endfor %}
+        {% for manufacturer in manufacturer_list %}
+          <tr>
+            <td>{{ manufacturer.id }}</td>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   {% else %}
     <p>No manufacturers found.</p>
   {% endif %}
 {% endblock %}
-{% if is_paginated %}
-    {% block pagination %}
-    {% endblock %}
-{% endif %}
