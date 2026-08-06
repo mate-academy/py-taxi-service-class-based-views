@@ -1,6 +1,26 @@
-<ul>
-  <li><a href="{% url 'taxi:index' %}">Home page</a></li>
-  <li><a href="{% url 'taxi:manufacturer-list' %}">Manufacturers</a></li>
-  <li><a href="{% url 'taxi:car-list' %}">Cars</a></li>
-  <li><a href="{% url 'taxi:driver-list' %}">Drivers</a></li>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'taxi:index' %}">
+    <div class="sidebar-brand-text mx-3">Taxi Service</div>
+  </a>
+  <hr class="sidebar-divider my-0">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:index' %}">
+      <span>Home</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:manufacturer-list' %}">
+      <span>Manufacturers</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:car-list' %}">
+      <span>Cars</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:driver-list' %}">
+      <span>Drivers</span>
+    </a>
+  </li>
 </ul>
