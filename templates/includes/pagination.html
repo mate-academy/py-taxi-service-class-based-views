@@ -1,5 +1,4 @@
-{% block content %}
-  {% if is_paginated %}
+ {% if is_paginated %}
     <ul class="pagination">
       {% if page_obj.has_previous %}
         <li class="page-item">
@@ -18,4 +17,4 @@
       {% endif %}
     </ul>
   {% endif %}
-{% endblock %}
+ 
