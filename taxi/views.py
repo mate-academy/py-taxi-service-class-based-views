@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+
 from taxi.models import Driver, Car, Manufacturer
 
 
