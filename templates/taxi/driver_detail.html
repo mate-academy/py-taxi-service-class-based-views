@@ -1,18 +1,14 @@
-{% extends "base.html" %}
-
-{% block content %}
-  <h1>Username: {{ driver.username }}</h1>
-  <p>First name: {{ driver.first_name }}</p>
-  <p>Last name: {{ driver.last_name }}</p>
-  <p>License number: {{ driver.license_number }}</p>
-  <h2>Cars</h2>
-  {% if driver.cars.all %}
-    <ul>
-      {% for car in driver.cars.all %}
-        <li>{{ car.model }} ({{ car.manufacturer.name }})</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No cars for this driver.</p>
-  {% endif %}
-{% endblock %}
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:index' %}">Home page</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:manufacturer-list' %}">Manufacturers</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:car-list' %}">Cars</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'taxi:driver-list' %}">Drivers</a>
+  </li>
+</ul>

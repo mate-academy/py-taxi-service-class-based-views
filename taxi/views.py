@@ -1,19 +1,18 @@
-from symtable import Class
-
 from django.shortcuts import render
-
-from taxi.models import Driver, Car, Manufacturer
-
 from django.views import generic
+
+from taxi.models import Car, Driver, Manufacturer
 
 
 def index(request):
-    """View function for the home page of the site."""
+    num_drivers = Driver.objects.count()
+    num_cars = Car.objects.count()
+    num_manufacturers = Manufacturer.objects.count()
 
     context = {
-        "num_drivers": Driver.objects.count(),
-        "num_cars": Car.objects.count(),
-        "num_manufacturers": Manufacturer.objects.count(),
+        "num_drivers": num_drivers,
+        "num_cars": num_cars,
+        "num_manufacturers": num_manufacturers,
     }
 
     return render(request, "taxi/index.html", context=context)

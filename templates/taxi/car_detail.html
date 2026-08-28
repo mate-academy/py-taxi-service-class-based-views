@@ -4,7 +4,7 @@
   <h1>Model: {{ car.model }}</h1>
   <p>Manufacturer: {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
   <h2>Drivers</h2>
-  {% if car.drivers.all %}
+  {% if car.drivers.all|length %}
     <ul>
       {% for driver in car.drivers.all %}
         <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
