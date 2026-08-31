@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver {{ driver.username }}</h1>
+  <p>Username: {{ driver.username }}</p>
+  <p>Name: {{ driver.first_name }}</p>
+  <p>Surname: {{ driver.last_name }}</p>
+  <p>Number of license: {{ driver.license_number }}</p>
+    <div class="ml-3">
+    <h3>Cars:</h3>
+    {% for car in driver.cars.all %}
+      <hr>
+      <p class="text-muted">{{ car.id }}</p>
+      <p>{{ car.model }} {{ car.manufacturer }}
+      </p>
+      {% empty %}
+        <p>No cars!</p>
+    {% endfor %}
+  </div>
+{% endblock %}
