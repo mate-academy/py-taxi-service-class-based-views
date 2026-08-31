@@ -42,4 +42,3 @@ urlpatterns = [
         name="driver-detail"
     ),
 ]
-
