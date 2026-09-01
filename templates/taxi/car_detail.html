@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car details</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Country</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>{{ car.model }}</th>
+        <td>{{ car.manufacturer }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
