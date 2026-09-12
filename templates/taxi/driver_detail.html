@@ -7,7 +7,7 @@
     <h3>Cars:</h3>
     {% for car in driver.cars.all %}
       <hr>
-      <p>Car: {{ car.manufacturer.name }} {{ car.model }}</p>
+      <p>Car: {{ car.model }}</p>
     {% endfor %}
   </div>
 {% endblock %}
