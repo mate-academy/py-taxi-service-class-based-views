@@ -10,18 +10,16 @@
     <li><strong>Country:</strong> {{ car.manufacturer.country }}</li>
   </ul>
   <h4>Drivers</h4>
-  {% if car.drivers.all %}
-    <ul>
-      {% for driver in car.drivers.all %}
-        <li>
-          <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
-            {{ driver.username }}
-          </a>
-          ({{ driver.first_name }} {{ driver.last_name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no drivers assigned to this car.</p>
-  {% endif %}
+  <ul>
+    {% for driver in car.drivers.all %}
+      <li>
+        <a href="{% url 'taxi:driver-detail' pk=driver.id %}">
+          {{ driver.username }}
+        </a>
+        ({{ driver.first_name }} {{ driver.last_name }})
+      </li>
+    {% empty %}
+      <li>There are no drivers assigned to this car.</li>
+    {% endfor %}
+  </ul>
 {% endblock %}
