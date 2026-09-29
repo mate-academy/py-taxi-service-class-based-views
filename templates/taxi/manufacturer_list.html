@@ -5,9 +5,24 @@
 
 {% block content %}
 <h1>Manufacturers List</h1>
-<ul>
+    {% if manufacturer_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
     {% for manufacturer in manufacturer_list %}
-    <li>{{manufacturer.name}} ({{manufacturer.country}})</li>
+      <tr>
+        <td>{{ manufacturer.id }}</td>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+      </tr>
     {% endfor %}
-</ul>
+
+    </table>
+    {% else %}
+      <p>There are no manufacturers in list.</p>
+    {% endif %}
+
 {% endblock %}
