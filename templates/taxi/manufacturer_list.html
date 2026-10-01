@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for manufacturer in manufacturer_list %}
+      <tr>
+        <td>{{ manufacturer.id }}</td>
+        <td>{{ manufacturer.name }}</td>
+      </tr>
+      {% empty %}
+        <tr>
+          <td colspan="2">No manufacturers available.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% include "includes/pagination.html" %}
+{% endblock %}
