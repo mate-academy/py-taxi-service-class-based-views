@@ -7,10 +7,10 @@
     {% for car in driver.cars.all %}
       <hr>
       <p>
-        {{ car.model }}
+        {{ car.model }} {{ car.manufacturer.name }} ({{ car.manufacturer.country }})
       </p>
     {% empty %}
-      <p>No drivers!</p>
+      <p>No cars!</p>
     {% endfor %}
   </div>
 {% endblock %}
