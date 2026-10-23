@@ -1,3 +1,11 @@
 body {
     margin-top: 20px;
+    padding-bottom: 56px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
 }
