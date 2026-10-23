@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if manufacturer_list %}
+    <table>
+      <tr>
+        <th>Manufacturer List</th>
+      </tr>
+      {% for manufacturer in manufacturer_list %}
+      <tr>
+        <td><a href="{{ manufacturer.get_absolute_url }}">{{ manufacturer.name }} ({{ manufacturer.country }})</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}
