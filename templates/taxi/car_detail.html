@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car</h1>
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>model</th>
+      <th>manufacturer</th>
+      <th>country</th>
+    </tr>
+
+    <tr>
+      <td>{{ car.id }}</td>
+      <td>{{ car.model }}</td>
+      <td>{{ car.manufacturer.name }}</td>
+      <td>{{ car.manufacturer.country }}</td>
+    </tr>
+  </table>
+
+  <h2>Drivers</h2>
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>username</th>
+      <th>first name</th>
+      <th>last name</th>
+    </tr>
+
+    {% for driver in car.drivers.all %}
+      <tr>
+        <td>{{ driver.id }}</td>
+        <td>{{ driver.username }}</td>
+        <td>{{ driver.first_name }}</td>
+        <td>{{ driver.last_name }}</td>
+      </tr>
+    {% empty %}
+      <p>No drivers found</p>
+    {% endfor %}
+
+  </table>
+{% endblock %}
