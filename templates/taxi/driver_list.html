@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Driver List{% endblock %}
+{% block content %}
+  <h1>Motoristas</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Usuário</th>
+        <th>Nome</th>
+        <th>Qtd. Carros</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for driver in object_list %}
+        <tr>
+          <td><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></td>
+          <td>{{ driver.full_name }}</td>
+          <td>{{ driver.num_cars }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="3">Nenhum motorista encontrado.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% include "includes/pagination.html" %}
+{% endblock %}

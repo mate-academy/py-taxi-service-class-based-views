@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Fabricantes{% endblock %}
+{% block content %}
+  <h1>Fabricantes</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>País</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for manufacturer in object_list %}
+        <tr>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="2">Nenhum fabricante encontrado.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% include "includes/pagination.html" %}
+{% endblock %}
