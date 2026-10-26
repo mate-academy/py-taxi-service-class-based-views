@@ -1,73 +1,82 @@
-# Taxi service class-based views
+<div align="center">
 
-- Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
-- Use the following command to load prepared data from fixture to test and debug your code:
+# 🚕 Taxi Service — Class-Based Views
+### Listagens, detalhes e paginação com Django
 
-  ```python manage.py loaddata taxi_service_db_data.json```
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Study](https://img.shields.io/badge/Tipo-Projeto%20educacional-475569?style=for-the-badge)
 
-- After loading data from fixture you can use following superuser (or create another one by yourself):
-  - Login: `admin.user`
-  - Password: `1qazcde3`
-- Make sure that you change the settings for [html-files](https://github.com/mate-academy/py-task-guideline/blob/main/html_settings/README.MD).
-Use 2 indents in `.html` files.
+</div>
 
-Feel free to add more data using admin panel, if needed.
+## 🎯 Sobre o projeto
 
-In this task, you should implement class-based list and detail views.
+Etapa de prática de **class-based views** em Django para consultar carros, motoristas e fabricantes em interfaces HTML.
 
-1. Create `ManufacturerListView` list view.
-    - Set model on which the list view is built.
-    - Set queryset, select all manufacturers, they should be ordered by name by default.
-    - Set pagination equals to 5. It indicates how many instances should be displayed on a single page.
+**Código relevante:** branch [`feature/class-based-views-taxi`](https://github.com/WalterMatheusgg/py-taxi-service-class-based-views/tree/feature/class-based-views-taxi). Desenvolvido como parte de exercícios práticos com Django; não representa um sistema comercial de transporte.
 
-2. Create `CarListView` list view.
-    - Set model, pagination equals to 5, queryset.
-    - **Note**: Car model has foreign key `manufacturer`, so don't forget to improve query performance _(N+1 problem)_.
+## ✨ Funcionalidades e estrutura
 
-3. Create `CarDetailView` detail view.
-    - Set only model.
-    
-4. Create `DriverListView` list view.
-    - Set model and pagination equals to 5.
+| Área | Recurso presente na implementação |
+|:--|:--|
+| **Listagem** | Views baseadas em classes para exibição das entidades. |
+| **Detalhes** | Páginas específicas de carros e motoristas. |
+| **Paginação** | Template compartilhado e navegação por páginas. |
+| **Templates** | Telas separadas por entidade. |
 
-5. Create `DriverDetailView` detail view.
-    - Set model and queryset.
-    - In this view, you display information about cars of the driver. 
-      **Optimize query**: don't make a query for a manufacturer for each car _(N+1 problem)_.
+## 🏗️ Arquitetura
 
-6. Inside `taxi/urls.py`:
-   - Create such paths:
-     - by `manufacturers/` you should get manufacturer list view;
-     -  `cars/` - car list view;
-     -  `cars/pk/` - car detail view;
-     -  `drivers/` - driver list view;      
-     -  `drivers/pk/` - driver detail view.
+```mermaid
+flowchart LR
+A["Navegador"] --> B["Django URLs + Views"]
+B --> C["Models e regras"]
+C --> D[("SQLite")]
+B --> E["Templates HTML"]
+```
 
-7. Create templates for the views. 
-   - By default, class-based views try to find a template based on the model name and certain suffix: 
-     1. For list view - `_list`
-     2. For detail view - `_detail`
-   - Create templates for manufacturer list, car list, driver list. In these templates:
-       - Create table with the information of each instance.
-         1. In the car list set a link on the id field that leads to the car detail page.
-         2. In the driver list set a link on the username field that leads to the driver detail page.
-   - Create driver detail template:
-       - place information about all cars of the driver.
-   - Create car detail template:
-       - place information about the manufacturer of the car (name, country);
-       - place information about all drivers of that car.
-   - Inside `templates/includes`:
-       - create `pagination.html` for the pagination purpose and include this template inside `base.html`;
-       - in `sidebar.html` add links to the home page, manufacturer list page, car list page, drivers list page.
-   - Check that you put empty lines at the end of each html-file.
-    
-8. Run server, open `http://127.0.0.1:8000/`, check if everything is displayed correctly.
-9. Check that you put empty lines at the end of each HTML file.
-10. Check your code style with `flake8`.
-11. Run `python manage.py test` to check your code results.
+Organização principal da aplicação:
 
-### Note: Attach screenshots of all created or modified pages to pull request. 
-it would be better to attach screenshots to the comment, NOT in commit. 
-It's important to **attach images** not links to them. See example:
+```text
+taxi/             # Models, views, admin e rotas
+taxi_service/     # Configuração Django
+templates/        # Páginas HTML (quando aplicável)
+manage.py         # Comandos do Django
+```
 
-![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/python_pr_with_images.png)
+## 🚀 Executar localmente
+
+Use um ambiente Python isolado, com versão compatível com as dependências do projeto.
+
+```bash
+git clone -b feature/class-based-views-taxi https://github.com/WalterMatheusgg/py-taxi-service-class-based-views.git
+cd py-taxi-service-class-based-views
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python manage.py migrate
+python manage.py check
+python manage.py runserver
+```
+
+Acesse **http://127.0.0.1:8000/**.
+
+Para testar funcionalidades existentes:
+
+```bash
+python manage.py test
+```
+
+**Observação:** não executei o projeto ou a suíte nesta revisão. Em algumas etapas, os testes são fornecidos como parte do enunciado do curso e podem exigir configuração adicional.
+
+## 🔒 Limites e cuidados
+
+A branch secundária inclui views e templates adicionais que não aparecem integralmente na `master` atual.
+
+Use somente dados de teste. Não reutilize senhas presentes em fixtures, mantenha `DEBUG` desabilitado em servidores públicos e revise dependências antes de qualquer implantação externa.
+
+## 👨‍💻 Repositório
+
+**Walter Matheus Soares da Silva** · [GitHub](https://github.com/WalterMatheusgg)
+
+Outros projetos do portfólio: [NEXUS CRM](https://github.com/WalterMatheusgg/NEXUS) · [Biblioteca Digital](https://github.com/WalterMatheusgg/library-service/tree/develop)
