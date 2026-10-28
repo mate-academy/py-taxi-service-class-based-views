@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+
 from .models import Driver, Car, Manufacturer
 
 
@@ -29,6 +30,19 @@ class DriverAdmin(UserAdmin):
 class CarAdmin(admin.ModelAdmin):
     search_fields = ("model",)
     list_filter = ("manufacturer",)
+    list_display = ("model", "manufacturer", "drivers_list_display")
+
+    def drivers_list_display(self, obj):
+        drivers = [str(driver) for driver in obj.drivers.all()]
+        return ", ".join(drivers)
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        return queryset.prefetch_related("drivers")
+
+    drivers_list_display.short_description = "Drivers"
 
 
-admin.site.register(Manufacturer)
+@admin.register(Manufacturer)
+class ManufacturerAdmin(admin.ModelAdmin):
+    list_display = ("name", "country")

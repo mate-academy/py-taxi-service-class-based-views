@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Cars</h1>
+  <table class="table table-dark text-center">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">id</th>
+    </tr>
+    {% for car in car_list %}
+      <tr>
+        <td>{{ forloop.counter0|add:page_obj.start_index }}</td>
+        <th scope="row">{{ car.model }}</th>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>
+          <a href="{% url 'taxi:car-detail' car.pk %}">
+            {{ car.id }}
+          </a>
+        </td>
+      </tr>
+    {% empty %}
+        <tr><td colspan="4">There are no cars</td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}

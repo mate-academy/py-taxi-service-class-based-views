@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Drivers</h1>
+  <table class="table table-dark text-center">
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">License number</th>
+    <th scope="col">Username</th>
+    {% for driver in driver_list %}
+      <tr>
+        <td>{{ forloop.counter0|add:page_obj.start_index }}</td>
+        <th scope="row">{{ driver }}</th>
+        <td>{{ driver.license_number }}</td>
+        <td><a href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a></td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan=4>There are no drivers</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
