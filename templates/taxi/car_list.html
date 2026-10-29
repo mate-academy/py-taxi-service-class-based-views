@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Cars</h1>
+<ul>
+  {% for car in car_list %}
+  <li>
+    <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
+    ({{ car.manufacturer.name }})
+  </li>
+  {% empty %}
+  <li>No cars available.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block pagination %}
+{% include "includes/pagination.html" %}
+{% endblock %}
