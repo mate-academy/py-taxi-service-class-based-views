@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+
 from .models import Driver, Car, Manufacturer
 
 
@@ -27,6 +28,7 @@ class DriverAdmin(UserAdmin):
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
+    list_display = ["model", "manufacturer", ]
     search_fields = ("model",)
     list_filter = ("manufacturer",)
 
