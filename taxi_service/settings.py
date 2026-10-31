@@ -111,6 +111,7 @@ AUTH_USER_MODEL = "taxi.Driver"
 
 LANGUAGE_CODE = "en-us"
 
+# Fix
 TIME_ZONE = "Europe/Kyiv"
 
 USE_I18N = True
