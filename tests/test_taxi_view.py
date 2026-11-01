@@ -1,7 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 from taxi.models import Manufacturer
+
 
 MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
 DRIVER_LIST_URL = reverse("taxi:driver-list")
@@ -13,6 +15,13 @@ class ManufacturerListTest(TestCase):
     fixtures = [
         "taxi_service_db_data.json",
     ]
+
+    def setUp(self):
+        User = get_user_model()
+        self.user = User.objects.create_user(
+            username="testuser", password="password"
+        )
+        self.client.force_login(self.user)
 
     def test_manufacturer_list_response_with_correct_template(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
@@ -43,6 +52,13 @@ class CarListTest(TestCase):
         "taxi_service_db_data.json",
     ]
 
+    def setUp(self):
+        User = get_user_model()
+        self.user = User.objects.create_user(
+            username="testuser", password="password"
+        )
+        self.client.force_login(self.user)
+
     def test_car_list_response_with_correct_template(self):
         response = self.client.get(CAR_LIST_URL)
 
@@ -62,8 +78,16 @@ class CarListTest(TestCase):
 
 class DriverListTest(TestCase):
     fixtures = [
+
         "taxi_service_db_data.json",
     ]
+
+    def setUp(self):
+        User = get_user_model()
+        self.user = User.objects.create_user(
+            username="testuser", password="password"
+        )
+        self.client.force_login(self.user)
 
     def test_car_list_response_with_correct_template(self):
         response = self.client.get(DRIVER_LIST_URL)
