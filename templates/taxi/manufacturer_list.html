@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <table>
+    {% for i in manufacturer_list %}
+      <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.country }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% include 'includes/pagination.html' %}
+{% endblock %}
