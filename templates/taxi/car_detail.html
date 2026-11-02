@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <strong>Виробник: {{ car.manufacturer.name }}</strong>
+  <strong>Країна: {{ car.manufacturer.country }} </strong>
+  <table>
+    {% for driver in car.drivers.all %}
+      <tr>
+        <td><a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.username }}</a></td>
+        {% empty %}
+        <td>Порожньо</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
