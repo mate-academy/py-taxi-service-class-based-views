@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Car model: {{ car.model }}</h1>
+<p><strong>Manufacturer: </strong>
+  <a href="{% url 'taxi:manufacturer-list' %}">
+    {{ car.manufacturer.name }}, {{ car.manufacturer.country }}
+  </a>
+</p>
+<h3>Cars</h3>
+
+<ol class="ml-3">
+  {% for driver in car.drivers.all %}
+    <li style="list-style-type: none">
+      <hr>
+      <div class="text-muted">{{ driver.id }}</div>
+      <a href="{{ driver.get_absolute_url }}">
+        <p><strong>{{ driver.username }}: </strong>{{ driver.first_name }} {{ driver.last_name }}</p>
+      </a>
+    </li>
+  {% empty %}
+    <p>Unfortunately, that car doesn't have some driver</p>
+  {% endfor %}
+</ol>
+{% endblock %}
