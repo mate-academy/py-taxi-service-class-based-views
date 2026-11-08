@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1><strong>Cars</strong></h1>
+<ul>
+  {% if car %}
+  {% for item in car %}
+  <li><a href="{{ item.get_absolute_url }}">{{item.model}}</a></li>
+  {% endfor %}
+  {% else %}
+  <p>There are no such a Car</p>
+</ul>
+{% endif %}
+{% endblock %}

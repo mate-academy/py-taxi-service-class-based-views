@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 
 from taxi.models import Driver, Car, Manufacturer
 
@@ -13,3 +14,29 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer.html"
+    context_object_name = "manufacturers"
+
+
+class CarListView(generic.ListView):
+    model = Car
+    template_name = "taxi/car.html"
+    context_object_name = "car"
+
+
+class CarDetailView(generic.DetailView):
+    model = Car
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    template_name = "taxi/driver.html"
+    context_object_name = "driver"
+
+
+class DriverDetailView(generic.DetailView):
+    model = Driver
