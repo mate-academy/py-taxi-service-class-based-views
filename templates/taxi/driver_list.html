@@ -5,16 +5,31 @@
 {% block content %}
   <h1>Drivers list</h1>
   {% if driver_list %}
-    <ol>
-      {% for driver in driver_list %}
-        <li>
-          <a href="{{ driver.get_absolute_url }}">
-            {{ driver.username }}
-          </a>
-        </li>
-      {% endfor %}
-    </ol>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">License number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for driver in driver_list %}
+          <tr>
+            <td>
+              <a href="{{ driver.get_absolute_url }}">
+                {{ driver.username }}
+              </a>
+            </td>
+            <td>{{ driver.first_name }}</td>
+            <td>{{ driver.last_name }}</td>
+            <td>{{ driver.license_number }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   {% else %}
-    <p>There is no cars</p>
+    <p>There are no drivers.</p>
   {% endif %}
 {% endblock %}
