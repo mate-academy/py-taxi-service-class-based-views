@@ -1,0 +1,33 @@
+{% if is_paginated %}
+    <ul class="pagination d-flex justify-content-center align-items-center">
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+        </li>
+      {% endif %}
+      <li class="page-item active">
+        <div class="page-link d-flex align-items-center">
+          <form action="" method="GET" class="m-0">
+            <input
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                name="page"
+                value="{{ page_obj.number }}"
+                min="1"
+                max="{{ paginator.num_pages }}"
+                class="form-control form-control-sm text-center p-0"
+                style="width: 35px; height: 24px;"
+                aria-label="Page number"
+            >
+          </form>
+          <span class="ml-2">of {{ paginator.num_pages }}</span>
+        </div>
+      </li>
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        </li>
+      {% endif %}
+    </ul>
+  {% endif %}
