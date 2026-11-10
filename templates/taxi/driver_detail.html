@@ -3,12 +3,8 @@
 {% block content %}
 <h1>{{ driver.first_name }}</h1>
 <ul>
-  {% if driver %}
   {% for item in driver.cars.all %}
   <li>{{ item.model }}</li>
   {% endfor %}
-  {% else %}
-  <p>There are no such a Car</p>
 </ul>
-{% endif %}
 {% endblock %}

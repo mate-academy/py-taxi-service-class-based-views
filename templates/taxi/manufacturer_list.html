@@ -2,11 +2,28 @@
 
 {% block content %}
 <h1><strong>Manufacturers</strong></h1>
-<ul>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Country</th>
+  </tr>
+  </thead>
+  <tbody>
   {% for manufacturer in manufacturer_list %}
-  <li>{{ manufacturer.name }} ({{ manufacturer.country }})</li>
+  <tr>
+    <td>{{ manufacturer.id }}</td>
+    <td>{{ manufacturer.name }}</td>
+    <td>{{ manufacturer.country }}</td>
+  </tr>
   {% empty %}
-  <li>There are no such a Manufacturer</li>
+  <tr>
+    <td colspan="3">There are no such a Manufacturer</td>
+  </tr>
   {% endfor %}
-</ul>
+  </tbody>
+</table>
+
 {% endblock %}

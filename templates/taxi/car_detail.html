@@ -4,12 +4,8 @@
 <h1>{{ car.model }}</h1>
 <ul>
   <h2>{{car.manufacturer.name}}, {{ car.manufacturer.country }}</h2>
-  {% if car %}
   {% for item in car.drivers.all %}
   <li>{{item.first_name}}</li>
   {% endfor %}
-  {% else %}
-  <p>There are no such a Car</p>
 </ul>
-{% endif %}
 {% endblock %}
