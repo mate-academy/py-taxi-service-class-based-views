@@ -1,82 +1,47 @@
-from django.test import TestCase
-from django.urls import reverse
+from django.shortcuts import render
+from django.views import generic
 
-from taxi.models import Manufacturer
-
-MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
-DRIVER_LIST_URL = reverse("taxi:driver-list")
-CAR_LIST_URL = reverse("taxi:car-list")
-PAGINATION = 5
+from taxi.models import Car, Driver, Manufacturer
 
 
-class ManufacturerListTest(TestCase):
-    fixtures = [
-        "taxi_service_db_data.json",
-    ]
+def index(request):
+    """View function for the home page of the site."""
+    num_drivers = Driver.objects.count()
+    num_cars = Car.objects.count()
+    num_manufacturers = Manufacturer.objects.count()
 
-    def test_manufacturer_list_response_with_correct_template(self):
-        response = self.client.get(MANUFACTURER_LIST_URL)
+    context = {
+        "num_drivers": num_drivers,
+        "num_cars": num_cars,
+        "num_manufacturers": num_manufacturers,
+    }
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/manufacturer_list.html")
-
-    def test_manufacturer_list_paginated_correctly(self):
-        response = self.client.get(MANUFACTURER_LIST_URL)
-
-        self.assertEqual(
-            len(response.context["manufacturer_list"]), PAGINATION
-        )
-
-    def test_manufacturer_list_ordered_by_name(self):
-        response = self.client.get(MANUFACTURER_LIST_URL)
-        man_list = Manufacturer.objects.all().order_by("name")
-        manufacturer_context = response.context["manufacturer_list"]
-
-        self.assertEqual(
-            list(manufacturer_context),
-            list(man_list[: len(manufacturer_context)]),
-        )
+    return render(request, "taxi/index.html", context=context)
 
 
-class CarListTest(TestCase):
-    fixtures = [
-        "taxi_service_db_data.json",
-    ]
-
-    def test_car_list_response_with_correct_template(self):
-        response = self.client.get(CAR_LIST_URL)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/car_list.html")
-
-    def test_car_list_paginated_correctly(self):
-        response = self.client.get(CAR_LIST_URL)
-        self.assertEqual(len(response.context["car_list"]), PAGINATION)
-
-    def test_car_detail_response_with_correct_template(self):
-        response = self.client.get(reverse("taxi:car-detail", args=[1]))
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/car_detail.html")
+class ManufacturerListView(generic.ListView):
+    model = Manufacturer
+    paginate_by = 5
+    queryset = Manufacturer.objects.all().order_by("name")
 
 
-class DriverListTest(TestCase):
-    fixtures = [
-        "taxi_service_db_data.json",
-    ]
+class CarListView(generic.ListView):
+    model = Car
+    paginate_by = 5
+    queryset = Car.objects.all().select_related("manufacturer").order_by("model")
 
-    def test_car_list_response_with_correct_template(self):
-        response = self.client.get(DRIVER_LIST_URL)
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/driver_list.html")
+class CarDetailView(generic.DetailView):
+    model = Car
 
-    def test_car_list_paginated_correctly(self):
-        response = self.client.get(DRIVER_LIST_URL)
-        self.assertEqual(len(response.context["driver_list"]), PAGINATION)
 
-    def test_car_detail_response_with_correct_template(self):
-        response = self.client.get(reverse("taxi:driver-detail", args=[1]))
+class DriverListView(generic.ListView):
+    model = Driver
+    paginate_by = 5
+    context_object_name = "driver_list"
+    queryset = Driver.objects.all().order_by("username")
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "taxi/driver_detail.html")
+
+class DriverDetailView(generic.DetailView):
+    model = Driver
+    queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
