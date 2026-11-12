@@ -12,9 +12,8 @@ class ManufacturerListView(generic.ListView):
 
 class CarListView(generic.ListView):
     model = Car
-    queryset = Car.objects.all().order_by("name")
+    queryset = Car.objects.select_related("manufacturer")
     paginate_by = 5
-    manufacturer = ForeignKey("Manufacturer")
 
 
 def index(request):
