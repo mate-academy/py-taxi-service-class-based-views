@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Driver details</h1>
+  {% if driver.cars %}
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Model</th>
+        <th scope="col">Manufacturer</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for car in driver.cars.all %}
+        <tr>
+          <th>{{ car.model }}</th>
+          <td>{{ car.manufacturer }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No data found.</p>
+  {% endif %}
+{% endblock %}
