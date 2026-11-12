@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+  <title>Car</title>
+{% endblock %}
+{% block content %}
+  {% if car %}
+    <h2>Manufacturer : {{ car.manufacturer.name }} {{ car.manufacturer.country }}</h2>
+    <h2>Drivers :</h2>
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li><a href="{{ driver.get_absolute_url }}">{{ driver }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
