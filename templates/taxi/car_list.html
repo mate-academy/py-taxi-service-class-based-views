@@ -1,0 +1,22 @@
+% extends "base.html" %}
+
+{% block content %}
+  <h1>Car List</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in car_list %}
+        <tr>
+          <td>
+            <a href="{{ car.get_absolute_url }}">{{ car.id }}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
