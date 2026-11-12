@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Taxi - Driver Detail</title>
+{% endblock %}
+
+{% block content %}
+<h1>Driver {{driver.pk}}</h1>
+<p><strong>Username: </strong>{{driver.username}}</p>
+<p><strong>Fullname: </strong>{{driver.get_full_name}}</p>
+<p><strong>License: </strong>{{driver.license_number}}</p>
+<h3>Cars:</h3>
+{% for car in driver.cars.all %}
+<hr>
+<p class="text-muted">{{car.id}}</p>
+<p><strong>Model: </strong>{{car.model}}</p>
+<p><strong>Manufacturer: </strong>{{car.manufacturer.name}}</p>
+{% empty %}
+<p>The driver is on vacation now.</p>
+{% endfor %}
+{% endblock %}
