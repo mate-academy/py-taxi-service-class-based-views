@@ -1,3 +1,168 @@
 body {
-    margin-top: 20px;
+  background-color: #f5f6f8;
+  color: #212529;
+  font-family: Arial, sans-serif;
+}
+
+/* Основний контент */
+
+.col-sm-10 {
+  padding: 35px 45px;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+
+/* Sidebar */
+
+.col-sm-2 {
+  min-height: 100vh;
+  background-color: #212529;
+  padding: 30px 20px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 12px 15px;
+  color: #e9ecef;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-nav a:hover {
+  color: #ffffff;
+  background-color: #343a40;
+  text-decoration: none;
+}
+
+
+/* Tables */
+
+table {
+  width: 100%;
+  max-width: 950px;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+th,
+td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+th {
+  background-color: #343a40;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: #f1f3f5;
+}
+
+td a {
+  color: #007bff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+
+/* Detail pages */
+
+.col-sm-10 p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.col-sm-10 ul:not(.pagination) {
+  padding-left: 20px;
+}
+
+.col-sm-10 ul:not(.pagination) li {
+  margin-bottom: 7px;
+}
+
+
+/* Pagination */
+
+.pagination {
+  margin-top: 30px;
+}
+
+.pagination .page-link {
+  color: #343a40;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #343a40;
+  border-color: #343a40;
+  color: #ffffff;
+}
+
+
+/* Home page */
+
+strong {
+  font-weight: 600;
+}
+
+
+/* Адаптація під маленький екран */
+
+@media (max-width: 768px) {
+  .col-sm-2 {
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .col-sm-10 {
+    padding: 25px 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
 }
