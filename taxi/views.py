@@ -16,6 +16,22 @@ class CarListView(generic.ListView):
     paginate_by = 5
 
 
+class CarDetailView(generic.DetailView):
+    model = Car
+
+
+class DriverListView(generic.ListView):
+    model = Driver
+    paginate_by = 5
+
+
+class DriverDetailView(generic.DetailView):
+    model = Driver
+    queryset = Driver.objects.prefetch_related(
+        "cars__manufacturer"
+    )
+
+
 def index(request):
     """View function for the home page of the site."""
 
