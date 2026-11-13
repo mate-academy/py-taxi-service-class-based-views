@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ car.model }}</h1>
+
+  <p>Manufacturer: {{ car.manufacturer.name }}</p>
+  <p>Country: {{ car.manufacturer.country }}</p>
+
+  <h2>Drivers</h2>
+
+  {% for driver in car.drivers.all %}
+    <p>
+      <a href="{% url 'taxi:driver-detail' pk=driver.pk %}">
+        {{ driver.username }}
+      </a>
+    </p>
+  {% empty %}
+    <p>This car has no drivers.</p>
+  {% endfor %}
+{% endblock content %}
