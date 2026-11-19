@@ -18,7 +18,11 @@
       {% for driver in driver_list %}
         <tr>
           <td>{{ driver.id }}</td>
-          <td>{{ driver.username }}</td>
+          <td>
+            <a href="{% url 'taxi:driver-detail' pk=driver.pk %}">
+              {{ driver.username }}
+            </a>
+          </td>
           <td>{{ driver.first_name }}</td>
           <td>{{ driver.last_name }}</td>
         </tr>
