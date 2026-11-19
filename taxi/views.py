@@ -1,18 +1,7 @@
-from django.views import generic
 from django.shortcuts import render
+from django.views import generic
+
 from taxi.models import Manufacturer, Car, Driver
-
-
-def index(request):
-    """View function for the home page of the site."""
-
-    context = {
-        "num_drivers": Driver.objects.count(),
-        "num_cars": Car.objects.count(),
-        "num_manufacturers": Manufacturer.objects.count(),
-    }
-
-    return render(request, "taxi/index.html", context=context)
 
 
 class ManufacturerListView(generic.ListView):
@@ -23,7 +12,9 @@ class ManufacturerListView(generic.ListView):
 
 class CarListView(generic.ListView):
     model = Car
-    queryset = Car.objects.select_related("manufacturer")
+    queryset = Car.objects.select_related(
+        "manufacturer"
+    ).order_by("id")
     paginate_by = 5
 
 
@@ -33,6 +24,7 @@ class CarDetailView(generic.DetailView):
 
 class DriverListView(generic.ListView):
     model = Driver
+    queryset = Driver.objects.order_by("id")
     paginate_by = 5
 
 
@@ -41,3 +33,7 @@ class DriverDetailView(generic.DetailView):
     queryset = Driver.objects.prefetch_related(
         "cars__manufacturer"
     )
+
+
+def index(request):
+    return render(request, "taxi/index.html")
