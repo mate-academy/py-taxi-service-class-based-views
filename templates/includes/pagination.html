@@ -1,0 +1,17 @@
+{% if is_paginated %}
+<div class="pager-compact">
+  {% if page_obj.has_previous %}
+    <a class="pager-btn" href="?page={{ page_obj.previous_page_number }}">&#8592;</a>
+  {% else %}
+    <span class="pager-btn is-disabled">&#8592;</span>
+  {% endif %}
+
+  <span class="pager-label">{{ page_obj.number }} of {{ paginator.num_pages }}</span>
+
+  {% if page_obj.has_next %}
+    <a class="pager-btn" href="?page={{ page_obj.next_page_number }}">&#8594;</a>
+  {% else %}
+    <span class="pager-btn is-disabled">&#8594;</span>
+  {% endif %}
+</div>
+{% endif %}

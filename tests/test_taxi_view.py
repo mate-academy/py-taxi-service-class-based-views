@@ -23,9 +23,7 @@ class ManufacturerListTest(TestCase):
     def test_manufacturer_list_paginated_correctly(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
 
-        self.assertEqual(
-            len(response.context["manufacturer_list"]), PAGINATION
-        )
+        self.assertEqual(len(response.context["manufacturer_list"]), PAGINATION)
 
     def test_manufacturer_list_ordered_by_name(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
