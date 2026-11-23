@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ driver.get_full_name|default:driver.username }}</h1>
+  <h2>Cars</h2>
+  <ul>
+    {% for car in driver.cars.all %}
+      <li>{{ car.manufacturer.name }} — {{ car.model }}</li>
+    {% empty %}
+      <li>No cars assigned.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
